@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,6 +6,9 @@
   <title id="coursePageTitle">Pre-Tajweed Class Curriculum · Sumiyati</title>
   <meta name="description" content="Official 18-class Pre-Tajweed curriculum (Kelas Pra-Tajwid) by Sumiyati. Classes 01-06 free access. Direct hands-on recitation practice covering makharij, harakat, waqaf, and special readings." />
   <meta name="author" content="Sumiyati" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; base-uri 'self';" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -372,7 +375,7 @@
         <ol class="payment-steps-list">
           <li id="pwStep1"><strong>Create your student account</strong> so your progress &amp; access are saved.</li>
           <li id="pwStep2"><strong>Transfer Rp 199.000</strong> &amp; confirm via WhatsApp with Ustadzah Sumiyati.</li>
-          <li id="pwStep3"><strong>Instant Unlock:</strong> Ustadzah activates your account (or gives you code <code>TAHSIN2026</code>).</li>
+          <li id="pwStep3"><strong>Instant Unlock:</strong> Ustadzah activates your account or sends your personal unlock code via WhatsApp.</li>
         </ol>
       </div>
 
@@ -1127,7 +1130,7 @@
 
     let currentIndex = 0;
     let currentLang = localStorage.getItem('sumiyati_lang') || 'en';
-    let isFullAccessUnlocked = localStorage.getItem('sumiyati_pretajweed_unlocked') === 'true';
+    let isFullAccessUnlocked = window.SumiyatiAuth ? SumiyatiAuth.isCourseUnlocked() : false;
     let isAudioPlaying = false;
     let audioPlaybackRate = 0.75; // Tartil default
     const completedSet = new Set(JSON.parse(localStorage.getItem('sumiyati_completed_pretajweed_classes') || '[]'));
@@ -1517,7 +1520,7 @@
         bar.innerHTML = `
           <div class="student-user-chip">
             <span>👤</span>
-            <span class="chip-name">${student.name}</span>
+            <span class="chip-name">${String(student.name || "").replace(/[&<>"']/g, "")}</span>
             ${statusBadge}
             <button type="button" class="chip-logout-btn" onclick="handleStudentLogout()">${isEn ? 'Sign Out' : 'Keluar'}</button>
           </div>

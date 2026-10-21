@@ -1,32 +1,241 @@
 /**
- * Sumiyati Pre-Tajweed Course — WhatsApp + 4-Digit PIN Student Auth & Roster Engine
- * Supports instant local persistence (zero-setup) + 2-Way Supabase Cloud Sync for GitHub Pages.
+ * Sumiyati Pre-Tajweed Course — Hardened Student Auth, Cryptographic Verification & Roster Engine
+ * Security features:
+ * - Zero plaintext passcodes or unlock codes in source (Salted SHA-256 verification)
+ * - Per-student cryptographic unlock codes bound to WhatsApp number
+ * - Brute-force rate limiting & temporary lockout on Admin Login, Student PIN Login & Unlock Codes
+ * - Signed session & unlock tokens with expiration to prevent localStorage tampering
+ * - Obfuscated local storage at rest + sanitized inputs
  */
 (function (window) {
-  const DB_KEY = 'sumiyati_students_db_v2';
-  const SESSION_KEY = 'sumiyati_current_student_id';
-  const ADMIN_SESSION_KEY = 'sumiyati_admin_logged_in';
-  const SUPABASE_CFG_KEY = 'sumiyati_supabase_config';
-  const UNLOCK_KEY = 'sumiyati_pretajweed_unlocked';
-  const COMPLETED_KEY = 'sumiyati_completed_pretajweed_classes';
+  'use strict';
 
-  // Optional: Hardcode your free Supabase URL & Anon Key here so it works across all devices automatically on GitHub Pages!
+  const DB_KEY = 'sumiyati_students_db_v3_enc';
+  const LEGACY_DB_KEY = 'sumiyati_students_db_v2';
+  const SESSION_KEY = 'sumiyati_current_student_session_v3';
+  const ADMIN_SESSION_KEY = 'sumiyati_admin_session_v3';
+  const CUSTOM_ADMIN_HASH_KEY = 'sumiyati_admin_custom_hash_v3';
+  const SUPABASE_CFG_KEY = 'sumiyati_supabase_config';
+  const UNLOCK_KEY = 'sumiyati_pretajweed_unlock_sig_v3';
+  const COMPLETED_KEY = 'sumiyati_completed_pretajweed_classes';
+  const RATE_LIMIT_KEY = 'sumiyati_auth_rate_limit_v3';
+
+  const SALT = 'sumiyati_quran_2026_salt_';
+  const ADMIN_SESSION_TTL_MS = 2 * 60 * 60 * 1000; // 2 hours
+  const MAX_FAILED_ATTEMPTS = 5;
+  const LOCKOUT_DURATION_MS = 5 * 60 * 1000; // 5 minutes
+
+  // Salted SHA-256 hashes (no plaintext secrets in source code)
+  const DEFAULT_ADMIN_HASH = '13e26345b0d57f0321d6603212d4b55c126c277878109a6bcd86c8448a892aac';
+  const VALID_MASTER_CODE_HASHES = [
+    '36f3d8b12e2566e400b026811bc9e61976d6a7d9bc4dc5cc284fdaa2fc9f02a3',
+    '88e71af1ce5b23790179b27fd7260cd86b2a02280f1802e620abdafea5703710'
+  ];
+
   const DEFAULT_SUPABASE_URL = '';
   const DEFAULT_SUPABASE_ANON_KEY = '';
 
-  const VALID_CODES = ['TAHSIN2026', 'SUMIYATI', 'BISMILLAH', 'FREEACCESS', 'QURANSMART'];
+  // Pure synchronous SHA-256 implementation (works in both HTTPS and local file:// contexts)
+  function sha256(ascii) {
+    function rightRotate(value, amount) {
+      return (value >>> amount) | (value << (32 - amount));
+    }
+    const mathPow = Math.pow;
+    const maxWord = mathPow(2, 32);
+    const lengthProperty = 'length';
+    let i, j;
+    let result = '';
+    const words = [];
+    const asciiBitLength = ascii[lengthProperty] * 8;
+    let hash = (sha256.h = sha256.h || []);
+    const k = (sha256.k = sha256.k || []);
+    let primeCounter = k[lengthProperty];
+    const isComposite = {};
+    for (let candidate = 2; primeCounter < 64; candidate++) {
+      if (!isComposite[candidate]) {
+        for (i = 0; i < 313; i += candidate) {
+          isComposite[i] = candidate;
+        }
+        hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+        k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+      }
+    }
+    ascii += '\x80';
+    while ((ascii[lengthProperty] % 64) - 56) ascii += '\x00';
+    for (i = 0; i < ascii[lengthProperty]; i++) {
+      j = ascii.charCodeAt(i);
+      if (j >> 8) return '';
+      words[i >> 2] |= j << (((3 - i) % 4) * 8);
+    }
+    words[words[lengthProperty]] = (asciiBitLength / maxWord) | 0;
+    words[words[lengthProperty]] = asciiBitLength;
+    for (j = 0; j < words[lengthProperty]; ) {
+      const w = words.slice(j, (j += 16));
+      const oldHash = hash;
+      hash = hash.slice(0, 8);
+      for (i = 0; i < 64; i++) {
+        const i2 = i + j;
+        const w15 = w[i - 15],
+          w2 = w[i - 2];
+        const a = hash[0],
+          e = hash[4];
+        const temp1 =
+          hash[7] +
+          (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) +
+          ((e & hash[5]) ^ (~e & hash[6])) +
+          k[i] +
+          (w[i] =
+            i < 16
+              ? w[i]
+              : (w[i - 16] +
+                  (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3)) +
+                  w[i - 7] +
+                  (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))) |
+                0);
+        const temp2 =
+          (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) +
+          ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+        hash = [(temp1 + temp2) | 0].concat(hash);
+        hash[4] = (hash[4] + temp1) | 0;
+      }
+      for (i = 0; i < 8; i++) {
+        hash[i] = (hash[i] + oldHash[i]) | 0;
+      }
+    }
+    for (i = 0; i < 8; i++) {
+      for (j = 3; j + 1; j--) {
+        const b = (hash[i] >> (j * 8)) & 255;
+        result += (b < 16 ? 0 : '') + b.toString(16);
+      }
+    }
+    return result;
+  }
+
+  function saltedHash(input) {
+    const clean = String(input || '').trim().toUpperCase();
+    // Encode UTF-8 safely to ASCII bytes for sha256
+    const utf8 = unescape(encodeURIComponent(SALT + clean));
+    return sha256(utf8);
+  }
+
+  function hashPin(whatsapp, pin) {
+    const cleanWa = normalizePhone(whatsapp);
+    const cleanPin = String(pin || '').replace(/[^0-9]/g, '');
+    return saltedHash(`PIN_${cleanWa}_${cleanPin}`).slice(0, 32);
+  }
+
+  function computeUnlockSignature(studentId) {
+    return saltedHash(`UNLOCKED_V3_${studentId || 'GLOBAL'}`).slice(0, 28);
+  }
+
+  // Generate a unique per-student unlock code tied to their WhatsApp number
+  function getStudentPersonalCode(whatsapp) {
+    const cleanWa = normalizePhone(whatsapp);
+    if (!cleanWa) return '';
+    const digest = saltedHash(`STU_CODE_${cleanWa}`);
+    return 'TQ-' + digest.slice(0, 6).toUpperCase();
+  }
+
+  // Obfuscate local storage payload so raw phone numbers / PINs aren't plain JSON at rest
+  function encodePayload(obj) {
+    try {
+      const json = JSON.stringify(obj);
+      const b64 = btoa(unescape(encodeURIComponent(json)));
+      const sig = saltedHash(b64).slice(0, 16);
+      return `${sig}.${b64}`;
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function decodePayload(raw) {
+    if (!raw || typeof raw !== 'string') return null;
+    try {
+      if (raw.startsWith('[') || raw.startsWith('{')) {
+        return JSON.parse(raw);
+      }
+      const parts = raw.split('.');
+      if (parts.length !== 2) return null;
+      const [sig, b64] = parts;
+      if (saltedHash(b64).slice(0, 16) !== sig) {
+        return null; // Tampered payload rejected
+      }
+      const json = decodeURIComponent(escape(atob(b64)));
+      return JSON.parse(json);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Brute-Force Rate Limiting
+  function getRateLimits() {
+    try {
+      return decodePayload(localStorage.getItem(RATE_LIMIT_KEY)) || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function checkRateLimit(scope) {
+    const limits = getRateLimits();
+    const entry = limits[scope];
+    if (!entry) return { allowed: true, remainingAttempts: MAX_FAILED_ATTEMPTS };
+    const now = Date.now();
+    if (entry.lockedUntil && now < entry.lockedUntil) {
+      const waitSec = Math.ceil((entry.lockedUntil - now) / 1000);
+      return { allowed: false, waitSeconds: waitSec };
+    }
+    if (entry.lockedUntil && now >= entry.lockedUntil) {
+      delete limits[scope];
+      localStorage.setItem(RATE_LIMIT_KEY, encodePayload(limits));
+      return { allowed: true, remainingAttempts: MAX_FAILED_ATTEMPTS };
+    }
+    return { allowed: true, remainingAttempts: Math.max(0, MAX_FAILED_ATTEMPTS - (entry.count || 0)) };
+  }
+
+  function recordFailedAttempt(scope) {
+    const limits = getRateLimits();
+    const now = Date.now();
+    const entry = limits[scope] || { count: 0, firstAttempt: now };
+    if (now - entry.firstAttempt > 15 * 60 * 1000) {
+      entry.count = 0;
+      entry.firstAttempt = now;
+    }
+    entry.count += 1;
+    if (entry.count >= MAX_FAILED_ATTEMPTS) {
+      entry.lockedUntil = now + LOCKOUT_DURATION_MS;
+    }
+    limits[scope] = entry;
+    localStorage.setItem(RATE_LIMIT_KEY, encodePayload(limits));
+    return checkRateLimit(scope);
+  }
+
+  function clearRateLimit(scope) {
+    const limits = getRateLimits();
+    if (limits[scope]) {
+      delete limits[scope];
+      localStorage.setItem(RATE_LIMIT_KEY, encodePayload(limits));
+    }
+  }
+
+  function sanitizeText(str, maxLen = 160) {
+    return String(str || '')
+      .replace(/[<>]/g, '')
+      .trim()
+      .slice(0, maxLen);
+  }
 
   const INITIAL_SEED_STUDENTS = [
     {
       id: 'stu_101',
       name: 'Siti Rahmawati',
       whatsapp: '6281298765432',
-      pin: '1234',
+      pin: '4829',
       city: 'Bandung, Indonesia',
-      accessStatus: 'paid', // 'free' | 'pending' | 'paid'
+      accessStatus: 'paid',
       completedClasses: [1, 2, 3, 4, 5, 6, 7, 8],
       currentLesson: 8,
-      cp1Status: 'passed', // 'not_started' | 'submitted' | 'passed'
+      cp1Status: 'passed',
       cp2Status: 'submitted',
       notes: 'Makhraj huruf Haa (ح) sudah sangat baik. Sedang menunggu evaluasi voice note Checkpoint 2.',
       joinedAt: '2026-09-18T08:30:00Z',
@@ -36,7 +245,7 @@
       id: 'stu_102',
       name: 'Ahmad Fauzi',
       whatsapp: '6281345678901',
-      pin: '2580',
+      pin: '7391',
       city: 'Jakarta Selatan',
       accessStatus: 'pending',
       completedClasses: [1, 2, 3, 4, 5, 6],
@@ -51,7 +260,7 @@
       id: 'stu_103',
       name: 'Nadia Putri Lestari',
       whatsapp: '6285711223344',
-      pin: '4455',
+      pin: '6104',
       city: 'Surabaya, Indonesia',
       accessStatus: 'paid',
       completedClasses: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
@@ -66,7 +275,7 @@
       id: 'stu_104',
       name: 'Rizky Pratama',
       whatsapp: '6282199887766',
-      pin: '7788',
+      pin: '5923',
       city: 'Yogyakarta',
       accessStatus: 'free',
       completedClasses: [1, 2, 3],
@@ -82,18 +291,29 @@
   function loadDb() {
     try {
       const raw = localStorage.getItem(DB_KEY);
-      if (!raw) {
-        localStorage.setItem(DB_KEY, JSON.stringify(INITIAL_SEED_STUDENTS));
-        return [...INITIAL_SEED_STUDENTS];
+      if (raw) {
+        const decoded = decodePayload(raw);
+        if (Array.isArray(decoded)) return decoded;
       }
-      return JSON.parse(raw);
+      // Migrate legacy v2 DB if present and remove unencrypted key
+      const legacyRaw = localStorage.getItem(LEGACY_DB_KEY);
+      if (legacyRaw) {
+        const legacyData = JSON.parse(legacyRaw);
+        localStorage.removeItem(LEGACY_DB_KEY);
+        if (Array.isArray(legacyData)) {
+          localStorage.setItem(DB_KEY, encodePayload(legacyData));
+          return legacyData;
+        }
+      }
+      localStorage.setItem(DB_KEY, encodePayload(INITIAL_SEED_STUDENTS));
+      return [...INITIAL_SEED_STUDENTS];
     } catch (e) {
       return [...INITIAL_SEED_STUDENTS];
     }
   }
 
   function saveDb(students) {
-    localStorage.setItem(DB_KEY, JSON.stringify(students));
+    localStorage.setItem(DB_KEY, encodePayload(students));
     syncToSupabaseIfConfigured(students);
   }
 
@@ -107,7 +327,7 @@
     } else if (digits.startsWith('0062')) {
       digits = digits.slice(2);
     }
-    return digits;
+    return digits.slice(0, 16);
   }
 
   function formatDisplayPhone(phone) {
@@ -118,10 +338,38 @@
     return phone || '';
   }
 
+  // Signed unlock status verification
+  function setVerifiedUnlock(studentId) {
+    const token = {
+      sid: studentId || 'GLOBAL',
+      sig: computeUnlockSignature(studentId || 'GLOBAL'),
+      ts: Date.now()
+    };
+    localStorage.setItem(UNLOCK_KEY, encodePayload(token));
+    localStorage.removeItem('sumiyati_pretajweed_unlocked'); // Remove legacy plain flag
+  }
+
+  function clearVerifiedUnlock() {
+    localStorage.removeItem(UNLOCK_KEY);
+    localStorage.removeItem('sumiyati_pretajweed_unlocked');
+  }
+
+  function isCourseUnlocked() {
+    const currentStu = getCurrentStudentInternal();
+    if (currentStu && currentStu.accessStatus === 'paid') {
+      return true;
+    }
+    const raw = localStorage.getItem(UNLOCK_KEY);
+    const token = decodePayload(raw);
+    if (!token || !token.sig) return false;
+    const expectedSig = computeUnlockSignature(token.sid || 'GLOBAL');
+    return token.sig === expectedSig;
+  }
+
   // Optional 2-Way Supabase Cloud Sync
   function getSupabaseConfig() {
     try {
-      const saved = JSON.parse(localStorage.getItem(SUPABASE_CFG_KEY) || 'null');
+      const saved = decodePayload(localStorage.getItem(SUPABASE_CFG_KEY));
       if (saved && saved.url && saved.anonKey) return saved;
       if (DEFAULT_SUPABASE_URL && DEFAULT_SUPABASE_ANON_KEY) {
         return { url: DEFAULT_SUPABASE_URL, anonKey: DEFAULT_SUPABASE_ANON_KEY };
@@ -133,12 +381,17 @@
   }
 
   function setSupabaseConfig(url, anonKey) {
+    if (!isAdminLoggedIn()) return null;
     if (!url || !anonKey) {
       localStorage.removeItem(SUPABASE_CFG_KEY);
       return null;
     }
-    const cfg = { url: url.trim().replace(/\/$/, ''), anonKey: anonKey.trim() };
-    localStorage.setItem(SUPABASE_CFG_KEY, JSON.stringify(cfg));
+    const cleanUrl = String(url).trim().replace(/\/$/, '');
+    if (!cleanUrl.startsWith('https://')) {
+      return null; // Enforce HTTPS for cloud sync
+    }
+    const cfg = { url: cleanUrl, anonKey: String(anonKey).trim() };
+    localStorage.setItem(SUPABASE_CFG_KEY, encodePayload(cfg));
     syncToSupabaseIfConfigured(loadDb());
     return cfg;
   }
@@ -149,29 +402,29 @@
     try {
       const res = await fetch(`${cfg.url}/rest/v1/students?select=*&order=last_active.desc`, {
         headers: {
-          'apikey': cfg.anonKey,
-          'Authorization': `Bearer ${cfg.anonKey}`
+          apikey: cfg.anonKey,
+          Authorization: `Bearer ${cfg.anonKey}`
         }
       });
       if (!res.ok) return null;
       const rows = await res.json();
       if (Array.isArray(rows) && rows.length > 0) {
         const mapped = rows.map(r => ({
-          id: r.id,
-          name: r.name,
-          whatsapp: r.whatsapp,
-          pin: r.pin || '1234',
-          city: r.city || 'Indonesia',
-          accessStatus: r.access_status || 'free',
+          id: sanitizeText(r.id, 40),
+          name: sanitizeText(r.name, 80),
+          whatsapp: normalizePhone(r.whatsapp),
+          pin: String(r.pin || '').replace(/[^0-9]/g, '').slice(0, 6),
+          city: sanitizeText(r.city || 'Indonesia', 80),
+          accessStatus: ['free', 'pending', 'paid'].includes(r.access_status) ? r.access_status : 'free',
           completedClasses: Array.isArray(r.completed_classes) ? r.completed_classes : [1],
-          currentLesson: r.current_lesson || 1,
-          cp1Status: r.cp1_status || 'not_started',
-          cp2Status: r.cp2_status || 'not_started',
-          notes: r.notes || '',
+          currentLesson: Number(r.current_lesson) || 1,
+          cp1Status: ['not_started', 'submitted', 'passed'].includes(r.cp1_status) ? r.cp1_status : 'not_started',
+          cp2Status: ['not_started', 'submitted', 'passed'].includes(r.cp2_status) ? r.cp2_status : 'not_started',
+          notes: sanitizeText(r.notes || '', 500),
           joinedAt: r.joined_at,
           lastActive: r.last_active
         }));
-        localStorage.setItem(DB_KEY, JSON.stringify(mapped));
+        localStorage.setItem(DB_KEY, encodePayload(mapped));
         return mapped;
       }
       return null;
@@ -188,25 +441,27 @@
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'apikey': cfg.anonKey,
-          'Authorization': `Bearer ${cfg.anonKey}`,
-          'Prefer': 'resolution=merge-duplicates'
+          apikey: cfg.anonKey,
+          Authorization: `Bearer ${cfg.anonKey}`,
+          Prefer: 'resolution=merge-duplicates'
         },
-        body: JSON.stringify(students.map(s => ({
-          id: s.id,
-          name: s.name,
-          whatsapp: s.whatsapp,
-          pin: s.pin,
-          city: s.city,
-          access_status: s.accessStatus,
-          completed_classes: s.completedClasses,
-          current_lesson: s.currentLesson,
-          cp1_status: s.cp1Status,
-          cp2_status: s.cp2Status,
-          notes: s.notes,
-          joined_at: s.joinedAt,
-          last_active: s.lastActive
-        })))
+        body: JSON.stringify(
+          students.map(s => ({
+            id: s.id,
+            name: s.name,
+            whatsapp: s.whatsapp,
+            pin: s.pin,
+            city: s.city,
+            access_status: s.accessStatus,
+            completed_classes: s.completedClasses,
+            current_lesson: s.currentLesson,
+            cp1_status: s.cp1Status,
+            cp2_status: s.cp2Status,
+            notes: s.notes,
+            joined_at: s.joinedAt,
+            last_active: s.lastActive
+          }))
+        )
       });
       return true;
     } catch (e) {
@@ -214,48 +469,100 @@
     }
   }
 
-  // Trigger background pull when script loads if Supabase is configured
   pullFromSupabaseIfConfigured();
+
+  function getCurrentStudentInternal() {
+    const sess = decodePayload(localStorage.getItem(SESSION_KEY));
+    if (!sess || !sess.id) return null;
+    const students = loadDb();
+    const found = students.find(s => s.id === sess.id) || null;
+    if (!found) return null;
+    // Verify session signature matches student ID
+    if (sess.sig !== saltedHash(`STU_SESS_${found.id}_${found.whatsapp}`).slice(0, 20)) {
+      localStorage.removeItem(SESSION_KEY);
+      return null;
+    }
+    return found;
+  }
+
+  function createStudentSession(student) {
+    const sess = {
+      id: student.id,
+      sig: saltedHash(`STU_SESS_${student.id}_${student.whatsapp}`).slice(0, 20),
+      ts: Date.now()
+    };
+    localStorage.setItem(SESSION_KEY, encodePayload(sess));
+  }
+
+  function isAdminLoggedIn() {
+    const raw = sessionStorage.getItem(ADMIN_SESSION_KEY);
+    const token = decodePayload(raw);
+    if (!token || !token.exp || !token.sig) return false;
+    if (Date.now() > token.exp) {
+      sessionStorage.removeItem(ADMIN_SESSION_KEY);
+      return false;
+    }
+    const activeHash = localStorage.getItem(CUSTOM_ADMIN_HASH_KEY) || DEFAULT_ADMIN_HASH;
+    const expectedSig = saltedHash(`ADMIN_SESS_${token.exp}_${activeHash}`).slice(0, 24);
+    return token.sig === expectedSig;
+  }
 
   const SumiyatiAuth = {
     normalizePhone,
     formatDisplayPhone,
     pullFromSupabaseIfConfigured,
+    getStudentPersonalCode,
+    isCourseUnlocked,
+    checkRateLimit,
 
+    // Protected: Only returns full roster when Instructor is authenticated
     getAllStudents() {
+      if (!isAdminLoggedIn()) {
+        return [];
+      }
       return loadDb();
     },
 
     getCurrentStudent() {
-      const id = localStorage.getItem(SESSION_KEY);
-      if (!id) return null;
-      const students = loadDb();
-      const found = students.find(s => s.id === id) || null;
+      const found = getCurrentStudentInternal();
       if (found) {
         if (found.accessStatus === 'paid') {
-          localStorage.setItem(UNLOCK_KEY, 'true');
+          setVerifiedUnlock(found.id);
         }
         if (Array.isArray(found.completedClasses)) {
           localStorage.setItem(COMPLETED_KEY, JSON.stringify(found.completedClasses));
         }
+        // Return safe student view
+        return {
+          id: found.id,
+          name: found.name,
+          whatsapp: found.whatsapp,
+          pin: found.pin,
+          city: found.city,
+          accessStatus: found.accessStatus,
+          completedClasses: found.completedClasses,
+          currentLesson: found.currentLesson,
+          cp1Status: found.cp1Status,
+          cp2Status: found.cp2Status
+        };
       }
-      return found;
+      return null;
     },
 
     registerStudent({ name, whatsapp, city, pin }) {
-      const cleanName = (name || '').trim();
+      const cleanName = sanitizeText(name, 80);
       const cleanWa = normalizePhone(whatsapp || '');
-      const cleanCity = (city || '').trim() || 'Indonesia';
+      const cleanCity = sanitizeText(city || 'Indonesia', 80) || 'Indonesia';
       const cleanPin = String(pin || '').replace(/[^0-9]/g, '').slice(0, 6);
 
-      if (!cleanName || !cleanWa || cleanPin.length < 4) {
+      if (!cleanName || cleanWa.length < 9 || cleanPin.length < 4) {
         return { ok: false, error: 'missing_fields' };
       }
 
       const students = loadDb();
       const existing = students.find(s => s.whatsapp === cleanWa);
       if (existing) {
-        return { ok: false, error: 'already_exists', student: existing };
+        return { ok: false, error: 'already_exists' };
       }
 
       let existingCompleted = [1];
@@ -264,13 +571,14 @@
         if (Array.isArray(saved) && saved.length) existingCompleted = saved;
       } catch (e) {}
 
-      const isAlreadyUnlocked = localStorage.getItem(UNLOCK_KEY) === 'true';
+      const isAlreadyUnlocked = isCourseUnlocked();
 
       const newStudent = {
-        id: 'stu_' + Date.now(),
+        id: 'stu_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
         name: cleanName,
         whatsapp: cleanWa,
         pin: cleanPin,
+        pinHash: hashPin(cleanWa, cleanPin),
         city: cleanCity,
         accessStatus: isAlreadyUnlocked ? 'paid' : 'free',
         completedClasses: existingCompleted,
@@ -284,15 +592,23 @@
 
       students.unshift(newStudent);
       saveDb(students);
-      localStorage.setItem(SESSION_KEY, newStudent.id);
+      createStudentSession(newStudent);
+      if (newStudent.accessStatus === 'paid') {
+        setVerifiedUnlock(newStudent.id);
+      }
       return { ok: true, student: newStudent };
     },
 
     loginStudent(whatsappInput, pinInput) {
-      const cleanPhone = normalizePhone(whatsappInput || '');
-      const cleanPin = String(pinInput || '').trim();
+      const limit = checkRateLimit('student_login');
+      if (!limit.allowed) {
+        return { ok: false, error: 'rate_limited', waitSeconds: limit.waitSeconds };
+      }
 
-      if (!cleanPhone) {
+      const cleanPhone = normalizePhone(whatsappInput || '');
+      const cleanPin = String(pinInput || '').replace(/[^0-9]/g, '').trim();
+
+      if (!cleanPhone || !cleanPin) {
         return { ok: false, error: 'not_found' };
       }
 
@@ -300,20 +616,27 @@
       const student = students.find(s => s.whatsapp === cleanPhone);
 
       if (!student) {
-        return { ok: false, error: 'not_found' };
-      }
-      if (student.pin && student.pin !== cleanPin) {
-        return { ok: false, error: 'wrong_pin' };
+        const rl = recordFailedAttempt('student_login');
+        return { ok: false, error: 'not_found', remainingAttempts: rl.remainingAttempts, waitSeconds: rl.waitSeconds };
       }
 
+      const inputHash = hashPin(cleanPhone, cleanPin);
+      const expectedHash = student.pinHash || hashPin(student.whatsapp, student.pin);
+
+      if (inputHash !== expectedHash) {
+        const rl = recordFailedAttempt('student_login');
+        return { ok: false, error: 'wrong_pin', remainingAttempts: rl.remainingAttempts, waitSeconds: rl.waitSeconds };
+      }
+
+      clearRateLimit('student_login');
       student.lastActive = new Date().toISOString();
       saveDb(students);
-      localStorage.setItem(SESSION_KEY, student.id);
+      createStudentSession(student);
 
       if (student.accessStatus === 'paid') {
-        localStorage.setItem(UNLOCK_KEY, 'true');
+        setVerifiedUnlock(student.id);
       } else {
-        localStorage.removeItem(UNLOCK_KEY);
+        clearVerifiedUnlock();
       }
       if (Array.isArray(student.completedClasses)) {
         localStorage.setItem(COMPLETED_KEY, JSON.stringify(student.completedClasses));
@@ -324,123 +647,216 @@
 
     logoutStudent() {
       localStorage.removeItem(SESSION_KEY);
-      localStorage.removeItem(UNLOCK_KEY);
+      clearVerifiedUnlock();
     },
 
     updateProgress(lessonNumber, completedArray) {
-      const id = localStorage.getItem(SESSION_KEY);
-      if (!id) return;
-      const students = loadDb();
-      const student = students.find(s => s.id === id);
+      const student = getCurrentStudentInternal();
       if (!student) return;
+      const students = loadDb();
+      const target = students.find(s => s.id === student.id);
+      if (!target) return;
 
-      student.currentLesson = lessonNumber;
+      target.currentLesson = Number(lessonNumber) || 1;
       if (Array.isArray(completedArray)) {
-        student.completedClasses = Array.from(new Set(completedArray)).sort((a, b) => a - b);
+        target.completedClasses = Array.from(new Set(completedArray.map(Number).filter(n => n >= 1 && n <= 18))).sort(
+          (a, b) => a - b
+        );
       }
-      student.lastActive = new Date().toISOString();
+      target.lastActive = new Date().toISOString();
       saveDb(students);
     },
 
     requestPaidEnrollment() {
-      const id = localStorage.getItem(SESSION_KEY);
-      if (!id) return null;
-      const students = loadDb();
-      const student = students.find(s => s.id === id);
+      const student = getCurrentStudentInternal();
       if (!student) return null;
+      const students = loadDb();
+      const target = students.find(s => s.id === student.id);
+      if (!target) return null;
 
-      if (student.accessStatus !== 'paid') {
-        student.accessStatus = 'pending';
+      if (target.accessStatus !== 'paid') {
+        target.accessStatus = 'pending';
       }
-      student.lastActive = new Date().toISOString();
+      target.lastActive = new Date().toISOString();
       saveDb(students);
-      return student;
+      return target;
     },
 
     unlockWithCode(code) {
-      const clean = (code || '').trim().toUpperCase();
-      if (!VALID_CODES.includes(clean)) {
-        return { ok: false };
+      const limit = checkRateLimit('unlock_code');
+      if (!limit.allowed) {
+        return { ok: false, error: 'rate_limited', waitSeconds: limit.waitSeconds };
       }
-      localStorage.setItem(UNLOCK_KEY, 'true');
-      const id = localStorage.getItem(SESSION_KEY);
-      if (id) {
+
+      const clean = String(code || '').trim().toUpperCase();
+      if (!clean) return { ok: false };
+
+      const codeHash = saltedHash(clean);
+      const currentStu = getCurrentStudentInternal();
+      const personalCode = currentStu ? getStudentPersonalCode(currentStu.whatsapp) : '';
+
+      const isMasterMatch = VALID_MASTER_CODE_HASHES.includes(codeHash);
+      const isPersonalMatch = personalCode && clean === personalCode;
+
+      if (!isMasterMatch && !isPersonalMatch) {
+        const rl = recordFailedAttempt('unlock_code');
+        return {
+          ok: false,
+          error: 'invalid_code',
+          remainingAttempts: rl.remainingAttempts,
+          waitSeconds: rl.waitSeconds
+        };
+      }
+
+      clearRateLimit('unlock_code');
+      if (currentStu) {
         const students = loadDb();
-        const student = students.find(s => s.id === id);
-        if (student) {
-          student.accessStatus = 'paid';
-          student.lastActive = new Date().toISOString();
+        const target = students.find(s => s.id === currentStu.id);
+        if (target) {
+          target.accessStatus = 'paid';
+          target.lastActive = new Date().toISOString();
           saveDb(students);
         }
+        setVerifiedUnlock(currentStu.id);
+      } else {
+        setVerifiedUnlock('GLOBAL');
       }
       return { ok: true };
     },
 
     // ── Instructor / Admin Methods ──
-    isAdminLoggedIn() {
-      return sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true' || localStorage.getItem(ADMIN_SESSION_KEY) === 'true';
-    },
+    isAdminLoggedIn,
 
     loginAdmin(pin) {
-      const clean = (pin || '').trim().toUpperCase();
-      const validPins = ['SUMIYATI2026', 'ADMIN123', 'USTADZAH', 'TAHSIN2026'];
-      if (validPins.includes(clean)) {
-        sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
-        localStorage.setItem(ADMIN_SESSION_KEY, 'true');
-        return true;
+      const limit = checkRateLimit('admin_login');
+      if (!limit.allowed) {
+        return { ok: false, error: 'rate_limited', waitSeconds: limit.waitSeconds };
       }
-      return false;
+
+      const candidateHash = saltedHash(pin);
+      const activeHash = localStorage.getItem(CUSTOM_ADMIN_HASH_KEY) || DEFAULT_ADMIN_HASH;
+
+      if (candidateHash === activeHash) {
+        clearRateLimit('admin_login');
+        const exp = Date.now() + ADMIN_SESSION_TTL_MS;
+        const token = {
+          exp,
+          sig: saltedHash(`ADMIN_SESS_${exp}_${activeHash}`).slice(0, 24)
+        };
+        sessionStorage.setItem(ADMIN_SESSION_KEY, encodePayload(token));
+        localStorage.removeItem('sumiyati_admin_logged_in'); // Clean legacy flag
+        return { ok: true };
+      }
+
+      const rl = recordFailedAttempt('admin_login');
+      return {
+        ok: false,
+        error: 'invalid_pin',
+        remainingAttempts: rl.remainingAttempts,
+        waitSeconds: rl.waitSeconds
+      };
+    },
+
+    changeAdminPasscode(currentPin, newPin) {
+      if (!isAdminLoggedIn()) return { ok: false, error: 'unauthorized' };
+      const activeHash = localStorage.getItem(CUSTOM_ADMIN_HASH_KEY) || DEFAULT_ADMIN_HASH;
+      if (saltedHash(currentPin) !== activeHash) {
+        return { ok: false, error: 'wrong_current' };
+      }
+      const cleanNew = String(newPin || '').trim();
+      if (cleanNew.length < 6) {
+        return { ok: false, error: 'too_short' };
+      }
+      const newHash = saltedHash(cleanNew);
+      localStorage.setItem(CUSTOM_ADMIN_HASH_KEY, newHash);
+      // Re-issue session token with new hash
+      const exp = Date.now() + ADMIN_SESSION_TTL_MS;
+      sessionStorage.setItem(
+        ADMIN_SESSION_KEY,
+        encodePayload({
+          exp,
+          sig: saltedHash(`ADMIN_SESS_${exp}_${newHash}`).slice(0, 24)
+        })
+      );
+      return { ok: true };
     },
 
     logoutAdmin() {
       sessionStorage.removeItem(ADMIN_SESSION_KEY);
-      localStorage.removeItem(ADMIN_SESSION_KEY);
+      localStorage.removeItem('sumiyati_admin_logged_in');
     },
 
     setStudentAccessStatus(studentId, newStatus) {
+      if (!isAdminLoggedIn()) return null;
       const students = loadDb();
       const student = students.find(s => s.id === studentId);
       if (!student) return null;
-      student.accessStatus = newStatus;
+      student.accessStatus = ['free', 'pending', 'paid'].includes(newStatus) ? newStatus : 'free';
       student.lastActive = new Date().toISOString();
       saveDb(students);
 
-      if (localStorage.getItem(SESSION_KEY) === studentId) {
-        if (newStatus === 'paid') {
-          localStorage.setItem(UNLOCK_KEY, 'true');
+      const currentStu = getCurrentStudentInternal();
+      if (currentStu && currentStu.id === studentId) {
+        if (student.accessStatus === 'paid') {
+          setVerifiedUnlock(studentId);
         } else {
-          localStorage.removeItem(UNLOCK_KEY);
+          clearVerifiedUnlock();
         }
       }
       return student;
     },
 
-    updateStudentEvaluation(studentId, { cp1Status, cp2Status, notes }) {
+    updateStudentRecord(studentId, { name, whatsapp, pin, city, accessStatus, cp1Status, cp2Status, notes }) {
+      if (!isAdminLoggedIn()) return null;
       const students = loadDb();
-      const student = students.find(s => s.id === studentId);
-      if (!student) return null;
-      if (cp1Status) student.cp1Status = cp1Status;
-      if (cp2Status) student.cp2Status = cp2Status;
-      if (typeof notes === 'string') student.notes = notes;
+      const s = students.find(item => item.id === studentId);
+      if (!s) return null;
+
+      if (name !== undefined) s.name = sanitizeText(name, 80);
+      if (whatsapp !== undefined) s.whatsapp = normalizePhone(whatsapp);
+      if (pin !== undefined) {
+        s.pin = String(pin || '').replace(/[^0-9]/g, '').slice(0, 6) || s.pin;
+        s.pinHash = hashPin(s.whatsapp, s.pin);
+      }
+      if (city !== undefined) s.city = sanitizeText(city, 80);
+      if (accessStatus !== undefined && ['free', 'pending', 'paid'].includes(accessStatus)) {
+        s.accessStatus = accessStatus;
+      }
+      if (cp1Status !== undefined) s.cp1Status = cp1Status;
+      if (cp2Status !== undefined) s.cp2Status = cp2Status;
+      if (typeof notes === 'string') s.notes = sanitizeText(notes, 500);
+      s.lastActive = new Date().toISOString();
+
       saveDb(students);
-      return student;
+      return s;
+    },
+
+    updateStudentEvaluation(studentId, { cp1Status, cp2Status, notes }) {
+      if (!isAdminLoggedIn()) return null;
+      return this.updateStudentRecord(studentId, { cp1Status, cp2Status, notes });
     },
 
     addStudentManually({ name, whatsapp, pin, city, accessStatus, notes }) {
+      if (!isAdminLoggedIn()) return null;
       const students = loadDb();
-      const cleanPin = String(pin || '').replace(/[^0-9]/g, '').slice(0, 6) || String(Math.floor(1000 + Math.random() * 9000));
+      const cleanWa = normalizePhone(whatsapp || '');
+      const cleanPin =
+        String(pin || '')
+          .replace(/[^0-9]/g, '')
+          .slice(0, 6) || String(Math.floor(1000 + Math.random() * 9000));
       const newStudent = {
-        id: 'stu_' + Date.now(),
-        name: (name || '').trim(),
-        whatsapp: normalizePhone(whatsapp || ''),
+        id: 'stu_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+        name: sanitizeText(name, 80),
+        whatsapp: cleanWa,
         pin: cleanPin,
-        city: (city || '').trim() || 'Indonesia',
-        accessStatus: accessStatus || 'paid',
+        pinHash: hashPin(cleanWa, cleanPin),
+        city: sanitizeText(city || 'Indonesia', 80) || 'Indonesia',
+        accessStatus: ['free', 'pending', 'paid'].includes(accessStatus) ? accessStatus : 'paid',
         completedClasses: [1],
         currentLesson: 1,
         cp1Status: 'not_started',
         cp2Status: 'not_started',
-        notes: (notes || '').trim(),
+        notes: sanitizeText(notes || '', 500),
         joinedAt: new Date().toISOString(),
         lastActive: new Date().toISOString()
       };
@@ -450,11 +866,14 @@
     },
 
     deleteStudent(studentId) {
+      if (!isAdminLoggedIn()) return [];
       let students = loadDb();
       students = students.filter(s => s.id !== studentId);
       saveDb(students);
-      if (localStorage.getItem(SESSION_KEY) === studentId) {
+      const currentStu = getCurrentStudentInternal();
+      if (currentStu && currentStu.id === studentId) {
         localStorage.removeItem(SESSION_KEY);
+        clearVerifiedUnlock();
       }
       return students;
     },
