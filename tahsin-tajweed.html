@@ -1,0 +1,1940 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title id="coursePageTitle">Pre-Tajweed Class Curriculum · Sumiyati</title>
+  <meta name="description" content="Official 18-class Pre-Tajweed curriculum (Kelas Pra-Tajwid) by Sumiyati. Classes 01-06 free access. Direct hands-on recitation practice covering makharij, harakat, waqaf, and special readings." />
+  <meta name="author" content="Sumiyati" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pre-Tajweed Class Curriculum · Sumiyati" />
+  <meta property="og:description" content="18 practical classes focusing on direct Quranic recitation improvement. First 6 classes free access." />
+  <meta property="og:image" content="sumaiyati.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231e4a35'/%3E%3Cpath d='M8 10c3-1 6-1 8 1 2-2 5-2 8-1v13c-3-1-6-1-8 1-2-2-5-2-8-1V10z' fill='none' stroke='%23b8860b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='16' y1='11' x2='16' y2='24' stroke='%23dfa82c' stroke-width='1.5'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="course-page">
+
+  <!-- Course Header Bar -->
+  <header class="course-nav">
+    <div class="wrap course-nav-inner">
+      <a href="index.html" class="back-link">
+        <span class="back-arrow" aria-hidden="true">←</span>
+        <span id="navBackText">Back to Portfolio</span>
+      </a>
+      <div class="course-header-title">
+        <span class="course-tag" id="navTagText">Curriculum &amp; Video Portal</span>
+        <span class="course-brand" id="navBrandText">Pre-Tajweed Class · Sumiyati</span>
+      </div>
+      <div class="header-actions">
+        <!-- Student Account Status / Login Button -->
+        <div id="studentAccountBar" class="student-account-bar">
+          <button type="button" class="student-auth-btn" onclick="openStudentAuthModal('login')" id="headerAuthBtn">
+            <span>👤</span> <span id="headerAuthBtnText">Student Sign In / Register</span>
+          </button>
+        </div>
+
+        <!-- Global Language Switcher -->
+        <div class="lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn" data-lang="en" onclick="setGlobalLang('en')">EN</button>
+          <span class="lang-sep">|</span>
+          <button type="button" class="lang-btn" data-lang="id" onclick="setGlobalLang('id')">ID</button>
+        </div>
+        <a href="admin.html" class="btn-outline-sm" id="navAdminBtn" title="Teacher Dashboard">
+          🎓 <span id="navAdminText">Teacher</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap course-container">
+
+    <!-- Course Banner -->
+    <div class="course-banner">
+      <p class="section-label" id="bannerLabel">Official Course Curriculum &amp; Video Lessons</p>
+      <div class="banner-flex">
+        <div>
+          <h1 class="course-display" id="bannerTitle">Pre-Tajweed Class Curriculum</h1>
+          <p class="course-sub" id="bannerSub">
+            This class aims to help students read the Qur'an well, correctly, and fluently. Students focus on practicing direct hands-on improvement of their recitation, covering makhraj, the length of recitation, waqaf (stopping), and special readings in the Qur'an.
+          </p>
+        </div>
+        <div class="course-meta-pill">
+          <span class="meta-item"><strong id="metaInstructorLbl">Instructor:</strong> Sumiyati</span>
+          <span class="meta-item"><strong id="metaClassesLbl">Classes:</strong> 18 Classes (1-6 Free)</span>
+          <span class="meta-item"><strong id="metaCheckpointsLbl">Checkpoints:</strong> 2 Milestone Reviews</span>
+          <span class="meta-item"><strong id="metaSessionLbl">Session:</strong> 40 Mins / Class</span>
+        </div>
+      </div>
+
+      <!-- Bilingual Purpose & Session Guide Cards -->
+      <div class="course-overview-grid">
+        
+        <!-- Purpose Card -->
+        <div class="overview-card">
+          <div class="overview-card-header">
+            <h3 class="overview-card-title" id="purposeCardTitle">The Purpose of This Class</h3>
+            <span class="badge" style="background:rgba(30,74,53,0.1);color:var(--green);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;" id="purposeBadge">Objectives</span>
+          </div>
+          <div id="purposeCardText" class="overview-text">
+            This class aims to help students read the Qur'an well, correctly, and fluently. Students will focus on practicing direct hands-on improvement of their recitation, covering makhraj (points of articulation), the length of recitation, waqaf (stopping), and special readings in the Qur'an, without needing to study tajwid theory in depth beforehand.
+          </div>
+        </div>
+
+        <!-- Session Guidance Card (40 Mins Breakdown) -->
+        <div class="overview-card">
+          <div class="overview-card-header">
+            <h3 class="overview-card-title" id="sessionCardTitle">40-Min Session Guidance</h3>
+            <span class="badge" style="background:rgba(184,134,11,0.15);color:var(--gold);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;">40 Mins</span>
+          </div>
+          <div class="session-timeline">
+            <div class="timeline-bar" title="Time Distribution: 5m Opening, 10m Talaqqi, 20m Textbook Practice, 5m Closing">
+              <div class="timeline-bar-segment seg-open"></div>
+              <div class="timeline-bar-segment seg-talaqqi"></div>
+              <div class="timeline-bar-segment seg-practice"></div>
+              <div class="timeline-bar-segment seg-close"></div>
+            </div>
+            <div class="timeline-steps">
+              <div class="timeline-step-item">
+                <span class="step-badge step-badge-open">05m</span>
+                <div><strong id="step1Title">Opening</strong><br><span id="step1Desc" style="font-size:.73rem;color:var(--muted);">Opening &amp; Review</span></div>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-badge step-badge-talaqqi">10m</span>
+                <div><strong id="step2Title">Talaqqi</strong><br><span id="step2Desc" style="font-size:.73rem;color:var(--muted);">Short Surah Recitation</span></div>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-badge step-badge-practice">20m</span>
+                <div><strong id="step3Title">Textbook</strong><br><span id="step3Desc" style="font-size:.73rem;color:var(--muted);">Textbook Reading Practice</span></div>
+              </div>
+              <div class="timeline-step-item">
+                <span class="step-badge step-badge-close">05m</span>
+                <div><strong id="step4Title">Closing</strong><br><span id="step4Desc" style="font-size:.73rem;color:var(--muted);">Feedback &amp; Closing</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Who This Class Is For & Prerequisites -->
+      <div class="audience-card">
+        <div class="audience-block">
+          <h4 id="audienceTitle">🎯 Who This Class Is For</h4>
+          <p id="audienceDesc">Adult learners, students, and beginners looking to correct pronunciation habits, transition smoothly from basic Iqra'/Qiroati to the Mushaf, or build a rock-solid hands-on foundation before taking in-depth Tajwid theory.</p>
+        </div>
+        <div class="audience-block">
+          <h4 id="prereqTitle">📋 Prerequisites</h4>
+          <p id="prereqDesc">Basic ability to recognize isolated Hijaiyah letters. No memorization of complex tajwid rules or Arabic grammar required beforehand.</p>
+        </div>
+      </div>
+
+      <!-- Printable Syllabus Tracker Bar -->
+      <div class="syllabus-action-bar">
+        <div class="syllabus-action-text">
+          <span id="trackerBarText">Want a printable 18-class study checklist for your desk or Qur'an?</span>
+        </div>
+        <button type="button" class="btn-outline-sm" onclick="printSyllabusTracker()">
+          <span>🖨️</span>
+          <span id="trackerBtnText">Print Syllabus Tracker</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Course Main Interface -->
+    <div class="course-grid">
+
+      <!-- Left Column: Video Player & Lesson Notes -->
+      <section class="player-column" aria-label="Lesson Video Player">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              id="videoPlayer"
+              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0"
+              title="Course Video Player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Video Navigation Bar -->
+          <div class="player-nav">
+            <button id="prevBtn" class="nav-control-btn" aria-label="Previous Lesson">
+              <span aria-hidden="true">←</span> <span id="prevBtnText">Previous</span>
+            </button>
+            <div class="lesson-progress-indicator">
+              <span id="lessonCounter">Class 1 of 18</span>
+            </div>
+            <button id="nextBtn" class="nav-control-btn" aria-label="Next Lesson">
+              <span id="nextBtnText">Next</span> <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Current Lesson Content -->
+        <article class="lesson-details-card">
+          
+          <!-- Milestone Checkpoint Callout (Shown dynamically on Class 06 & 08) -->
+          <div id="checkpointCard" class="checkpoint-callout-card" style="display:none;">
+            <div class="checkpoint-callout-header">
+              <span style="font-size:1.4rem;">🎯</span>
+              <h4 id="checkpointTitle">Checkpoint Milestone</h4>
+            </div>
+            <p id="checkpointDesc">Milestone evaluation details</p>
+            
+            <!-- Checkpoint Grading Rubric -->
+            <div class="rubric-box" id="checkpointRubricBox">
+              <div class="rubric-title" id="rubricTitleText">📋 Assessment Criteria / Kriteria Penilaian</div>
+              <div class="rubric-grid" id="rubricGrid">
+                <!-- Dynamically populated criteria -->
+              </div>
+            </div>
+
+            <div style="margin-top: .9rem;" id="checkpointActionWrap">
+              <!-- Dynamically populated CTA if locked -->
+            </div>
+          </div>
+
+          <div class="lesson-header-meta">
+            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+              <span id="currentModuleBadge" class="module-badge">Part 1 · Foundational Letters</span>
+              <span id="currentAccessBadge" class="badge-access badge-free">FREE</span>
+            </div>
+            <span id="currentDuration" class="duration-badge">⏱ 40 mins</span>
+          </div>
+
+          <h2 id="currentLessonTitle" class="current-lesson-title">Class 01: Introduction to the Hijaiyah Letters</h2>
+          <p id="currentLessonDesc" class="current-lesson-desc"></p>
+
+          <!-- Special Curriculum Note (e.g. Madinah Mushaf Reference on Class 15) -->
+          <div id="specialNoteBox" class="curriculum-note-box" style="display:none;">
+            <p id="specialNoteText" style="margin:0;"></p>
+          </div>
+
+          <!-- Recitation Practice Box -->
+          <div class="practice-box">
+            <div class="practice-header">
+              <span class="practice-label" id="practiceBoxHeader">📖 Recitation Practice</span>
+              <span class="practice-hint" id="practiceBoxHint">Focus on accurate pronunciation according to harakat and makhraj</span>
+            </div>
+
+            <!-- Audio Pronunciation Sample Control -->
+            <div class="practice-audio-bar">
+              <button type="button" class="audio-play-btn" id="audioPlayBtn" onclick="toggleAudioPreview()">
+                <span id="audioPlayIcon">▶</span>
+                <span id="audioPlayText">Listen to Audio Sample</span>
+              </button>
+              <div class="audio-wave-anim" id="audioWaveAnim">
+                <span class="audio-wave-bar"></span>
+                <span class="audio-wave-bar"></span>
+                <span class="audio-wave-bar"></span>
+                <span class="audio-wave-bar"></span>
+              </div>
+              <button type="button" class="audio-speed-btn" id="audioSpeedBtn" onclick="toggleAudioSpeed()">
+                <span id="audioSpeedText">Speed: Tartil (0.75x)</span>
+              </button>
+            </div>
+
+            <p id="currentPracticeArabic" class="practice-arabic"></p>
+            <p id="currentPracticeText" class="practice-translation"></p>
+
+            <div class="mistake-warning">
+              <strong id="mistakeHeaderLbl">Key Focus &amp; Mistakes to Avoid:</strong>
+              <span id="currentMistakes"></span>
+            </div>
+          </div>
+
+          <!-- Direct Talaqqi Action & Submission Guidelines -->
+          <div class="talaqqi-card">
+            <div class="talaqqi-text">
+              <h3 id="talaqqiCardTitle">Submit Recitation for Talaqqi Correction</h3>
+              <p id="talaqqiCardDesc">Record a 1-minute voice note reciting the practice verse above and send it to Ustadzah Sumiyati on WhatsApp for personal evaluation.</p>
+            </div>
+            <a id="talaqqiLink" href="https://wa.me/6281234567890?text=Assalamu%27alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mengirimkan%20rekaman%20talaqqi" target="_blank" rel="noopener" class="btn btn-primary">
+              <span id="talaqqiBtnText">Send Voice Note via WhatsApp →</span>
+            </a>
+
+            <!-- Voice Note Best Practice Guide -->
+            <div class="voice-guide-grid">
+              <div class="voice-guide-step">
+                <strong id="vgStep1Title">1. Quiet Space</strong>
+                <span id="vgStep1Desc">Record in a quiet room without echo or background noise.</span>
+              </div>
+              <div class="voice-guide-step">
+                <strong id="vgStep2Title">2. State Name &amp; Class</strong>
+                <span id="vgStep2Desc">Start with salam, your name, and the class number.</span>
+              </div>
+              <div class="voice-guide-step">
+                <strong id="vgStep3Title">3. Recite in Tartil</strong>
+                <span id="vgStep3Desc">Recite at a calm, measured pace. Feedback within 24–48h.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Right Column: Course Curriculum Playlist -->
+      <aside class="curriculum-column" aria-label="Course Curriculum">
+        <div class="curriculum-card">
+          <div class="curriculum-header">
+            <div>
+              <h3 id="playlistHeaderTitle" style="margin:0 0 2px;">Pre-Tajweed Curriculum</h3>
+              <small id="playlistSubTitle" style="font-size:11px;color:var(--muted);">Classes 01–06 Free · Checkpoints &amp; 07–18 Locked</small>
+            </div>
+            <span id="completedCounter" class="curriculum-count">0/18 Completed</span>
+          </div>
+
+          <div class="playlist-container" id="playlistContainer">
+            <!-- Populated dynamically via JavaScript with all 18 classes and 2 Checkpoints -->
+          </div>
+        </div>
+
+        <!-- Companion Book Card -->
+        <div class="companion-card">
+          <div class="companion-tag" id="companionTag">Companion Textbook</div>
+          <h4 id="companionTitle">Tahsin Smart &amp; Tajwid Smart (2021)</h4>
+          <p id="companionDesc">This 18-class curriculum follows the practical pedagogical method published in <em>Tahsin Smart</em> and <em>Tajwid Smart</em> by Sumiyati, designed for step-by-step recitation fluency.</p>
+          <a href="index.html#works" class="companion-link" id="companionLink">View companion books →</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- Course FAQ Section -->
+    <section class="course-faq-wrap">
+      <p class="section-label" id="faqLabel">Questions &amp; Answers</p>
+      <h3 class="course-faq-title" id="faqTitle">Frequently Asked Questions</h3>
+      <div id="courseFaqList">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Paywall Modal Overlay -->
+  <div id="paywallOverlay" class="paywall-overlay" role="dialog" aria-modal="true" aria-labelledby="paywallTitle">
+    <div class="paywall-modal">
+      <button type="button" class="paywall-close-btn" onclick="closePaywall()" aria-label="Close modal">✕</button>
+
+      <div class="paywall-badge-row">
+        <span class="paywall-pill" id="paywallPill">Course Registration</span>
+        <span style="font-size:11px;color:var(--muted);" id="paywallSubBadge">Milestone Evaluation</span>
+      </div>
+
+      <h3 class="paywall-title" id="paywallTitle">Unlock Checkpoint 1 &amp; Full Course Access</h3>
+      <p class="paywall-lead" id="paywallLead">
+        Congratulations on completing the first 6 foundational classes! To submit your recitation for Checkpoint 1 personal evaluation and continue to Classes 07–18, please enroll for full course access.
+      </p>
+
+      <div class="paywall-features">
+        <div class="paywall-feature-item">
+          <span class="paywall-feature-icon">🎯</span>
+          <span id="pwF1"><strong>Personal Talaqqi Review for Checkpoints 1 &amp; 2:</strong> Direct 1-on-1 voice note feedback and recitation grading from Ustadzah Sumiyati.</span>
+        </div>
+        <div class="paywall-feature-item">
+          <span class="paywall-feature-icon">📖</span>
+          <span id="pwF2"><strong>Full Access to Classes 07–18:</strong> Master Nūn Sākinah, Mīm Sākinah, Hamzat al-Wasl, Advanced Madd, Waqaf rules, and Gharibul Qur'an.</span>
+        </div>
+        <div class="paywall-feature-item">
+          <span class="paywall-feature-icon">📚</span>
+          <span id="pwF3"><strong>Digital Companion Study Materials:</strong> Structured exercise sheets accompanying <em>Tahsin Smart &amp; Tajwid Smart</em>.</span>
+        </div>
+        <div class="paywall-feature-item">
+          <span class="paywall-feature-icon">💬</span>
+          <span id="pwF4"><strong>Direct WhatsApp Mentoring:</strong> Dedicated consultation with Ustadzah Sumiyati for your recitation challenges.</span>
+        </div>
+        <div class="paywall-feature-item">
+          <span class="paywall-feature-icon">📜</span>
+          <span id="pwF5"><strong>Verified Certificate of Completion</strong> upon passing Checkpoint 2.</span>
+        </div>
+      </div>
+
+      <div class="paywall-pricing-box">
+        <div class="pricing-text">
+          <small id="pwPricingLbl">Full Course Enrollment</small>
+          <p id="pwPricingNote">One-time payment · Lifetime access</p>
+        </div>
+        <div class="pricing-price" id="pwPrice">Rp 199.000</div>
+      </div>
+
+      <!-- 3-Step Enrollment Flow Box -->
+      <div class="payment-steps-box">
+        <h5 id="pwStepsTitle">How Enrollment Works (3 Simple Steps):</h5>
+        <ol class="payment-steps-list">
+          <li id="pwStep1"><strong>Create your student account</strong> so your progress &amp; access are saved.</li>
+          <li id="pwStep2"><strong>Transfer Rp 199.000</strong> &amp; confirm via WhatsApp with Ustadzah Sumiyati.</li>
+          <li id="pwStep3"><strong>Instant Unlock:</strong> Ustadzah activates your account (or gives you code <code>TAHSIN2026</code>).</li>
+        </ol>
+      </div>
+
+      <div class="paywall-actions">
+        <button type="button" id="paywallEnrollBtn" onclick="handlePaywallEnrollClick()" class="btn btn-primary">
+          <span id="pwBtnRegister">Register &amp; Pay via WhatsApp →</span>
+        </button>
+        <a id="paywallWaBtn" href="#" target="_blank" rel="noopener" style="display:none;"></a>
+      </div>
+
+      <div class="paywall-passcode-toggle">
+        <button type="button" onclick="togglePasscodeForm()" id="pwPasscodeToggle">Already enrolled? Enter access code</button>
+        <div id="passcodeForm" class="passcode-form">
+          <input type="text" id="passcodeInput" class="passcode-input" placeholder="ACCESS CODE" />
+          <button type="button" class="passcode-submit-btn" onclick="submitPasscode()" id="pwSubmitBtn">Unlock</button>
+        </div>
+        <div id="passcodeFeedback" class="passcode-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Student Login / Registration Modal Overlay (WhatsApp + 4-Digit PIN) -->
+  <div id="studentAuthOverlay" class="paywall-overlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="paywall-modal" style="max-width:450px;">
+      <button type="button" class="paywall-close-btn" onclick="closeStudentAuthModal()" aria-label="Close modal">✕</button>
+
+      <div class="paywall-badge-row">
+        <span class="paywall-pill" id="authModalPill">WhatsApp Student Login</span>
+        <span style="font-size:11px;color:var(--muted);" id="authModalSub">No Email Required</span>
+      </div>
+
+      <h3 class="paywall-title" id="authModalTitle">Student WhatsApp Portal</h3>
+      <p class="paywall-lead" style="margin-bottom:1rem;" id="authModalLead">
+        Register or sign in using your <strong>WhatsApp number</strong> and a <strong>4-digit PIN</strong> to save your progress and unlock full course access.
+      </p>
+
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab-btn active" id="tabBtnRegister" onclick="switchAuthTab('register')">Register WhatsApp</button>
+        <button type="button" class="auth-tab-btn" id="tabBtnLogin" onclick="switchAuthTab('login')">Sign In with PIN</button>
+      </div>
+
+      <!-- Register Form (WhatsApp + 4-Digit PIN) -->
+      <form id="studentRegisterForm" onsubmit="handleStudentRegister(event)">
+        <div class="auth-form-group">
+          <label for="regNameInput" id="lblRegName">Full Name (Nama Lengkap) *</label>
+          <input type="text" id="regNameInput" class="auth-input" required placeholder="e.g. Aisyah Putri" />
+        </div>
+        <div class="auth-form-group">
+          <label for="regWaInput" id="lblRegWa">WhatsApp Number (Nomor WhatsApp) *</label>
+          <input type="tel" id="regWaInput" class="auth-input" required placeholder="e.g. 08123456789" />
+        </div>
+        <div class="auth-form-row">
+          <div class="auth-form-group">
+            <label for="regPinInput" id="lblRegPin">4-Digit Login PIN *</label>
+            <div style="display:flex;gap:.4rem;">
+              <input type="text" id="regPinInput" class="auth-input" inputmode="numeric" pattern="[0-9]{4,6}" maxlength="6" required placeholder="e.g. 1234" style="letter-spacing:.2em;font-weight:700;text-align:center;" />
+              <button type="button" class="btn-outline-sm" onclick="generateRandomStudentPin()" title="Generate 4-Digit PIN" style="white-space:nowrap;">🎲 PIN</button>
+            </div>
+          </div>
+          <div class="auth-form-group">
+            <label for="regCityInput" id="lblRegCity">City (Kota)</label>
+            <input type="text" id="regCityInput" class="auth-input" placeholder="e.g. Jakarta" />
+          </div>
+        </div>
+        <div id="regFeedback" class="passcode-feedback" style="margin-bottom:.75rem;"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;" id="btnRegSubmit">
+          Register with WhatsApp →
+        </button>
+      </form>
+
+      <!-- Login Form (WhatsApp + 4-Digit PIN) -->
+      <form id="studentLoginForm" onsubmit="handleStudentLogin(event)" style="display:none;">
+        <div class="auth-form-group">
+          <label for="loginWaInput" id="lblLoginWa">Registered WhatsApp Number *</label>
+          <input type="tel" id="loginWaInput" class="auth-input" required placeholder="e.g. 081298765432" />
+        </div>
+        <div class="auth-form-group">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <label for="loginPinInput" id="lblLoginPin">4-Digit Login PIN *</label>
+            <button type="button" onclick="requestPinViaWhatsApp()" style="background:none;border:none;color:var(--green);font-size:.73rem;text-decoration:underline;cursor:pointer;" id="btnForgotPin">
+              Forgot PIN? Ask via WhatsApp
+            </button>
+          </div>
+          <input type="password" id="loginPinInput" class="auth-input" inputmode="numeric" maxlength="6" required placeholder="••••" style="letter-spacing:.3em;font-weight:700;font-size:1.05rem;" />
+        </div>
+        <div id="loginFeedback" class="passcode-feedback" style="margin-bottom:.75rem;"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;" id="btnLoginSubmit">
+          Sign In with WhatsApp &amp; PIN →
+        </button>
+
+        <div style="margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;">
+          <span>Demo Paid Student: <strong>081298765432</strong> (PIN: <strong>1234</strong>)</span>
+          <button type="button" onclick="fillDemoStudentLogin()" style="background:none;border:none;color:var(--green);font-weight:600;text-decoration:underline;cursor:pointer;font-size:.75rem;">
+            Auto-fill Demo
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hidden Printable Syllabus Tracker (Triggered via printSyllabusTracker) -->
+  <div id="printableTracker" class="printable-tracker-modal" style="display:none;">
+    <div style="text-align:center;margin-bottom:1.5rem;border-bottom:2px solid #1e4a35;padding-bottom:1rem;">
+      <h2 style="font-family:'Fraunces',serif;color:#1e4a35;margin:0 0 .3rem;">Pre-Tajweed Class Progress Tracker</h2>
+      <p style="margin:0;font-size:14px;color:#555;">Kurikulum Kelas Pra-Tajwid · Ustadzah Sumiyati (Mumtaz IIUI 2026)</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;font-size:12px;" id="printableTrackerGrid">
+      <!-- Populated dynamically -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p class="name" id="footerName">Sumiyati · Master's in Tafsir &amp; Quranic Sciences, IIUI 2026</p>
+      <p class="meta">
+        <span id="footerMeta">Pre-Tajweed Learning Portal · Lifelong Student of the Qur'an</span>
+        &nbsp;·&nbsp; <a href="admin.html" style="color:var(--green);font-weight:600;text-decoration:underline;">🎓 Instructor Dashboard</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="course-auth.js"></script>
+  <script>
+    // Authentic 18-Class Pre-Tajweed Curriculum Data
+    const lessons = [
+      {
+        id: 1,
+        numberStrEn: "Class 01",
+        numberStrId: "Kelas 01",
+        moduleEn: "Part 1 · Foundational Letters & Vowels",
+        moduleId: "Bagian 1 · Fondasi Huruf & Tanda Baca",
+        titleEn: "Class 01: Introduction to the Hijaiyah Letters",
+        titleId: "Kelas 01: Mengenal Huruf Hijaiyah",
+        descEn: "In this section, students will be introduced to the 28-29 Hijaiyah letters in their unvocalized form (without harakat). Students will learn to recognize each letter, distinguish letters with similar shapes, and practice correct pronunciation as a foundation before moving on to the stage of reading the Qur'an.",
+        descId: "Pada bab ini, siswa akan diperkenalkan dengan 28–29 huruf hijaiyah dalam bentuk tanpa harakat. Siswa akan belajar mengenali setiap huruf, membedakan huruf-huruf yang memiliki bentuk serupa, serta berlatih melafalkan setiap huruf dengan benar sebagai dasar untuk melanjutkan ke tahap membaca Al-Qur’an.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن و هـ ء ي",
+        translationEn: "Recognizing all isolated Hijaiyah letter shapes and distinguishing similar shapes (ب vs ت vs ث, ج vs ح vs خ, د vs ذ, ر vs ز, س vs ش).",
+        translationId: "Mengenali bentuk tunggal setiap huruf hijaiyah dan membedakan huruf berdekatan bentuk (ب ت ث, ج ح خ, د ذ, ر ز, س ش, ص ض, ط ظ, ع غ, ف ق).",
+        mistakeEn: "Confusing dot placements (nuqath) or mixing up heavy and light counterparts (e.g. Ta ت vs Tha ث vs Tho ط; Sin س vs Syin ش vs Shod ص).",
+        mistakeId: "Tertukar letak titik (nuqath) atau menyamakan bunyi huruf tebal dan tipis (misal: Ta ت vs Tha ث vs Tho ط; Sin س vs Syin ش vs Shod ص).",
+        checkpointAfter: null,
+        isFree: true
+      },
+      {
+        id: 2,
+        numberStrEn: "Class 02",
+        numberStrId: "Kelas 02",
+        moduleEn: "Part 1 · Foundational Letters & Vowels",
+        moduleId: "Bagian 1 · Fondasi Huruf & Tanda Baca",
+        titleEn: "Class 02: Practice Pronouncing Letters with Harakat & Makharij",
+        titleId: "Kelas 02: Latihan Pelafalan Huruf Sesuai dengan Harakat dan Makhrajnya",
+        descEn: "In this section, students will practice pronouncing the Hijaiyah letters by correctly applying harakat (fathah, kasrah, and dhammah), while paying attention to the makhraj, or the point of articulation, of each letter.",
+        descId: "Pada bab ini, siswa akan berlatih melafalkan huruf-huruf hijaiyah dengan menerapkan harakat fathah, kasrah, dan dhammah dengan benar. Siswa juga akan berlatih memperhatikan makhraj, yaitu tempat keluarnya setiap huruf, agar dapat mengucapkan huruf-huruf hijaiyah dengan tepat.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "أَ إِ أُ · بَ بِ بُ · تَ تِ تُ · ثَ ثِ ثُ · جَ جِ جُ · حَ حِ حُ · خَ خِ خُ",
+        translationEn: "Practicing pure single vowels: Fathah [a], Kasrah [i], and Dhammah [u] across all letters.",
+        translationId: "Latihan vokal tunggal fathah [a], kasrah [i], dan dhammah [u] murni pada setiap huruf hijaiyah.",
+        mistakeEn: "Slanting vowels into intermediate 'e' or 'o' sounds. Open mouth vertically for Fathah, lower jaw for Kasrah, round lips cleanly for Dhammah.",
+        mistakeId: "Pelafalan harakat yang miring (fathah berbunyi 'e' atau 'o', kasrah mengambang 'e'). Buka rongga mulut vertikal saat fathah, turunkan rahang saat kasrah, dan bulatkan bibir saat dhammah.",
+        checkpointAfter: null,
+        isFree: true
+      },
+      {
+        id: 3,
+        numberStrEn: "Class 03",
+        numberStrId: "Kelas 03",
+        moduleEn: "Part 1 · Foundational Letters & Vowels",
+        moduleId: "Bagian 1 · Fondasi Huruf & Tanda Baca",
+        titleEn: "Class 03: Practicing Letter Pronunciation in Words",
+        titleId: "Kelas 03: Latihan Pelafalan Huruf Sesuai dengan Harakat dan Makhrajnya dalam Kata",
+        descEn: "In this section, students will practice pronouncing Hijaiyah letters combined into words, while still paying close attention to the harakat and makhraj of each letter. This exercise aims to train students' fluency in reading strings of letters as words, serving as a bridge before moving on to reading complete sentences and verses of the Qur'an.",
+        descId: "Pada bab ini, siswa akan berlatih membaca huruf-huruf hijaiyah dalam sebuah kata, dengan tetap memperhatikan harakat dan makhraj setiap huruf. Latihan ini bertujuan untuk melatih kelancaran siswa dalam membaca rangkaian huruf dalam sebuah kata, sekaligus menjadi tahap peralihan sebelum siswa melanjutkan ke pembacaan kalimat dan ayat-ayat Al-Qur’an secara utuh.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "كَتَبَ · نَزَلَ · حَسُنَ · رُسُلُ · ظَلَمَ · فَعَلَ · ذَكَرَ",
+        translationEn: "Reading strings of letters joined into 3-letter words with varying short vowels.",
+        translationId: "Membaca rangkaian huruf bersambung dalam satu kata tanpa memanjangkan vokal pendek.",
+        mistakeEn: "Rushing through words and swallowing ending vowels or inadvertently elongating single-count vowels into madd.",
+        mistakeId: "Membaca terburu-buru hingga huruf akhir tertelan, atau tanpa sengaja menyeret vokal 1 harakat menjadi 2 harakat (memanjangkan vokal pendek).",
+        checkpointAfter: null,
+        isFree: true
+      },
+      {
+        id: 4,
+        numberStrEn: "Class 04",
+        numberStrId: "Kelas 04",
+        moduleEn: "Part 1 · Foundational Letters & Vowels",
+        moduleId: "Bagian 1 · Fondasi Huruf & Tanda Baca",
+        titleEn: "Class 04: Practicing 2-Count Madd (2 Harakat)",
+        titleId: "Kelas 04: Latihan Memanjangkan Bacaan 2 Harakat",
+        descEn: "In this section, students will learn to recognize and practice the mad thabi'i, a recitation that is lengthened for 2 harakat. Students will be trained to identify the letters that cause mad (alif, waw, and ya' sukun).",
+        descId: "Pada bab ini, siswa akan belajar mengenali dan mempraktikkan bacaan mad thabi’i, yaitu bacaan yang dipanjangkan sebanyak 2 harakat. Siswa akan dilatih untuk mengenali huruf-huruf yang menjadi sebab terjadinya mad, yaitu alif, waw sukun, dan ya sukun, serta membacanya dengan panjang yang tepat.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "قَالَ قِيلَ يَقُولُ · كَانَ كَيْلَ يَكُونُ · مَالِكِ يَوْمِ الدِّينِ",
+        translationEn: "Mad Thabi'i: Alif preceded by Fathah, Ya Sukun preceded by Kasrah, and Waw Sukun preceded by Dhammah.",
+        translationId: "Mad Thabi'i: Alif didahului Fathah, Ya Sukun didahului Kasrah, dan Waw Sukun didahului Dhammah.",
+        mistakeEn: "Over-lengthening beyond 2 counts or leaking sound into the nasal cavity (Ghunnah). Ensure clear oral resonance from Al-Jawf.",
+        mistakeId: "Memanjangkan berlebihan (lebih dari 2 ketukan) atau suara masuk ke hidung (ghunnah). Jaga durasi tepat dan aliran suara bersih keluar dari rongga mulut (Al-Jawf).",
+        checkpointAfter: null,
+        isFree: true
+      },
+      {
+        id: 5,
+        numberStrEn: "Class 05",
+        numberStrId: "Kelas 05",
+        moduleEn: "Part 1 · Foundational Letters & Vowels",
+        moduleId: "Bagian 1 · Fondasi Huruf & Tanda Baca",
+        titleEn: "Class 05: Practicing Letters with Shaddah (Doubled Letters)",
+        titleId: "Kelas 05: Latihan Membaca Huruf Bertasydid",
+        descEn: "In this section, students will learn to read letters with tasydid (shaddah). Students will be trained to distinguish the pronunciation of letters with tasydid from regular letters. In addition, students will also be introduced to letters with tasydid that have special characteristics, such as waw and ya' with tasydid, as well as meem and noon with tasydid.",
+        descId: "Pada bab ini, siswa akan belajar membaca huruf-huruf hijaiyah yang ber-tasydid (syaddah). Siswa akan dilatih untuk membedakan cara membaca huruf yang bertasydid dengan huruf yang tidak bertasydid. Selain itu, siswa juga akan diperkenalkan pada beberapa huruf bertasydid yang memiliki karakteristik khusus, seperti waw dan ya bertasydid, serta mim dan nun bertasydid.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "رَبَّنَا · إِيَّاكَ نَعْبُدُ · قُوَّةٍ · إِنَّ اللَّهَ · ثُمَّ كَلَّا",
+        translationEn: "Applying vocal pressure (Nabrah) on doubled letters and holding a full 2-count Ghunnah on Nun & Mim with Shaddah (نّ and مّ).",
+        translationId: "Memberikan penekanan (nabrah) pada huruf bertasydid serta ghunnah 2 harakat pada Nun dan Mim bertasydid.",
+        mistakeEn: "Pronouncing shaddah like a single letter without holding pressure, or omitting the required Ghunnah on doubled Nun/Mim.",
+        mistakeId: "Membaca tasydid datar seperti huruf biasa tanpa tekanan ganda, atau tidak menahan dengung (ghunnah) pada Nun dan Mim bertasydid (نّ dan مّ).",
+        checkpointAfter: null,
+        isFree: true
+      },
+      {
+        id: 6,
+        numberStrEn: "Class 06",
+        numberStrId: "Kelas 06",
+        moduleEn: "Part 1 · Foundational Letters & Vowels",
+        moduleId: "Bagian 1 · Fondasi Huruf & Tanda Baca",
+        titleEn: "Class 06: Practice Reading Letters with Sukūn ( ْ )",
+        titleId: "Kelas 06: Latihan Membaca Huruf Sukun ( ْ )",
+        descEn: "In this section, students will learn to read letters with sukun, which are letters without harakat and are pronounced without a vowel sound. Students will be trained to pronounce sukun letters correctly and distinguish their pronunciation from voweled letters. This exercise aims to train students' accuracy in reading combinations of voweled and sukun letters. In addition, students will also be introduced to sukun letters with special characteristics, such as letters with the qalqalah property, as well as the letters ك, ت, and ء.",
+        descId: "Pada bab ini, siswa akan belajar membaca huruf sukun. Siswa akan dilatih untuk melafalkan huruf bersukun dengan benar serta membedakan cara membacanya dengan huruf yang berharakat. Latihan ini bertujuan untuk melatih ketepatan siswa dalam membaca rangkaian huruf yang terdiri dari huruf berharakat dan huruf bersukun. Selain itu, siswa juga akan diperkenalkan pada huruf-huruf bersukun yang memiliki karakteristik khusus, seperti huruf-huruf qalqalah, serta huruf ك، ت، dan ء.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "يَعْلَمُ · يَكْتُبُ · يُرْسِلُ · الفَلَقْ · أَحَدْ · يَأْتِي",
+        translationEn: "Pronouncing resting letters: releasing gentle breath (Hams) on Kaf (كْ) and Ta (تْ), a clean stop on Hamzah (ءْ), and rebounding Qalqalah (ق ط ب ج د).",
+        translationId: "Memantapkan pelafalan huruf sukun: desis hams pada Kaf (كْ) dan Ta (تْ), hentian tegas hamzah (ءْ), dan pantulan qalqalah (ق ط ب ج د).",
+        mistakeEn: "Bouncing non-qalqalah letters (like Lam, Mim, Nun) or suffocating the gentle whisper on Kaf and Ta.",
+        mistakeId: "Memantulkan huruf sukun yang bukan qalqalah (seperti Lam, Mim, Nun), atau memotong nafas terlalu kencang pada huruf hams.",
+        checkpointAfter: 1,
+        isFree: true
+      },
+      {
+        id: 7,
+        numberStrEn: "Class 07",
+        numberStrId: "Kelas 07",
+        moduleEn: "Part 2 · Nun & Mim Sakinah and Hamzah",
+        moduleId: "Bagian 2 · Nun & Mim Sakinah serta Hamzah",
+        titleEn: "Class 07: Introduction to Nūn Sākinah and Tanwīn",
+        titleId: "Kelas 07: Mengenal Nun Sukun dan Tanwin",
+        descEn: "In this section, students will learn to recognize and pronounce nun sukun and tanwin correctly.",
+        descId: "Pada bab ini, siswa akan belajar mengenali dan melafalkan nun sukun dan tanwin dengan benar. Siswa akan dilatih untuk membedakan bentuk serta cara membaca nun sukun dan tanwin.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "نْ · كِتَابٌ (dhammatain) · كِتَابًا (fathatain) · كِتَابٍ (kasratain)",
+        translationEn: "Understanding the phonetic equivalence between Nun Sakinah (نْ) and Tanwin (-ً -ٍ -ٌ) as an unwritten nun sound at the conclusion of nouns.",
+        translationId: "Memahami kesamaan suara antara Nun Sukun (نْ) dan Tanwin (-ً -ٍ -ٌ) di akhir isim.",
+        mistakeEn: "Treating tanwin differently from nun sukun. Phonetically, tanwin is an unwritten nun sakinah voiced when continuing recitation.",
+        mistakeId: "Membedakan bunyi tanwin dari nun sukun. Secara fonetik, tanwin adalah nun sukun yang berbunyi saat dibaca sambung namun tidak tertulis.",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 8,
+        numberStrEn: "Class 08",
+        numberStrId: "Kelas 08",
+        moduleEn: "Part 2 · Nun & Mim Sakinah and Hamzah",
+        moduleId: "Bagian 2 · Nun & Mim Sakinah serta Hamzah",
+        titleEn: "Class 08: Practice Pronouncing Nūn Sākinah & Tanwīn in Sentences",
+        titleId: "Kelas 08: Latihan Pengucapan Nun Sukun dan Tanwin dalam Kalimat",
+        descEn: "In this section, students will practice reading nun sukun and tanwin as they appear in sentences taken from excerpts of Qur'anic verses. This exercise focuses on the students' fluency and accuracy in pronunciation. By using Qur'anic excerpts as practice material, students become accustomed to reading within a real recitation context.",
+        descId: "Pada bab ini, siswa akan berlatih membaca nun sukun dan tanwin yang terdapat dalam rangkaian kata dan kalimat pada potongan ayat-ayat Al-Qur’an. Latihan ini berfokus pada peningkatan kelancaran dan ketepatan dalam membaca. Dengan menggunakan potongan ayat Al-Qur’an sebagai bahan latihan, siswa akan terbiasa menerapkan bacaan nun sukun dan tanwin dalam konteks bacaan Al-Qur’an yang sebenarnya.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "مَنْ خَشِيَ الرَّحْمَٰنَ بِالْغَيْبِ · غَفُورٌ رَّحِيمٌ · سَمِيعًا عَلِيمًا · مِن بَعْدِ",
+        translationEn: "Practicing Nun Sakinah & Tanwin within Quranic verses: clear Izhar, blended Idgham, converted Iqlab, and concealed Ikhfa.",
+        translationId: "Latihan membaca nun sukun dan tanwin dalam potongan ayat: kejelasan izhar, peleburan idgham, pembalikan iqlab, dan dengung samar ikhfa.",
+        mistakeEn: "Pressing tongue to the upper gums during Ikhfa (tongue must hover lightly near the following letter's makhraj while holding ghunnah).",
+        mistakeId: "Menempelkan lidah ke gusi atas saat ikhfa (seharusnya lidah melayang dekat makhraj huruf berikutnya seraya mengalirkan dengung 2 harakat).",
+        checkpointAfter: 2,
+        isFree: false
+      },
+      {
+        id: 9,
+        numberStrEn: "Class 09",
+        numberStrId: "Kelas 09",
+        moduleEn: "Part 2 · Nun & Mim Sakinah and Hamzah",
+        moduleId: "Bagian 2 · Nun & Mim Sakinah serta Hamzah",
+        titleEn: "Class 09: Hamzat al-Wasl",
+        titleId: "Kelas 09: Hamzah Washol",
+        descEn: "In this section, students will learn how to read hamzah washal that begins with the harakat fathah, kasrah, or dhammah.",
+        descId: "Pada bab ini, siswa akan belajar mengenali dan membaca hamzah washal yang berada di awal kata dengan memperhatikan harakat fathah, kasrah, dan dhammah. Siswa akan dilatih untuk membedakan cara membaca hamzah washal sesuai dengan harakatnya agar dapat membacanya dengan tepat.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "الْحَمْدُ (Fathah pada Alif-Lam) · ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ (Dhammah) · اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (Kasrah)",
+        translationEn: "Starting on Hamzat al-Wasl: with Fathah on 'Al' (ال), Dhammah if the 3rd letter carries an original dhammah, and Kasrah if the 3rd letter has fathah or kasrah.",
+        translationId: "Menentukan harakat awal Hamzah Washal: dibaca Fathah pada 'Al', Dhammah jika huruf ketiga berharakat dhammah asli, dan Kasrah jika huruf ketiga berharakat fathah/kasrah.",
+        mistakeEn: "Pronouncing Hamzat al-Wasl when continuing from a preceding word (it drops smoothly during connection and is only sounded when initiating recitation).",
+        mistakeId: "Membaca hamzah washal ketika menyambung dari kata sebelumnya (hamzah washal gugur bunyinya saat washal dan hanya dibaca saat ibtida'/memulai).",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 10,
+        numberStrEn: "Class 10",
+        numberStrId: "Kelas 10",
+        moduleEn: "Part 2 · Nun & Mim Sakinah and Hamzah",
+        moduleId: "Bagian 2 · Nun & Mim Sakinah serta Hamzah",
+        titleEn: "Class 10: Practice Pronouncing Mīm Sākinah in Sentences",
+        titleId: "Kelas 10: Latihan Pengucapan Mim Sukun dalam Kalimat",
+        descEn: "In this section, students will learn how to read meem sukun when it meets the letters ب, م, and letters other than those two.",
+        descId: "Pada bab ini, siswa akan belajar membaca mim sukun ketika bertemu dengan huruf ب, م, dan huruf-huruf selain kedua huruf tersebut. Siswa akan dilatih untuk membedakan cara membaca mim sukun sesuai dengan huruf yang mengikutinya agar dapat membaca dengan baik dan benar.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "تَرْمِيهِم بِحِجَارَةٍ · لَهُم مَّا يَشَاءُونَ · عَلَيْهِمْ وَلَا الضَّالِّينَ",
+        translationEn: "Mim Sakinah rules: Ikhfa Shafawi before Ba (gentle contact), Idgham Mithlayn before Mim (2-count ghunnah), and Izhar Shafawi before all other letters.",
+        translationId: "Hukum Mim Sukun: Ikhfa Shafawi bertemu Ba (rapat lembut), Idgham Mithlayn bertemu Mim (dengung 2 harakat), dan Izhar Shafawi bertemu huruf lainnya.",
+        mistakeEn: "Hiding Mim before Waw (و) or Fa (ف) due to lip proximity. Articulate with firm clarity (Izhar Asyad).",
+        mistakeId: "Meredam atau menyamarkan Mim ketika bertemu huruf Waw (و) dan Fa (ف) karena kedekatan makhraj bibir. Harus diucapkan jelas tegas (Izhar Asyad).",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 11,
+        numberStrEn: "Class 11",
+        numberStrId: "Kelas 11",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 11: The Rules of Elongation (Madd > 2 Harakat)",
+        titleId: "Kelas 11: MAD (> 2 Harakat)",
+        descEn: "In this section, students will learn how to read recitations that are lengthened for more than 2 harakat. Students will practice recognizing mad and reading it with the correct length.",
+        descId: "Pada bab ini, siswa akan belajar mengenali dan membaca bacaan mad yang dipanjangkan lebih dari 2 harakat. Siswa akan berlatih mengenali bacaan mad serta mempraktikkannya.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "إِذَا جَاءَ نَصْرُ اللَّهِ · بِمَا أُنزِلَ إِلَيْكَ · وَلَا الضَّالِّينَ · الحَاقَّةُ",
+        translationEn: "Recognizing madd caused by Hamzah (Madd Muttasil and Munfasil, 4-5 counts) and madd caused by Sukun/Tasydid (Madd Lazim, 6 full counts).",
+        translationId: "Mengenali jenis mad lanjutan karena bertemu Hamzah (Madd Muttasil 4-5 harakat, Munfasil 4-5 harakat) dan karena Sukun/Tasydid (Madd Lazim 6 harakat penuh).",
+        mistakeEn: "Curtailing 6-count Madd Lazim or rushing connected Madd Muttasil before a hamzah.",
+        mistakeId: "Mengurangi durasi mad lazim (harus genap 6 harakat stabil) atau membaca mad muttasil terburu-buru kurang dari 4 harakat.",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 12,
+        numberStrEn: "Class 12",
+        numberStrId: "Kelas 12",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 12: Waqof (The Rules of Stopping)",
+        titleId: "Kelas 12: Waqof (Kaidah Berhenti)",
+        descEn: "In this section, students will learn how to stop (waqaf) while reading the Qur'an and how to pronounce letters or harakat when a recitation is paused.",
+        descId: "Pada bab ini, siswa akan belajar cara berhenti (waqaf) ketika membaca Al-Qur’an, serta cara melafalkan huruf atau harakat ketika bacaan diwaqofkan. Siswa akan berlatih mengenali perubahan cara membaca pada saat waqaf agar dapat waqof dengan tepat.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "نَسْتَعِينُ ۝ → [نَسْتَعِينْ] · رَحْمَةً ۝ → [رَحْمَهْ] · عَلِيمًا حَكِيمًا ۝ → [حَكِيمَا]",
+        translationEn: "Stopping rules: silencing short vowels into sukun, transforming Ta Marbutah (ة) into Haa Sakinah (هْ), and replacing Tanwin Fathah (-ً) with a 2-count Alif (Madd 'Iwad).",
+        translationId: "Kaidah berhenti: mematikan vokal hidup menjadi sukun, mengubah Ta Marbutah (ة) menjadi Ha sukun (هْ), dan mengganti Tanwin Fathah (-ً) menjadi mad 2 harakat (Mad 'Iwad).",
+        mistakeEn: "Voicing the short vowel when stopping, or stopping on a Ta Marbutah with an audible 't' instead of a soft 'h'.",
+        mistakeId: "Membaca huruf terakhir berharakat ketika waqaf, atau membaca Ta Marbutah dengan bunyi 't' sukun saat berhenti (seharusnya berubah menjadi bunyi Ha 'h').",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 13,
+        numberStrEn: "Class 13",
+        numberStrId: "Kelas 13",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 13: Waqf on a Shaddah (Doubled Letter)",
+        titleId: "Kelas 13: Berhenti pada Huruf Tasydid",
+        descEn: "In this section, students will learn how to read letters with tasydid (shaddah) when stopping (waqaf).",
+        descId: "Pada bab ini, siswa akan belajar cara membaca huruf-huruf yang memiliki tasydid (syaddah) ketika berhenti (waqaf).",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ ۝ · ذَٰلِكَ بِأَنَّ اللَّهَ هُوَ الْحَقُّ ۝ · مِنَ الْجِنَّةِ وَالنَّاسِ ۝",
+        translationEn: "Preserving the weight of doubled letters upon halting with Nabrah (vocal pressure), and maintaining full Ghunnah when halting on doubled Nun or Mim.",
+        translationId: "Menjaga bobot ganda huruf tasydid saat berhenti dengan teknik Nabrah (tekanan suara), serta menahan ghunnah sempurna bila berhenti pada Nun/Mim bertasydid.",
+        mistakeEn: "Dropping the shaddah completely upon waqf, making it sound like an ordinary single sukun.",
+        mistakeId: "Membaca huruf bertasydid saat waqaf persis seperti huruf sukun tunggal biasa sehingga tasydidnya hilang.",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 14,
+        numberStrEn: "Class 14",
+        numberStrId: "Kelas 14",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 14: Meeting of Two Sukoons Due to Stopping",
+        titleId: "Kelas 14: Berhenti pada Huruf Setelah Sukun",
+        descEn: "In this section, students will learn how to stop (waqaf) on a letter that is preceded by a letter with sukun.",
+        descId: "Pada bab ini, siswa akan belajar cara berhenti (waqaf) pada huruf yang didahului oleh huruf bersukun.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "وَالْعَصْرِ ۝ · وَالْفَجْرِ ۝ · إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ · قَدْرِ ۝",
+        translationEn: "Articulating two consecutive sukoons at the end of a word (e.g. Sad sukun followed by Ra sukun in Al-'Asr) without swallowing the final consonant.",
+        translationId: "Melafalkan dua huruf mati berurutan di akhir kata saat waqaf (misal: Shad sukun disusul Ra sukun pada Al-'Ashr) tanpa menelan huruf terakhir.",
+        mistakeEn: "Swallowing the final consonant or adding an unintended vowel between the two sukoons.",
+        mistakeId: "Menghilangkan bunyi huruf kedua atau memunculkan harakat palsu (menyelipkan vokal bantuan seperti 'ash-re') di antara dua sukun.",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 15,
+        numberStrEn: "Class 15",
+        numberStrId: "Kelas 15",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 15: Nun Maksurah / Nun Wiqoyah (The Hidden Nun)",
+        titleId: "Kelas 15: Nun Maksurah / Nun Wiqoyah (Nun yang Tersembunyi)",
+        descEn: "In this section, students will learn how to read Nun Wiqoyah, recognize its form, and understand when it appears while reading the Qur'an.",
+        descId: "Pada bab ini, siswa akan belajar mengenali dan membaca Nun Wiqayah dengan benar, memahami bentuknya, serta mengetahui kapan Nun Wiqayah muncul dalam bacaan Al-Qur’an.",
+        specialNoteEn: "Reference Note: This curriculum uses the Madinah Uthmani Rasm Mushaf as its reference. In this mushaf, Nun Wiqayah is not indicated by a small nun, but its pronunciation is understood and applied according to recitation rules (linking tanwin with a subsequent hamzat al-wasl via an unwritten kasrah-nun [ni]).",
+        specialNoteId: "Catatan Acuan Mushaf: Kurikulum ini menggunakan acuan Mushaf Rasm Utsmani Madinah. Dalam mushaf ini, Nun Wiqayah tidak ditampilkan dengan huruf nun kecil, tetapi cara membacanya dipahami berdasarkan kaidah bacaan (menghubungkan tanwin dengan hamzah washal melalui pelafalan nun berharakat kasrah [ni]).",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "خَيْرًا ٱلْوَصِيَّةُ → [خَيْرَنِ ٱلْوَصِيَّةُ] · جَزَاءً ٱلْحُسْنَىٰ → [جَزَاءَنِ ٱلْحُسْنَىٰ]",
+        translationEn: "Sounding a protective Kasrah-Nun [ni] when Tanwin connects into a subsequent silent letter after Hamzat al-Wasl.",
+        translationId: "Membunyikan Nun Kasrah [ni] pelindung ketika tanwin bertemu huruf mati setelah hamzah washal.",
+        mistakeEn: "Reciting with normal tanwin without sounding the connective kasrah-nun, or struggling because the small nun is omitted in the Madinah script.",
+        mistakeId: "Membaca dengan tanwin biasa tanpa menghubungkan nun kasrah bantuan, atau kebingungan karena nun kecil tidak tertulis di Mushaf Madinah.",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 16,
+        numberStrEn: "Class 16",
+        numberStrId: "Kelas 16",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 16: Idgham of Meeting Letters (Mutamathilayn, Mutaqaribayn, Mutajanisayn)",
+        titleId: "Kelas 16: Idghom (Bertemunya 2 Huruf)",
+        descEn: "In this section, students will learn how to read two meeting letters that are pronounced with idgham (Mutamathilayn: identical letters, Mutajanisayn: same articulation point with different characteristics, Mutaqaribayn: close articulation points and characteristics).",
+        descId: "Pada bab ini, siswa akan belajar membaca dua huruf yang bertemu dengan cara meleburkan huruf pertama ke dalam huruf berikutnya (idgham). Siswa akan berlatih mengenali pertemuan kedua huruf tersebut dan membaca dengan bacaan yang benar (Mutamathilayn: 2 huruf sama, Mutajanisayn: sama makhraj beda sifat, Mutaqaribayn: makhraj dan sifat berdekatan).",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "يُدْرِككُّمُ الْمَوْتُ (Mutamathilayn) · يَلْهَث ذَّٰلِكَ (Mutajanisayn) · أَلَمْ نَخْلُقكُّم مِّن مَّاءٍ (Mutaqaribayn)",
+        translationEn: "Assimilating the first unvoweled letter into the subsequent voweled letter seamlessly.",
+        translationId: "Meleburkan huruf mati pertama secara sempurna atau sebagian ke dalam huruf berikutnya yang berharakat.",
+        mistakeEn: "Bouncing or stuttering on the first letter instead of assimilating it smoothly into the second.",
+        mistakeId: "Membaca huruf pertama dengan terpatah-patah atau memantulkan sukun sebelum masuk ke huruf kedua bukannya melebur mulus.",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 17,
+        numberStrEn: "Class 17",
+        numberStrId: "Kelas 17",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 17: The Disjointed Letters (Huruf Muqatta'ah)",
+        titleId: "Kelas 17: Huruf Muqatta'ah (Huruf Pembuka Surah)",
+        descEn: "In this section, students will learn how to read the Muqatta’ah Letters, which are the letters that appear at the beginning of some chapters (surahs) of the Qur’an.",
+        descId: "Pada bab ini, siswa akan belajar membaca Huruf Muqatta’ah, yaitu huruf-huruf yang terdapat di awal beberapa surah dalam Al-Qur’an.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "الٓمٓ · كٓهيعٓصٓ · يٰسٓ · حٰمٓ · قٓ · نٓ",
+        translationEn: "Reading opening surah letters by their original Arabic names, distinguishing 2-count letters (حي طهر) from 6-count letters (نقص عسلكم).",
+        translationId: "Membaca huruf pembuka surah sesuai nama aslinya, membedakan huruf 2 harakat (حي طهر) dan huruf 6 harakat penuh (نقص عسلكم).",
+        mistakeEn: "Pronouncing them as a single connected word (e.g. 'Alam' instead of 'Alif - Laaam - Miiim') or cutting short the 6-count elongation.",
+        mistakeId: "Mengeja sebagai kata sambung (misal: 'Alam' bukan 'Alif-Laaam-Miiim') atau memperpendek mad 6 harakat pada Lam, Mim, Kaf, Shad, Nun, Qaf.",
+        checkpointAfter: null,
+        isFree: false
+      },
+      {
+        id: 18,
+        numberStrEn: "Class 18",
+        numberStrId: "Kelas 18",
+        moduleEn: "Part 3 · Advanced Madd, Waqaf & Special Readings",
+        moduleId: "Bagian 3 · Mad Lanjutan, Waqaf & Kaidah Khusus",
+        titleEn: "Class 18: Uncommon Recitations (Gharibul Qur'an)",
+        titleId: "Kelas 18: Bacaan di Luar Kaidah (Gharibul Qur'an)",
+        descEn: "In this section, students will learn how to read the special recitations known as Gharibul Qur'an found within the Qur'an.",
+        descId: "Pada bab ini, siswa akan belajar membaca bacaan-bacaan khusus yang dikenal sebagai Gharibul Qur’an yang terdapat dalam Al-Qur’an.",
+        duration: "40 mins",
+        videoId: "dQw4w9WgXcQ",
+        arabic: "مَجْر۪ىٰهَا (Imalah · Hud: 41) · لَا تَأْمَ۫نَّا (Isymam/Ikhtilas · Yusuf: 11) · ءَا۬عْجَمِيٌّ (Tashil · Fussilat: 44) · بِئْسَ الاِسْمُ (Naql · Al-Hujurat: 11)",
+        translationEn: "Mastering the special readings in Hafs 'an 'Asim: Imalah (slanting fathah towards kasrah), Isymam (lip rounding during ghunnah), Tashil (softening 2nd hamzah), and Naql (vowel movement).",
+        translationId: "Menguasai bacaan khusus riwayat Hafs 'an 'Ashim: Imalah (memiringkan bunyi fathah ke kasrah), Isymam (memoncongkan bibir saat ghunnah), Tashil (meringankan hamzah kedua), dan Naql (memindahkan harakat).",
+        mistakeEn: "Reciting these rare words with standard regular rules instead of following authentic transmitted prophetic recitation (riwayah).",
+        mistakeId: "Membaca bacaan unik ini dengan kaidah reguler biasa tanpa mengindahkan kekhususan riwayat qira'ah yang mutawatir.",
+        checkpointAfter: null,
+        isFree: false
+      }
+    ];
+
+    const checkpoints = {
+      1: {
+        titleEn: "Checkpoint 1: Review of Letters, Harakat, Shaddah & Sukūn",
+        descEn: "Comprehensive review following Class 06 evaluating foundational letter articulation, pure vowels, 2-count elongation, shaddah pressure, and sukun characteristics before advancing to Nun Sakinah.",
+        titleId: "Checkpoint 1: Evaluasi Fondasi Huruf, Harakat, Shaddah & Sukun",
+        descId: "Evaluasi berkala setelah Kelas 06 untuk menguji ketepatan makhraj huruf hijaiyah, konsistensi panjang 2 harakat mad thabi'i, kekuatan tasydid, serta kejelasan huruf sukun & sifat hams/qalqalah sebelum melangkah ke Nun Sakinah.",
+        rubricEn: [
+          "Makhraj Precision (Point of articulation clarity)",
+          "Pure Vowels (Fathah, Kasrah, Dhammah stability)",
+          "Mad Thabi'i Consistency (Accurate 2-count timing)",
+          "Sukun Control (Qalqalah bounce & Kaf/Ta hams)"
+        ],
+        rubricId: [
+          "Ketepatan Makhraj Huruf Hijaiyah",
+          "Kemurnian Vokal Fathah, Kasrah, Dhammah",
+          "Kestabilan Panjang Mad Thabi'i 2 Harakat",
+          "Karakteristik Sukun, Pantulan Qalqalah & Hams"
+        ]
+      },
+      2: {
+        titleEn: "Checkpoint 2: Verse Recitation Fluency & Nun Sakinah Review",
+        descEn: "Fluency evaluation following Class 08 assessing smooth reading of Quranic verse excerpts and accurate contextual application of Nun Sakinah and Tanwin rules.",
+        titleId: "Checkpoint 2: Evaluasi Kelancaran Ayat, Nun Sukun & Tanwin",
+        descId: "Evaluasi berkala setelah Kelas 08 untuk menguji kelancaran membaca potongan ayat Al-Qur'an dan ketepatan penerapan nun sukun dan tanwin secara alami dalam bacaan sebelum masuk ke Hamzah Washal dan Mim Sukun.",
+        rubricEn: [
+          "Reading Fluency across Continuous Verse Phrases",
+          "Accurate Nun Sakinah & Tanwin Application",
+          "Steady 2-Count Ghunnah Nasalization Hold",
+          "Readiness for Hamzat al-Wasl & Advanced Chapters"
+        ],
+        rubricId: [
+          "Kelancaran Membaca Rangkaian Potongan Ayat Al-Qur'an",
+          "Penerapan Hukum Nun Sukun (Izhar, Idgham, Iqlab, Ikhfa)",
+          "Kestabilan Tahanan Dengung (Ghunnah 2 Harakat)",
+          "Kesiapan Memasuki Hamzah Washal & Kaidah Lanjutan"
+        ]
+      }
+    };
+
+    const courseFaqs = {
+      en: [
+        {
+          q: "How quickly will Ustadzah review my Talaqqi voice recordings?",
+          a: "Personal evaluation is provided within 24–48 business hours directly via personal WhatsApp voice notes, giving you precise corrective feedback on makhraj and vowel length."
+        },
+        {
+          q: "Are the video lessons self-paced with lifetime access?",
+          a: "Yes. Once enrolled, you enjoy unlimited lifetime access to all 18 video lessons and future curriculum updates, allowing you to learn at your own comfortable schedule."
+        },
+        {
+          q: "Is this class suitable if I still hesitate or read slowly?",
+          a: "Absolutely. The Pre-Tajweed curriculum was purposefully designed for students who struggle with fluency. It bridges the gap between basic letter reading and smooth Mushaf recitation without burdening you with abstract theoretical rules."
+        },
+        {
+          q: "How do I receive the Certificate of Completion?",
+          a: "After you complete all 18 classes and pass both Checkpoint 1 and Checkpoint 2 evaluations evaluated by Ustadzah Sumiyati, a verified digital Certificate of Completion will be issued to you."
+        }
+      ],
+      id: [
+        {
+          q: "Berapa lama Ustadzah memberikan koreksi rekaman Talaqqi?",
+          a: "Evaluasi personal diberikan dalam kurun waktu 24–48 jam hari kerja langsung melalui pesan suara (voice note) WhatsApp pribadi, memberikan masukan presisi seputar makhraj dan panjang bacaan."
+        },
+        {
+          q: "Apakah video pembelajaran dapat diakses kapan saja seumur hidup?",
+          a: "Ya. Setelah terdaftar, Anda memiliki akses seumur hidup ke seluruh 18 video pembelajaran dan pembaruan materi mendatang, sehingga Anda dapat belajar sesuai ritme waktu masing-masing."
+        },
+        {
+          q: "Apakah kelas ini cocok jika saya masih sering terbata-bata membaca Al-Qur'an?",
+          a: "Sangat cocok. Kelas Pra-Tajwid dirancang khusus menjembatani santri yang masih terbata-bata agar lancar membaca mushaf langsung melalui latihan praktik bertahap tanpa beban teori yang rumit."
+        },
+        {
+          q: "Bagaimana proses penerbitan sertifikat kelulusan?",
+          a: "Setelah santri menuntaskan 18 kelas dan dinyatakan lulus evaluasi Checkpoint 1 & 2 oleh Ustadzah Sumiyati, sertifikat digital kelulusan terverifikasi akan diterbitkan untuk Anda."
+        }
+      ]
+    };
+
+    const courseI18n = {
+      en: {
+        page_title: "Pre-Tajweed Class Curriculum · Sumiyati",
+        nav_back: "Back to Portfolio",
+        nav_tag: "Curriculum & Video Portal",
+        nav_brand: "Pre-Tajweed Class · Sumiyati",
+        nav_wa: "Ask via WhatsApp →",
+        banner_label: "Official Course Curriculum & Video Lessons",
+        banner_title: "Pre-Tajweed Class Curriculum",
+        banner_sub: "This class aims to help students read the Qur'an well, correctly, and fluently. Students focus on practicing direct hands-on improvement of their recitation, covering makhraj, the length of recitation, waqaf (stopping), and special readings in the Qur'an.",
+        meta_instructor: "Instructor:",
+        meta_classes: "Classes:",
+        meta_classes_val: "18 Classes (1-6 Free)",
+        meta_checkpoints: "Checkpoints:",
+        meta_checkpoints_val: "2 Milestone Reviews",
+        meta_session: "Session:",
+        meta_session_val: "40 Mins / Class",
+        purpose_title: "The Purpose of This Class",
+        purpose_badge: "Objectives",
+        purpose_text: "This class aims to help students read the Qur'an well, correctly, and fluently. Students will focus on practicing direct hands-on improvement of their recitation, covering makhraj (points of articulation), the length of recitation, waqaf (stopping), and special readings in the Qur'an, without needing to study tajwid theory in depth beforehand.",
+        session_title: "40-Min Session Guidance",
+        step1_title: "Opening",
+        step1_desc: "Opening & Review",
+        step2_title: "Talaqqi",
+        step2_desc: "Short Surah Recitation",
+        step3_title: "Textbook",
+        step3_desc: "Textbook Reading Practice",
+        step4_title: "Closing",
+        step4_desc: "Feedback & Closing",
+        audience_title: "🎯 Who This Class Is For",
+        audience_desc: "Adult learners, students, and beginners looking to correct pronunciation habits, transition smoothly from basic Iqra'/Qiroati to the Mushaf, or build a rock-solid hands-on foundation before taking in-depth Tajwid theory.",
+        prereq_title: "📋 Prerequisites",
+        prereq_desc: "Basic ability to recognize isolated Hijaiyah letters. No memorization of complex tajwid rules or Arabic grammar required beforehand.",
+        tracker_bar_text: "Want a printable 18-class study checklist for your desk or Qur'an?",
+        tracker_btn_text: "Print Syllabus Tracker",
+        prev_btn: "Previous",
+        next_btn: "Next",
+        practice_header: "📖 Recitation Practice",
+        practice_hint: "Focus on accurate pronunciation according to harakat and makhraj",
+        mistake_header: "Key Focus & Mistakes to Avoid:",
+        audio_listen_text: "Listen to Audio Sample",
+        audio_playing_text: "Playing Sample...",
+        audio_speed_tartil: "Speed: Tartil (0.75x)",
+        audio_speed_normal: "Speed: Normal (1.0x)",
+        talaqqi_title: "Submit Recitation for Talaqqi Correction",
+        talaqqi_desc: "Record a 1-minute voice note reciting the practice verse above and send it to Ustadzah Sumiyati on WhatsApp for personal evaluation.",
+        talaqqi_btn: "Send Voice Note via WhatsApp →",
+        vg_s1_title: "1. Quiet Space",
+        vg_s1_desc: "Record in a quiet room without echo or background noise.",
+        vg_s2_title: "2. State Name & Class",
+        vg_s2_desc: "Start with salam, your name, and the class number.",
+        vg_s3_title: "3. Recite in Tartil",
+        vg_s3_desc: "Recite at a calm, measured pace. Feedback within 24–48h.",
+        playlist_title: "Pre-Tajweed Curriculum",
+        playlist_sub: "Classes 01–06 Free · Checkpoints & 07–18 Locked",
+        completed_suffix: "Completed",
+        companion_tag: "Companion Textbook",
+        companion_title: "Tahsin Smart & Tajwid Smart (2021)",
+        companion_desc: "This 18-class curriculum follows the practical pedagogical method published in Tahsin Smart and Tajwid Smart by Sumiyati, designed for step-by-step recitation fluency.",
+        companion_link: "View companion books →",
+        faq_label: "Questions & Answers",
+        faq_title: "Frequently Asked Questions",
+        footer_name: "Sumiyati · Master's in Tafsir & Quranic Sciences, IIUI 2026",
+        footer_meta: "Pre-Tajweed Learning Portal · Lifelong Student of the Qur'an",
+        wa_template: "Assalamu'alaikum Ustadzah Sumiyati, I would like to submit my talaqqi recording for",
+        badge_free: "FREE",
+        badge_locked: "LOCKED",
+        rubric_header: "📋 Assessment Criteria (Talaqqi Review)",
+        pw_pill: "Course Registration",
+        pw_sub_badge: "Milestone Evaluation",
+        pw_title_cp1: "Unlock Checkpoint 1 & Full Course Access",
+        pw_title_classes: "Unlock Classes 07–18 & Full Course",
+        pw_lead_cp1: "Congratulations on completing the first 6 foundational free classes! To submit your recitation for Checkpoint 1 personal Talaqqi evaluation and continue to Classes 07–18, please enroll for full course access.",
+        pw_lead_classes: "Classes 07 to 18 and Checkpoints require full course enrollment. Unlock personal Talaqqi evaluation, advanced rules, and full video lessons.",
+        pw_f1: "<strong>Personal Talaqqi Review for Checkpoints 1 & 2:</strong> Direct 1-on-1 voice note feedback and grading from Ustadzah Sumiyati.",
+        pw_f2: "<strong>Full Access to Classes 07–18:</strong> Master Nūn Sākinah, Mīm Sākinah, Hamzat al-Wasl, Advanced Madd, Waqaf rules, and Gharibul Qur'an.",
+        pw_f3: "<strong>Digital Companion Study Materials:</strong> Structured exercise sheets accompanying <em>Tahsin Smart & Tajwid Smart</em>.",
+        pw_f4: "<strong>Direct WhatsApp Mentoring:</strong> Dedicated consultation with Ustadzah Sumiyati for your recitation challenges.",
+        pw_f5: "<strong>Verified Certificate of Completion</strong> upon passing Checkpoint 2.",
+        pw_pricing_lbl: "Full Course Enrollment",
+        pw_pricing_note: "One-time investment · Lifetime access",
+        pw_price: "IDR 199.000 (~$15 USD)",
+        pw_btn_register: "Register & Pay via WhatsApp →",
+        pw_wa_message: "Assalamu'alaikum Ustadzah Sumiyati, I would like to register and pay for the full Pre-Tajweed course access (Classes 07-18 & Checkpoint Evaluations).",
+        pw_passcode_toggle: "Already enrolled? Enter access code",
+        pw_submit_btn: "Unlock",
+        pw_passcode_success: "✓ Access successfully unlocked! Enjoy your full course journey.",
+        pw_passcode_error: "Invalid access code. Please message Ustadzah Sumiyati on WhatsApp.",
+        cp_unlocked_notice: "Full Access Active · Submit your talaqqi voice note below for grading.",
+        cp_locked_btn: "🔒 Unlock Checkpoint Evaluation →"
+      },
+      id: {
+        page_title: "Kurikulum Kelas Pra-Tajwid · Sumiyati",
+        nav_back: "Kembali ke Portofolio",
+        nav_tag: "Kurikulum & Portal Video",
+        nav_brand: "Kelas Pra-Tajwid · Sumiyati",
+        nav_wa: "Konsultasi via WhatsApp →",
+        banner_label: "Kurikulum Resmi & Video Pembelajaran",
+        banner_title: "Kurikulum Kelas Pra-Tajwid",
+        banner_sub: "Pembelajaran berfokus pada praktik membaca Al-Qur’an secara langsung, memperbaiki makhraj, pelafalan huruf, panjang-pendek bacaan, waqaf, serta bacaan khusus dengan bimbingan talaqqi.",
+        meta_instructor: "Pengajar:",
+        meta_classes: "Jumlah Kelas:",
+        meta_classes_val: "18 Kelas (1-6 Gratis)",
+        meta_checkpoints: "Evaluasi:",
+        meta_checkpoints_val: "2 Checkpoint",
+        meta_session: "Durasi:",
+        meta_session_val: "40 Menit / Sesi",
+        purpose_title: "Tujuan dari Kelas Ini",
+        purpose_badge: "Tujuan",
+        purpose_text: "Kelas Pra-Tajwid merupakan kelas yang dirancang khusus untuk membantu peserta memperbaiki dan meningkatkan kemampuan membaca Al-Qur’an agar lebih baik, benar, dan lancar. Pembelajaran berfokus pada praktik membaca Al-Qur’an secara langsung, dengan memperbaiki makhraj, pelafalan huruf, panjang-pendek bacaan, kelancaran, serta ketepatan dalam membaca. Kelas ini belum berfokus pada penjelasan teori dan kaidah ilmu tajwid.",
+        session_title: "Panduan Sesi 40 Menit",
+        step1_title: "Pembukaan",
+        step1_desc: "Pembukaan & Review",
+        step2_title: "Talaqqi",
+        step2_desc: "Talaqqi Surat Pendek",
+        step3_title: "Buku Ajar",
+        step3_desc: "Latihan Membaca Buku Ajar",
+        step4_title: "Penutupan",
+        step4_desc: "Evaluasi & Penutupan",
+        audience_title: "🎯 Untuk Siapa Kelas Ini?",
+        audience_desc: "Pembelajar dewasa, santri, dan pemula yang ingin memperbaiki kebiasaan pelafalan huruf, beralih dari buku Iqro’/Qiroati ke Mushaf Al-Qur’an, serta mematangkan praktik membaca sebelum mempelajari kaidah teori tajwid tingkat lanjut.",
+        prereq_title: "📋 Prasyarat Kelas",
+        prereq_desc: "Mengenali huruf-huruf dasar hijaiyah. Tidak memerlukan hafalan istilah tajwid atau kaidah bahasa Arab sebelumnya.",
+        tracker_bar_text: "Ingin lembar checklist 18 kelas untuk meja belajar atau diselipkan di Al-Qur'an?",
+        tracker_btn_text: "Cetak Lembar Pantau",
+        prev_btn: "Sebelumnya",
+        next_btn: "Selanjutnya",
+        practice_header: "📖 Praktik Latihan Bacaan",
+        practice_hint: "Fokus pada pelafalan tepat sesuai harakat dan makhraj",
+        mistake_header: "Fokus Perbaikan & Hal yang Dihindari:",
+        audio_listen_text: "Dengarkan Contoh Pelafalan",
+        audio_playing_text: "Memutar Contoh...",
+        audio_speed_tartil: "Kecepatan: Tartil (0.75x)",
+        audio_speed_normal: "Kecepatan: Normal (1.0x)",
+        talaqqi_title: "Kirim Rekaman untuk Koreksi Talaqqi",
+        talaqqi_desc: "Rekam suara pembacaan latihan ayat/huruf di atas selama 1 menit dan kirimkan via WhatsApp kepada Ustadzah Sumiyati untuk evaluasi makhraj dan kelancaran.",
+        talaqqi_btn: "Kirim Rekaman via WhatsApp →",
+        vg_s1_title: "1. Ruang Tenang",
+        vg_s1_desc: "Rekam di ruangan hening tanpa gema atau kebisingan latar.",
+        vg_s2_title: "2. Format Salam & Nama",
+        vg_s2_desc: "Awali dengan salam, nama Anda, dan nomor kelas yang disetor.",
+        vg_s3_title: "3. Tartil & Jelas",
+        vg_s3_desc: "Lafalkan secara tenang dan jelas. Koreksi dikirim dalam 24–48 jam.",
+        playlist_title: "Kurikulum Kelas Pra-Tajwid",
+        playlist_sub: "Kelas 01–06 Gratis · Checkpoint & 07–18 Terkunci",
+        completed_suffix: "Selesai",
+        companion_tag: "Buku Pegangan Kelas",
+        companion_title: "Tahsin Smart & Tajwid Smart (2021)",
+        companion_desc: "Kurikulum 18 kelas ini selaras dengan buku pegangan Tahsin Smart dan Tajwid Smart karya Sumiyati yang menitikberatkan pada metode praktis membaca Al-Qur'an secara bertahap.",
+        companion_link: "Lihat publikasi buku →",
+        faq_label: "Tanya & Jawab",
+        faq_title: "Pertanyaan yang Sering Diajukan",
+        footer_name: "Sumiyati · Magister Tafsir & Ulumul Qur'an, IIUI 2026",
+        footer_meta: "Portal Belajar Kelas Pra-Tajwid · Murid Sepanjang Hayat Al-Qur'an",
+        wa_template: "Assalamu'alaikum Ustadzah Sumiyati, saya ingin mengirimkan rekaman evaluasi talaqqi untuk",
+        badge_free: "GRATIS",
+        badge_locked: "TERKUNCI",
+        rubric_header: "📋 Kriteria Penilaian Evaluasi Talaqqi",
+        pw_pill: "Pendaftaran Kursus",
+        pw_sub_badge: "Evaluasi Berkala",
+        pw_title_cp1: "Buka Evaluasi Checkpoint 1 & Akses Penuh Kursus",
+        pw_title_classes: "Buka Kelas 07–18 & Akses Penuh Kursus",
+        pw_lead_cp1: "Selamat, Anda telah menyelesaikan 6 kelas dasar gratis! Untuk mengikuti evaluasi Checkpoint 1 langsung bersama Ustadzah Sumiyati dan melanjutkan ke Kelas 07–18, silakan mendaftar akses penuh.",
+        pw_lead_classes: "Kelas 07 hingga 18 dan evaluasi Checkpoint memerlukan pendaftaran akses penuh. Nikmati bimbingan talaqqi intensif, kaidah lanjutan, dan video pembelajaran lengkap.",
+        pw_f1: "<strong>Evaluasi Talaqqi Personal Checkpoint 1 & 2:</strong> Koreksi suara langsung 1-on-1 dari Ustadzah Sumiyati melalui rekaman suara WhatsApp.",
+        pw_f2: "<strong>Akses Penuh Seluruh 18 Video Pembelajaran:</strong> Mendalami Nun/Mim Sukun, Hamzah Washal, Mad Lanjutan, Waqaf, dan Gharibul Qur'an.",
+        pw_f3: "<strong>Bahan Ajar & Lembar Latihan Praktik:</strong> Materi terstruktur selaras dengan metode buku <em>Tahsin Smart & Tajwid Smart</em>.",
+        pw_f4: "<strong>Konsultasi & Tanya-Jawab Langsung:</strong> Bimbingan khusus seputar kesulitan pelafalan huruf dan makhraj bersama Ustadzah Sumiyati.",
+        pw_f5: "<strong>Sertifikat Kelulusan Terverifikasi</strong> setelah berhasil menyelesaikan evaluasi Checkpoint 2.",
+        pw_pricing_lbl: "Biaya Pendaftaran Akses Penuh",
+        pw_pricing_note: "Investasi sekali bayar · Akses seumur hidup",
+        pw_price: "Rp 199.000",
+        pw_btn_register: "Daftar & Bayar via WhatsApp →",
+        pw_wa_message: "Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar dan membayar akses penuh Kelas Pra-Tajwid (Kelas 07-18 & Evaluasi Checkpoint).",
+        pw_passcode_toggle: "Sudah terdaftar? Masukkan kode akses",
+        pw_submit_btn: "Buka Akses",
+        pw_passcode_success: "✓ Akses penuh berhasil dibuka! Selamat melanjutkan pembelajaran.",
+        pw_passcode_error: "Kode akses tidak sesuai. Silakan hubungi Ustadzah Sumiyati via WhatsApp.",
+        cp_unlocked_notice: "Akses Terbuka · Anda dapat menyetorkan rekaman evaluasi talaqqi di bawah.",
+        cp_locked_btn: "🔒 Buka Evaluasi Checkpoint →"
+      }
+    };
+
+    let currentIndex = 0;
+    let currentLang = localStorage.getItem('sumiyati_lang') || 'en';
+    let isFullAccessUnlocked = localStorage.getItem('sumiyati_pretajweed_unlocked') === 'true';
+    let isAudioPlaying = false;
+    let audioPlaybackRate = 0.75; // Tartil default
+    const completedSet = new Set(JSON.parse(localStorage.getItem('sumiyati_completed_pretajweed_classes') || '[]'));
+
+    // DOM Elements
+    const videoPlayer = document.getElementById('videoPlayer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtnText = document.getElementById('prevBtnText');
+    const nextBtnText = document.getElementById('nextBtnText');
+    const lessonCounter = document.getElementById('lessonCounter');
+    const currentModuleBadge = document.getElementById('currentModuleBadge');
+    const currentAccessBadge = document.getElementById('currentAccessBadge');
+    const currentDuration = document.getElementById('currentDuration');
+    const currentLessonTitle = document.getElementById('currentLessonTitle');
+    const currentLessonDesc = document.getElementById('currentLessonDesc');
+    const currentPracticeArabic = document.getElementById('currentPracticeArabic');
+    const currentPracticeText = document.getElementById('currentPracticeText');
+    const currentMistakes = document.getElementById('currentMistakes');
+    const talaqqiLink = document.getElementById('talaqqiLink');
+    const completedCounter = document.getElementById('completedCounter');
+    const playlistContainer = document.getElementById('playlistContainer');
+    const checkpointCard = document.getElementById('checkpointCard');
+    const checkpointTitle = document.getElementById('checkpointTitle');
+    const checkpointDesc = document.getElementById('checkpointDesc');
+    const checkpointActionWrap = document.getElementById('checkpointActionWrap');
+    const rubricTitleText = document.getElementById('rubricTitleText');
+    const rubricGrid = document.getElementById('rubricGrid');
+    const specialNoteBox = document.getElementById('specialNoteBox');
+    const specialNoteText = document.getElementById('specialNoteText');
+
+    // Audio preview controls
+    const audioPlayBtn = document.getElementById('audioPlayBtn');
+    const audioPlayIcon = document.getElementById('audioPlayIcon');
+    const audioPlayText = document.getElementById('audioPlayText');
+    const audioWaveAnim = document.getElementById('audioWaveAnim');
+    const audioSpeedBtn = document.getElementById('audioSpeedBtn');
+    const audioSpeedText = document.getElementById('audioSpeedText');
+
+    // Paywall Modal DOM Elements
+    const paywallOverlay = document.getElementById('paywallOverlay');
+    const paywallPill = document.getElementById('paywallPill');
+    const paywallTitle = document.getElementById('paywallTitle');
+    const paywallLead = document.getElementById('paywallLead');
+    const pwF1 = document.getElementById('pwF1');
+    const pwF2 = document.getElementById('pwF2');
+    const pwF3 = document.getElementById('pwF3');
+    const pwF4 = document.getElementById('pwF4');
+    const pwF5 = document.getElementById('pwF5');
+    const pwPricingLbl = document.getElementById('pwPricingLbl');
+    const pwPricingNote = document.getElementById('pwPricingNote');
+    const pwPrice = document.getElementById('pwPrice');
+    const pwBtnRegister = document.getElementById('pwBtnRegister');
+    const paywallWaBtn = document.getElementById('paywallWaBtn');
+    const pwPasscodeToggle = document.getElementById('pwPasscodeToggle');
+    const pwSubmitBtn = document.getElementById('pwSubmitBtn');
+    const passcodeForm = document.getElementById('passcodeForm');
+    const passcodeInput = document.getElementById('passcodeInput');
+    const passcodeFeedback = document.getElementById('passcodeFeedback');
+
+    function setGlobalLang(lang) {
+      if (!courseI18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('sumiyati_lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update switcher buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      const t = courseI18n[lang];
+      document.getElementById('coursePageTitle').textContent = t.page_title;
+      document.getElementById('navBackText').textContent = t.nav_back;
+      document.getElementById('navTagText').textContent = t.nav_tag;
+      document.getElementById('navBrandText').textContent = t.nav_brand;
+      document.getElementById('navWaBtn').textContent = t.nav_wa;
+
+      document.getElementById('bannerLabel').textContent = t.banner_label;
+      document.getElementById('bannerTitle').textContent = t.banner_title;
+      document.getElementById('bannerSub').textContent = t.banner_sub;
+      document.getElementById('metaInstructorLbl').textContent = t.meta_instructor;
+      document.getElementById('metaClassesLbl').textContent = t.meta_classes;
+      document.getElementById('metaCheckpointsLbl').textContent = t.meta_checkpoints;
+      document.getElementById('metaSessionLbl').textContent = t.meta_session;
+
+      document.getElementById('purposeCardTitle').textContent = t.purpose_title;
+      document.getElementById('purposeBadge').textContent = t.purpose_badge;
+      document.getElementById('purposeCardText').textContent = t.purpose_text;
+
+      document.getElementById('sessionCardTitle').textContent = t.session_title;
+      document.getElementById('step1Title').textContent = t.step1_title;
+      document.getElementById('step1Desc').textContent = t.step1_desc;
+      document.getElementById('step2Title').textContent = t.step2_title;
+      document.getElementById('step2Desc').textContent = t.step2_desc;
+      document.getElementById('step3Title').textContent = t.step3_title;
+      document.getElementById('step3Desc').textContent = t.step3_desc;
+      document.getElementById('step4Title').textContent = t.step4_title;
+      document.getElementById('step4Desc').textContent = t.step4_desc;
+
+      document.getElementById('audienceTitle').textContent = t.audience_title;
+      document.getElementById('audienceDesc').textContent = t.audience_desc;
+      document.getElementById('prereqTitle').textContent = t.prereq_title;
+      document.getElementById('prereqDesc').textContent = t.prereq_desc;
+      document.getElementById('trackerBarText').textContent = t.tracker_bar_text;
+      document.getElementById('trackerBtnText').textContent = t.tracker_btn_text;
+
+      prevBtnText.textContent = t.prev_btn;
+      nextBtnText.textContent = t.next_btn;
+      document.getElementById('practiceBoxHeader').textContent = t.practice_header;
+      document.getElementById('practiceBoxHint').textContent = t.practice_hint;
+      document.getElementById('mistakeHeaderLbl').textContent = t.mistake_header;
+      
+      audioPlayText.textContent = isAudioPlaying ? t.audio_playing_text : t.audio_listen_text;
+      audioSpeedText.textContent = audioPlaybackRate === 0.75 ? t.audio_speed_tartil : t.audio_speed_normal;
+
+      document.getElementById('talaqqiCardTitle').textContent = t.talaqqi_title;
+      document.getElementById('talaqqiCardDesc').textContent = t.talaqqi_desc;
+      document.getElementById('talaqqiBtnText').textContent = t.talaqqi_btn;
+      document.getElementById('vgStep1Title').textContent = t.vg_s1_title;
+      document.getElementById('vgStep1Desc').textContent = t.vg_s1_desc;
+      document.getElementById('vgStep2Title').textContent = t.vg_s2_title;
+      document.getElementById('vgStep2Desc').textContent = t.vg_s2_desc;
+      document.getElementById('vgStep3Title').textContent = t.vg_s3_title;
+      document.getElementById('vgStep3Desc').textContent = t.vg_s3_desc;
+
+      document.getElementById('playlistHeaderTitle').textContent = t.playlist_title;
+      document.getElementById('playlistSubTitle').textContent = t.playlist_sub;
+      document.getElementById('companionTag').textContent = t.companion_tag;
+      document.getElementById('companionTitle').textContent = t.companion_title;
+      document.getElementById('companionDesc').textContent = t.companion_desc;
+      document.getElementById('companionLink').textContent = t.companion_link;
+
+      document.getElementById('faqLabel').textContent = t.faq_label;
+      document.getElementById('faqTitle').textContent = t.faq_title;
+
+      document.getElementById('footerName').textContent = t.footer_name;
+      document.getElementById('footerMeta').textContent = t.footer_meta;
+
+      renderFaqs();
+      renderStudentAccountHeader();
+      updatePaywallText();
+      updateCurrentLessonText();
+      renderPlaylist();
+    }
+
+    function renderFaqs() {
+      const list = document.getElementById('courseFaqList');
+      list.innerHTML = '';
+      const items = courseFaqs[currentLang] || courseFaqs.en;
+
+      items.forEach((item, idx) => {
+        const div = document.createElement('div');
+        div.className = 'faq-item';
+        div.innerHTML = `
+          <button class="faq-q" aria-expanded="false" onclick="toggleCourseFaq(this)">
+            <span>${item.q}</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">${item.a}</div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    function toggleCourseFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.course-faq-wrap .faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-q')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    // Audio Preview Simulation with SpeechSynthesis or Audio Chime
+    function toggleAudioPreview() {
+      const lesson = lessons[currentIndex];
+      const t = courseI18n[currentLang];
+
+      if (isAudioPlaying) {
+        stopAudioPreview();
+        return;
+      }
+
+      isAudioPlaying = true;
+      audioWaveAnim.classList.add('playing');
+      audioPlayIcon.textContent = '⏸';
+      audioPlayText.textContent = t.audio_playing_text;
+
+      // Clean arabic text for pronunciation
+      const cleanArabic = lesson.arabic.replace(/[۝→\[\]]/g, '').trim();
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(cleanArabic);
+        utter.lang = 'ar-SA';
+        utter.rate = audioPlaybackRate;
+        utter.pitch = 1.0;
+
+        utter.onend = () => {
+          stopAudioPreview();
+        };
+        utter.onerror = () => {
+          stopAudioPreview();
+        };
+
+        window.speechSynthesis.speak(utter);
+      } else {
+        // Fallback timer simulation
+        setTimeout(() => {
+          stopAudioPreview();
+        }, 3500);
+      }
+    }
+
+    function stopAudioPreview() {
+      isAudioPlaying = false;
+      audioWaveAnim.classList.remove('playing');
+      audioPlayIcon.textContent = '▶';
+      audioPlayText.textContent = courseI18n[currentLang].audio_listen_text;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function toggleAudioSpeed() {
+      const t = courseI18n[currentLang];
+      if (audioPlaybackRate === 0.75) {
+        audioPlaybackRate = 1.0;
+        audioSpeedBtn.classList.add('active');
+        audioSpeedText.textContent = t.audio_speed_normal;
+      } else {
+        audioPlaybackRate = 0.75;
+        audioSpeedBtn.classList.remove('active');
+        audioSpeedText.textContent = t.audio_speed_tartil;
+      }
+      if (isAudioPlaying) {
+        toggleAudioPreview();
+        toggleAudioPreview();
+      }
+    }
+
+    function printSyllabusTracker() {
+      const grid = document.getElementById('printableTrackerGrid');
+      const isEn = currentLang === 'en';
+      grid.innerHTML = '';
+
+      lessons.forEach((l) => {
+        const title = isEn ? l.titleEn : l.titleId;
+        const div = document.createElement('div');
+        div.style.cssText = 'padding:6px 0;border-bottom:1px solid #ddd;display:flex;align-items:center;gap:8px;';
+        div.innerHTML = `
+          <input type="checkbox" style="width:16px;height:16px;" ${completedSet.has(l.id) ? 'checked' : ''} />
+          <div>
+            <strong>${isEn ? l.numberStrEn : l.numberStrId}:</strong> ${title.split(':')[1] || title}
+            ${l.isFree ? '<span style="font-size:10px;color:#1e4a35;margin-left:4px;">(Free)</span>' : ''}
+          </div>
+        `;
+        grid.appendChild(div);
+
+        if (l.checkpointAfter) {
+          const cpDiv = document.createElement('div');
+          cpDiv.style.cssText = 'grid-column: span 2;background:#f5f0e6;padding:8px 12px;border:1px dashed #b8860b;margin:6px 0;font-weight:bold;';
+          cpDiv.innerHTML = `🎯 Checkpoint ${l.checkpointAfter}: ${isEn ? checkpoints[l.checkpointAfter].titleEn : checkpoints[l.checkpointAfter].titleId}`;
+          grid.appendChild(cpDiv);
+        }
+      });
+
+      window.print();
+    }
+
+    function updatePaywallText(context) {
+      const t = courseI18n[currentLang];
+      paywallPill.textContent = t.pw_pill;
+      document.getElementById('paywallSubBadge').textContent = t.pw_sub_badge;
+
+      if (context === 'checkpoint1') {
+        paywallTitle.textContent = t.pw_title_cp1;
+        paywallLead.textContent = t.pw_lead_cp1;
+      } else {
+        paywallTitle.textContent = t.pw_title_classes;
+        paywallLead.textContent = t.pw_lead_classes;
+      }
+
+      pwF1.innerHTML = t.pw_f1;
+      pwF2.innerHTML = t.pw_f2;
+      pwF3.innerHTML = t.pw_f3;
+      pwF4.innerHTML = t.pw_f4;
+      pwF5.innerHTML = t.pw_f5;
+      pwPricingLbl.textContent = t.pw_pricing_lbl;
+      pwPricingNote.textContent = t.pw_pricing_note;
+      pwPrice.textContent = t.pw_price;
+      pwBtnRegister.textContent = t.pw_btn_register;
+      pwPasscodeToggle.textContent = t.pw_passcode_toggle;
+      pwSubmitBtn.textContent = t.pw_submit_btn;
+
+      const waMsg = encodeURIComponent(t.pw_wa_message);
+      paywallWaBtn.href = `https://wa.me/6281234567890?text=${waMsg}`;
+    }
+
+    function openPaywall(triggerSource) {
+      updatePaywallText(triggerSource);
+      passcodeForm.classList.remove('active');
+      passcodeFeedback.style.display = 'none';
+      passcodeInput.value = '';
+      paywallOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePaywall() {
+      paywallOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on backdrop click
+    paywallOverlay.addEventListener('click', (e) => {
+      if (e.target === paywallOverlay) closePaywall();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && paywallOverlay.classList.contains('active')) {
+        closePaywall();
+      }
+    });
+
+    function togglePasscodeForm() {
+      passcodeForm.classList.toggle('active');
+      if (passcodeForm.classList.contains('active')) {
+        passcodeInput.focus();
+      }
+    }
+
+    function submitPasscode() {
+      const code = passcodeInput.value.trim().toUpperCase();
+      const t = courseI18n[currentLang];
+      const res = window.SumiyatiAuth ? SumiyatiAuth.unlockWithCode(code) : { ok: ['TAHSIN2026', 'SUMIYATI', 'BISMILLAH', 'FREEACCESS', 'QURANSMART'].includes(code) };
+
+      if (res.ok) {
+        isFullAccessUnlocked = true;
+        localStorage.setItem('sumiyati_pretajweed_unlocked', 'true');
+        passcodeFeedback.className = 'passcode-feedback success';
+        passcodeFeedback.textContent = t.pw_passcode_success;
+        renderStudentAccountHeader();
+
+        setTimeout(() => {
+          closePaywall();
+          renderPlaylist();
+          updateCurrentLessonText();
+        }, 1000);
+      } else {
+        passcodeFeedback.className = 'passcode-feedback error';
+        passcodeFeedback.textContent = t.pw_passcode_error;
+      }
+    }
+
+    // ── Student Account & Enrollment Integration ──
+    let pendingEnrollRedirect = false;
+
+    function renderStudentAccountHeader() {
+      const bar = document.getElementById('studentAccountBar');
+      if (!bar || !window.SumiyatiAuth) return;
+      const student = SumiyatiAuth.getCurrentStudent();
+      const isEn = currentLang === 'en';
+
+      if (student) {
+        // Sync unlocked state if teacher approved this student in admin.html
+        if (student.accessStatus === 'paid') {
+          isFullAccessUnlocked = true;
+        }
+        const statusBadge = student.accessStatus === 'paid'
+          ? `<span class="badge-access badge-free">✨ ${isEn ? 'FULL ACCESS' : 'AKSES PENUH'}</span>`
+          : (student.accessStatus === 'pending'
+              ? `<span class="badge-access badge-locked">⏳ ${isEn ? 'PENDING' : 'MENUNGGU'}</span>`
+              : `<span class="badge-access badge-free">${isEn ? 'FREE TIER' : 'GRATIS'}</span>`);
+
+        const unlockBtnHtml = student.accessStatus !== 'paid'
+          ? `<button type="button" class="btn-outline-sm" style="padding:2px 8px;font-size:.7rem;" onclick="openPaywall('checkpoint1')">🔑 ${isEn ? 'Unlock / Code' : 'Kode Akses'}</button>`
+          : '';
+
+        bar.innerHTML = `
+          <div class="student-user-chip">
+            <span>👤</span>
+            <span class="chip-name">${student.name}</span>
+            ${statusBadge}
+            <button type="button" class="chip-logout-btn" onclick="handleStudentLogout()">${isEn ? 'Sign Out' : 'Keluar'}</button>
+          </div>
+          ${unlockBtnHtml}
+        `;
+      } else {
+        bar.innerHTML = `
+          <button type="button" class="student-auth-btn" onclick="openStudentAuthModal('register')">
+            <span>👤</span>
+            <span>${isEn ? 'Sign In / Register' : 'Masuk / Daftar Santri'}</span>
+          </button>
+          ${!isFullAccessUnlocked ? `<button type="button" class="btn-outline-sm" style="padding:4px 9px;font-size:.72rem;" onclick="openPaywall('checkpoint1')">🔑 ${isEn ? 'Enter Code' : 'Kode Akses'}</button>` : ''}
+        `;
+      }
+    }
+
+    function openStudentAuthModal(defaultTab) {
+      switchAuthTab(defaultTab || 'register');
+      document.getElementById('regFeedback').style.display = 'none';
+      document.getElementById('loginFeedback').style.display = 'none';
+      document.getElementById('studentAuthOverlay').classList.add('active');
+    }
+
+    function closeStudentAuthModal() {
+      document.getElementById('studentAuthOverlay').classList.remove('active');
+    }
+
+    function switchAuthTab(tab) {
+      const isReg = tab === 'register';
+      document.getElementById('tabBtnRegister').classList.toggle('active', isReg);
+      document.getElementById('tabBtnLogin').classList.toggle('active', !isReg);
+      document.getElementById('studentRegisterForm').style.display = isReg ? 'block' : 'none';
+      document.getElementById('studentLoginForm').style.display = isReg ? 'none' : 'block';
+    }
+
+    function generateRandomStudentPin() {
+      const randomPin = String(Math.floor(1000 + Math.random() * 9000));
+      const input = document.getElementById('regPinInput');
+      input.type = 'text';
+      input.value = randomPin;
+    }
+
+    function fillDemoStudentLogin() {
+      document.getElementById('loginWaInput').value = '081298765432';
+      document.getElementById('loginPinInput').value = '1234';
+    }
+
+    function requestPinViaWhatsApp() {
+      const waVal = document.getElementById('loginWaInput').value.trim();
+      const isEn = currentLang === 'en';
+      const msg = isEn
+        ? `Assalamu'alaikum Ustadzah Sumiyati, please send my 4-digit login PIN for the Pre-Tajweed Course. My registered WhatsApp number is: ${waVal || '[My Number]'}`
+        : `Assalamu'alaikum Ustadzah Sumiyati, mohon bantuan info 4 angka PIN login Kelas Pra-Tajwid untuk nomor WhatsApp saya: ${waVal || '[Nomor Saya]'}`;
+      window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    }
+
+    function handleStudentRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('regNameInput').value;
+      const whatsapp = document.getElementById('regWaInput').value;
+      const pin = document.getElementById('regPinInput').value;
+      const city = document.getElementById('regCityInput').value;
+
+      const res = SumiyatiAuth.registerStudent({ name, whatsapp, city, pin });
+      const fb = document.getElementById('regFeedback');
+
+      if (!res.ok) {
+        fb.className = 'passcode-feedback error';
+        if (res.error === 'already_exists') {
+          fb.textContent = currentLang === 'id'
+            ? 'Nomor WhatsApp ini sudah terdaftar! Silakan klik tab "Sign In with PIN".'
+            : 'This WhatsApp number is already registered! Please switch to the "Sign In with PIN" tab.';
+        } else {
+          fb.textContent = currentLang === 'id'
+            ? 'Mohon isi Nama, Nomor WhatsApp, dan minimal 4 angka PIN.'
+            : 'Please enter your Name, WhatsApp number, and a 4-digit PIN.';
+        }
+        fb.style.display = 'block';
+        return;
+      }
+
+      fb.className = 'passcode-feedback success';
+      fb.textContent = currentLang === 'id'
+        ? `✓ Terdaftar! Nomor WA: ${whatsapp} | PIN Login Anda: ${res.student.pin}`
+        : `✓ Registered! WhatsApp: ${whatsapp} | Your Login PIN: ${res.student.pin}`;
+      fb.style.display = 'block';
+
+      renderStudentAccountHeader();
+      setTimeout(() => {
+        closeStudentAuthModal();
+        if (pendingEnrollRedirect) {
+          pendingEnrollRedirect = false;
+          completeWhatsAppEnrollment(res.student);
+        }
+      }, 900);
+    }
+
+    function handleStudentLogin(e) {
+      e.preventDefault();
+      const waVal = document.getElementById('loginWaInput').value;
+      const pinVal = document.getElementById('loginPinInput').value;
+      const res = SumiyatiAuth.loginStudent(waVal, pinVal);
+      const fb = document.getElementById('loginFeedback');
+
+      if (!res.ok) {
+        fb.className = 'passcode-feedback error';
+        fb.textContent = currentLang === 'id'
+          ? 'Nomor WhatsApp tidak ditemukan atau PIN 4 angka salah.'
+          : 'WhatsApp number not found or incorrect 4-digit PIN.';
+        fb.style.display = 'block';
+        return;
+      }
+
+      isFullAccessUnlocked = res.student.accessStatus === 'paid' || localStorage.getItem('sumiyati_pretajweed_unlocked') === 'true';
+      if (Array.isArray(res.student.completedClasses)) {
+        completedSet.clear();
+        res.student.completedClasses.forEach(cid => completedSet.add(cid));
+      }
+
+      fb.className = 'passcode-feedback success';
+      fb.textContent = currentLang === 'id'
+        ? `✓ Selamat datang kembali, ${res.student.name}!`
+        : `✓ Welcome back, ${res.student.name}!`;
+      fb.style.display = 'block';
+
+      renderStudentAccountHeader();
+      renderPlaylist();
+      updateCurrentLessonText();
+
+      setTimeout(() => {
+        closeStudentAuthModal();
+      }, 700);
+    }
+
+    function handleStudentLogout() {
+      SumiyatiAuth.logoutStudent();
+      isFullAccessUnlocked = false;
+      renderStudentAccountHeader();
+      renderPlaylist();
+      if (currentIndex > 5) {
+        loadLesson(0);
+      } else {
+        updateCurrentLessonText();
+      }
+    }
+
+    function handlePaywallEnrollClick() {
+      const student = window.SumiyatiAuth ? SumiyatiAuth.getCurrentStudent() : null;
+      if (!student) {
+        pendingEnrollRedirect = true;
+        closePaywall();
+        openStudentAuthModal('register');
+        return;
+      }
+      completeWhatsAppEnrollment(student);
+    }
+
+    function completeWhatsAppEnrollment(student) {
+      if (window.SumiyatiAuth) {
+        SumiyatiAuth.requestPaidEnrollment();
+      }
+      renderStudentAccountHeader();
+      const isEn = currentLang === 'en';
+      const dispWa = SumiyatiAuth.formatDisplayPhone(student.whatsapp);
+      const msg = isEn
+        ? `Assalamu'alaikum Ustadzah Sumiyati, I would like to enroll in the Full Pre-Tajweed Course (Rp 199.000).%0A%0A*Student Name:* ${encodeURIComponent(student.name)}%0A*WhatsApp:* ${encodeURIComponent(dispWa)}%0A*Login PIN:* ${encodeURIComponent(student.pin)}%0A*City:* ${encodeURIComponent(student.city)}`
+        : `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar & membayar akses penuh Kelas Pra-Tajwid (Rp 199.000).%0A%0A*Nama Santri:* ${encodeURIComponent(student.name)}%0A*Nomor WhatsApp:* ${encodeURIComponent(dispWa)}%0A*PIN Login:* ${encodeURIComponent(student.pin)}%0A*Kota:* ${encodeURIComponent(student.city)}`;
+
+      window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank', 'noopener');
+    }
+
+    function updateCurrentLessonText() {
+      const lesson = lessons[currentIndex];
+      const isEn = currentLang === 'en';
+      const t = courseI18n[currentLang];
+
+      stopAudioPreview();
+
+      currentModuleBadge.textContent = isEn ? lesson.moduleEn : lesson.moduleId;
+      currentDuration.textContent = `⏱ ${lesson.duration}`;
+      currentLessonTitle.textContent = isEn ? lesson.titleEn : lesson.titleId;
+      currentLessonDesc.textContent = isEn ? lesson.descEn : lesson.descId;
+      currentPracticeArabic.textContent = lesson.arabic;
+      currentPracticeText.textContent = isEn ? lesson.translationEn : lesson.translationId;
+      currentMistakes.textContent = isEn ? lesson.mistakeEn : lesson.mistakeId;
+
+      // Access badge
+      const isItemFree = lesson.isFree || isFullAccessUnlocked;
+      currentAccessBadge.textContent = isItemFree ? t.badge_free : t.badge_locked;
+      currentAccessBadge.className = `badge-access ${isItemFree ? 'badge-free' : 'badge-locked'}`;
+
+      lessonCounter.textContent = isEn
+        ? `${lesson.numberStrEn} of ${lessons.length}`
+        : `${lesson.numberStrId} dari ${lessons.length}`;
+
+      // Special note
+      if (lesson.specialNoteEn || lesson.specialNoteId) {
+        specialNoteBox.style.display = 'block';
+        specialNoteText.innerHTML = isEn
+          ? `<strong>Mushaf Reference:</strong> ${lesson.specialNoteEn}`
+          : `<strong>Catatan Acuan Mushaf:</strong> ${lesson.specialNoteId}`;
+      } else {
+        specialNoteBox.style.display = 'none';
+      }
+
+      // Checkpoint banner inside lesson view
+      if (lesson.checkpointAfter && checkpoints[lesson.checkpointAfter]) {
+        const cp = checkpoints[lesson.checkpointAfter];
+        checkpointCard.style.display = 'block';
+        checkpointTitle.textContent = isEn ? cp.titleEn : cp.titleId;
+        checkpointDesc.textContent = isEn ? cp.descEn : cp.descId;
+        rubricTitleText.textContent = t.rubric_header;
+
+        // Render rubric criteria checklist
+        rubricGrid.innerHTML = '';
+        const rubricItems = isEn ? cp.rubricEn : cp.rubricId;
+        rubricItems.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'rubric-item';
+          div.innerHTML = `<span class="icon">✓</span> <span>${item}</span>`;
+          rubricGrid.appendChild(div);
+        });
+
+        // Action CTA
+        if (!isFullAccessUnlocked) {
+          checkpointActionWrap.innerHTML = `
+            <button type="button" class="btn btn-secondary btn-sm" onclick="openPaywall('checkpoint1')">
+              ${t.cp_locked_btn}
+            </button>
+          `;
+        } else {
+          checkpointActionWrap.innerHTML = `
+            <span style="font-size:.8rem;color:var(--green);font-weight:600;">
+              ✓ ${t.cp_unlocked_notice}
+            </span>
+          `;
+        }
+      } else {
+        checkpointCard.style.display = 'none';
+      }
+
+      // Update WhatsApp link with lesson-specific text
+      const waPrefix = t.wa_template;
+      const lessonTitleText = isEn ? lesson.titleEn : lesson.titleId;
+      const waText = encodeURIComponent(`${waPrefix} ${lessonTitleText}`);
+      talaqqiLink.href = `https://wa.me/6281234567890?text=${waText}`;
+    }
+
+    function renderPlaylist() {
+      playlistContainer.innerHTML = '';
+      let currentModule = '';
+      const isEn = currentLang === 'en';
+      const t = courseI18n[currentLang];
+
+      lessons.forEach((lesson, idx) => {
+        const modTitle = isEn ? lesson.moduleEn : lesson.moduleId;
+        const lessonTitle = isEn ? lesson.titleEn : lesson.titleId;
+        const isLocked = !lesson.isFree && !isFullAccessUnlocked;
+
+        if (modTitle !== currentModule) {
+          currentModule = modTitle;
+          const groupHeader = document.createElement('div');
+          groupHeader.className = 'playlist-module-header';
+          groupHeader.textContent = currentModule;
+          playlistContainer.appendChild(groupHeader);
+        }
+
+        const item = document.createElement('button');
+        item.className = `playlist-item ${idx === currentIndex ? 'active' : ''} ${completedSet.has(lesson.id) ? 'completed' : ''} ${isLocked ? 'locked' : ''}`;
+        item.setAttribute('aria-label', `Select ${lessonTitle}`);
+
+        let statusSymbol;
+        if (isLocked) {
+          statusSymbol = '🔒';
+        } else if (completedSet.has(lesson.id)) {
+          statusSymbol = '✓';
+        } else if (idx === currentIndex) {
+          statusSymbol = '▶';
+        } else {
+          statusSymbol = idx + 1;
+        }
+
+        const badgeHtml = isLocked
+          ? `<span class="badge-access badge-locked">🔒 ${t.badge_locked}</span>`
+          : `<span class="badge-access badge-free">${t.badge_free}</span>`;
+
+        item.innerHTML = `
+          <span class="pl-status">${statusSymbol}</span>
+          <div class="pl-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;">
+              <span class="pl-title">${lessonTitle}</span>
+              ${badgeHtml}
+            </div>
+            <span class="pl-duration">⏱ ${lesson.duration}</span>
+          </div>
+        `;
+
+        item.addEventListener('click', () => {
+          if (isLocked) {
+            openPaywall('locked_lesson');
+          } else {
+            loadLesson(idx);
+          }
+        });
+
+        playlistContainer.appendChild(item);
+
+        // Checkpoint milestone after class 6 & 8
+        if (lesson.checkpointAfter && checkpoints[lesson.checkpointAfter]) {
+          const cp = checkpoints[lesson.checkpointAfter];
+          const cpDiv = document.createElement('div');
+          const isCpLocked = !isFullAccessUnlocked;
+          cpDiv.className = `playlist-checkpoint ${isCpLocked ? 'locked-cp' : ''}`;
+          const cpTitle = isEn ? cp.titleEn : cp.titleId;
+          const cpDesc = isEn ? cp.descEn : cp.descId;
+
+          const cpBadge = isCpLocked
+            ? `<span class="badge-access badge-locked" style="margin-left:auto;">🔒 ${t.badge_locked}</span>`
+            : `<span class="badge-access badge-free" style="margin-left:auto;">${isEn ? "UNLOCKED" : "TERBUKA"}</span>`;
+
+          cpDiv.innerHTML = `
+            <span class="checkpoint-icon">${isCpLocked ? '🔒' : '🎯'}</span>
+            <div class="checkpoint-info" style="flex:1;">
+              <div style="display:flex;align-items:center;gap:.4rem;">
+                <h5>${cpTitle}</h5>
+                ${cpBadge}
+              </div>
+              <p>${cpDesc.substring(0, 80)}...</p>
+            </div>
+          `;
+
+          cpDiv.addEventListener('click', () => {
+            if (isCpLocked) {
+              openPaywall(lesson.checkpointAfter === 1 ? 'checkpoint1' : 'checkpoint2');
+            } else {
+              loadLesson(idx);
+            }
+          });
+
+          playlistContainer.appendChild(cpDiv);
+        }
+      });
+
+      completedCounter.textContent = `${completedSet.size}/${lessons.length} ${t.completed_suffix}`;
+    }
+
+    function loadLesson(index) {
+      if (index < 0 || index >= lessons.length) return;
+      const lesson = lessons[index];
+
+      // Paywall check
+      if (!lesson.isFree && !isFullAccessUnlocked) {
+        openPaywall('locked_lesson');
+        return;
+      }
+
+      currentIndex = index;
+
+      // Mark as completed & sync to Student Roster DB
+      completedSet.add(lesson.id);
+      localStorage.setItem('sumiyati_completed_pretajweed_classes', JSON.stringify([...completedSet]));
+      if (window.SumiyatiAuth) {
+        SumiyatiAuth.updateProgress(lesson.id, [...completedSet]);
+      }
+
+      // Update video embed
+      videoPlayer.src = `https://www.youtube-nocookie.com/embed/${lesson.videoId}?rel=0`;
+
+      // Update text
+      updateCurrentLessonText();
+
+      // Navigation button states
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = false; // Will trigger paywall if clicking next on class 6 while locked
+
+      renderPlaylist();
+
+      // Smooth scroll back to player on mobile
+      if (window.innerWidth < 900) {
+        window.scrollTo({ top: document.querySelector('.video-card').offsetTop - 80, behavior: 'smooth' });
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) loadLesson(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex === 5 && !isFullAccessUnlocked) {
+        openPaywall('checkpoint1');
+        return;
+      }
+
+      if (currentIndex < lessons.length - 1) {
+        loadLesson(currentIndex + 1);
+      }
+    });
+
+    // Sync student session on load
+    if (window.SumiyatiAuth) {
+      const activeStu = SumiyatiAuth.getCurrentStudent();
+      if (activeStu) {
+        if (activeStu.accessStatus === 'paid') {
+          isFullAccessUnlocked = true;
+        }
+        if (Array.isArray(activeStu.completedClasses)) {
+          completedSet.clear();
+          activeStu.completedClasses.forEach(id => completedSet.add(id));
+        }
+      }
+    }
+
+    // Initialize
+    setGlobalLang(currentLang);
+    renderStudentAccountHeader();
+    loadLesson(0);
+  </script>
+
+</body>
+</html>

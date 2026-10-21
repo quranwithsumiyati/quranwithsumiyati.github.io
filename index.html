@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title id="pageTitle">Sumiyati · Lifelong Student of the Qur'an</title>
+  <meta name="description" content="Official portfolio of Sumiyati — Hafizhah 30 Juz, Quran Teacher & Scholar in Tafsir, Tajweed, and Tahfiz. Founder of Teman Murojaah." />
+  <meta name="keywords" content="Sumiyati, Quran teacher, Hafizhah, Tafsir, Tajweed, Tahfiz, Teman Murojaah, Quranic Arabic, IIUI" />
+  <meta name="author" content="Sumiyati" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sumiyati · Lifelong Student of the Qur'an" />
+  <meta property="og:description" content="Lifelong student and teacher of the Qur'an. Hafizhah 30 Juz, Master's in Tafsir & Quranic Sciences, and Founder of Teman Murojaah." />
+  <meta property="og:image" content="sumaiyati.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sumiyati · Lifelong Student of the Qur'an" />
+  <meta name="twitter:description" content="Lifelong student and teacher of the Qur'an. Hafizhah 30 Juz, Master's in Tafsir & Quranic Sciences, and Founder of Teman Murojaah." />
+  <meta name="twitter:image" content="sumaiyati.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231e4a35'/%3E%3Cpath d='M8 10c3-1 6-1 8 1 2-2 5-2 8-1v13c-3-1-6-1-8 1-2-2-5-2-8-1V10z' fill='none' stroke='%23b8860b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='16' y1='11' x2='16' y2='24' stroke='%23dfa82c' stroke-width='1.5'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">
+      <span>Sumiyati</span>
+    </a>
+    <div class="header-actions">
+      <nav>
+        <a href="#story" class="active" data-section="story" data-i18n="nav_story">Story</a>
+        <a href="#teaching" data-section="teaching" data-i18n="nav_teaching">Teaching</a>
+        <a href="#works" data-section="works" data-i18n="nav_works">Works</a>
+        <a href="#teman-murojaah" data-section="teman-murojaah" data-i18n="nav_murojaah">Teman Murojaah</a>
+        <a href="#contact" data-section="contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <!-- Global Language Switcher -->
+      <div class="lang-switcher" role="group" aria-label="Language Switcher">
+        <button type="button" class="lang-btn" data-lang="en" onclick="setGlobalLang('en')">EN</button>
+        <span class="lang-sep">|</span>
+        <button type="button" class="lang-btn" data-lang="id" onclick="setGlobalLang('id')">ID</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="inner hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="hero_eyebrow">Lifelong Student of the Qur'an</p>
+          <h1 class="display">Sumiyati</h1>
+
+          <!-- Mobile Hero Photo -->
+          <div class="hero-photo-card hero-photo-mobile">
+            <div class="photo-arch-outer">
+              <picture>
+                <source srcset="sumaiyati.webp" type="image/webp" />
+                <img src="sumaiyati.jpg" alt="Sumiyati · Lifelong Student of the Qur'an" class="hero-photo" width="900" height="1200" fetchpriority="high" decoding="async" />
+              </picture>
+              <div class="photo-badge">
+                <span class="badge-title">Sumiyati</span>
+                <span class="badge-sub">Islamabad · Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="hero-bio" data-i18n="hero_bio">
+            Lifelong student and teacher of the Qur'an. I memorized 30 juz, studied Tafsir and Quranic Sciences at the International Islamic University Islamabad, and have spent nearly two decades teaching tajweed, tahfiz, and Arabic — in Indonesia, Jordan, and Pakistan.
+          </p>
+          <div class="hero-credentials">
+            <span class="cred-pill" data-i18n="hero_cred_1">📖 Hafizhah 30 Juz</span>
+            <span class="cred-pill" data-i18n="hero_cred_2">📜 Sanad Hafs &amp; Jazariyyah</span>
+            <span class="cred-pill" data-i18n="hero_cred_3">🎓 Master's Mumtaz (IIUI)</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#teaching" class="btn btn-primary" data-i18n="hero_btn_study">Study With Me →</a>
+            <a href="#contact" class="btn btn-secondary" data-i18n="hero_btn_contact">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <!-- Desktop Hero Photo -->
+          <div class="hero-photo-card hero-photo-desktop">
+            <div class="photo-arch-outer">
+              <picture>
+                <source srcset="sumaiyati.webp" type="image/webp" />
+                <img src="sumaiyati.jpg" alt="Sumiyati · Lifelong Student of the Qur'an" class="hero-photo" width="900" height="1200" fetchpriority="high" decoding="async" />
+              </picture>
+              <div class="photo-badge">
+                <span class="badge-title">Sumiyati</span>
+                <span class="badge-sub">Islamabad · Indonesia</span>
+              </div>
+            </div>
+          </div>
+          <div class="current-card">
+            <p class="card-label" data-i18n="currently_label">Currently</p>
+            <p data-i18n="currently_text">Back in Indonesia — teaching, continuing to learn, and running Teman Murojaah</p>
+            <small data-i18n="currently_small">Batch 17 · ~1,500 participants served across Indonesia and abroad</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-inner"></div></div>
+
+  <!-- Story -->
+  <section id="story">
+    <div class="wrap">
+      <p class="section-label" data-i18n="story_label">Story</p>
+      <div class="inner">
+        <div>
+          <h2 class="section-title" data-i18n-html="story_title">A journey<br><em>still continuing</em></h2>
+          <div class="prose">
+            <p data-i18n="story_p1">
+              I grew up reciting the Qur'an with my father — a santri and Quran teacher in our village in Lebak. By 6th grade I had memorized Juz 30 and competed in the regency MTQ. By my early twenties I had completed the full 30 juz at LTIQ Assyifa Alkhoeriyyah, finishing a two-year program in one and a half.
+            </p>
+            <p data-i18n="story_p2">
+              Teaching followed naturally — at pesantrens, university institutions, through private tutoring, and online. A 2020 trip to Jordan brought me to Shaykh Idris for re-recitation and a sanad for Matan Jazariyyah. The desire to understand what I had been memorizing led me to Arabic, then to Tafsir — and eventually to Pakistan, where I completed my Master's degree in January 2026.
+            </p>
+            <p data-i18n="story_p3">
+              The further I travel on this path, the more I realize: being a Qur'an teacher means remaining a lifelong student.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-year">2003</span>
+            <span class="tl-text" data-i18n="tl_2003">Khatam Quran, age 10 · began Juz 30 memorization at pesantren</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2005</span>
+            <span class="tl-text" data-i18n="tl_2005">Completed tahfiz 30 juz in 1.5 years at LTIQ Assyifa Alkhoeriyyah, Subang</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2009</span>
+            <span class="tl-text" data-i18n="tl_2009">B.A. Islamic Economics · STEI SEBI Depok · tahfiz scholarship recipient</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2019</span>
+            <span class="tl-text" data-i18n="tl_2019">Arabic studies at LIPIA Jakarta; began nahwu, sharaf, and i'rab</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2020</span>
+            <span class="tl-text" data-i18n="tl_2020">Teaching in Jordan · sanad for Matan Jazariyyah · founded Teman Murojaah</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2021</span>
+            <span class="tl-text" data-i18n="tl_2021">Published Tahsin Smart &amp; Tajwid Smart · Ma'had Imarat diploma</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2023</span>
+            <span class="tl-text" data-i18n="tl_2023">Enrolled in Master's in Tafsir &amp; Quranic Sciences · IIUI Islamabad, Pakistan</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2025</span>
+            <span class="tl-text" data-i18n="tl_2025">Received sanad Hafs 'an 'Asim · completed Umrah</span>
+          </div>
+          <div class="tl-item current">
+            <span class="tl-year">2026</span>
+            <span class="tl-text" data-i18n="tl_2026">Graduated mumtaz (excellence) · returned to Indonesia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-inner"></div></div>
+
+  <!-- Teaching -->
+  <section id="teaching">
+    <div class="wrap">
+      <p class="section-label" data-i18n="teach_label">Teaching</p>
+      <h2 class="section-title" data-i18n="teach_title">What I teach</h2>
+      <div class="grid">
+        <a href="tahsin-tajweed.html" class="teach-card" style="display:block; text-decoration:none; color:inherit; cursor:pointer;" aria-label="Pre-Tajweed and Tahsin Course Curriculum">
+          <p class="teach-num">01</p>
+          <h3 data-i18n="teach_c1_title">Pre-Tajweed &amp; Tahsin</h3>
+          <p data-i18n="teach_c1_desc">One-on-one and structured video guidance. Explore the 18-class Pre-Tajweed curriculum (Classes 01–06 free) with practical drills, 2 checkpoints, and talaqqi feedback →</p>
+        </a>
+        <div class="teach-card">
+          <p class="teach-num">02</p>
+          <h3 data-i18n="teach_c2_title">Tahfiz Guidance</h3>
+          <p data-i18n="teach_c2_desc">Structured memorization programs with daily accountability. Designed to build sustainable habits for completing and preserving the 30 juz.</p>
+        </div>
+        <div class="teach-card">
+          <p class="teach-num">03</p>
+          <h3 data-i18n="teach_c3_title">Quranic Arabic</h3>
+          <p data-i18n="teach_c3_desc">Understanding Quranic vocabulary and grammar so students can engage directly with the meaning of verses they already recite.</p>
+        </div>
+        <div class="teach-card">
+          <p class="teach-num">04</p>
+          <h3 data-i18n="teach_c4_title">Tafsir Study Circles</h3>
+          <p data-i18n="teach_c4_desc">Weekly halaqahs exploring the meaning and context of selected surahs, drawing on classical tafsir scholarship.</p>
+        </div>
+      </div>
+      <p class="note">
+        <span data-i18n="teach_note_text">Classes available online (Zoom/WhatsApp) and in person in Indonesia.</span>
+        <a href="#contact" data-i18n="teach_note_link">Reach out to discuss →</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-inner"></div></div>
+
+  <!-- Works -->
+  <section id="works">
+    <div class="wrap">
+      <p class="section-label" data-i18n="works_label">Works</p>
+      <h2 class="section-title" data-i18n="works_title">Publications</h2>
+      <div class="works-list">
+
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type" data-i18n="work_type_book">Book</span>
+            <span class="work-year">2021</span>
+          </div>
+          <div class="work-content">
+            <p class="work-title">Tahsin Smart</p>
+            <p class="work-desc" data-i18n="work_tahsin_desc">A practical guide for correcting Quranic recitation, designed for independent learners and classroom use.</p>
+          </div>
+        </div>
+
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type" data-i18n="work_type_book">Book</span>
+            <span class="work-year">2021</span>
+          </div>
+          <div class="work-content">
+            <p class="work-title">Tajwid Smart</p>
+            <p class="work-desc" data-i18n="work_tajwid_desc">A structured introduction to tajweed rules, co-authored for the Quran Course program curriculum.</p>
+          </div>
+        </div>
+
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type" data-i18n="work_type_thesis">Thesis</span>
+            <span class="work-year">2026</span>
+          </div>
+          <div class="work-content">
+            <p class="work-title rtl">الجوانب التربوية في سورة يوسف</p>
+            <p class="work-subtitle">من خلال تفسير محاسن التأويل للإمام القاسمي وتفسير في ظلال القرآن لسيد قطب</p>
+            <p class="work-desc" data-i18n="work_thesis_desc">Master's thesis analyzing educational dimensions in Surah Yusuf through the tafsir of Imam Al-Qasimi and Sayyid Qutb. Passed with distinction (mumtaz), IIUI 2026.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-inner"></div></div>
+
+  <!-- Teman Murojaah -->
+  <section id="teman-murojaah">
+    <div class="wrap">
+      <p class="section-label" data-i18n="tm_label">Teman Murojaah</p>
+      <div class="inner">
+        <div>
+          <h2 class="section-title" data-i18n-html="tm_title">Finding a partner<br><em>to keep memorizing</em></h2>
+          <div class="prose">
+            <p data-i18n="tm_p1">
+              Teman Murojaah was born from a personal struggle: finding it hard to maintain memorization alone. In July 2020, I launched a simple program — daily, weekly, and monthly murojaah with paired partners and accountability systems.
+            </p>
+            <p data-i18n="tm_p2">
+              The program is free. Participants contribute a voluntary infak (from IDR 50,000) to fund guest speakers, Palestinian aid, and facilitator appreciation. The first batch had 30 participants.
+            </p>
+            <p data-i18n-html="tm_p3">
+              We are now in Batch 17, having served approximately <strong>1,500 participants</strong> across Indonesia and abroad — including a branch in Pakistan that continues to operate independently.
+            </p>
+          </div>
+
+          <p class="faq-label" data-i18n="faq_label">How it works</p>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="faq_q1">Who can join?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq_a1">
+              Anyone who has memorized at least 1 juz of the Quran and is committed to maintaining or adding to their memorization.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="faq_q2">What does daily participation look like?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq_a2">
+              Each participant is paired with a murojaah partner. You submit your daily recitation and check in with your partner. Weekly group sessions and monthly evaluations provide structure and motivation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="faq_q3">How do I register?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq_a3">
+              New batches open periodically. Join the waiting list or follow announcements via WhatsApp. Contact me directly for the current batch status.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="stat-cards">
+          <div class="stat-card">
+            <p class="stat-num">17</p>
+            <p class="stat-lbl" data-i18n="stat_1_lbl">Batches completed</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-num">~1,500</p>
+            <p class="stat-lbl" data-i18n="stat_2_lbl">Participants served</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-num">3+</p>
+            <p class="stat-lbl" data-i18n="stat_3_lbl">Countries active</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-inner"></div></div>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <p class="section-label" data-i18n="contact_label">Contact</p>
+      <div class="inner">
+        <div>
+          <h2 class="section-title" data-i18n="contact_title">Get in touch</h2>
+          <p class="bio" data-i18n="contact_bio">
+            Whether you want to join a class, learn more about Teman Murojaah, or discuss collaboration — I'd love to hear from you. Please mention what you're interested in when you write.
+          </p>
+          <div class="contact-links">
+            <div class="contact-row">
+              <span class="contact-key">WhatsApp</span>
+              <a class="contact-val" href="https://wa.me/6281234567890?text=Assalamu%27alaikum%20Ustadzah%20Sumiyati" target="_blank" rel="noopener" aria-label="Message Sumiyati via WhatsApp" data-i18n="contact_wa_link">Message via WhatsApp →</a>
+            </div>
+            <div class="contact-row">
+              <span class="contact-key">Instagram</span>
+              <a class="contact-val" href="https://instagram.com/sumiyati.quran" target="_blank" rel="noopener">@sumiyati.quran</a>
+            </div>
+            <div class="contact-row">
+              <span class="contact-key">Email</span>
+              <a class="contact-val" href="mailto:sumiyati.iiu@gmail.com">sumiyati.iiu@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="quote-block">
+          <div class="quote-mark">“</div>
+          <p class="quote-text" data-i18n="quote_text">
+            Memorizing the Qur'an does not depend on your background, but on who is willing to keep trying, praying, working hard, and above all, being patient.
+          </p>
+          <p class="quote-attr">— Sumiyati</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tab-spacer"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p class="name" data-i18n="footer_name">Sumiyati · Master's in Tafsir &amp; Quranic Sciences, IIUI 2026</p>
+      <p class="meta"><span data-i18n="footer_meta">Indonesia · Quran teacher, hafizhah, founder of Teman Murojaah</span> &nbsp;·&nbsp; <a href="admin.html" style="color:var(--green);font-weight:600;text-decoration:underline;">🎓 Instructor Portal</a></p>
+    </div>
+  </footer>
+
+  <!-- Mobile bottom tab bar -->
+  <div class="tab-bar">
+    <nav aria-label="Mobile Navigation">
+      <a class="tab-link active" href="#story" data-section="story">
+        <span class="icon" aria-hidden="true">📖</span>
+        <span class="lbl" data-i18n="tab_story">Story</span>
+      </a>
+      <a class="tab-link" href="#teaching" data-section="teaching">
+        <span class="icon" aria-hidden="true">🕌</span>
+        <span class="lbl" data-i18n="tab_teaching">Teaching</span>
+      </a>
+      <a class="tab-link" href="#works" data-section="works">
+        <span class="icon" aria-hidden="true">📚</span>
+        <span class="lbl" data-i18n="tab_works">Works</span>
+      </a>
+      <a class="tab-link" href="#teman-murojaah" data-section="teman-murojaah">
+        <span class="icon" aria-hidden="true">🤝</span>
+        <span class="lbl" data-i18n="tab_murojaah">Murojaah</span>
+      </a>
+      <a class="tab-link" href="#contact" data-section="contact">
+        <span class="icon" aria-hidden="true">✉️</span>
+        <span class="lbl" data-i18n="tab_contact">Contact</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    // Bilingual Dictionary
+    const translations = {
+      en: {
+        page_title: "Sumiyati · Lifelong Student of the Qur'an",
+        nav_story: "Story",
+        nav_teaching: "Teaching",
+        nav_works: "Works",
+        nav_murojaah: "Teman Murojaah",
+        nav_contact: "Contact",
+        tab_story: "Story",
+        tab_teaching: "Teaching",
+        tab_works: "Works",
+        tab_murojaah: "Murojaah",
+        tab_contact: "Contact",
+        hero_eyebrow: "Lifelong Student of the Qur'an",
+        hero_bio: "Lifelong student and teacher of the Qur'an. I memorized 30 juz, studied Tafsir and Quranic Sciences at the International Islamic University Islamabad, and have spent nearly two decades teaching tajweed, tahfiz, and Arabic — in Indonesia, Jordan, and Pakistan.",
+        hero_cred_1: "📖 Hafizhah 30 Juz",
+        hero_cred_2: "📜 Sanad Hafs & Jazariyyah",
+        hero_cred_3: "🎓 Master's Mumtaz (IIUI)",
+        hero_btn_study: "Study With Me →",
+        hero_btn_contact: "Get in Touch",
+        currently_label: "Currently",
+        currently_text: "Back in Indonesia — teaching, continuing to learn, and running Teman Murojaah",
+        currently_small: "Batch 17 · ~1,500 participants served across Indonesia and abroad",
+        story_label: "Story",
+        story_title: "A journey<br><em>still continuing</em>",
+        story_p1: "I grew up reciting the Qur'an with my father — a santri and Quran teacher in our village in Lebak. By 6th grade I had memorized Juz 30 and competed in the regency MTQ. By my early twenties I had completed the full 30 juz at LTIQ Assyifa Alkhoeriyyah, finishing a two-year program in one and a half.",
+        story_p2: "Teaching followed naturally — at pesantrens, university institutions, through private tutoring, and online. A 2020 trip to Jordan brought me to Shaykh Idris for re-recitation and a sanad for Matan Jazariyyah. The desire to understand what I had been memorizing led me to Arabic, then to Tafsir — and eventually to Pakistan, where I completed my Master's degree in January 2026.",
+        story_p3: "The further I travel on this path, the more I realize: being a Qur'an teacher means remaining a lifelong student.",
+        tl_2003: "Khatam Quran, age 10 · began Juz 30 memorization at pesantren",
+        tl_2005: "Completed tahfiz 30 juz in 1.5 years at LTIQ Assyifa Alkhoeriyyah, Subang",
+        tl_2009: "B.A. Islamic Economics · STEI SEBI Depok · tahfiz scholarship recipient",
+        tl_2019: "Arabic studies at LIPIA Jakarta; began nahwu, sharaf, and i'rab",
+        tl_2020: "Teaching in Jordan · sanad for Matan Jazariyyah · founded Teman Murojaah",
+        tl_2021: "Published Tahsin Smart & Tajwid Smart · Ma'had Imarat diploma",
+        tl_2023: "Enrolled in Master's in Tafsir & Quranic Sciences · IIUI Islamabad, Pakistan",
+        tl_2025: "Received sanad Hafs 'an 'Asim · completed Umrah",
+        tl_2026: "Graduated mumtaz (excellence) · returned to Indonesia",
+        teach_label: "Teaching",
+        teach_title: "What I teach",
+        teach_c1_title: "Pre-Tajweed & Tahsin",
+        teach_c1_desc: "One-on-one and structured video guidance. Explore the 18-class Pre-Tajweed curriculum (Classes 01–06 free) with practical drills, 2 checkpoints, and talaqqi feedback →",
+        teach_c2_title: "Tahfiz Guidance",
+        teach_c2_desc: "Structured memorization programs with daily accountability. Designed to build sustainable habits for completing and preserving the 30 juz.",
+        teach_c3_title: "Quranic Arabic",
+        teach_c3_desc: "Understanding Quranic vocabulary and grammar so students can engage directly with the meaning of verses they already recite.",
+        teach_c4_title: "Tafsir Study Circles",
+        teach_c4_desc: "Weekly halaqahs exploring the meaning and context of selected surahs, drawing on classical tafsir scholarship.",
+        teach_note_text: "Classes available online (Zoom/WhatsApp) and in person in Indonesia.",
+        teach_note_link: "Reach out to discuss →",
+        works_label: "Works",
+        works_title: "Publications",
+        work_type_book: "Book",
+        work_type_thesis: "Thesis",
+        work_tahsin_desc: "A practical guide for correcting Quranic recitation, designed for independent learners and classroom use.",
+        work_tajwid_desc: "A structured introduction to tajweed rules, co-authored for the Quran Course program curriculum.",
+        work_thesis_desc: "Master's thesis analyzing educational dimensions in Surah Yusuf through the tafsir of Imam Al-Qasimi and Sayyid Qutb. Passed with distinction (mumtaz), IIUI 2026.",
+        tm_label: "Teman Murojaah",
+        tm_title: "Finding a partner<br><em>to keep memorizing</em>",
+        tm_p1: "Teman Murojaah was born from a personal struggle: finding it hard to maintain memorization alone. In July 2020, I launched a simple program — daily, weekly, and monthly murojaah with paired partners and accountability systems.",
+        tm_p2: "The program is free. Participants contribute a voluntary infak (from IDR 50,000) to fund guest speakers, Palestinian aid, and facilitator appreciation. The first batch had 30 participants.",
+        tm_p3: "We are now in Batch 17, having served approximately <strong>1,500 participants</strong> across Indonesia and abroad — including a branch in Pakistan that continues to operate independently.",
+        faq_label: "How it works",
+        faq_q1: "Who can join?",
+        faq_a1: "Anyone who has memorized at least 1 juz of the Quran and is committed to maintaining or adding to their memorization.",
+        faq_q2: "What does daily participation look like?",
+        faq_a2: "Each participant is paired with a murojaah partner. You submit your daily recitation and check in with your partner. Weekly group sessions and monthly evaluations provide structure and motivation.",
+        faq_q3: "How do I register?",
+        faq_a3: "New batches open periodically. Join the waiting list or follow announcements via WhatsApp. Contact me directly for the current batch status.",
+        stat_1_lbl: "Batches completed",
+        stat_2_lbl: "Participants served",
+        stat_3_lbl: "Countries active",
+        contact_label: "Contact",
+        contact_title: "Get in touch",
+        contact_bio: "Whether you want to join a class, learn more about Teman Murojaah, or discuss collaboration — I'd love to hear from you. Please mention what you're interested in when you write.",
+        contact_wa_link: "Message via WhatsApp →",
+        quote_text: "Memorizing the Qur'an does not depend on your background, but on who is willing to keep trying, praying, working hard, and above all, being patient.",
+        footer_name: "Sumiyati · Master's in Tafsir & Quranic Sciences, IIUI 2026",
+        footer_meta: "Indonesia · Quran teacher, hafizhah, founder of Teman Murojaah"
+      },
+      id: {
+        page_title: "Sumiyati · Murid Sepanjang Hayat Al-Qur'an",
+        nav_story: "Kisah",
+        nav_teaching: "Pengajaran",
+        nav_works: "Karya",
+        nav_murojaah: "Teman Murojaah",
+        nav_contact: "Kontak",
+        tab_story: "Kisah",
+        tab_teaching: "Belajar",
+        tab_works: "Karya",
+        tab_murojaah: "Murojaah",
+        tab_contact: "Kontak",
+        hero_eyebrow: "Murid Sepanjang Hayat Al-Qur'an",
+        hero_bio: "Murid dan pengajar Al-Qur’an sepanjang hayat. Saya menghafal 30 juz, mendalami Tafsir dan Ulumul Qur’an di International Islamic University Islamabad, serta mendedikasikan hampir dua dekade mengajar tajwid, tahfiz, dan bahasa Arab — di Indonesia, Yordania, dan Pakistan.",
+        hero_cred_1: "📖 Hafizhah 30 Juz",
+        hero_cred_2: "📜 Sanad Hafs & Jazariyyah",
+        hero_cred_3: "🎓 Magister Mumtaz (IIUI)",
+        hero_btn_study: "Belajar Bersama Saya →",
+        hero_btn_contact: "Hubungi Saya",
+        currently_label: "Saat Ini",
+        currently_text: "Kembali di Indonesia — mengajar, terus belajar, dan mengelola Teman Murojaah",
+        currently_small: "Angkatan 17 · ~1.500 peserta terbina di Indonesia dan mancanegara",
+        story_label: "Kisah",
+        story_title: "Perjalanan yang<br><em>terus bersambung</em>",
+        story_p1: "Saya tumbuh besar mengaji bersama ayah — seorang santri dan guru Al-Qur'an di desa kami di Lebak. Sejak kelas 6 SD saya telah menyelesaikan hafalan Juz 30 dan mengikuti MTQ tingkat kabupaten. Di usia awal dua puluhan, saya menuntaskan hafalan 30 juz di LTIQ Assyifa Alkhoeriyyah, menyelesaikan program dua tahun dalam kurun satu setengah tahun.",
+        story_p2: "Amanah mengajar mengalir secara alami — di pesantren, lembaga perguruan tinggi, bimbingan privat, hingga kelas daring. Perjalanan ke Yordania pada tahun 2020 mempertemukan saya dengan Syaikh Idris untuk talaqqi ulang serta memperoleh sanad Matan Al-Jazariyyah. Hasrat mendalami makna hafalan menuntun saya mempelajari bahasa Arab, Tafsir — hingga mengantarkan saya ke Pakistan, menyelesaikan program Magister pada Januari 2026.",
+        story_p3: "Semakin jauh menapaki jalan ini, semakin saya menyadari: menjadi pengajar Al-Qur’an berarti siap menjadi pembelajar sepanjang hayat.",
+        tl_2003: "Khatam Al-Qur'an usia 10 tahun · mulai menghafal Juz 30 di pesantren",
+        tl_2005: "Menyelesaikan tahfiz 30 juz dalam 1,5 tahun di LTIQ Assyifa Alkhoeriyyah, Subang",
+        tl_2009: "S.E. Ekonomi Islam · STEI SEBI Depok · penerima beasiswa penuh tahfiz",
+        tl_2019: "Pendalaman bahasa Arab di LIPIA Jakarta; studi nahwu, sharaf, dan i'rab",
+        tl_2020: "Mengajar di Yordania · sanad Matan Al-Jazariyyah · merintis Teman Murojaah",
+        tl_2021: "Menerbitkan buku Tahsin Smart & Tajwid Smart · diploma Ma'had Imarat",
+        tl_2023: "Melanjutkan studi Magister Tafsir & Ulumul Qur'an · IIUI Islamabad, Pakistan",
+        tl_2025: "Menerima sanad qira'ah Hafs 'an 'Ashim · menunaikan ibadah Umrah",
+        tl_2026: "Lulus predikat mumtaz (cumlaude) · kembali ke tanah air Indonesia",
+        teach_label: "Pengajaran",
+        teach_title: "Program Pembelajaran",
+        teach_c1_title: "Kelas Pra-Tajwid & Tahsin",
+        teach_c1_desc: "Bimbingan talaqqi privat dan video terstruktur. Pelajari 18 kelas Pra-Tajwid (Kelas 01–06 gratis) dengan latihan praktik, 2 checkpoint evaluasi, dan koreksi talaqqi →",
+        teach_c2_title: "Bimbingan Tahfiz",
+        teach_c2_desc: "Program hafalan terstruktur dengan pendampingan harian. Dirancang untuk membangun kebiasaan istiqomah dalam menuntaskan dan memelihara 30 juz.",
+        teach_c3_title: "Bahasa Arab Al-Qur'an",
+        teach_c3_desc: "Memahami kosakata dan kaidah bahasa Al-Qur'an agar santri dapat berinteraksi langsung dengan makna ayat-ayat yang dibaca.",
+        teach_c4_title: "Halaqah & Kajian Tafsir",
+        teach_c4_desc: "Kajian rutin mengulas makna dan konteks surah-surah pilihan dengan merujuk pada kitab-kitab tafsir mu'tabar.",
+        teach_note_text: "Kelas tersedia secara daring (Zoom/WhatsApp) dan tatap muka di Indonesia.",
+        teach_note_link: "Hubungi untuk konsultasi →",
+        works_label: "Karya",
+        works_title: "Publikasi & Karya Ilmiah",
+        work_type_book: "Buku",
+        work_type_thesis: "Tesis",
+        work_tahsin_desc: "Panduan praktis perbaikan bacaan Al-Qur'an, dirancang untuk pembelajar mandiri maupun penggunaan kelas.",
+        work_tajwid_desc: "Pengenalan kaidah ilmu tajwid secara terstruktur, disusun bersama untuk kurikulum program Quran Course.",
+        work_thesis_desc: "Tesis Magister yang meneliti dimensi edukatif dalam Surah Yusuf melalui Tafsir Mahasin at-Ta'wil karya Imam Al-Qasimi dan Fi Zhilalil Qur'an karya Sayyid Qutb. Lulus predikat mumtaz (summa cumlaude), IIUI 2026.",
+        tm_label: "Teman Murojaah",
+        tm_title: "Menemukan sahabat<br><em>untuk menjaga hafalan</em>",
+        tm_p1: "Teman Murojaah lahir dari keresahan pribadi: betapa menantangnya menjaga hafalan sendirian. Pada Juli 2020, saya menginisiasi program sederhana — murojaah harian, pekanan, dan bulanan dengan pasangan murojaah berpasangan serta sistem mutaba'ah teratur.",
+        tm_p2: "Program ini bersifat terbuka dan nirlaba. Peserta berpartisipasi melalui infak sukarela (mulai Rp 50.000) untuk pembiayaan narasumber tamu, donasi kemanusiaan Palestina, serta apresiasi fasilitator. Angkatan pertama dimulai dengan 30 peserta.",
+        tm_p3: "Kini kami telah memasuki Angkatan 17, dengan membina sekitar <strong>1.500 peserta</strong> dari seluruh penjuru Indonesia dan luar negeri — termasuk cabang di Pakistan yang terus berjalan mandiri.",
+        faq_label: "Ketentuan Program",
+        faq_q1: "Siapa saja yang dapat bergabung?",
+        faq_a1: "Siapa saja yang telah memiliki hafalan minimal 1 juz Al-Qur'an dan memiliki komitmen kuat untuk memelihara atau menambah hafalannya.",
+        faq_q2: "Bagaimana teknis kegiatan harian?",
+        faq_a2: "Setiap peserta dipasangkan dengan satu partner murojaah. Peserta menyetorkan bacaan harian dan saling menyimak. Sesi halaqah kelompok pekanan dan evaluasi bulanan memberikan wadah motivasi yang konsisten.",
+        faq_q3: "Bagaimana cara mendaftar?",
+        faq_a3: "Pendaftaran angkatan baru dibuka secara berkala. Silakan bergabung dalam daftar tunggu atau pantau pengumuman melalui WhatsApp. Hubungi saya langsung untuk jadwal angkatan terdekat.",
+        stat_1_lbl: "Angkatan selesai",
+        stat_2_lbl: "Peserta terbina",
+        stat_3_lbl: "Negara aktif",
+        contact_label: "Kontak",
+        contact_title: "Hubungi Saya",
+        contact_bio: "Baik untuk bergabung dalam kelas tahsin, bimbingan tahfiz, informasi Teman Murojaah, maupun silaturahmi kerja sama — silakan mengirimkan pesan. Sebutkan program yang Anda minati saat menghubungi.",
+        contact_wa_link: "Kirim pesan via WhatsApp →",
+        quote_text: "Menghafal Al-Qur’an bukan tentang dari mana latar belakangmu, melainkan siapa yang bersedia terus berikhtiar, berdoa, bersungguh-sungguh, dan senantiasa bersabar.",
+        footer_name: "Sumiyati · Magister Tafsir & Ulumul Qur'an, IIUI 2026",
+        footer_meta: "Indonesia · Pengajar Al-Qur'an, hafizhah, perintis Teman Murojaah"
+      }
+    };
+
+    let currentLang = localStorage.getItem('sumiyati_lang') || 'en';
+
+    function setGlobalLang(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('sumiyati_lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update switcher buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Update text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update HTML nodes
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Page title
+      if (translations[lang].page_title) {
+        document.title = translations[lang].page_title;
+      }
+    }
+
+    // Accessible FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-q')?.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Active nav highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const allNavLinks = document.querySelectorAll('[data-section]');
+
+    function setActive(id) {
+      allNavLinks.forEach(a => {
+        a.classList.toggle('active', a.dataset.section === id);
+      });
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-30% 0px -50% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Initialize Language
+    setGlobalLang(currentLang);
+  </script>
+
+</body>
+</html>

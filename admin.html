@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title id="adminPageTitle">Instructor Dashboard · Pre-Tajweed Class · Sumiyati</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231e4a35'/%3E%3Cpath d='M8 10c3-1 6-1 8 1 2-2 5-2 8-1v13c-3-1-6-1-8 1-2-2-5-2-8-1V10z' fill='none' stroke='%23b8860b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='16' y1='11' x2='16' y2='24' stroke='%23dfa82c' stroke-width='1.5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="course-page">
+
+  <!-- Top Navigation -->
+  <header class="course-nav">
+    <div class="wrap course-nav-inner">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <a href="tahsin-tajweed.html" class="back-link">
+          <span class="back-arrow" aria-hidden="true">←</span>
+          <span id="navBackCourse">Back to Course Page</span>
+        </a>
+        <span style="color:var(--border);">|</span>
+        <a href="index.html" class="back-link" id="navBackHome">Portfolio</a>
+      </div>
+
+      <div class="course-header-title">
+        <span class="course-tag" id="adminTag">Instructor Portal</span>
+        <span class="course-brand" id="adminBrand">Student &amp; Enrollment Manager</span>
+      </div>
+
+      <div class="header-actions">
+        <div class="lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn" data-lang="en" onclick="setGlobalLang('en')">EN</button>
+          <span class="lang-sep">|</span>
+          <button type="button" class="lang-btn" data-lang="id" onclick="setGlobalLang('id')">ID</button>
+        </div>
+        <button type="button" id="adminLogoutBtn" class="btn-outline-sm" style="display:none;" onclick="handleAdminLogout()">
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap course-container">
+
+    <!-- 1. INSTRUCTOR LOGIN GATE -->
+    <section id="adminLoginGate" class="admin-login-wrap" style="display:none;">
+      <div class="admin-login-card">
+        <span class="paywall-pill" id="loginBadge">Instructor Access</span>
+        <h2 style="font-family:var(--ff-d);color:var(--green);font-weight:400;font-size:1.65rem;margin:.6rem 0 .4rem;" id="loginTitle">
+          Ustadzah Sumiyati Portal
+        </h2>
+        <p style="font-size:.86rem;color:var(--sub);margin-bottom:1.35rem;" id="loginSub">
+          Sign in with your instructor passcode to view enrolled students, see their WhatsApp login PINs, approve payments, and track lesson progress.
+        </p>
+
+        <form onsubmit="handleAdminLogin(event)">
+          <div class="auth-form-group">
+            <label for="adminPinInput" id="loginPinLbl">Instructor Passcode / PIN</label>
+            <input type="password" id="adminPinInput" class="auth-input" placeholder="SUMIYATI2026" required />
+          </div>
+          <div id="adminLoginError" class="passcode-feedback error" style="margin-bottom:.75rem;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="loginSubmitBtn">
+            Open Teacher Dashboard →
+          </button>
+        </form>
+
+        <div style="margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:var(--muted);">
+          <span id="demoPinHint">Default PIN: <strong>SUMIYATI2026</strong></span>
+          <button type="button" onclick="fillDemoPin()" style="background:none;border:none;color:var(--green);font-weight:600;text-decoration:underline;cursor:pointer;font-size:.76rem;" id="fillPinBtn">
+            Auto-fill PIN
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MAIN TEACHER DASHBOARD -->
+    <section id="adminDashboardContent" style="display:none;">
+
+      <!-- Header Banner -->
+      <div class="course-banner" style="margin-bottom:1.5rem;padding-bottom:1.5rem;">
+        <p class="section-label" id="dashEyebrow">WhatsApp Student Roster &amp; Progress Tracking</p>
+        <div class="banner-flex">
+          <div>
+            <h1 class="course-display" style="font-size:clamp(1.85rem, 3.8vw, 2.75rem);margin-bottom:.4rem;" id="dashTitle">
+              Pre-Tajweed Student Dashboard
+            </h1>
+            <p class="course-sub" id="dashSub">
+              Students register with their WhatsApp number &amp; 4-digit PIN. Approve full-course access (Rp 199.000) or send their login PIN via WhatsApp in one click.
+            </p>
+          </div>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;">
+            <button type="button" class="btn btn-primary btn-sm" onclick="openAddStudentModal()" id="addStudentBtn">
+              + Add Student (WhatsApp + PIN)
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="exportStudentsCsv()" id="exportCsvBtn">
+              📥 Export CSV
+            </button>
+            <button type="button" class="btn-outline-sm" onclick="openCloudModal()" id="cloudSyncBtn">
+              ☁️ Cloud Setup (Supabase)
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Summary Metrics Cards -->
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <div class="admin-stat-num" id="statTotalStudents">0</div>
+            <div class="admin-stat-lbl" id="statTotalLbl">Total Enrolled Students</div>
+            <div class="admin-stat-sub" id="statTotalSub">Registered WhatsApp accounts</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-num" id="statPaidStudents">0</div>
+            <div class="admin-stat-lbl" id="statPaidLbl">Full Access (Paid)</div>
+            <div class="admin-stat-sub" id="statRevenueSub">Est. Rp 0</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-num" id="statPendingStudents" style="color:var(--gold);">0</div>
+            <div class="admin-stat-lbl" id="statPendingLbl">Pending Approval</div>
+            <div class="admin-stat-sub" id="statPendingSub">Awaiting payment check</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-num" id="statAvgProgress">0%</div>
+            <div class="admin-stat-lbl" id="statAvgLbl">Average Course Completion</div>
+            <div class="admin-stat-sub" id="statGradSub">0 Certified Graduates</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="admin-toolbar">
+        <div class="admin-filter-pills" role="tablist">
+          <button type="button" class="admin-filter-pill active" data-filter="all" onclick="setRosterFilter('all')" id="filterAllBtn">All Students</button>
+          <button type="button" class="admin-filter-pill" data-filter="pending" onclick="setRosterFilter('pending')" id="filterPendingBtn">⏳ Pending Approval</button>
+          <button type="button" class="admin-filter-pill" data-filter="paid" onclick="setRosterFilter('paid')" id="filterPaidBtn">✨ Full Access (Paid)</button>
+          <button type="button" class="admin-filter-pill" data-filter="free" onclick="setRosterFilter('free')" id="filterFreeBtn">🌱 Free Tier (Classes 1–6)</button>
+        </div>
+        <input type="search" id="rosterSearchInput" class="admin-search-input" placeholder="Search name, WhatsApp number, PIN, city..." oninput="renderStudentRoster()" />
+      </div>
+
+      <!-- Student Roster Table -->
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th id="thStudent">Student Name &amp; Location</th>
+              <th id="thContact">WhatsApp &amp; 4-Digit PIN</th>
+              <th id="thStatus">Access Status</th>
+              <th id="thProgress">Learning Progress (18 Classes)</th>
+              <th id="thCheckpoints">Checkpoints &amp; Teacher Notes</th>
+              <th id="thActions">Instructor Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rosterTableBody">
+            <!-- Populated dynamically via JS -->
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL 1: ADD / EDIT STUDENT (WHATSAPP + 4-DIGIT PIN) -->
+  <div id="studentEditOverlay" class="paywall-overlay" role="dialog" aria-modal="true">
+    <div class="paywall-modal" style="max-width:500px;">
+      <button type="button" class="paywall-close-btn" onclick="closeStudentModal()" aria-label="Close">✕</button>
+      <span class="paywall-pill" id="modalModeBadge">Student Record</span>
+      <h3 class="paywall-title" style="margin-top:.5rem;" id="modalStudentTitle">Manage Student</h3>
+
+      <form onsubmit="handleSaveStudentModal(event)">
+        <input type="hidden" id="editStudentId" />
+
+        <div class="auth-form-row">
+          <div class="auth-form-group">
+            <label for="editStudentName" id="lblModalName">Full Name *</label>
+            <input type="text" id="editStudentName" class="auth-input" required placeholder="e.g. Siti Rahmawati" />
+          </div>
+          <div class="auth-form-group">
+            <label for="editStudentWa" id="lblModalWa">WhatsApp Number *</label>
+            <input type="tel" id="editStudentWa" class="auth-input" required placeholder="e.g. 08123456789" />
+          </div>
+        </div>
+
+        <div class="auth-form-row">
+          <div class="auth-form-group">
+            <label for="editStudentPin" id="lblModalPin">4-Digit Login PIN *</label>
+            <div style="display:flex;gap:.4rem;">
+              <input type="text" id="editStudentPin" class="auth-input" inputmode="numeric" maxlength="6" required placeholder="1234" style="letter-spacing:.2em;font-weight:700;text-align:center;" />
+              <button type="button" class="btn-outline-sm" onclick="generateAdminModalPin()" title="Generate New 4-Digit PIN">🎲</button>
+            </div>
+          </div>
+          <div class="auth-form-group">
+            <label for="editStudentCity" id="lblModalCity">City / Country</label>
+            <input type="text" id="editStudentCity" class="auth-input" placeholder="Jakarta, Indonesia" />
+          </div>
+        </div>
+
+        <div class="auth-form-group">
+          <label for="editStudentAccess" id="lblModalAccess">Course Enrollment Status</label>
+          <select id="editStudentAccess" class="auth-input">
+            <option value="free">🌱 Free Tier (Classes 01–06 Only)</option>
+            <option value="pending">⏳ Pending Payment Approval (Rp 199.000)</option>
+            <option value="paid">✨ Full Access Unlocked (Classes 01–18 + Checkpoints)</option>
+          </select>
+        </div>
+
+        <div class="auth-form-row">
+          <div class="auth-form-group">
+            <label for="editStudentCp1" id="lblModalCp1">Checkpoint 1 (After Class 06)</label>
+            <select id="editStudentCp1" class="auth-input">
+              <option value="not_started">Not Submitted</option>
+              <option value="submitted">⏳ Voice Note Submitted</option>
+              <option value="passed">✅ Passed Checkpoint 1</option>
+            </select>
+          </div>
+          <div class="auth-form-group">
+            <label for="editStudentCp2" id="lblModalCp2">Checkpoint 2 (After Class 08)</label>
+            <select id="editStudentCp2" class="auth-input">
+              <option value="not_started">Not Submitted</option>
+              <option value="submitted">⏳ Voice Note Submitted</option>
+              <option value="passed">✅ Passed Checkpoint 2</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="auth-form-group">
+          <label for="editStudentNotes" id="lblModalNotes">Ustadzah's Talaqqi Notes &amp; Feedback</label>
+          <textarea id="editStudentNotes" class="auth-input" rows="3" placeholder="Record makhraj progress, harakat notes, or payment receipt details..."></textarea>
+        </div>
+
+        <div style="display:flex;gap:.75rem;margin-top:1.25rem;">
+          <button type="submit" class="btn btn-primary" style="flex:1;" id="btnSaveStudent">Save Student Record</button>
+          <button type="button" class="btn btn-secondary" onclick="closeStudentModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: SUPABASE FREE CLOUD SYNC SETUP -->
+  <div id="cloudSetupOverlay" class="paywall-overlay" role="dialog" aria-modal="true">
+    <div class="paywall-modal" style="max-width:540px;">
+      <button type="button" class="paywall-close-btn" onclick="closeCloudModal()" aria-label="Close">✕</button>
+      <span class="paywall-pill">Optional Cloud Database</span>
+      <h3 class="paywall-title" style="margin-top:.5rem;">Connect Free Supabase Database</h3>
+      <p class="paywall-lead" style="margin-bottom:1rem;">
+        By default, student accounts work immediately on this browser. To sync students across all devices worldwide for $0/month, paste your free <strong>Supabase Project URL</strong> and <strong>Anon Key</strong> below.
+      </p>
+
+      <form onsubmit="handleSaveCloudConfig(event)">
+        <div class="auth-form-group">
+          <label for="supaUrlInput">Supabase Project URL</label>
+          <input type="url" id="supaUrlInput" class="auth-input" placeholder="https://xyzcompany.supabase.co" />
+        </div>
+        <div class="auth-form-group">
+          <label for="supaKeyInput">Supabase Anon Public Key</label>
+          <input type="text" id="supaKeyInput" class="auth-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..." />
+        </div>
+
+        <details style="margin-bottom:1rem;font-size:.78rem;color:var(--sub);background:var(--bg);padding:.75rem;border:1px solid var(--border);border-radius:3px;">
+          <summary style="cursor:pointer;font-weight:600;color:var(--green);">View SQL Table Script (Run once in Supabase SQL Editor)</summary>
+          <pre style="margin-top:.6rem;padding:.6rem;background:#1c1a17;color:#faf7f2;border-radius:2px;overflow-x:auto;font-size:.72rem;">create table if not exists public.students (
+  id text primary key,
+  name text not null,
+  whatsapp text unique,
+  pin text not null,
+  city text,
+  access_status text default 'free',
+  completed_classes jsonb default '[1]'::jsonb,
+  current_lesson int default 1,
+  cp1_status text default 'not_started',
+  cp2_status text default 'not_started',
+  notes text,
+  joined_at timestamptz default now(),
+  last_active timestamptz default now()
+);
+alter table public.students enable row level security;
+create policy "Allow public read/write" on public.students for all using (true) with check (true);</pre>
+        </details>
+
+        <div id="cloudSaveFeedback" class="passcode-feedback"></div>
+
+        <div style="display:flex;gap:.75rem;margin-top:1rem;">
+          <button type="submit" class="btn btn-primary" style="flex:1;">Save Cloud Connection</button>
+          <button type="button" class="btn btn-secondary" onclick="closeCloudModal()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p class="name">Sumiyati · Pre-Tajweed Instructor Portal</p>
+      <p class="meta">Students sign in using their <strong>WhatsApp Number + 4-Digit PIN</strong></p>
+    </div>
+  </footer>
+
+  <script src="course-auth.js"></script>
+  <script>
+    let currentLang = localStorage.getItem('sumiyati_lang') || 'en';
+    let currentFilter = 'all';
+
+    const adminI18n = {
+      en: {
+        nav_back_course: "Back to Course Page",
+        nav_back_home: "Portfolio",
+        admin_tag: "Instructor Portal",
+        admin_brand: "Student & Enrollment Manager",
+        sign_out: "Sign Out",
+        login_badge: "Instructor Access",
+        login_title: "Ustadzah Sumiyati Portal",
+        login_sub: "Sign in with your instructor passcode to view enrolled students, see their WhatsApp login PINs, approve payments, and track lesson progress.",
+        login_pin_lbl: "Instructor Passcode / PIN",
+        login_submit: "Open Teacher Dashboard →",
+        login_err: "Invalid instructor passcode. Default PIN is SUMIYATI2026.",
+        dash_eyebrow: "WhatsApp Student Roster & Progress Tracking",
+        dash_title: "Pre-Tajweed Student Dashboard",
+        dash_sub: "Students register with their WhatsApp number & 4-digit PIN. Approve full-course access (Rp 199.000) or send their login PIN via WhatsApp in one click.",
+        btn_add_student: "+ Add Student (WhatsApp + PIN)",
+        btn_export_csv: "📥 Export CSV",
+        btn_cloud: "☁️ Cloud Setup (Supabase)",
+        stat_total_lbl: "Total Enrolled Students",
+        stat_total_sub: "Registered WhatsApp accounts",
+        stat_paid_lbl: "Full Access (Paid)",
+        stat_pending_lbl: "Pending Approval",
+        stat_pending_sub: "Awaiting payment check",
+        stat_avg_lbl: "Average Course Completion",
+        filter_all: "All Students",
+        filter_pending: "⏳ Pending Approval",
+        filter_paid: "✨ Full Access (Paid)",
+        filter_free: "🌱 Free Tier (Classes 1–6)",
+        search_placeholder: "Search name, WhatsApp number, PIN, city...",
+        th_student: "Student Name & Location",
+        th_contact: "WhatsApp & 4-Digit PIN",
+        th_status: "Access Status",
+        th_progress: "Learning Progress (18 Classes)",
+        th_checkpoints: "Checkpoints & Teacher Notes",
+        th_actions: "Instructor Actions",
+        status_paid: "✨ FULL ACCESS",
+        status_pending: "⏳ PENDING PAYMENT",
+        status_free: "🌱 FREE TIER",
+        btn_approve: "✅ Approve Full Access",
+        btn_send_code: "📲 Send PIN & Access via WA",
+        btn_edit_notes: "✏️ Grade / PIN",
+        cp_not_started: "Not Submitted",
+        cp_submitted: "⏳ Submitted",
+        cp_passed: "✅ Passed",
+        currently_on: "Currently on Class",
+        joined_lbl: "Joined:"
+      },
+      id: {
+        nav_back_course: "Kembali ke Halaman Kelas",
+        nav_back_home: "Portofolio",
+        admin_tag: "Portal Pengajar",
+        admin_brand: "Manajemen Santri & Pendaftaran",
+        sign_out: "Keluar",
+        login_badge: "Akses Ustadzah",
+        login_title: "Portal Pengajar Ustadzah Sumiyati",
+        login_sub: "Masukkan kode akses pengajar untuk melihat daftar santri, nomor WhatsApp & PIN 4 angka mereka, serta menyetujui pendaftaran akses penuh.",
+        login_pin_lbl: "Kode PIN Pengajar",
+        login_submit: "Buka Dashboard Pengajar →",
+        login_err: "Kode PIN tidak sesuai. Gunakan PIN: SUMIYATI2026.",
+        dash_eyebrow: "Daftar Santri WhatsApp & Pemantauan Progres",
+        dash_title: "Dashboard Santri Kelas Pra-Tajwid",
+        dash_sub: "Santri mendaftar menggunakan Nomor WhatsApp & PIN 4 angka. Setujui akses penuh (Rp 199.000) atau kirimkan pengingat PIN mereka via WhatsApp dengan 1 klik.",
+        btn_add_student: "+ Tambah Santri (WA + PIN)",
+        btn_export_csv: "📥 Unduh CSV / Excel",
+        btn_cloud: "☁️ Sinkronisasi Cloud",
+        stat_total_lbl: "Total Santri Terdaftar",
+        stat_total_sub: "Akun WhatsApp terdaftar",
+        stat_paid_lbl: "Akses Penuh (Lunas)",
+        stat_pending_lbl: "Menunggu Konfirmasi",
+        stat_pending_sub: "Menunggu verifikasi transfer",
+        stat_avg_lbl: "Rata-rata Penyelesaian Kelas",
+        filter_all: "Semua Santri",
+        filter_pending: "⏳ Menunggu Konfirmasi",
+        filter_paid: "✨ Akses Penuh (Lunas)",
+        filter_free: "🌱 Kelas Gratis (01–06)",
+        search_placeholder: "Cari nama, nomor WhatsApp, PIN, kota...",
+        th_student: "Nama Santri & Kota",
+        th_contact: "Nomor WhatsApp & PIN 4 Angka",
+        th_status: "Status Akses",
+        th_progress: "Progres Belajar (18 Kelas)",
+        th_checkpoints: "Checkpoint & Catatan Ustadzah",
+        th_actions: "Tindakan Pengajar",
+        status_paid: "✨ AKSES PENUH",
+        status_pending: "⏳ MENUNGGU VERIFIKASI",
+        status_free: "🌱 KELAS GRATIS",
+        btn_approve: "✅ Setujui Akses Penuh",
+        btn_send_code: "📲 Kirim PIN & Akses via WA",
+        btn_edit_notes: "✏️ Nilai / PIN",
+        cp_not_started: "Belum Setor",
+        cp_submitted: "⏳ Menunggu Koreksi",
+        cp_passed: "✅ Lulus",
+        currently_on: "Sedang di Kelas",
+        joined_lbl: "Daftar:"
+      }
+    };
+
+    function setGlobalLang(lang) {
+      if (!adminI18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('sumiyati_lang', lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      const t = adminI18n[lang];
+      document.getElementById('navBackCourse').textContent = t.nav_back_course;
+      document.getElementById('navBackHome').textContent = t.nav_back_home;
+      document.getElementById('adminTag').textContent = t.admin_tag;
+      document.getElementById('adminBrand').textContent = t.admin_brand;
+      document.getElementById('adminLogoutBtn').textContent = t.sign_out;
+
+      document.getElementById('loginBadge').textContent = t.login_badge;
+      document.getElementById('loginTitle').textContent = t.login_title;
+      document.getElementById('loginSub').textContent = t.login_sub;
+      document.getElementById('loginPinLbl').textContent = t.login_pin_lbl;
+      document.getElementById('loginSubmitBtn').textContent = t.login_submit;
+
+      document.getElementById('dashEyebrow').textContent = t.dash_eyebrow;
+      document.getElementById('dashTitle').textContent = t.dash_title;
+      document.getElementById('dashSub').textContent = t.dash_sub;
+      document.getElementById('addStudentBtn').textContent = t.btn_add_student;
+      document.getElementById('exportCsvBtn').textContent = t.btn_export_csv;
+      document.getElementById('cloudSyncBtn').textContent = t.btn_cloud;
+
+      document.getElementById('statTotalLbl').textContent = t.stat_total_lbl;
+      document.getElementById('statTotalSub').textContent = t.stat_total_sub;
+      document.getElementById('statPaidLbl').textContent = t.stat_paid_lbl;
+      document.getElementById('statPendingLbl').textContent = t.stat_pending_lbl;
+      document.getElementById('statPendingSub').textContent = t.stat_pending_sub;
+      document.getElementById('statAvgLbl').textContent = t.stat_avg_lbl;
+
+      document.getElementById('filterAllBtn').textContent = t.filter_all;
+      document.getElementById('filterPendingBtn').textContent = t.filter_pending;
+      document.getElementById('filterPaidBtn').textContent = t.filter_paid;
+      document.getElementById('filterFreeBtn').textContent = t.filter_free;
+      document.getElementById('rosterSearchInput').placeholder = t.search_placeholder;
+
+      document.getElementById('thStudent').textContent = t.th_student;
+      document.getElementById('thContact').textContent = t.th_contact;
+      document.getElementById('thStatus').textContent = t.th_status;
+      document.getElementById('thProgress').textContent = t.th_progress;
+      document.getElementById('thCheckpoints').textContent = t.th_checkpoints;
+      document.getElementById('thActions').textContent = t.th_actions;
+
+      renderStudentRoster();
+    }
+
+    function fillDemoPin() {
+      document.getElementById('adminPinInput').value = 'SUMIYATI2026';
+    }
+
+    function generateAdminModalPin() {
+      document.getElementById('editStudentPin').value = String(Math.floor(1000 + Math.random() * 9000));
+    }
+
+    function checkAuthGate() {
+      const loggedIn = SumiyatiAuth.isAdminLoggedIn();
+      document.getElementById('adminLoginGate').style.display = loggedIn ? 'none' : 'flex';
+      document.getElementById('adminDashboardContent').style.display = loggedIn ? 'block' : 'none';
+      document.getElementById('adminLogoutBtn').style.display = loggedIn ? 'inline-flex' : 'none';
+      if (loggedIn) {
+        renderStudentRoster();
+      }
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pin = document.getElementById('adminPinInput').value;
+      const errEl = document.getElementById('adminLoginError');
+      if (SumiyatiAuth.loginAdmin(pin)) {
+        errEl.style.display = 'none';
+        checkAuthGate();
+      } else {
+        errEl.textContent = adminI18n[currentLang].login_err;
+        errEl.style.display = 'block';
+      }
+    }
+
+    function handleAdminLogout() {
+      SumiyatiAuth.logoutAdmin();
+      checkAuthGate();
+    }
+
+    function setRosterFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.admin-filter-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+      renderStudentRoster();
+    }
+
+    function formatShortDate(iso) {
+      if (!iso) return '-';
+      try {
+        const d = new Date(iso);
+        return d.toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-GB', {
+          day: 'numeric', month: 'short', year: 'numeric'
+        });
+      } catch (e) {
+        return iso;
+      }
+    }
+
+    function renderStudentRoster() {
+      const students = SumiyatiAuth.getAllStudents();
+      const t = adminI18n[currentLang];
+      const query = (document.getElementById('rosterSearchInput')?.value || '').trim().toLowerCase();
+
+      // Update Summary Stats
+      const total = students.length;
+      const paidCount = students.filter(s => s.accessStatus === 'paid').length;
+      const pendingCount = students.filter(s => s.accessStatus === 'pending').length;
+      const gradCount = students.filter(s => s.cp1Status === 'passed' && s.cp2Status === 'passed').length;
+
+      const totalCompletedLessons = students.reduce((acc, s) => acc + (s.completedClasses ? s.completedClasses.length : 0), 0);
+      const avgPct = total > 0 ? Math.round((totalCompletedLessons / (total * 18)) * 100) : 0;
+
+      document.getElementById('statTotalStudents').textContent = total;
+      document.getElementById('statPaidStudents').textContent = paidCount;
+      document.getElementById('statRevenueSub').textContent = `Rp ${(paidCount * 199000).toLocaleString('id-ID')}`;
+      document.getElementById('statPendingStudents').textContent = pendingCount;
+      document.getElementById('statAvgProgress').textContent = `${avgPct}%`;
+      document.getElementById('statGradSub').textContent = currentLang === 'id'
+        ? `${gradCount} Santri Lulus Penuh`
+        : `${gradCount} Certified Graduates`;
+
+      // Filter list
+      const filtered = students.filter(s => {
+        if (currentFilter !== 'all' && s.accessStatus !== currentFilter) return false;
+        if (!query) return true;
+        return (
+          (s.name || '').toLowerCase().includes(query) ||
+          (s.whatsapp || '').toLowerCase().includes(query) ||
+          (s.pin || '').toLowerCase().includes(query) ||
+          (s.city || '').toLowerCase().includes(query)
+        );
+      });
+
+      const tbody = document.getElementById('rosterTableBody');
+      tbody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align:center;padding:2.5rem;color:var(--muted);">
+              No matching student records found.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      filtered.forEach(s => {
+        const completedCount = Array.isArray(s.completedClasses) ? s.completedClasses.length : 1;
+        const pct = Math.round((completedCount / 18) * 100);
+        const displayWa = SumiyatiAuth.formatDisplayPhone(s.whatsapp);
+
+        let statusBadge = '';
+        if (s.accessStatus === 'paid') {
+          statusBadge = `<span class="status-pill status-paid">${t.status_paid}</span>`;
+        } else if (s.accessStatus === 'pending') {
+          statusBadge = `<span class="status-pill status-pending">${t.status_pending}</span>`;
+        } else {
+          statusBadge = `<span class="status-pill status-free">${t.status_free}</span>`;
+        }
+
+        const cpLabelMap = {
+          not_started: t.cp_not_started,
+          submitted: t.cp_submitted,
+          passed: t.cp_passed
+        };
+
+        // Pre-filled WhatsApp message from Ustadzah Sumiyati to this student with their WhatsApp number + 4-digit PIN
+        const waPinAndAccessMsg = currentLang === 'id'
+          ? `Assalamu'alaikum ${s.name}, berikut informasi akun belajar Kelas Pra-Tajwid Anda:\n\n📱 Nomor WA Login: ${displayWa}\n🔑 PIN Login (4 Angka): ${s.pin || '1234'}\n🔓 Kode Buka Kelas 07-18: TAHSIN2026\n\nSelamat belajar dan semoga diberkahi Allah! — Ustadzah Sumiyati`
+          : `Assalamu'alaikum ${s.name}, here are your Pre-Tajweed Class login details:\n\n📱 Login WhatsApp: ${displayWa}\n🔑 4-Digit Login PIN: ${s.pin || '1234'}\n🔓 Full Course Unlock Code: TAHSIN2026\n\nHappy learning! — Ustadzah Sumiyati`;
+
+        const waUrl = s.whatsapp
+          ? `https://wa.me/${s.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(waPinAndAccessMsg)}`
+          : '#';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div style="font-weight:600;color:var(--green);font-size:.92rem;">${escapeHtml(s.name)}</div>
+            <div style="font-size:.76rem;color:var(--sub);">${escapeHtml(s.city || 'Indonesia')}</div>
+            <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">${t.joined_lbl} ${formatShortDate(s.joinedAt)}</div>
+          </td>
+          <td>
+            ${s.whatsapp ? `<div><a href="${waUrl}" target="_blank" rel="noopener" style="color:var(--green);font-weight:700;text-decoration:underline;font-size:.88rem;">📱 ${escapeHtml(displayWa)}</a></div>` : ''}
+            <div style="margin-top:4px;">
+              <span style="display:inline-block;background:var(--bg);border:1px solid var(--border);padding:2px 7px;border-radius:4px;font-size:.75rem;font-weight:700;color:var(--fg);letter-spacing:.08em;">
+                🔑 PIN: <span style="color:var(--green);">${escapeHtml(s.pin || '1234')}</span>
+              </span>
+            </div>
+          </td>
+          <td>
+            ${statusBadge}
+          </td>
+          <td>
+            <div style="font-weight:600;font-size:.8rem;">${completedCount} / 18 Classes (${pct}%)</div>
+            <div class="progress-mini-bar"><div class="progress-mini-fill" style="width:${pct}%;"></div></div>
+            <div style="font-size:.73rem;color:var(--muted);">
+              ${t.currently_on} <strong>0${s.currentLesson || 1}</strong>
+            </div>
+          </td>
+          <td style="max-width:240px;">
+            <div style="font-size:.75rem;margin-bottom:3px;">
+              <strong>CP 1:</strong> ${cpLabelMap[s.cp1Status] || t.cp_not_started} &nbsp;|&nbsp;
+              <strong>CP 2:</strong> ${cpLabelMap[s.cp2Status] || t.cp_not_started}
+            </div>
+            ${s.notes ? `<div style="font-size:.75rem;color:var(--sub);background:var(--bg);padding:.35rem .5rem;border-left:2px solid var(--gold);border-radius:2px;">${escapeHtml(s.notes)}</div>` : `<span style="font-size:.72rem;color:var(--muted);font-style:italic;">No notes yet</span>`}
+          </td>
+          <td>
+            ${s.accessStatus !== 'paid' ? `
+              <button type="button" class="admin-action-btn approve" onclick="quickApproveStudent('${s.id}')">
+                ${t.btn_approve}
+              </button>
+            ` : ''}
+            ${s.whatsapp ? `
+              <a href="${waUrl}" target="_blank" rel="noopener" class="admin-action-btn wa">
+                ${t.btn_send_code}
+              </a>
+            ` : ''}
+            <button type="button" class="admin-action-btn" onclick="openEditStudentModal('${s.id}')">
+              ${t.btn_edit_notes}
+            </button>
+            <button type="button" class="admin-action-btn" onclick="handleDeleteStudent('${s.id}')" title="Delete student">
+              🗑️
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function quickApproveStudent(studentId) {
+      SumiyatiAuth.setStudentAccessStatus(studentId, 'paid');
+      renderStudentRoster();
+    }
+
+    function openAddStudentModal() {
+      document.getElementById('editStudentId').value = '';
+      document.getElementById('modalStudentTitle').textContent = currentLang === 'id' ? 'Tambah Santri Baru (WA + PIN)' : 'Add New Student (WhatsApp + PIN)';
+      document.getElementById('editStudentName').value = '';
+      document.getElementById('editStudentWa').value = '';
+      document.getElementById('editStudentPin').value = String(Math.floor(1000 + Math.random() * 9000));
+      document.getElementById('editStudentCity').value = '';
+      document.getElementById('editStudentAccess').value = 'paid';
+      document.getElementById('editStudentCp1').value = 'not_started';
+      document.getElementById('editStudentCp2').value = 'not_started';
+      document.getElementById('editStudentNotes').value = '';
+      document.getElementById('studentEditOverlay').classList.add('active');
+    }
+
+    function openEditStudentModal(studentId) {
+      const students = SumiyatiAuth.getAllStudents();
+      const s = students.find(item => item.id === studentId);
+      if (!s) return;
+
+      document.getElementById('editStudentId').value = s.id;
+      document.getElementById('modalStudentTitle').textContent = s.name;
+      document.getElementById('editStudentName').value = s.name || '';
+      document.getElementById('editStudentWa').value = SumiyatiAuth.formatDisplayPhone(s.whatsapp || '');
+      document.getElementById('editStudentPin').value = s.pin || '1234';
+      document.getElementById('editStudentCity').value = s.city || '';
+      document.getElementById('editStudentAccess').value = s.accessStatus || 'free';
+      document.getElementById('editStudentCp1').value = s.cp1Status || 'not_started';
+      document.getElementById('editStudentCp2').value = s.cp2Status || 'not_started';
+      document.getElementById('editStudentNotes').value = s.notes || '';
+      document.getElementById('studentEditOverlay').classList.add('active');
+    }
+
+    function closeStudentModal() {
+      document.getElementById('studentEditOverlay').classList.remove('active');
+    }
+
+    function handleSaveStudentModal(e) {
+      e.preventDefault();
+      const id = document.getElementById('editStudentId').value;
+      const name = document.getElementById('editStudentName').value;
+      const whatsapp = document.getElementById('editStudentWa').value;
+      const pin = document.getElementById('editStudentPin').value;
+      const city = document.getElementById('editStudentCity').value;
+      const accessStatus = document.getElementById('editStudentAccess').value;
+      const cp1Status = document.getElementById('editStudentCp1').value;
+      const cp2Status = document.getElementById('editStudentCp2').value;
+      const notes = document.getElementById('editStudentNotes').value;
+
+      if (!id) {
+        const created = SumiyatiAuth.addStudentManually({ name, whatsapp, pin, city, accessStatus, notes });
+        SumiyatiAuth.updateStudentEvaluation(created.id, { cp1Status, cp2Status, notes });
+      } else {
+        const students = SumiyatiAuth.getAllStudents();
+        const s = students.find(item => item.id === id);
+        if (s) {
+          s.name = name.trim();
+          s.whatsapp = SumiyatiAuth.normalizePhone(whatsapp);
+          s.pin = String(pin || '1234').replace(/[^0-9]/g, '').slice(0, 6);
+          s.city = city.trim();
+          s.accessStatus = accessStatus;
+          s.cp1Status = cp1Status;
+          s.cp2Status = cp2Status;
+          s.notes = notes.trim();
+          localStorage.setItem('sumiyati_students_db_v2', JSON.stringify(students));
+          SumiyatiAuth.setStudentAccessStatus(id, accessStatus);
+        }
+      }
+      closeStudentModal();
+      renderStudentRoster();
+    }
+
+    function handleDeleteStudent(studentId) {
+      const msg = currentLang === 'id'
+        ? 'Hapus data santri ini dari daftar?'
+        : 'Remove this student record from the roster?';
+      if (confirm(msg)) {
+        SumiyatiAuth.deleteStudent(studentId);
+        renderStudentRoster();
+      }
+    }
+
+    function exportStudentsCsv() {
+      const students = SumiyatiAuth.getAllStudents();
+      const headers = ['ID', 'Name', 'WhatsApp', '4-Digit PIN', 'City', 'Access Status', 'Current Class', 'Completed Count', 'Checkpoint 1', 'Checkpoint 2', 'Notes', 'Joined Date'];
+      const rows = students.map(s => [
+        s.id,
+        `"${(s.name || '').replace(/"/g, '""')}"`,
+        SumiyatiAuth.formatDisplayPhone(s.whatsapp || ''),
+        s.pin || '1234',
+        `"${(s.city || '').replace(/"/g, '""')}"`,
+        s.accessStatus,
+        s.currentLesson || 1,
+        Array.isArray(s.completedClasses) ? s.completedClasses.length : 1,
+        s.cp1Status || 'not_started',
+        s.cp2Status || 'not_started',
+        `"${(s.notes || '').replace(/"/g, '""')}"`,
+        s.joinedAt || ''
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `sumiyati_pretajweed_students_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function openCloudModal() {
+      const cfg = SumiyatiAuth.getSupabaseConfig();
+      document.getElementById('supaUrlInput').value = cfg?.url || '';
+      document.getElementById('supaKeyInput').value = cfg?.anonKey || '';
+      document.getElementById('cloudSaveFeedback').style.display = 'none';
+      document.getElementById('cloudSetupOverlay').classList.add('active');
+    }
+
+    function closeCloudModal() {
+      document.getElementById('cloudSetupOverlay').classList.remove('active');
+    }
+
+    function handleSaveCloudConfig(e) {
+      e.preventDefault();
+      const url = document.getElementById('supaUrlInput').value;
+      const key = document.getElementById('supaKeyInput').value;
+      SumiyatiAuth.setSupabaseConfig(url, key);
+      const fb = document.getElementById('cloudSaveFeedback');
+      fb.className = 'passcode-feedback success';
+      fb.textContent = url ? '✓ Supabase Cloud configuration saved & synced!' : '✓ Reverted to browser storage mode.';
+      fb.style.display = 'block';
+    }
+
+    // Initialize
+    setGlobalLang(currentLang);
+    checkAuthGate();
+  </script>
+</body>
+</html>
