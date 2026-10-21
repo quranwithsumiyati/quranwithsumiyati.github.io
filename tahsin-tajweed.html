@@ -467,12 +467,7 @@
           Sign In with WhatsApp &amp; PIN →
         </button>
 
-        <div style="margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;">
-          <span>Demo Paid Student: <strong>081298765432</strong> (PIN: <strong>1234</strong>)</span>
-          <button type="button" onclick="fillDemoStudentLogin()" style="background:none;border:none;color:var(--green);font-weight:600;text-decoration:underline;cursor:pointer;font-size:.75rem;">
-            Auto-fill Demo
-          </button>
-        </div>
+        <div style="margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--border);font-size:.73rem;color:var(--muted);text-align:center;"><span>🔒 Protected by SHA-256 PIN verification &amp; 5-attempt lockout</span></div>
       </form>
     </div>
   </div>
@@ -1473,11 +1468,10 @@
     function submitPasscode() {
       const code = passcodeInput.value.trim().toUpperCase();
       const t = courseI18n[currentLang];
-      const res = window.SumiyatiAuth ? SumiyatiAuth.unlockWithCode(code) : { ok: ['TAHSIN2026', 'SUMIYATI', 'BISMILLAH', 'FREEACCESS', 'QURANSMART'].includes(code) };
+      const res = window.SumiyatiAuth ? SumiyatiAuth.unlockWithCode(code) : { ok: false };
 
       if (res.ok) {
         isFullAccessUnlocked = true;
-        localStorage.setItem('sumiyati_pretajweed_unlocked', 'true');
         passcodeFeedback.className = 'passcode-feedback success';
         passcodeFeedback.textContent = t.pw_passcode_success;
         renderStudentAccountHeader();
@@ -1489,7 +1483,13 @@
         }, 1000);
       } else {
         passcodeFeedback.className = 'passcode-feedback error';
-        passcodeFeedback.textContent = t.pw_passcode_error;
+        if (res.error === 'rate_limited') {
+          passcodeFeedback.textContent = currentLang === 'id'
+            ? `Terlalu banyak percobaan gagal. Silakan tunggu ${res.waitSeconds} detik.`
+            : `Too many failed attempts. Please wait ${res.waitSeconds} seconds.`;
+        } else {
+          passcodeFeedback.textContent = t.pw_passcode_error;
+        }
       }
     }
 
@@ -1563,10 +1563,7 @@
       input.value = randomPin;
     }
 
-    function fillDemoStudentLogin() {
-      document.getElementById('loginWaInput').value = '081298765432';
-      document.getElementById('loginPinInput').value = '1234';
-    }
+    
 
     function requestPinViaWhatsApp() {
       const waVal = document.getElementById('loginWaInput').value.trim();
