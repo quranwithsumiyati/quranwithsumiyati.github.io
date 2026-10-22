@@ -19,6 +19,9 @@
   const UNLOCK_KEY = 'sumiyati_pretajweed_unlock_sig_v3';
   const COMPLETED_KEY = 'sumiyati_completed_pretajweed_classes';
   const RATE_LIMIT_KEY = 'sumiyati_auth_rate_limit_v3';
+  const DELETED_KEY = 'sumiyati_deleted_students_v3';
+  const CLOUD_RELAY_TOPIC = 'sumiyati_pretajweed_sync_v3_8c4e2b9a1f7d';
+  const CLOUD_RELAY_URL = 'https://ntfy.sh/' + CLOUD_RELAY_TOPIC;
 
   const SALT = 'sumiyati_quran_2026_salt_';
   const ADMIN_SESSION_TTL_MS = 2 * 60 * 60 * 1000; // 2 hours
@@ -289,10 +292,45 @@
   ];
 
   const syncChannel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('sumiyati_roster_channel') : null;
+  const rosterListeners = [];
+
+  function notifyRosterListeners() {
+    rosterListeners.forEach(fn => {
+      try {
+        fn();
+      } catch (e) {}
+    });
+  }
+
+  function getDeletedIds() {
+    try {
+      const arr = decodePayload(localStorage.getItem(DELETED_KEY));
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function addDeletedId(id, whatsapp) {
+    const current = new Set(getDeletedIds());
+    if (id) current.add(String(id));
+    if (whatsapp) current.add('wa:' + normalizePhone(whatsapp));
+    const list = Array.from(current).slice(-200);
+    localStorage.setItem(DELETED_KEY, encodePayload(list));
+    return list;
+  }
+
+  function removeDeletedId(whatsapp) {
+    if (!whatsapp) return;
+    const key = 'wa:' + normalizePhone(whatsapp);
+    const list = getDeletedIds().filter(x => x !== key);
+    localStorage.setItem(DELETED_KEY, encodePayload(list));
+  }
 
   function loadDb() {
     try {
       let currentList = null;
+      const deletedSet = new Set(getDeletedIds());
       const raw = localStorage.getItem(DB_KEY);
       if (raw) {
         const decoded = decodePayload(raw);
@@ -321,7 +359,9 @@
         } catch (e) {}
       }
       if (Array.isArray(currentList) && currentList.length > 0) {
-        return currentList;
+        return currentList.filter(
+          s => s && !deletedSet.has(String(s.id)) && !deletedSet.has('wa:' + normalizePhone(s.whatsapp))
+        );
       }
       localStorage.setItem(DB_KEY, encodePayload(INITIAL_SEED_STUDENTS));
       return [...INITIAL_SEED_STUDENTS];
@@ -330,7 +370,7 @@
     }
   }
 
-  function saveDb(students) {
+  function saveDbLocalOnly(students) {
     localStorage.setItem(DB_KEY, encodePayload(students));
     localStorage.setItem(LEGACY_DB_KEY, JSON.stringify(students));
     if (syncChannel) {
@@ -338,6 +378,12 @@
         syncChannel.postMessage({ type: 'roster_updated', count: students.length });
       } catch (e) {}
     }
+    notifyRosterListeners();
+  }
+
+  function saveDb(students) {
+    saveDbLocalOnly(students);
+    pushToCloudRelay(students);
     syncToSupabaseIfConfigured(students);
   }
 
@@ -420,9 +466,157 @@
     return cfg;
   }
 
+  // Built-in Cross-Device Cloud Sync Relay (Phone <-> Laptop zero-setup sync)
+  function sanitizeStudentObj(r) {
+    if (!r || typeof r !== 'object') return null;
+    const cleanWa = normalizePhone(r.whatsapp || '');
+    const cleanPin = String(r.pin || '').replace(/[^0-9]/g, '').slice(0, 6);
+    if (cleanWa.length < 5 || !cleanPin) return null;
+    return {
+      id: sanitizeText(r.id || ('stu_' + cleanWa), 40),
+      name: sanitizeText(r.name || ('Santri ' + formatDisplayPhone(cleanWa)), 80),
+      whatsapp: cleanWa,
+      pin: cleanPin,
+      pinHash: r.pinHash || hashPin(cleanWa, cleanPin),
+      city: sanitizeText(r.city || 'Indonesia', 80) || 'Indonesia',
+      accessStatus: ['free', 'pending', 'paid'].includes(r.accessStatus) ? r.accessStatus : 'free',
+      completedClasses: Array.isArray(r.completedClasses) ? r.completedClasses.map(Number).filter(n => n >= 1 && n <= 18) : [1],
+      currentLesson: Number(r.currentLesson) || 1,
+      cp1Status: ['not_started', 'submitted', 'passed'].includes(r.cp1Status) ? r.cp1Status : 'not_started',
+      cp2Status: ['not_started', 'submitted', 'passed'].includes(r.cp2Status) ? r.cp2Status : 'not_started',
+      notes: sanitizeText(r.notes || '', 500),
+      joinedAt: r.joinedAt || new Date().toISOString(),
+      lastActive: r.lastActive || new Date().toISOString()
+    };
+  }
+
+  function applyCloudPackets(packets) {
+    if (!Array.isArray(packets) || packets.length === 0) return null;
+    const deletedSet = new Set(getDeletedIds());
+    packets.forEach(pkt => {
+      if (pkt && Array.isArray(pkt.deleted)) {
+        pkt.deleted.forEach(d => deletedSet.add(String(d)));
+      }
+      if (pkt && Array.isArray(pkt.reactivated)) {
+        pkt.reactivated.forEach(d => deletedSet.delete(String(d)));
+      }
+    });
+    localStorage.setItem(DELETED_KEY, encodePayload(Array.from(deletedSet).slice(-200)));
+
+    const localList = loadDb();
+    const byWa = new Map();
+    localList.forEach(s => {
+      const clean = sanitizeStudentObj(s);
+      if (clean && !deletedSet.has(clean.id) && !deletedSet.has('wa:' + clean.whatsapp)) {
+        byWa.set(clean.whatsapp, clean);
+      }
+    });
+
+    packets.forEach(pkt => {
+      if (!pkt || !Array.isArray(pkt.students)) return;
+      pkt.students.forEach(rawStu => {
+        const stu = sanitizeStudentObj(rawStu);
+        if (!stu) return;
+        if (deletedSet.has(stu.id) || deletedSet.has('wa:' + stu.whatsapp)) return;
+        const prev = byWa.get(stu.whatsapp);
+        if (!prev) {
+          byWa.set(stu.whatsapp, stu);
+        } else {
+          const prevTime = Date.parse(prev.lastActive || prev.joinedAt || 0) || 0;
+          const nextTime = Date.parse(stu.lastActive || stu.joinedAt || 0) || 0;
+          const mergedCompleted = Array.from(new Set([...(prev.completedClasses || [1]), ...(stu.completedClasses || [1])])).sort((a, b) => a - b);
+          const winner = nextTime >= prevTime ? { ...prev, ...stu } : { ...stu, ...prev };
+          winner.completedClasses = mergedCompleted;
+          winner.currentLesson = Math.max(prev.currentLesson || 1, stu.currentLesson || 1);
+          byWa.set(stu.whatsapp, winner);
+        }
+      });
+    });
+
+    const merged = Array.from(byWa.values()).sort((a, b) => {
+      const ta = Date.parse(a.lastActive || a.joinedAt || 0) || 0;
+      const tb = Date.parse(b.lastActive || b.joinedAt || 0) || 0;
+      return tb - ta;
+    });
+
+    if (merged.length > 0) {
+      saveDbLocalOnly(merged);
+    }
+    return merged;
+  }
+
+  async function pushToCloudRelay(students, extra = {}) {
+    if (typeof fetch === 'undefined') return false;
+    try {
+      const packet = encodePayload({
+        v: 3,
+        ts: Date.now(),
+        students: students.slice(0, 120),
+        deleted: getDeletedIds(),
+        ...extra
+      });
+      if (!packet) return false;
+      await fetch(CLOUD_RELAY_URL, {
+        method: 'POST',
+        body: packet
+      });
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  async function pullFromCloudRelay() {
+    if (typeof fetch === 'undefined') return null;
+    try {
+      const res = await fetch(`${CLOUD_RELAY_URL}/json?poll=1&since=all`);
+      if (!res.ok) return null;
+      const text = await res.text();
+      if (!text || !text.trim()) return null;
+      const lines = text.trim().split('\n');
+      const validPackets = [];
+      for (let i = 0; i < lines.length; i++) {
+        try {
+          const env = JSON.parse(lines[i]);
+          if (env && env.event === 'message' && typeof env.message === 'string') {
+            const decoded = decodePayload(env.message);
+            if (decoded && decoded.v === 3 && Array.isArray(decoded.students)) {
+              validPackets.push(decoded);
+            }
+          }
+        } catch (e) {}
+      }
+      if (validPackets.length > 0) {
+        return applyCloudPackets(validPackets);
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function startRealtimeCloudStream() {
+    if (typeof EventSource === 'undefined') return;
+    try {
+      const es = new EventSource(`${CLOUD_RELAY_URL}/sse`);
+      es.onmessage = function (ev) {
+        try {
+          const data = JSON.parse(ev.data);
+          if (data && data.event === 'message' && typeof data.message === 'string') {
+            const decoded = decodePayload(data.message);
+            if (decoded && decoded.v === 3 && Array.isArray(decoded.students)) {
+              applyCloudPackets([decoded]);
+            }
+          }
+        } catch (e) {}
+      };
+    } catch (e) {}
+  }
+
   async function pullFromSupabaseIfConfigured() {
+    await pullFromCloudRelay();
     const cfg = getSupabaseConfig();
-    if (!cfg || !cfg.url || !cfg.anonKey) return null;
+    if (!cfg || !cfg.url || !cfg.anonKey) return loadDb();
     try {
       const res = await fetch(`${cfg.url}/rest/v1/students?select=*&order=last_active.desc`, {
         headers: {
@@ -430,7 +624,7 @@
           Authorization: `Bearer ${cfg.anonKey}`
         }
       });
-      if (!res.ok) return null;
+      if (!res.ok) return loadDb();
       const rows = await res.json();
       if (Array.isArray(rows) && rows.length > 0) {
         const mapped = rows.map(r => ({
@@ -448,12 +642,12 @@
           joinedAt: r.joined_at,
           lastActive: r.last_active
         }));
-        localStorage.setItem(DB_KEY, encodePayload(mapped));
-        return mapped;
+        applyCloudPackets([{ v: 3, students: mapped }]);
+        return loadDb();
       }
-      return null;
+      return loadDb();
     } catch (e) {
-      return null;
+      return loadDb();
     }
   }
 
@@ -494,6 +688,7 @@
   }
 
   pullFromSupabaseIfConfigured();
+  startRealtimeCloudStream();
 
   function getCurrentStudentInternal() {
     const sess = decodePayload(localStorage.getItem(SESSION_KEY));
@@ -541,6 +736,7 @@
 
     onRosterChange(cb) {
       if (typeof cb !== 'function') return;
+      rosterListeners.push(cb);
       if (syncChannel) {
         syncChannel.addEventListener('message', () => cb());
       }
@@ -591,6 +787,7 @@
         return { ok: false, error: 'missing_fields' };
       }
 
+      removeDeletedId(cleanWa);
       const students = loadDb();
       const existingIdx = students.findIndex(s => s.whatsapp === cleanWa);
       if (existingIdx !== -1) {
@@ -924,6 +1121,8 @@
     deleteStudent(studentId) {
       if (!isAdminLoggedIn()) return [];
       let students = loadDb();
+      const target = students.find(s => s.id === studentId);
+      addDeletedId(studentId, target ? target.whatsapp : '');
       students = students.filter(s => s.id !== studentId);
       saveDb(students);
       const currentStu = getCurrentStudentInternal();
