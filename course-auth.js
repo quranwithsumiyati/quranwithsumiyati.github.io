@@ -35,8 +35,8 @@
     '88e71af1ce5b23790179b27fd7260cd86b2a02280f1802e620abdafea5703710'
   ];
 
-  const DEFAULT_SUPABASE_URL = '';
-  const DEFAULT_SUPABASE_ANON_KEY = '';
+  const DEFAULT_SUPABASE_URL = 'https://ywylzuklbfrnicvhuleh.supabase.co';
+  const DEFAULT_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl3eWx6dWtsYmZybmljdmh1bGVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2OTIzNTksImV4cCI6MjEwODI2ODM1OX0.UXdXthdjwInTxh9_vwn8y8Y6l_4BTu-A7Rq1lsu_pSY';
 
   // Pure synchronous SHA-256 implementation (works in both HTTPS and local file:// contexts)
   function sha256(ascii) {
@@ -655,7 +655,7 @@
     const cfg = getSupabaseConfig();
     if (!cfg || !cfg.url || !cfg.anonKey) return false;
     try {
-      await fetch(`${cfg.url}/rest/v1/students`, {
+      await fetch(`${cfg.url}/rest/v1/students?on_conflict=whatsapp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -680,6 +680,25 @@
             last_active: s.lastActive
           }))
         )
+      });
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  async function deleteFromSupabaseIfConfigured(studentId, whatsapp) {
+    const cfg = getSupabaseConfig();
+    if (!cfg || !cfg.url || !cfg.anonKey) return false;
+    try {
+      const cleanWa = normalizePhone(whatsapp || '');
+      const filter = cleanWa ? `whatsapp=eq.${encodeURIComponent(cleanWa)}` : `id=eq.${encodeURIComponent(studentId)}`;
+      await fetch(`${cfg.url}/rest/v1/students?${filter}`, {
+        method: 'DELETE',
+        headers: {
+          apikey: cfg.anonKey,
+          Authorization: `Bearer ${cfg.anonKey}`
+        }
       });
       return true;
     } catch (e) {
@@ -1123,6 +1142,7 @@
       let students = loadDb();
       const target = students.find(s => s.id === studentId);
       addDeletedId(studentId, target ? target.whatsapp : '');
+      deleteFromSupabaseIfConfigured(studentId, target ? target.whatsapp : '');
       students = students.filter(s => s.id !== studentId);
       saveDb(students);
       const currentStu = getCurrentStudentInternal();
