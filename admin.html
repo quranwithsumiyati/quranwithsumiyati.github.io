@@ -329,7 +329,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
     </div>
   </footer>
 
-  <script src="course-auth.js?v=4"></script>
+  <script src="course-auth.js?v=5"></script>
   <script>
     let currentLang = localStorage.getItem('sumiyati_lang') || 'en';
     let currentFilter = 'all';
@@ -890,6 +890,13 @@ create policy "Allow public read/write" on public.students for all using (true) 
         renderStudentRoster();
       }
     });
+    if (window.SumiyatiAuth && SumiyatiAuth.onRosterChange) {
+      SumiyatiAuth.onRosterChange(() => {
+        if (SumiyatiAuth.isAdminLoggedIn()) {
+          renderStudentRoster();
+        }
+      });
+    }
 
     // Initialize
     setGlobalLang(currentLang);

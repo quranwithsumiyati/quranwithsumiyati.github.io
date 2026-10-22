@@ -288,6 +288,8 @@
     }
   ];
 
+  const syncChannel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('sumiyati_roster_channel') : null;
+
   function loadDb() {
     try {
       let currentList = null;
@@ -298,12 +300,11 @@
           currentList = decoded;
         }
       }
-      // Always check and merge any records from legacy v2 key so cached tabs never lose registrations
+      // Also merge any records from v2 key so all tabs stay in sync
       const legacyRaw = localStorage.getItem(LEGACY_DB_KEY);
       if (legacyRaw) {
         try {
           const legacyData = JSON.parse(legacyRaw);
-          localStorage.removeItem(LEGACY_DB_KEY);
           if (Array.isArray(legacyData)) {
             if (!currentList) {
               currentList = legacyData;
@@ -316,11 +317,10 @@
                 }
               });
             }
-            localStorage.setItem(DB_KEY, encodePayload(currentList));
           }
         } catch (e) {}
       }
-      if (Array.isArray(currentList)) {
+      if (Array.isArray(currentList) && currentList.length > 0) {
         return currentList;
       }
       localStorage.setItem(DB_KEY, encodePayload(INITIAL_SEED_STUDENTS));
@@ -332,6 +332,12 @@
 
   function saveDb(students) {
     localStorage.setItem(DB_KEY, encodePayload(students));
+    localStorage.setItem(LEGACY_DB_KEY, JSON.stringify(students));
+    if (syncChannel) {
+      try {
+        syncChannel.postMessage({ type: 'roster_updated', count: students.length });
+      } catch (e) {}
+    }
     syncToSupabaseIfConfigured(students);
   }
 
@@ -533,6 +539,14 @@
     isCourseUnlocked,
     checkRateLimit,
 
+    onRosterChange(cb) {
+      if (typeof cb !== 'function') return;
+      if (syncChannel) {
+        syncChannel.addEventListener('message', () => cb());
+      }
+      window.addEventListener('storage', () => cb());
+    },
+
     // Protected: Only returns full roster when Instructor is authenticated
     getAllStudents() {
       if (!isAdminLoggedIn()) {
@@ -568,19 +582,33 @@
     },
 
     registerStudent({ name, whatsapp, city, pin }) {
-      const cleanName = sanitizeText(name, 80);
       const cleanWa = normalizePhone(whatsapp || '');
+      const cleanName = sanitizeText(name, 80) || ('Santri ' + formatDisplayPhone(cleanWa));
       const cleanCity = sanitizeText(city || 'Indonesia', 80) || 'Indonesia';
       const cleanPin = String(pin || '').replace(/[^0-9]/g, '').slice(0, 6);
 
-      if (!cleanName || cleanWa.length < 5 || cleanPin.length < 4) {
+      if (cleanWa.length < 5 || cleanPin.length < 4) {
         return { ok: false, error: 'missing_fields' };
       }
 
       const students = loadDb();
-      const existing = students.find(s => s.whatsapp === cleanWa);
-      if (existing) {
-        return { ok: false, error: 'already_exists' };
+      const existingIdx = students.findIndex(s => s.whatsapp === cleanWa);
+      if (existingIdx !== -1) {
+        const existing = students[existingIdx];
+        if (sanitizeText(name, 80)) existing.name = sanitizeText(name, 80);
+        if (sanitizeText(city, 80)) existing.city = sanitizeText(city, 80);
+        existing.pin = cleanPin;
+        existing.pinHash = hashPin(cleanWa, cleanPin);
+        existing.lastActive = new Date().toISOString();
+        // Move to top of roster so teacher sees it immediately
+        students.splice(existingIdx, 1);
+        students.unshift(existing);
+        saveDb(students);
+        createStudentSession(existing);
+        if (existing.accessStatus === 'paid') {
+          setVerifiedUnlock(existing.id);
+        }
+        return { ok: true, student: existing, updated: true };
       }
 
       let existingCompleted = [1];
@@ -626,16 +654,26 @@
       const cleanPhone = normalizePhone(whatsappInput || '');
       const cleanPin = String(pinInput || '').replace(/[^0-9]/g, '').trim();
 
-      if (!cleanPhone || !cleanPin) {
+      if (cleanPhone.length < 5 || cleanPin.length < 4) {
         return { ok: false, error: 'not_found' };
       }
 
       const students = loadDb();
       const student = students.find(s => s.whatsapp === cleanPhone);
 
+      // If this WhatsApp number is not registered yet, auto-register with WhatsApp + PIN
       if (!student) {
-        const rl = recordFailedAttempt('student_login');
-        return { ok: false, error: 'not_found', remainingAttempts: rl.remainingAttempts, waitSeconds: rl.waitSeconds };
+        clearRateLimit('student_login');
+        const regRes = this.registerStudent({
+          name: 'Santri ' + formatDisplayPhone(cleanPhone),
+          whatsapp: cleanPhone,
+          city: 'Indonesia',
+          pin: cleanPin
+        });
+        if (regRes.ok) {
+          return { ok: true, student: regRes.student, autoRegistered: true };
+        }
+        return { ok: false, error: 'not_found' };
       }
 
       const inputHash = hashPin(cleanPhone, cleanPin);

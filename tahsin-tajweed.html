@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -421,8 +421,8 @@
       <!-- Register Form (WhatsApp + 4-Digit PIN) -->
       <form id="studentRegisterForm" onsubmit="handleStudentRegister(event)">
         <div class="auth-form-group">
-          <label for="regNameInput" id="lblRegName">Full Name (Nama Lengkap) *</label>
-          <input type="text" id="regNameInput" class="auth-input" required placeholder="e.g. Aisyah Putri" />
+          <label for="regNameInput" id="lblRegName">Full Name (Nama Lengkap - Optional)</label>
+          <input type="text" id="regNameInput" class="auth-input" placeholder="e.g. Aisyah Putri (Optional)" />
         </div>
         <div class="auth-form-group">
           <label for="regWaInput" id="lblRegWa">WhatsApp Number (Nomor WhatsApp) *</label>
@@ -494,7 +494,7 @@
     </div>
   </footer>
 
-  <script src="course-auth.js?v=4"></script>
+  <script src="course-auth.js?v=5"></script>
   <script>
     // Authentic 18-Class Pre-Tajweed Curriculum Data
     const lessons = [
@@ -1630,8 +1630,8 @@
             : 'This WhatsApp number is already registered! Please switch to the "Sign In with PIN" tab.';
         } else {
           fb.textContent = currentLang === 'id'
-            ? 'Mohon isi Nama, Nomor WhatsApp, dan minimal 4 angka PIN.'
-            : 'Please enter your Name, WhatsApp number, and a 4-digit PIN.';
+            ? 'Mohon isi Nomor WhatsApp dan minimal 4 angka PIN.'
+            : 'Please enter your WhatsApp number and a 4-digit PIN.';
         }
         fb.style.display = 'block';
         return;
@@ -1983,6 +1983,9 @@
     }
     window.addEventListener('storage', syncActiveStudentState);
     window.addEventListener('focus', syncActiveStudentState);
+    if (window.SumiyatiAuth && SumiyatiAuth.onRosterChange) {
+      SumiyatiAuth.onRosterChange(syncActiveStudentState);
+    }
 
     // Initialize
     setGlobalLang(currentLang);
