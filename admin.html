@@ -329,7 +329,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
     </div>
   </footer>
 
-  <script src="course-auth.js"></script>
+  <script src="course-auth.js?v=4"></script>
   <script>
     let currentLang = localStorage.getItem('sumiyati_lang') || 'en';
     let currentFilter = 'all';
@@ -873,6 +873,23 @@ create policy "Allow public read/write" on public.students for all using (true) 
       fb.textContent = url ? '✓ Supabase Cloud configuration saved & synced!' : '✓ Reverted to browser storage mode.';
       fb.style.display = 'block';
     }
+
+    // Real-time cross-tab sync so new student registrations in another tab appear immediately
+    window.addEventListener('storage', () => {
+      if (SumiyatiAuth.isAdminLoggedIn()) {
+        renderStudentRoster();
+      }
+    });
+    window.addEventListener('focus', () => {
+      if (SumiyatiAuth.isAdminLoggedIn()) {
+        renderStudentRoster();
+      }
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && SumiyatiAuth.isAdminLoggedIn()) {
+        renderStudentRoster();
+      }
+    });
 
     // Initialize
     setGlobalLang(currentLang);

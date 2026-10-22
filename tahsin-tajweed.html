@@ -494,7 +494,7 @@
     </div>
   </footer>
 
-  <script src="course-auth.js"></script>
+  <script src="course-auth.js?v=4"></script>
   <script>
     // Authentic 18-Class Pre-Tajweed Curriculum Data
     const lessons = [
@@ -1967,6 +1967,22 @@
         }
       }
     }
+
+    // Real-time cross-tab sync when teacher approves access in admin.html
+    function syncActiveStudentState() {
+      if (!window.SumiyatiAuth) return;
+      const activeStu = SumiyatiAuth.getCurrentStudent();
+      if (activeStu) {
+        isFullAccessUnlocked = activeStu.accessStatus === 'paid' || SumiyatiAuth.isCourseUnlocked();
+      } else {
+        isFullAccessUnlocked = SumiyatiAuth.isCourseUnlocked();
+      }
+      renderStudentAccountHeader();
+      renderPlaylist();
+      updateCurrentLessonText();
+    }
+    window.addEventListener('storage', syncActiveStudentState);
+    window.addEventListener('focus', syncActiveStudentState);
 
     // Initialize
     setGlobalLang(currentLang);

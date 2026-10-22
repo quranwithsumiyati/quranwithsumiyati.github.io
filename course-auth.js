@@ -290,20 +290,38 @@
 
   function loadDb() {
     try {
+      let currentList = null;
       const raw = localStorage.getItem(DB_KEY);
       if (raw) {
         const decoded = decodePayload(raw);
-        if (Array.isArray(decoded)) return decoded;
+        if (Array.isArray(decoded)) {
+          currentList = decoded;
+        }
       }
-      // Migrate legacy v2 DB if present and remove unencrypted key
+      // Always check and merge any records from legacy v2 key so cached tabs never lose registrations
       const legacyRaw = localStorage.getItem(LEGACY_DB_KEY);
       if (legacyRaw) {
-        const legacyData = JSON.parse(legacyRaw);
-        localStorage.removeItem(LEGACY_DB_KEY);
-        if (Array.isArray(legacyData)) {
-          localStorage.setItem(DB_KEY, encodePayload(legacyData));
-          return legacyData;
-        }
+        try {
+          const legacyData = JSON.parse(legacyRaw);
+          localStorage.removeItem(LEGACY_DB_KEY);
+          if (Array.isArray(legacyData)) {
+            if (!currentList) {
+              currentList = legacyData;
+            } else {
+              const existingWa = new Set(currentList.map(s => s.whatsapp));
+              legacyData.forEach(item => {
+                if (item && item.whatsapp && !existingWa.has(item.whatsapp)) {
+                  currentList.unshift(item);
+                  existingWa.add(item.whatsapp);
+                }
+              });
+            }
+            localStorage.setItem(DB_KEY, encodePayload(currentList));
+          }
+        } catch (e) {}
+      }
+      if (Array.isArray(currentList)) {
+        return currentList;
       }
       localStorage.setItem(DB_KEY, encodePayload(INITIAL_SEED_STUDENTS));
       return [...INITIAL_SEED_STUDENTS];
@@ -555,7 +573,7 @@
       const cleanCity = sanitizeText(city || 'Indonesia', 80) || 'Indonesia';
       const cleanPin = String(pin || '').replace(/[^0-9]/g, '').slice(0, 6);
 
-      if (!cleanName || cleanWa.length < 9 || cleanPin.length < 4) {
+      if (!cleanName || cleanWa.length < 5 || cleanPin.length < 4) {
         return { ok: false, error: 'missing_fields' };
       }
 
