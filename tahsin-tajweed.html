@@ -72,9 +72,9 @@
         </div>
         <div class="course-meta-pill">
           <span class="meta-item"><strong id="metaInstructorLbl">Instructor:</strong> Sumiyati</span>
-          <span class="meta-item"><strong id="metaClassesLbl">Classes:</strong> 18 Classes (1-6 Free)</span>
-          <span class="meta-item"><strong id="metaCheckpointsLbl">Checkpoints:</strong> 2 Milestone Reviews</span>
-          <span class="meta-item"><strong id="metaSessionLbl">Session:</strong> 40 Mins / Class</span>
+          <span class="meta-item"><strong id="metaClassesLbl">Classes:</strong> <span id="metaClassesVal">18 Classes (1-6 Free)</span></span>
+          <span class="meta-item"><strong id="metaCheckpointsLbl">Checkpoints:</strong> <span id="metaCheckpointsVal">2 Milestone Reviews</span></span>
+          <span class="meta-item"><strong id="metaSessionLbl">Session:</strong> <span id="metaSessionVal">40 Mins / Class</span></span>
         </div>
       </div>
 
@@ -1186,6 +1186,16 @@
     const passcodeInput = document.getElementById('passcodeInput');
     const passcodeFeedback = document.getElementById('passcodeFeedback');
 
+        function setText(id, val) {
+      const el = document.getElementById(id);
+      if (el && val !== undefined) el.textContent = val;
+    }
+
+    function setHtml(id, val) {
+      const el = document.getElementById(id);
+      if (el && val !== undefined) el.innerHTML = val;
+    }
+
     function setGlobalLang(lang) {
       if (!courseI18n[lang]) return;
       currentLang = lang;
@@ -1198,72 +1208,100 @@
       });
 
       const t = courseI18n[lang];
-      document.getElementById('coursePageTitle').textContent = t.page_title;
-      document.getElementById('navBackText').textContent = t.nav_back;
-      document.getElementById('navTagText').textContent = t.nav_tag;
-      document.getElementById('navBrandText').textContent = t.nav_brand;
-      document.getElementById('navWaBtn').textContent = t.nav_wa;
+      const isId = lang === 'id';
+      document.title = t.page_title;
+      setText('coursePageTitle', t.page_title);
+      setText('navBackText', t.nav_back);
+      setText('navTagText', t.nav_tag);
+      setText('navBrandText', t.nav_brand);
+      setText('navWaBtn', t.nav_wa);
+      setText('navAdminText', isId ? 'Pengajar' : 'Teacher');
 
-      document.getElementById('bannerLabel').textContent = t.banner_label;
-      document.getElementById('bannerTitle').textContent = t.banner_title;
-      document.getElementById('bannerSub').textContent = t.banner_sub;
-      document.getElementById('metaInstructorLbl').textContent = t.meta_instructor;
-      document.getElementById('metaClassesLbl').textContent = t.meta_classes;
-      document.getElementById('metaCheckpointsLbl').textContent = t.meta_checkpoints;
-      document.getElementById('metaSessionLbl').textContent = t.meta_session;
+      setText('bannerLabel', t.banner_label);
+      setText('bannerTitle', t.banner_title);
+      setText('bannerSub', t.banner_sub);
+      setText('metaInstructorLbl', t.meta_instructor);
+      setText('metaClassesLbl', t.meta_classes);
+      setText('metaClassesVal', t.meta_classes_val);
+      setText('metaCheckpointsLbl', t.meta_checkpoints);
+      setText('metaCheckpointsVal', t.meta_checkpoints_val);
+      setText('metaSessionLbl', t.meta_session);
+      setText('metaSessionVal', t.meta_session_val);
 
-      document.getElementById('purposeCardTitle').textContent = t.purpose_title;
-      document.getElementById('purposeBadge').textContent = t.purpose_badge;
-      document.getElementById('purposeCardText').textContent = t.purpose_text;
+      setText('purposeCardTitle', t.purpose_title);
+      setText('purposeBadge', t.purpose_badge);
+      setText('purposeCardText', t.purpose_text);
 
-      document.getElementById('sessionCardTitle').textContent = t.session_title;
-      document.getElementById('step1Title').textContent = t.step1_title;
-      document.getElementById('step1Desc').textContent = t.step1_desc;
-      document.getElementById('step2Title').textContent = t.step2_title;
-      document.getElementById('step2Desc').textContent = t.step2_desc;
-      document.getElementById('step3Title').textContent = t.step3_title;
-      document.getElementById('step3Desc').textContent = t.step3_desc;
-      document.getElementById('step4Title').textContent = t.step4_title;
-      document.getElementById('step4Desc').textContent = t.step4_desc;
+      setText('sessionCardTitle', t.session_title);
+      setText('step1Title', t.step1_title);
+      setText('step1Desc', t.step1_desc);
+      setText('step2Title', t.step2_title);
+      setText('step2Desc', t.step2_desc);
+      setText('step3Title', t.step3_title);
+      setText('step3Desc', t.step3_desc);
+      setText('step4Title', t.step4_title);
+      setText('step4Desc', t.step4_desc);
 
-      document.getElementById('audienceTitle').textContent = t.audience_title;
-      document.getElementById('audienceDesc').textContent = t.audience_desc;
-      document.getElementById('prereqTitle').textContent = t.prereq_title;
-      document.getElementById('prereqDesc').textContent = t.prereq_desc;
-      document.getElementById('trackerBarText').textContent = t.tracker_bar_text;
-      document.getElementById('trackerBtnText').textContent = t.tracker_btn_text;
+      setText('audienceTitle', t.audience_title);
+      setText('audienceDesc', t.audience_desc);
+      setText('prereqTitle', t.prereq_title);
+      setText('prereqDesc', t.prereq_desc);
+      setText('trackerBarText', t.tracker_bar_text);
+      setText('trackerBtnText', t.tracker_btn_text);
 
-      prevBtnText.textContent = t.prev_btn;
-      nextBtnText.textContent = t.next_btn;
-      document.getElementById('practiceBoxHeader').textContent = t.practice_header;
-      document.getElementById('practiceBoxHint').textContent = t.practice_hint;
-      document.getElementById('mistakeHeaderLbl').textContent = t.mistake_header;
-      
-      audioPlayText.textContent = isAudioPlaying ? t.audio_playing_text : t.audio_listen_text;
-      audioSpeedText.textContent = audioPlaybackRate === 0.75 ? t.audio_speed_tartil : t.audio_speed_normal;
+      if (prevBtnText) prevBtnText.textContent = t.prev_btn;
+      if (nextBtnText) nextBtnText.textContent = t.next_btn;
+      setText('practiceBoxHeader', t.practice_header);
+      setText('practiceBoxHint', t.practice_hint);
+      setText('mistakeHeaderLbl', t.mistake_header);
 
-      document.getElementById('talaqqiCardTitle').textContent = t.talaqqi_title;
-      document.getElementById('talaqqiCardDesc').textContent = t.talaqqi_desc;
-      document.getElementById('talaqqiBtnText').textContent = t.talaqqi_btn;
-      document.getElementById('vgStep1Title').textContent = t.vg_s1_title;
-      document.getElementById('vgStep1Desc').textContent = t.vg_s1_desc;
-      document.getElementById('vgStep2Title').textContent = t.vg_s2_title;
-      document.getElementById('vgStep2Desc').textContent = t.vg_s2_desc;
-      document.getElementById('vgStep3Title').textContent = t.vg_s3_title;
-      document.getElementById('vgStep3Desc').textContent = t.vg_s3_desc;
+      if (audioPlayText) audioPlayText.textContent = isAudioPlaying ? t.audio_playing_text : t.audio_listen_text;
+      if (audioSpeedText) audioSpeedText.textContent = audioPlaybackRate === 0.75 ? t.audio_speed_tartil : t.audio_speed_normal;
 
-      document.getElementById('playlistHeaderTitle').textContent = t.playlist_title;
-      document.getElementById('playlistSubTitle').textContent = t.playlist_sub;
-      document.getElementById('companionTag').textContent = t.companion_tag;
-      document.getElementById('companionTitle').textContent = t.companion_title;
-      document.getElementById('companionDesc').textContent = t.companion_desc;
-      document.getElementById('companionLink').textContent = t.companion_link;
+      setText('talaqqiCardTitle', t.talaqqi_title);
+      setText('talaqqiCardDesc', t.talaqqi_desc);
+      setText('talaqqiBtnText', t.talaqqi_btn);
+      setText('vgStep1Title', t.vg_s1_title);
+      setText('vgStep1Desc', t.vg_s1_desc);
+      setText('vgStep2Title', t.vg_s2_title);
+      setText('vgStep2Desc', t.vg_s2_desc);
+      setText('vgStep3Title', t.vg_s3_title);
+      setText('vgStep3Desc', t.vg_s3_desc);
 
-      document.getElementById('faqLabel').textContent = t.faq_label;
-      document.getElementById('faqTitle').textContent = t.faq_title;
+      setText('playlistHeaderTitle', t.playlist_title);
+      setText('playlistSubTitle', t.playlist_sub);
+      setText('companionTag', t.companion_tag);
+      setText('companionTitle', t.companion_title);
+      setText('companionDesc', t.companion_desc);
+      setText('companionLink', t.companion_link);
 
-      document.getElementById('footerName').textContent = t.footer_name;
-      document.getElementById('footerMeta').textContent = t.footer_meta;
+      setText('faqLabel', t.faq_label);
+      setText('faqTitle', t.faq_title);
+
+      setText('footerName', t.footer_name);
+      setText('footerMeta', t.footer_meta);
+
+      // Translate Paywall 3-Step Box & Student Auth Modal
+      setText('pwStepsTitle', isId ? 'Cara Pendaftaran Akses Penuh (3 Langkah Mudah):' : 'How Enrollment Works (3 Simple Steps):');
+      setHtml('pwStep1', isId ? '<strong>Buat akun santri</strong> dengan nomor WhatsApp &amp; PIN 4 angka Anda.' : '<strong>Create your student account</strong> so your progress &amp; access are saved.');
+      setHtml('pwStep2', isId ? '<strong>Transfer Rp 199.000</strong> &amp; konfirmasi via WhatsApp ke Ustadzah Sumiyati.' : '<strong>Transfer Rp 199.000</strong> &amp; confirm via WhatsApp with Ustadzah Sumiyati.');
+      setHtml('pwStep3', isId ? '<strong>Akses Langsung Aktif:</strong> Ustadzah mengaktifkan akun Anda atau mengirimkan kode akses unik via WhatsApp.' : '<strong>Instant Unlock:</strong> Ustadzah activates your account or sends your personal unlock code via WhatsApp.');
+
+      setText('authModalPill', isId ? 'Login Santri via WhatsApp' : 'WhatsApp Student Login');
+      setText('authModalSub', isId ? 'Tanpa Email' : 'No Email Required');
+      setText('authModalTitle', isId ? 'Portal Belajar Santri' : 'Student WhatsApp Portal');
+      setHtml('authModalLead', isId ? 'Daftar atau masuk menggunakan <strong>Nomor WhatsApp</strong> dan <strong>PIN 4 Angka</strong> untuk menyimpan progres belajar dan membuka akses penuh.' : 'Register or sign in using your <strong>WhatsApp number</strong> and a <strong>4-digit PIN</strong> to save your progress and unlock full course access.');
+      setText('tabBtnRegister', isId ? 'Daftar Nomor WA' : 'Register WhatsApp');
+      setText('tabBtnLogin', isId ? 'Masuk dengan PIN' : 'Sign In with PIN');
+      setText('lblRegName', isId ? 'Nama Lengkap *' : 'Full Name (Nama Lengkap) *');
+      setText('lblRegWa', isId ? 'Nomor WhatsApp Aktif *' : 'WhatsApp Number (Nomor WhatsApp) *');
+      setText('lblRegPin', isId ? 'PIN Login 4 Angka *' : '4-Digit Login PIN *');
+      setText('lblRegCity', isId ? 'Kota Domisili' : 'City (Kota)');
+      setText('btnRegSubmit', isId ? 'Daftar dengan WhatsApp →' : 'Register with WhatsApp →');
+      setText('lblLoginWa', isId ? 'Nomor WhatsApp Terdaftar *' : 'Registered WhatsApp Number *');
+      setText('lblLoginPin', isId ? 'PIN Login 4 Angka *' : '4-Digit Login PIN *');
+      setText('btnForgotPin', isId ? 'Lupa PIN? Tanya via WhatsApp' : 'Forgot PIN? Ask via WhatsApp');
+      setText('btnLoginSubmit', isId ? 'Masuk dengan WhatsApp & PIN →' : 'Sign In with WhatsApp & PIN →');
 
       renderFaqs();
       renderStudentAccountHeader();
