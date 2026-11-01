@@ -145,10 +145,9 @@
         <div class="syllabus-action-text">
           <span id="trackerBarText">Want a printable 18-class study checklist for your desk or Qur'an?</span>
         </div>
-        <button type="button" class="btn-outline-sm" onclick="printSyllabusTracker()">
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;"><a href="curriculum.html" class="btn btn-primary" style="padding:.5rem 1rem;font-size:.76rem;"><span id="viewFullCurrBtnText">📖 View Full Curriculum Page →</span></a><button type="button" class="btn-outline-sm" onclick="printSyllabusTracker()">
           <span>🖨️</span>
-          <span id="trackerBtnText">Print Syllabus Tracker</span>
-        </button>
+          <span id="trackerBtnText">Print Syllabus Tracker</span></button></div>
       </div>
 
     </div>
@@ -293,8 +292,7 @@
               <h3 id="playlistHeaderTitle" style="margin:0 0 2px;">Pre-Tajweed Curriculum</h3>
               <small id="playlistSubTitle" style="font-size:11px;color:var(--muted);">Classes 01–06 Free · Checkpoints &amp; 07–18 Locked</small>
             </div>
-            <span id="completedCounter" class="curriculum-count">0/18 Completed</span>
-          </div>
+            <span id="completedCounter" class="curriculum-count">0/18 Completed</span></div><div style="padding:.65rem 1.25rem;border-bottom:1px solid var(--border);background:var(--bg);"><a href="curriculum.html" class="btn btn-primary" style="width:100%;padding:.55rem 1rem;font-size:.75rem;"><span id="sidebarFullCurrBtn">📖 View Full Curriculum Syllabus →</span></a></div>
 
           <div class="playlist-container" id="playlistContainer">
             <!-- Populated dynamically via JavaScript with all 18 classes and 2 Checkpoints -->
@@ -1248,6 +1246,8 @@
       setText('prereqDesc', t.prereq_desc);
       setText('trackerBarText', t.tracker_bar_text);
       setText('trackerBtnText', t.tracker_btn_text);
+      setText('viewFullCurrBtnText', isId ? '📖 Lihat Halaman Kurikulum Lengkap →' : '📖 View Full Curriculum Page →');
+      setText('sidebarFullCurrBtn', isId ? '📖 Lihat Silabus Kurikulum Lengkap →' : '📖 View Full Curriculum Syllabus →');
 
       if (prevBtnText) prevBtnText.textContent = t.prev_btn;
       if (nextBtnText) nextBtnText.textContent = t.next_btn;
