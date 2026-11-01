@@ -6,16 +6,16 @@
 }
 
     :root {
-      --bg:       #faf7f2;
-      --fg:       #1c1a17;
-      --card:     #f3ede3;
-      --card-hover: #ede4d6;
+      --bg:       #ffffff;
+      --fg:       #18181b;
+      --card:     #f7f7f8;
+      --card-hover: #efefef;
       --green:    #1e4a35;
       --green-light: #2d6a4f;
-      --green-fg: #faf7f2;
-      --muted:    #5c5448; /* enhanced contrast for WCAG AA compliance (>5:1) */
-      --sub:      #4a4540;
-      --border:   #d8d0c0;
+      --green-fg: #ffffff;
+      --muted:    #52525b; /* enhanced contrast for WCAG AA compliance (>5:1) */
+      --sub:      #3f3f46;
+      --border:   #e4e4e7;
       --gold:     #b8860b;
       --gold-light: #dfa82c;
       --ff-d: 'Fraunces', Georgia, serif;
@@ -80,7 +80,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: max(1rem, env(safe-area-inset-top, 1rem)) 2rem 1rem;
-      background: rgba(250, 247, 242, 0.94);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
@@ -329,7 +329,7 @@
       bottom: 14px;
       left: 14px;
       right: 14px;
-      background: rgba(250, 247, 242, 0.94);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
@@ -918,7 +918,7 @@
       position: fixed;
       bottom: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(250, 247, 242, 0.96);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-top: 1px solid var(--border);
@@ -1050,7 +1050,7 @@
     }
     .course-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(250, 247, 242, 0.96);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
@@ -1375,7 +1375,7 @@
       overflow-y: auto;
     }
     .playlist-module-header {
-      background: #eee6d8;
+      background: #f1f3f5;
       padding: .5rem 1.25rem;
       font-size: 10px;
       font-weight: 600;
@@ -1566,10 +1566,10 @@
     .timeline-bar-segment {
       height: 100%;
     }
-    .seg-open { width: 12.5%; background: #d0c7b7; }
+    .seg-open { width: 12.5%; background: #d4d4d8; }
     .seg-talaqqi { width: 25%; background: var(--gold); }
     .seg-practice { width: 50%; background: var(--green); }
-    .seg-close { width: 12.5%; background: #d0c7b7; }
+    .seg-close { width: 12.5%; background: #d4d4d8; }
     .timeline-steps {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1717,7 +1717,7 @@
     }
 
     .playlist-item.locked {
-      background: rgba(244, 239, 230, 0.4);
+      background: rgba(247, 247, 248, 0.7);
     }
     .playlist-item.locked:hover {
       background: rgba(184, 134, 11, 0.06);
@@ -2451,7 +2451,7 @@
       color: var(--fg);
     }
     .admin-table tr:last-child td { border-bottom: none; }
-    .admin-table tr:hover td { background: rgba(250, 247, 242, 0.55); }
+    .admin-table tr:hover td { background: rgba(247, 247, 248, 0.85); }
 
     .status-pill {
       display: inline-flex;
