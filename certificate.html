@@ -588,7 +588,7 @@
 
       <div class="cert-field">
         <label for="inpInstructorName">Nama Pengajar (Tanda Tangan)</label>
-        <input type="text" id="inpInstructorName" value="Sumiyati" oninput="syncCertPreview()" />
+        <input type="text" id="inpInstructorName" value="Sumiyati, SE, MS" oninput="syncCertPreview()" />
       </div>
 
       <div style="display:flex;flex-direction:column;gap:.55rem;margin-top:1.1rem;">
@@ -758,7 +758,7 @@
                     <!-- Authentic Extracted Signature of Sumiyati -->
                     <img src="sumiyati-signature.png" alt="Tanda Tangan Sumiyati" class="cert-sign-img" />
                   </div>
-                  <div class="cert-sign-name" id="outInstructorName">Sumiyati</div>
+                  <div class="cert-sign-name" id="outInstructorName">Sumiyati, SE, MS</div>
                 </div>
               </div>
             </div>
@@ -866,7 +866,7 @@
       const ket = document.getElementById('inpKeterangan').value || 'Mumtaz';
       const city = document.getElementById('inpCity').value || 'Indonesia';
       const date = document.getElementById('inpDate').value || '';
-      const instructor = document.getElementById('inpInstructorName').value || 'Sumiyati';
+      const instructor = document.getElementById('inpInstructorName').value || 'Sumiyati, SE, MS';
 
       document.getElementById('outProgramLine').textContent = prog;
       document.getElementById('outStudentName').textContent = name;
