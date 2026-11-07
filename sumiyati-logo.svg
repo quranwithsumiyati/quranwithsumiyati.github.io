@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="emeraldGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e4a35"/>
+      <stop offset="100%" stop-color="#2d6a4f"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="20" y1="15" x2="100" y2="105" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#dfa82c"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer Islamic Geometric Arch Emblem -->
+  <rect x="8" y="8" width="104" height="104" rx="22" fill="url(#emeraldGrad)" />
+  <rect x="13" y="13" width="94" height="94" rx="18" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.65"/>
+
+  <!-- Top Geometric Star / Kufic Crown Mark -->
+  <path d="M60 22L64.5 31L74 32.5L67 39.2L68.8 48.5L60 44L51.2 48.5L53 39.2L46 32.5L55.5 31L60 22Z" fill="url(#goldGrad)"/>
+  <circle cx="60" cy="36" r="3.2" fill="#1e4a35"/>
+
+  <!-- Open Mushaf Pages -->
+  <path d="M26 54C37 51 49 53 60 59C71 53 83 51 94 54V82C83 79 71 81 60 87C49 81 37 79 26 82V54Z" fill="#ffffff" fill-opacity="0.96"/>
+  <path d="M60 59V87" stroke="#1e4a35" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Golden Rehal (Qur'an Stand) Beneath Mushaf -->
+  <path d="M22 63L60 88L98 63" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 98L60 84L82 98" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

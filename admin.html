@@ -28,10 +28,9 @@
         <a href="index.html" class="back-link" id="navBackHome">Portfolio</a>
       </div>
 
-      <div class="course-header-title">
+      <div class="course-header-title" style="display:flex;align-items:center;gap:.55rem;"><img src="sumiyati-logo.svg" alt="Sumiyati Logo" style="width:26px;height:26px;border-radius:5px;" /><div>
         <span class="course-tag" id="adminTag">Instructor Portal</span>
-        <span class="course-brand" id="adminBrand">Student &amp; Enrollment Manager</span>
-      </div>
+        <span class="course-brand" id="adminBrand">Student &amp; Enrollment Manager</span></div></div>
 
       <div class="header-actions">
         <div class="lang-switcher" role="group" aria-label="Language Switcher">
@@ -95,7 +94,7 @@
             <button type="button" class="btn btn-primary btn-sm" onclick="openAddStudentModal()" id="addStudentBtn">
               + Add Student (WhatsApp + PIN)
             </button>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="exportStudentsCsv()" id="exportCsvBtn">
+            <a href="certificate.html" class="btn btn-secondary btn-sm" style="text-decoration:none;">🎓 Buat Sertifikat / Evaluasi</a><button type="button" class="btn btn-secondary btn-sm" onclick="exportStudentsCsv()" id="exportCsvBtn">
               📥 Export CSV
             </button>
             <button type="button" class="btn-outline-sm" onclick="openPasscodeModal()" id="changePinBtn">
@@ -709,7 +708,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
                 ${t.btn_send_code}
               </a>
             ` : ''}
-            <button type="button" class="admin-action-btn" onclick="openEditStudentModal('${escapeHtml(s.id)}')">
+            <a href="certificate.html?sid=${encodeURIComponent(s.id)}&name=${encodeURIComponent(s.name)}&city=${encodeURIComponent(s.city || 'Indonesia')}&phone=${encodeURIComponent(s.whatsapp || '')}" class="admin-action-btn" style="text-decoration:none;">🎓 Sertifikat</a><button type="button" class="admin-action-btn" onclick="openEditStudentModal('${escapeHtml(s.id)}')">
               ${t.btn_edit_notes}
             </button>
             <button type="button" class="admin-action-btn" onclick="handleDeleteStudent('${escapeHtml(s.id)}')" title="Delete student">

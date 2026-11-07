@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Hasil Evaluasi &amp; Sertifikat · Sumiyati</title>
+  <meta name="description" content="Laporan Hasil Evaluasi & Sertifikat Resmi Program Al-Qur'an bersama Ustadzah Sumiyati." />
+  <meta name="author" content="Sumiyati" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://ntfy.sh; frame-ancestors 'none'; base-uri 'self';" />
+
+  <link rel="icon" type="image/svg+xml" href="sumiyati-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2" />
+
+  <style>
+    .cert-workspace {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    body.student-view-only .cert-workspace {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    body.student-view-only .cert-editor-panel {
+      display: none !important;
+    }
+
+    /* Left Editor Panel */
+    .cert-editor-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--green);
+      border-radius: 4px;
+      padding: 1.35rem;
+      position: sticky;
+      top: 5rem;
+    }
+    .cert-editor-title {
+      font-family: var(--ff-d);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: .25rem;
+    }
+    .cert-editor-sub {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .cert-field {
+      margin-bottom: .75rem;
+    }
+    .cert-field label {
+      display: block;
+      font-size: .74rem;
+      font-weight: 600;
+      color: var(--sub);
+      margin-bottom: .25rem;
+    }
+    .cert-field input,
+    .cert-field select {
+      width: 100%;
+      padding: .48rem .65rem;
+      font-family: var(--ff-b);
+      font-size: .84rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--bg);
+      color: var(--fg);
+    }
+    .cert-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .6rem;
+    }
+
+    /* A4 Portrait Certificate Sheet (Exact Demo Layout) */
+    .cert-preview-wrap {
+      width: 100%;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+    }
+    .cert-sheet {
+      width: 794px;
+      min-height: 1123px;
+      background: #ffffff;
+      color: #111111;
+      font-family: 'Open Sans', 'Inter', sans-serif;
+      position: relative;
+      padding: 46px 58px 80px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.10);
+      border: 1px solid #e4e4e7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* Top Header Logos */
+    .cert-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    .cert-brand-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cert-kufic-box {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+    .cert-brand-left-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: 0.04em;
+      color: #111111;
+      text-transform: uppercase;
+    }
+    .cert-brand-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .cert-rehal-icon {
+      width: 78px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+    .cert-brand-divider {
+      width: 1.5px;
+      height: 52px;
+      background: #222222;
+    }
+    .cert-brand-right-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.22;
+      letter-spacing: 0.05em;
+      color: #111111;
+      text-transform: uppercase;
+    }
+
+    /* Main Title: HASIL EVALUASI */
+    .cert-main-heading {
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #0b1311;
+      text-transform: uppercase;
+      margin: 4px 0 22px;
+      line-height: 1;
+    }
+
+    /* Outer Green Border Box */
+    .cert-green-box {
+      border: 1.6px solid #2d6a4f;
+      padding: 36px 46px 34px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cert-intro-text {
+      font-size: 16.5px;
+      line-height: 1.55;
+      color: #1a1a1a;
+      margin-bottom: 18px;
+    }
+
+    /* Student Identity Table */
+    .cert-student-info {
+      margin: 0 auto 22px 72px;
+      border-collapse: collapse;
+    }
+    .cert-student-info td {
+      padding: 3px 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #111111;
+      vertical-align: top;
+    }
+    .cert-student-info td.lbl {
+      width: 125px;
+    }
+    .cert-student-info td.colon {
+      width: 18px;
+      text-align: center;
+    }
+
+    .cert-eval-lead {
+      font-size: 16.5px;
+      line-height: 1.5;
+      color: #1a1a1a;
+      margin-bottom: 18px;
+    }
+
+    /* Score Table */
+    .cert-score-table {
+      width: 480px;
+      margin: 0 auto 10px;
+      border-collapse: collapse;
+      border: 1.4px solid #222222;
+      text-align: center;
+    }
+    .cert-score-table th,
+    .cert-score-table td {
+      border: 1.2px solid #222222;
+      padding: 8px 14px;
+      color: #111111;
+    }
+    .cert-score-table th {
+      font-size: 16.5px;
+      font-weight: 700;
+      background: #ffffff;
+    }
+    .cert-score-table td.score-val {
+      font-size: 18.5px;
+      font-weight: 700;
+      padding: 15px 12px;
+      width: 115px;
+    }
+    .cert-score-table td.predikat-val {
+      font-size: 19px;
+      font-weight: 700;
+      padding: 15px 16px;
+    }
+
+    .cert-predicate-note {
+      text-align: center;
+      font-size: 11.8px;
+      color: #222222;
+      margin-bottom: 24px;
+    }
+
+    .cert-closing-text {
+      font-size: 16.5px;
+      line-height: 1.55;
+      color: #1a1a1a;
+      margin-bottom: 22px;
+    }
+
+    .cert-issued-meta {
+      border-collapse: collapse;
+      margin-bottom: 14px;
+    }
+    .cert-issued-meta td {
+      font-size: 16px;
+      color: #1a1a1a;
+      padding: 2px 0;
+    }
+    .cert-issued-meta td.meta-lbl {
+      width: 120px;
+    }
+    .cert-issued-meta td.meta-colon {
+      width: 14px;
+      text-align: center;
+    }
+
+    /* Signature Area (In Sumiyati's Name Only) */
+    .cert-sign-section {
+      margin-top: 6px;
+      text-align: center;
+    }
+    .cert-mengetahui {
+      font-size: 16.5px;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    .cert-sign-columns {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 4px;
+    }
+    .cert-sign-box {
+      position: relative;
+      min-width: 260px;
+      text-align: center;
+    }
+    .cert-sign-role {
+      font-size: 16.5px;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    .cert-sign-visual {
+      position: relative;
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Subtle watermark behind signature like the demo PDF */
+    .cert-sign-watermark {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      opacity: 0.18;
+      pointer-events: none;
+      transform: translateX(18px);
+    }
+    .cert-sign-watermark svg {
+      width: 40px;
+      height: 40px;
+    }
+    .cert-sign-watermark-text {
+      text-align: left;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      line-height: 1.15;
+      color: #1e4a35;
+      text-transform: uppercase;
+    }
+    .cert-sign-img {
+      position: relative;
+      z-index: 2;
+      height: 86px;
+      width: auto;
+      object-fit: contain;
+    }
+    .cert-sign-name {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #111111;
+      margin-top: 2px;
+    }
+
+    /* Bottom Footer matching Demo PDF */
+    .cert-bottom-footer {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 11px;
+      color: #222222;
+    }
+    .cert-qr-box {
+      width: 54px;
+      height: 54px;
+      flex-shrink: 0;
+    }
+    .cert-office-info {
+      line-height: 1.38;
+    }
+    .cert-office-info strong {
+      display: block;
+      font-weight: 700;
+      color: #111111;
+    }
+    .cert-footer-vrule {
+      width: 1.5px;
+      height: 52px;
+      background: #222222;
+      margin: 0 4px;
+    }
+    .cert-socials-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+      font-size: 11px;
+    }
+    .cert-social-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cert-social-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #1e4a35;
+      color: #ffffff;
+      font-size: 8.5px;
+      font-weight: 700;
+    }
+
+    /* Decorative Bottom Corner Bars (matching Demo PDF) */
+    .cert-corner-bar-left {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 140px;
+      height: 14px;
+      background: #1e4a35;
+      clip-path: polygon(0 0, 88% 0, 100% 100%, 0% 100%);
+    }
+    .cert-corner-ribbon-right {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 74px;
+      height: 74px;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1100px) {
+      .cert-workspace {
+        grid-template-columns: 1fr;
+      }
+      .cert-editor-panel {
+        position: static;
+      }
+    }
+
+    /* Exact Single-Page A4 Print Formatting */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      html, body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      header.course-nav,
+      footer,
+      .cert-editor-panel,
+      .student-print-bar {
+        display: none !important;
+      }
+      .cert-workspace {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: none !important;
+      }
+      .cert-preview-wrap {
+        display: block !important;
+        overflow: visible !important;
+      }
+      .cert-sheet {
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 auto !important;
+        padding: 14mm 16mm 20mm !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body class="course-page">
+
+  <!-- Top Navigation -->
+  <header class="course-nav">
+    <div class="wrap course-nav-inner">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <a href="admin.html" class="back-link" id="navBackAdmin">
+          <span class="back-arrow" aria-hidden="true">←</span>
+          <span>Back to Teacher Dashboard</span>
+        </a>
+        <span style="color:var(--border);">|</span>
+        <a href="tahsin-tajweed.html" class="back-link" style="color:var(--muted);font-weight:500;">
+          <span>Course Portal</span>
+        </a>
+      </div>
+      <div class="course-nav-brand" style="display:flex;align-items:center;gap:.5rem;">
+        <img src="sumiyati-logo.svg" alt="Sumiyati Logo" style="width:24px;height:24px;border-radius:4px;" />
+        <span class="brand-name">Hasil Evaluasi &amp; Sertifikat · Sumiyati</span>
+      </div>
+      <div class="course-nav-actions">
+        <button type="button" class="btn btn-primary" style="padding:.45rem 1rem;font-size:.75rem;" onclick="window.print()">
+          🖨️ Download / Print PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Student View Action Bar (Visible when student opens shared link) -->
+  <div class="wrap student-print-bar" id="studentActionBanner" style="display:none;margin-top:5.5rem;margin-bottom:-4rem;">
+    <div style="background:var(--card);border:1px solid var(--border);padding:.85rem 1.25rem;border-radius:4px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <div style="font-size:.88rem;color:var(--sub);">
+        🎓 <strong>Official Evaluation Report &amp; Certificate</strong> issued by Ustadzah Sumiyati
+      </div>
+      <div style="display:flex;gap:.6rem;">
+        <button type="button" class="btn btn-primary" style="padding:.45rem 1rem;font-size:.75rem;" onclick="window.print()">
+          🖨️ Download PDF / Print
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="cert-workspace">
+
+    <!-- Left Live Control Panel (For Instructor) -->
+    <aside class="cert-editor-panel" aria-label="Certificate Customizer">
+      <h2 class="cert-editor-title">🎓 Buat Hasil Evaluasi</h2>
+      <p class="cert-editor-sub">Pilih santri dari daftar atau isi langsung untuk mencetak PDF sertifikat resmi atas nama <strong>Sumiyati</strong>.</p>
+
+      <div class="cert-field">
+        <label for="selectStudentRoster">Pilih dari Daftar Santri (Opsional)</label>
+        <select id="selectStudentRoster" onchange="handlePickStudent(this.value)">
+          <option value="">— Ketik Manual / Pilih Santri —</option>
+        </select>
+      </div>
+
+      <div class="cert-field">
+        <label for="inpProgramLine">Baris Program Pembuka</label>
+        <input type="text" id="inpProgramLine" value="Program Kelas Pra-Tajwid &amp; Tahsin Al-Qur'an bersama Ustadzah Sumiyati" oninput="syncCertPreview()" />
+      </div>
+
+      <div class="cert-field">
+        <label for="inpStudentName">Nama Peserta (Nama Santri)</label>
+        <input type="text" id="inpStudentName" value="Hafni Fajria" oninput="syncCertPreview()" />
+      </div>
+
+      <div class="cert-field-row">
+        <div class="cert-field">
+          <label for="inpCapaian">Capaian / Materi</label>
+          <input type="text" id="inpCapaian" value="Kelas Pra-Tajwid (Kelas 01–18)" oninput="syncCertPreview()" />
+        </div>
+        <div class="cert-field">
+          <label for="inpKehadiran">Kehadiran</label>
+          <input type="text" id="inpKehadiran" value="100%" oninput="syncCertPreview()" />
+        </div>
+      </div>
+
+      <div class="cert-field">
+        <label for="inpEvalType">Kalimat Jenis Evaluasi</label>
+        <input type="text" id="inpEvalType" value="Telah mengikuti evaluasi akhir dengan hasil sebagai berikut:" oninput="syncCertPreview()" />
+      </div>
+
+      <div class="cert-field-row">
+        <div class="cert-field">
+          <label for="inpCol1Lbl">Label Nilai 1</label>
+          <input type="text" id="inpCol1Lbl" value="Bacaan" oninput="syncCertPreview()" />
+        </div>
+        <div class="cert-field">
+          <label for="inpCol2Lbl">Label Nilai 2</label>
+          <input type="text" id="inpCol2Lbl" value="Hafalan" oninput="syncCertPreview()" />
+        </div>
+      </div>
+
+      <div class="cert-field-row">
+        <div class="cert-field">
+          <label for="inpScore1">Nilai Bacaan (0-100)</label>
+          <input type="number" id="inpScore1" value="82" min="0" max="100" oninput="handleScoreChange()" />
+        </div>
+        <div class="cert-field">
+          <label for="inpScore2">Nilai Hafalan / Praktik</label>
+          <input type="number" id="inpScore2" value="79" min="0" max="100" oninput="handleScoreChange()" />
+        </div>
+      </div>
+
+      <div class="cert-field">
+        <label for="inpKeterangan">Keterangan Predikat</label>
+        <input type="text" id="inpKeterangan" value="Jayyid" oninput="syncCertPreview()" />
+      </div>
+
+      <div class="cert-field-row">
+        <div class="cert-field">
+          <label for="inpCity">Dikeluarkan di</label>
+          <input type="text" id="inpCity" value="Indonesia" oninput="syncCertPreview()" />
+        </div>
+        <div class="cert-field">
+          <label for="inpDate">Tertanggal</label>
+          <input type="text" id="inpDate" value="21 Juni 2026" oninput="syncCertPreview()" />
+        </div>
+      </div>
+
+      <div class="cert-field">
+        <label for="inpInstructorName">Nama Pengajar (Tanda Tangan)</label>
+        <input type="text" id="inpInstructorName" value="Sumiyati" oninput="syncCertPreview()" />
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:.55rem;margin-top:1.1rem;">
+        <button type="button" class="btn btn-primary" style="width:100%;" onclick="window.print()">
+          🖨️ Download / Cetak PDF Sekarang
+        </button>
+        <button type="button" class="btn btn-secondary" style="width:100%;" onclick="shareCertificateWhatsApp()">
+          📲 Kirim Link Sertifikat via WhatsApp
+        </button>
+      </div>
+    </aside>
+
+    <!-- Right A4 Certificate Preview -->
+    <section class="cert-preview-wrap" aria-label="Certificate Preview">
+      <div class="cert-sheet" id="certificateSheet">
+
+        <div>
+          <!-- Top Brand Logos (Sumiyati Only) -->
+          <div class="cert-top-bar">
+            <!-- Left Emblem: Geometric Kufic Mark + Sumiyati Brand -->
+            <div class="cert-brand-left">
+              <svg class="cert-kufic-box" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" fill="#1e4a35"/>
+                <!-- Kufic-inspired geometric pattern in white & gold -->
+                <rect x="12" y="12" width="16" height="16" fill="#ffffff"/>
+                <rect x="34" y="12" width="54" height="14" fill="#ffffff"/>
+                <rect x="12" y="34" width="16" height="54" fill="#ffffff"/>
+                <rect x="34" y="34" width="54" height="14" fill="#ffffff"/>
+                <rect x="34" y="54" width="16" height="22" fill="#ffffff"/>
+                <rect x="56" y="54" width="32" height="14" fill="#ffffff"/>
+                <rect x="72" y="68" width="16" height="20" fill="#ffffff"/>
+                <rect x="56" y="76" width="10" height="12" fill="#dfa82c"/>
+              </svg>
+              <div class="cert-brand-left-text">
+                QUR'AN WITH<br/>
+                SUMIYATI<br/>
+                INDONESIA
+              </div>
+            </div>
+
+            <!-- Right Emblem: Open Qur'an Rehal + Quran Course -->
+            <div class="cert-brand-right">
+              <svg class="cert-rehal-icon" viewBox="0 0 130 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Small Kufic square emblem at top center -->
+                <rect x="51" y="6" width="28" height="28" fill="#1e4a35"/>
+                <rect x="55" y="10" width="5" height="5" fill="#ffffff"/>
+                <rect x="62" y="10" width="13" height="4" fill="#ffffff"/>
+                <rect x="55" y="17" width="5" height="13" fill="#ffffff"/>
+                <rect x="62" y="17" width="13" height="4" fill="#ffffff"/>
+                <rect x="62" y="24" width="13" height="6" fill="#dfa82c"/>
+                <!-- Open Mushaf & Rehal Stand -->
+                <path d="M16 40L65 71L114 40" stroke="#1e4a35" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 33L65 61L108 33" stroke="#2d6a4f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M38 89L65 71L92 89" stroke="#1e4a35" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="cert-brand-divider"></div>
+              <div class="cert-brand-right-text">
+                QURAN<br/>
+                COURSE
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="cert-main-heading">HASIL EVALUASI</h1>
+
+          <!-- Outer Green Border Box -->
+          <div class="cert-green-box">
+            <div>
+              <p class="cert-intro-text">
+                <span id="outProgramLine">Program Kelas Pra-Tajwid &amp; Tahsin Al-Qur'an bersama Ustadzah Sumiyati</span><br/>
+                menerangkan bahwa:
+              </p>
+
+              <!-- Student Details -->
+              <table class="cert-student-info">
+                <tr>
+                  <td class="lbl">Nama</td>
+                  <td class="colon">:</td>
+                  <td id="outStudentName">Hafni Fajria</td>
+                </tr>
+                <tr>
+                  <td class="lbl">Capaian</td>
+                  <td class="colon">:</td>
+                  <td id="outCapaian">Kelas Pra-Tajwid (Kelas 01–18)</td>
+                </tr>
+                <tr>
+                  <td class="lbl">Kehadiran</td>
+                  <td class="colon">:</td>
+                  <td id="outKehadiran">100%</td>
+                </tr>
+              </table>
+
+              <p class="cert-eval-lead" id="outEvalType">
+                Telah mengikuti evaluasi akhir dengan hasil sebagai berikut:
+              </p>
+
+              <!-- Score Table -->
+              <table class="cert-score-table">
+                <thead>
+                  <tr>
+                    <th colspan="2">Nilai</th>
+                    <th rowspan="2" style="width:240px;">Keterangan</th>
+                  </tr>
+                  <tr>
+                    <th id="outCol1Lbl">Bacaan</th>
+                    <th id="outCol2Lbl">Hafalan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="score-val" id="outScore1">82</td>
+                    <td class="score-val" id="outScore2">79</td>
+                    <td class="predikat-val" id="outKeterangan">Jayyid</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p class="cert-predicate-note">
+                Keterangan predikat penilaian: Mumtaz (91-100), Jayyid jiddan (81-90), Jayyid (71-80), Maqbul (61-70)
+              </p>
+
+              <p class="cert-closing-text">
+                Demikian laporan hasil evaluasi ini disampaikan, semoga bisa menjadi<br/>
+                motivasi untuk selalu berinteraksi dengan Al-Qur’an.
+              </p>
+
+              <table class="cert-issued-meta">
+                <tr>
+                  <td class="meta-lbl">Dikeluarkan di</td>
+                  <td class="meta-colon">:</td>
+                  <td id="outCity">Indonesia</td>
+                </tr>
+                <tr>
+                  <td class="meta-lbl">Tertanggal</td>
+                  <td class="meta-colon">:</td>
+                  <td id="outDate">21 Juni 2026</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Signature Block (In the Name of Sumiyati ONLY) -->
+            <div class="cert-sign-section">
+              <div class="cert-mengetahui">Mengetahui,</div>
+              <div class="cert-sign-columns">
+                <div class="cert-sign-box">
+                  <div class="cert-sign-role">Pengajar</div>
+                  <div class="cert-sign-visual">
+                    <!-- Watermark emblem behind signature -->
+                    <div class="cert-sign-watermark">
+                      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="100" fill="#1e4a35"/>
+                        <rect x="12" y="12" width="16" height="16" fill="#ffffff"/>
+                        <rect x="34" y="12" width="54" height="14" fill="#ffffff"/>
+                        <rect x="12" y="34" width="16" height="54" fill="#ffffff"/>
+                        <rect x="34" y="34" width="54" height="14" fill="#ffffff"/>
+                        <rect x="34" y="54" width="16" height="22" fill="#ffffff"/>
+                        <rect x="56" y="54" width="32" height="14" fill="#ffffff"/>
+                        <rect x="72" y="68" width="16" height="20" fill="#ffffff"/>
+                      </svg>
+                      <div class="cert-sign-watermark-text">
+                        QUR'AN WITH<br/>
+                        SUMIYATI<br/>
+                        INDONESIA
+                      </div>
+                    </div>
+                    <!-- Authentic Extracted Signature of Sumiyati -->
+                    <img src="sumiyati-signature.png" alt="Tanda Tangan Sumiyati" class="cert-sign-img" />
+                  </div>
+                  <div class="cert-sign-name" id="outInstructorName">Sumiyati</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bottom Footer matching Demo PDF -->
+        <div class="cert-bottom-footer">
+          <!-- Crisp Verification QR SVG -->
+          <svg class="cert-qr-box" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="#ffffff"/>
+            <rect x="6" y="6" width="28" height="28" stroke="#111111" stroke-width="6"/>
+            <rect x="14" y="14" width="12" height="12" fill="#111111"/>
+            <rect x="66" y="6" width="28" height="28" stroke="#111111" stroke-width="6"/>
+            <rect x="74" y="14" width="12" height="12" fill="#111111"/>
+            <rect x="6" y="66" width="28" height="28" stroke="#111111" stroke-width="6"/>
+            <rect x="14" y="74" width="12" height="12" fill="#111111"/>
+            <rect x="42" y="10" width="8" height="8" fill="#111111"/>
+            <rect x="50" y="18" width="8" height="16" fill="#111111"/>
+            <rect x="42" y="42" width="16" height="16" fill="#1e4a35"/>
+            <rect x="10" y="42" width="16" height="8" fill="#111111"/>
+            <rect x="26" y="50" width="8" height="8" fill="#111111"/>
+            <rect x="66" y="42" width="12" height="8" fill="#111111"/>
+            <rect x="82" y="50" width="12" height="12" fill="#111111"/>
+            <rect x="42" y="66" width="10" height="18" fill="#111111"/>
+            <rect x="58" y="74" width="16" height="10" fill="#111111"/>
+            <rect x="78" y="78" width="16" height="16" fill="#111111"/>
+            <rect x="62" y="60" width="10" height="8" fill="#111111"/>
+          </svg>
+
+          <div class="cert-office-info">
+            <strong>Program Pembelajaran Al-Qur'an:</strong>
+            Kelas Pra-Tajwid, Tahsin &amp; Tahfizh<br/>
+            Bersama Ustadzah Sumiyati<br/>
+            Indonesia
+          </div>
+
+          <div class="cert-footer-vrule"></div>
+
+          <div class="cert-socials-list">
+            <div class="cert-social-item">
+              <span class="cert-social-badge">🌐</span>
+              <span>quranwithsumiyati.github.io</span>
+            </div>
+            <div class="cert-social-item">
+              <span class="cert-social-badge">📷</span>
+              <span>@sumiyati.ambri</span>
+            </div>
+            <div class="cert-social-item">
+              <span class="cert-social-badge">✉️</span>
+              <span>sumiyatiambri@gmail.com</span>
+            </div>
+            <div class="cert-social-item">
+              <span class="cert-social-badge">✓</span>
+              <span id="outCertCode">ID: SQ-2026-001</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Bottom Left & Right Accents (Matching Demo PDF) -->
+        <div class="cert-corner-bar-left"></div>
+        <svg class="cert-corner-ribbon-right" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="80,0 80,28 28,80 0,80" fill="#dfa82c"/>
+          <polygon points="80,28 80,56 56,80 28,80" fill="#2d6a4f"/>
+          <polygon points="80,56 80,80 56,80" fill="#1e4a35"/>
+        </svg>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="course-auth.js?v=7"></script>
+  <script>
+    let activeStudentPhone = '';
+
+    function computePredikat(s1, s2) {
+      const n1 = Number(s1) || 0;
+      const n2 = Number(s2) || 0;
+      const avg = Math.round((n1 + n2) / 2);
+      if (avg >= 91) return 'Mumtaz';
+      if (avg >= 81) return 'Jayyid Jiddan';
+      if (avg >= 71) return 'Jayyid';
+      return 'Maqbul';
+    }
+
+    function handleScoreChange() {
+      const s1 = document.getElementById('inpScore1').value;
+      const s2 = document.getElementById('inpScore2').value;
+      document.getElementById('inpKeterangan').value = computePredikat(s1, s2);
+      syncCertPreview();
+    }
+
+    function syncCertPreview() {
+      const name = document.getElementById('inpStudentName').value || 'Nama Peserta';
+      const capaian = document.getElementById('inpCapaian').value || '-';
+      const kehadiran = document.getElementById('inpKehadiran').value || '100%';
+      const prog = document.getElementById('inpProgramLine').value || '';
+      const evalType = document.getElementById('inpEvalType').value || '';
+      const col1 = document.getElementById('inpCol1Lbl').value || 'Bacaan';
+      const col2 = document.getElementById('inpCol2Lbl').value || 'Hafalan';
+      const s1 = document.getElementById('inpScore1').value || '0';
+      const s2 = document.getElementById('inpScore2').value || '0';
+      const ket = document.getElementById('inpKeterangan').value || 'Mumtaz';
+      const city = document.getElementById('inpCity').value || 'Indonesia';
+      const date = document.getElementById('inpDate').value || '';
+      const instructor = document.getElementById('inpInstructorName').value || 'Sumiyati';
+
+      document.getElementById('outProgramLine').textContent = prog;
+      document.getElementById('outStudentName').textContent = name;
+      document.getElementById('outCapaian').textContent = capaian;
+      document.getElementById('outKehadiran').textContent = kehadiran;
+      document.getElementById('outEvalType').textContent = evalType;
+      document.getElementById('outCol1Lbl').textContent = col1;
+      document.getElementById('outCol2Lbl').textContent = col2;
+      document.getElementById('outScore1').textContent = s1;
+      document.getElementById('outScore2').textContent = s2;
+      document.getElementById('outKeterangan').textContent = ket;
+      document.getElementById('outCity').textContent = city;
+      document.getElementById('outDate').textContent = date;
+      document.getElementById('outInstructorName').textContent = instructor;
+
+      const shortHash = Array.from(name).reduce((acc, c) => ((acc << 5) - acc + c.charCodeAt(0)) | 0, 0);
+      const codeNum = String(Math.abs(shortHash) % 9000 + 1000);
+      document.getElementById('outCertCode').textContent = `ID: SQ-2026-${codeNum}`;
+    }
+
+    function populateStudentDropdown() {
+      if (!window.SumiyatiAuth) return;
+      const sel = document.getElementById('selectStudentRoster');
+      const students = SumiyatiAuth.getAllStudents();
+      if (!Array.isArray(students) || students.length === 0) return;
+
+      const currentVal = sel.value;
+      sel.innerHTML = '<option value="">— Ketik Manual / Pilih Santri —</option>';
+      students.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = `${s.name} (${SumiyatiAuth.formatDisplayPhone(s.whatsapp)})`;
+        sel.appendChild(opt);
+      });
+      if (currentVal) sel.value = currentVal;
+    }
+
+    function handlePickStudent(studentId) {
+      if (!studentId || !window.SumiyatiAuth) return;
+      const students = SumiyatiAuth.getAllStudents();
+      const s = students.find(x => x.id === studentId);
+      if (!s) return;
+
+      activeStudentPhone = s.whatsapp || '';
+      document.getElementById('inpStudentName').value = s.name || '';
+      document.getElementById('inpCity').value = s.city || 'Indonesia';
+      const completedCount = Array.isArray(s.completedClasses) ? s.completedClasses.length : 18;
+      const pct = Math.min(100, Math.max(85, Math.round((completedCount / 18) * 100)));
+      document.getElementById('inpKehadiran').value = `${pct}%`;
+      document.getElementById('inpCapaian').value = `Kelas Pra-Tajwid (Kelas 01–${String(completedCount).padStart(2, '0')})`;
+      if (s.cp1Status === 'passed' && s.cp2Status === 'passed') {
+        document.getElementById('inpScore1').value = '94';
+        document.getElementById('inpScore2').value = '92';
+      }
+      handleScoreChange();
+    }
+
+    function getShareableCertificateUrl() {
+      const params = new URLSearchParams({
+        view: '1',
+        name: document.getElementById('inpStudentName').value,
+        capaian: document.getElementById('inpCapaian').value,
+        kehadiran: document.getElementById('inpKehadiran').value,
+        prog: document.getElementById('inpProgramLine').value,
+        eval: document.getElementById('inpEvalType').value,
+        c1: document.getElementById('inpCol1Lbl').value,
+        c2: document.getElementById('inpCol2Lbl').value,
+        s1: document.getElementById('inpScore1').value,
+        s2: document.getElementById('inpScore2').value,
+        ket: document.getElementById('inpKeterangan').value,
+        city: document.getElementById('inpCity').value,
+        date: document.getElementById('inpDate').value,
+        inst: document.getElementById('inpInstructorName').value
+      });
+      return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    }
+
+    function shareCertificateWhatsApp() {
+      const name = document.getElementById('inpStudentName').value || 'Santri';
+      const ket = document.getElementById('inpKeterangan').value || 'Mumtaz';
+      const shareUrl = getShareableCertificateUrl();
+      const msg = `Assalamu'alaikum ${name}, alhamdulillah berikut adalah Hasil Evaluasi & Sertifikat pembelajaran Al-Qur'an Anda bersama Ustadzah Sumiyati (Predikat: ${ket}):\n\n🎓 Lihat & Unduh PDF Sertifikat:\n${shareUrl}\n\nSemoga menjadi motivasi untuk selalu berinteraksi dengan Al-Qur'an. Barakallahu fiikum! — Ustadzah Sumiyati`;
+      const phoneClean = activeStudentPhone ? activeStudentPhone.replace(/[^0-9]/g, '') : '';
+      const waUrl = phoneClean
+        ? `https://wa.me/${phoneClean}?text=${encodeURIComponent(msg)}`
+        : `https://wa.me/?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank', 'noopener');
+    }
+
+    // Initialize from URL query parameters if present
+    (function initCertPage() {
+      const todayId = new Date().toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+      document.getElementById('inpDate').value = todayId;
+
+      const qs = new URLSearchParams(window.location.search);
+      if (qs.get('view') === '1') {
+        document.body.classList.add('student-view-only');
+        document.getElementById('studentActionBanner').style.display = 'block';
+        document.getElementById('navBackAdmin').href = 'tahsin-tajweed.html';
+        document.getElementById('navBackAdmin').innerHTML = '<span class="back-arrow" aria-hidden="true">←</span><span>Back to Course Portal</span>';
+      }
+
+      if (qs.get('name')) document.getElementById('inpStudentName').value = qs.get('name');
+      if (qs.get('capaian')) document.getElementById('inpCapaian').value = qs.get('capaian');
+      if (qs.get('kehadiran')) document.getElementById('inpKehadiran').value = qs.get('kehadiran');
+      if (qs.get('prog')) document.getElementById('inpProgramLine').value = qs.get('prog');
+      if (qs.get('eval')) document.getElementById('inpEvalType').value = qs.get('eval');
+      if (qs.get('c1')) document.getElementById('inpCol1Lbl').value = qs.get('c1');
+      if (qs.get('c2')) document.getElementById('inpCol2Lbl').value = qs.get('c2');
+      if (qs.get('s1')) document.getElementById('inpScore1').value = qs.get('s1');
+      if (qs.get('s2')) document.getElementById('inpScore2').value = qs.get('s2');
+      if (qs.get('ket')) document.getElementById('inpKeterangan').value = qs.get('ket');
+      if (qs.get('city')) document.getElementById('inpCity').value = qs.get('city');
+      if (qs.get('date')) document.getElementById('inpDate').value = qs.get('date');
+      if (qs.get('inst')) document.getElementById('inpInstructorName').value = qs.get('inst');
+      if (qs.get('phone')) activeStudentPhone = qs.get('phone');
+
+      syncCertPreview();
+
+      if (window.SumiyatiAuth) {
+        populateStudentDropdown();
+        if (qs.get('sid')) {
+          document.getElementById('selectStudentRoster').value = qs.get('sid');
+          handlePickStudent(qs.get('sid'));
+        }
+        if (SumiyatiAuth.pullFromSupabaseIfConfigured) {
+          SumiyatiAuth.pullFromSupabaseIfConfigured().then(() => {
+            populateStudentDropdown();
+            if (qs.get('sid')) {
+              document.getElementById('selectStudentRoster').value = qs.get('sid');
+              handlePickStudent(qs.get('sid'));
+            }
+          });
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
