@@ -267,10 +267,32 @@
       color: var(--green) !important;
       transition: all .15s ease;
     }
+    .nav-dd-pill.primary {
+      background: var(--green);
+      color: #ffffff !important;
+      border-color: var(--green);
+    }
     .nav-dd-pill:hover {
       background: var(--green);
       color: #ffffff !important;
       border-color: var(--green);
+    }
+    .nav-dd-pill.primary:hover {
+      background: #163828;
+    }
+    .nav-dd-header {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: .35rem .75rem .25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-dd-icon-mobile {
+      display: none;
     }
 
     /* ── Language Switcher ── */
@@ -1144,12 +1166,25 @@
       header nav { display: flex; gap: 0; }
       header nav > a { display: none; }
       header nav .nav-dropdown > a {
-        background: var(--card);
-        border: 1px solid var(--border);
-        padding: .36rem .72rem;
+        background: rgba(30, 74, 53, 0.08);
+        border: 1px solid rgba(30, 74, 53, 0.35);
+        padding: .36rem .78rem;
         border-radius: 99px;
         color: var(--green);
         font-weight: 600;
+        font-size: 11px;
+        box-shadow: 0 2px 6px rgba(30, 74, 53, 0.06);
+      }
+      header nav .nav-dropdown.open > a {
+        background: var(--green);
+        color: #ffffff;
+        border-color: var(--green);
+      }
+      header nav .nav-dropdown.open .nav-dropdown-caret {
+        color: #ffffff;
+      }
+      .nav-dd-icon-mobile {
+        display: inline;
         font-size: 11px;
       }
       header nav .nav-dropdown > a.active::after { display: none; }
