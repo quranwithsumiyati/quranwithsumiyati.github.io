@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
 
@@ -39,7 +39,7 @@
     <div class="header-actions">
       <nav>
         <a href="#story" class="active" data-section="story" data-i18n="nav_story">Story</a>
-        <a href="#teaching" data-section="teaching" data-i18n="nav_teaching">Teaching</a>
+        <div class="nav-dropdown"><a href="#teaching" data-section="teaching"><span data-i18n="nav_teaching">Teaching</span> <span class="nav-dropdown-caret" aria-hidden="true">▾</span></a><div class="nav-dropdown-menu" role="menu" aria-label="Teaching Programs"><a href="#teach-pretajweed" class="nav-dd-item" role="menuitem"><span class="nav-dd-num">01</span><span class="nav-dd-text"><span class="nav-dd-title" data-i18n="teach_c1_title">Pre-Tajweed &amp; Tahsin</span><span class="nav-dd-sub" data-i18n="dd_c1_sub">18 practical classes (Classes 01–06 free) &amp; 1-on-1 talaqqi</span></span></a><div class="nav-dd-sublinks"><a href="curriculum.html" class="nav-dd-pill" data-i18n="dd_curr_btn">📖 View Curriculum</a><a href="tahsin-tajweed.html" class="nav-dd-pill" data-i18n="dd_portal_btn">▶ Video Portal</a></div><div class="nav-dd-divider"></div><a href="#teach-tahfiz" class="nav-dd-item" role="menuitem"><span class="nav-dd-num">02</span><span class="nav-dd-text"><span class="nav-dd-title" data-i18n="teach_c2_title">Tahfiz Guidance</span><span class="nav-dd-sub" data-i18n="dd_c2_sub">Structured 30 juz memorization &amp; daily accountability</span></span></a><a href="#teach-arabic" class="nav-dd-item" role="menuitem"><span class="nav-dd-num">03</span><span class="nav-dd-text"><span class="nav-dd-title" data-i18n="teach_c3_title">Quranic Arabic</span><span class="nav-dd-sub" data-i18n="dd_c3_sub">Vocabulary &amp; grammar to understand Quranic verses</span></span></a><a href="#teach-tafsir" class="nav-dd-item" role="menuitem"><span class="nav-dd-num">04</span><span class="nav-dd-text"><span class="nav-dd-title" data-i18n="teach_c4_title">Tafsir Study Circles</span><span class="nav-dd-sub" data-i18n="dd_c4_sub">Weekly halaqahs exploring classical tafsir scholarship</span></span></a></div></div>
         <a href="#works" data-section="works" data-i18n="nav_works">Works</a>
         <a href="#teman-murojaah" data-section="teman-murojaah" data-i18n="nav_murojaah">Teman Murojaah</a>
         <a href="#contact" data-section="contact" data-i18n="nav_contact">Contact</a>
@@ -186,21 +186,21 @@
       <h2 class="section-title" data-i18n="teach_title">What I teach</h2>
       <div class="grid">
         <div class="teach-card">
-          <p class="teach-num">01</p>
+          <p class="teach-num" id="teach-pretajweed" style="scroll-margin-top:110px;">01</p>
           <h3 data-i18n="teach_c1_title">Pre-Tajweed &amp; Tahsin</h3>
           <p data-i18n="teach_c1_desc">One-on-one and structured video guidance. Explore the 18-class Pre-Tajweed curriculum (Classes 01–06 free) with practical drills, checkpoints, and talaqqi feedback.</p><div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;"><a href="curriculum.html" class="btn btn-primary" style="padding:.5rem .95rem;font-size:.72rem;">📖 View Curriculum →</a><a href="tahsin-tajweed.html" class="btn btn-secondary" style="padding:.5rem .95rem;font-size:.72rem;">▶ Video Portal</a></div></div>
         <div class="teach-card">
-          <p class="teach-num">02</p>
+          <p class="teach-num" id="teach-tahfiz" style="scroll-margin-top:110px;">02</p>
           <h3 data-i18n="teach_c2_title">Tahfiz Guidance</h3>
           <p data-i18n="teach_c2_desc">Structured memorization programs with daily accountability. Designed to build sustainable habits for completing and preserving the 30 juz.</p>
         </div>
         <div class="teach-card">
-          <p class="teach-num">03</p>
+          <p class="teach-num" id="teach-arabic" style="scroll-margin-top:110px;">03</p>
           <h3 data-i18n="teach_c3_title">Quranic Arabic</h3>
           <p data-i18n="teach_c3_desc">Understanding Quranic vocabulary and grammar so students can engage directly with the meaning of verses they already recite.</p>
         </div>
         <div class="teach-card">
-          <p class="teach-num">04</p>
+          <p class="teach-num" id="teach-tafsir" style="scroll-margin-top:110px;">04</p>
           <h3 data-i18n="teach_c4_title">Tafsir Study Circles</h3>
           <p data-i18n="teach_c4_desc">Weekly halaqahs exploring the meaning and context of selected surahs, drawing on classical tafsir scholarship.</p>
         </div>
@@ -454,6 +454,12 @@
         teach_c3_title: "Quranic Arabic",
         teach_c3_desc: "Understanding Quranic vocabulary and grammar so students can engage directly with the meaning of verses they already recite.",
         teach_c4_title: "Tafsir Study Circles",
+        dd_c1_sub: "18 practical classes (Classes 01–06 free) & 1-on-1 talaqqi",
+        dd_c2_sub: "Structured 30 juz memorization & daily accountability",
+        dd_c3_sub: "Vocabulary & grammar to understand Quranic verses",
+        dd_c4_sub: "Weekly halaqahs exploring classical tafsir scholarship",
+        dd_curr_btn: "📖 View Curriculum",
+        dd_portal_btn: "▶ Video Portal",
         teach_c4_desc: "Weekly halaqahs exploring the meaning and context of selected surahs, drawing on classical tafsir scholarship.",
         teach_note_text: "Classes available online (Zoom/WhatsApp) and in person in Indonesia.",
         teach_note_link: "Reach out to discuss →",
@@ -532,6 +538,12 @@
         teach_c3_title: "Bahasa Arab Al-Qur'an",
         teach_c3_desc: "Memahami kosakata dan kaidah bahasa Al-Qur'an agar santri dapat berinteraksi langsung dengan makna ayat-ayat yang dibaca.",
         teach_c4_title: "Halaqah & Kajian Tafsir",
+        dd_c1_sub: "18 kelas praktik (Kelas 01–06 gratis) & bimbingan talaqqi",
+        dd_c2_sub: "Program hafalan 30 juz terstruktur & mutaba'ah harian",
+        dd_c3_sub: "Kosakata & kaidah bahasa Arab untuk memahami ayat Al-Qur'an",
+        dd_c4_sub: "Kajian rutin mengulas makna surah & tafsir mu'tabar",
+        dd_curr_btn: "📖 Lihat Kurikulum",
+        dd_portal_btn: "▶ Portal Video",
         teach_c4_desc: "Kajian rutin mengulas makna dan konteks surah-surah pilihan dengan merujuk pada kitab-kitab tafsir mu'tabar.",
         teach_note_text: "Kelas tersedia secara daring (Zoom/WhatsApp) dan tatap muka di Indonesia.",
         teach_note_link: "Hubungi untuk konsultasi →",
