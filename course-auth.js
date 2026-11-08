@@ -20,8 +20,7 @@
   const COMPLETED_KEY = 'sumiyati_completed_pretajweed_classes';
   const RATE_LIMIT_KEY = 'sumiyati_auth_rate_limit_v3';
   const DELETED_KEY = 'sumiyati_deleted_students_v3';
-  const CLOUD_RELAY_TOPIC = 'sumiyati_pretajweed_sync_v3_8c4e2b9a1f7d';
-  const CLOUD_RELAY_URL = 'https://ntfy.sh/' + CLOUD_RELAY_TOPIC;
+  const GSHEET_CFG_KEY = 'sumiyati_gsheet_webapp_url_v3';
 
   const SALT = 'sumiyati_quran_2026_salt_';
   const ADMIN_SESSION_TTL_MS = 2 * 60 * 60 * 1000; // 2 hours
@@ -137,6 +136,26 @@
     if (!cleanWa) return '';
     const digest = saltedHash(`STU_CODE_${cleanWa}`);
     return 'TQ-' + digest.slice(0, 6).toUpperCase();
+  }
+
+  // Cryptographic signature for shareable student evaluation certificates (anti-forgery)
+  function signCertificateData(fields) {
+    const canonical = [
+      String(fields.name || '').trim(),
+      String(fields.capaian || '').trim(),
+      String(fields.kehadiran || '').trim(),
+      String(fields.s1 || '').trim(),
+      String(fields.s2 || '').trim(),
+      String(fields.ket || '').trim(),
+      String(fields.date || '').trim(),
+      String(fields.inst || '').trim()
+    ].join('|');
+    return saltedHash(`CERT_SIG_V1_${canonical}`).slice(0, 24);
+  }
+
+  function verifyCertificateData(fields, sig) {
+    if (!sig || typeof sig !== 'string') return false;
+    return signCertificateData(fields) === sig.trim().toLowerCase();
   }
 
   // Obfuscate local storage payload so raw phone numbers / PINs aren't plain JSON at rest
@@ -338,7 +357,7 @@
           currentList = decoded;
         }
       }
-      // Also merge any records from v2 key so all tabs stay in sync
+      // One-time migration from legacy v2 key, then purge plaintext legacy storage
       const legacyRaw = localStorage.getItem(LEGACY_DB_KEY);
       if (legacyRaw) {
         try {
@@ -356,7 +375,13 @@
               });
             }
           }
-        } catch (e) {}
+          localStorage.removeItem(LEGACY_DB_KEY);
+          if (currentList) {
+            localStorage.setItem(DB_KEY, encodePayload(currentList));
+          }
+        } catch (e) {
+          localStorage.removeItem(LEGACY_DB_KEY);
+        }
       }
       if (Array.isArray(currentList) && currentList.length > 0) {
         return currentList.filter(
@@ -372,7 +397,7 @@
 
   function saveDbLocalOnly(students) {
     localStorage.setItem(DB_KEY, encodePayload(students));
-    localStorage.setItem(LEGACY_DB_KEY, JSON.stringify(students));
+    localStorage.removeItem(LEGACY_DB_KEY);
     if (syncChannel) {
       try {
         syncChannel.postMessage({ type: 'roster_updated', count: students.length });
@@ -383,8 +408,8 @@
 
   function saveDb(students) {
     saveDbLocalOnly(students);
-    pushToCloudRelay(students);
     syncToSupabaseIfConfigured(students);
+    syncToGoogleSheetIfConfigured(students);
   }
 
   function normalizePhone(phone) {
@@ -545,20 +570,61 @@
     return merged;
   }
 
-  async function pushToCloudRelay(students, extra = {}) {
-    if (typeof fetch === 'undefined') return false;
+  function getGoogleSheetUrl() {
     try {
-      const packet = encodePayload({
-        v: 3,
-        ts: Date.now(),
-        students: students.slice(0, 120),
-        deleted: getDeletedIds(),
-        ...extra
-      });
-      if (!packet) return false;
-      await fetch(CLOUD_RELAY_URL, {
+      const saved = decodePayload(localStorage.getItem(GSHEET_CFG_KEY));
+      if (saved && typeof saved.url === 'string' && saved.url.startsWith('https://script.google.com/')) {
+        return saved.url;
+      }
+      return '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function setGoogleSheetUrl(url) {
+    if (!isAdminLoggedIn()) return null;
+    const clean = String(url || '').trim();
+    if (!clean) {
+      localStorage.removeItem(GSHEET_CFG_KEY);
+      return '';
+    }
+    if (!clean.startsWith('https://script.google.com/')) {
+      return null;
+    }
+    localStorage.setItem(GSHEET_CFG_KEY, encodePayload({ url: clean }));
+    syncToGoogleSheetIfConfigured(loadDb());
+    return clean;
+  }
+
+  async function syncToGoogleSheetIfConfigured(students) {
+    const sheetUrl = getGoogleSheetUrl();
+    if (!sheetUrl || typeof fetch === 'undefined') return false;
+    try {
+      await fetch(sheetUrl, {
         method: 'POST',
-        body: packet
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          action: 'sync_students',
+          updatedAt: new Date().toISOString(),
+          students: students.map(s => ({
+            id: s.id,
+            name: s.name,
+            whatsapp: s.whatsapp,
+            pin: s.pin,
+            personalCode: getStudentPersonalCode(s.whatsapp),
+            city: s.city,
+            accessStatus: s.accessStatus,
+            completedClasses: s.completedClasses,
+            currentLesson: s.currentLesson,
+            cp1Status: s.cp1Status,
+            cp2Status: s.cp2Status,
+            notes: s.notes,
+            joinedAt: s.joinedAt,
+            lastActive: s.lastActive
+          }))
+        })
       });
       return true;
     } catch (e) {
@@ -566,28 +632,16 @@
     }
   }
 
-  async function pullFromCloudRelay() {
-    if (typeof fetch === 'undefined') return null;
+  async function pullFromGoogleSheetIfConfigured() {
+    const sheetUrl = getGoogleSheetUrl();
+    if (!sheetUrl || typeof fetch === 'undefined') return null;
     try {
-      const res = await fetch(`${CLOUD_RELAY_URL}/json?poll=1&since=all`);
+      const res = await fetch(`${sheetUrl}?action=list_students`);
       if (!res.ok) return null;
-      const text = await res.text();
-      if (!text || !text.trim()) return null;
-      const lines = text.trim().split('\n');
-      const validPackets = [];
-      for (let i = 0; i < lines.length; i++) {
-        try {
-          const env = JSON.parse(lines[i]);
-          if (env && env.event === 'message' && typeof env.message === 'string') {
-            const decoded = decodePayload(env.message);
-            if (decoded && decoded.v === 3 && Array.isArray(decoded.students)) {
-              validPackets.push(decoded);
-            }
-          }
-        } catch (e) {}
-      }
-      if (validPackets.length > 0) {
-        return applyCloudPackets(validPackets);
+      const data = await res.json();
+      if (data && Array.isArray(data.students) && data.students.length > 0) {
+        applyCloudPackets([{ v: 3, students: data.students }]);
+        return loadDb();
       }
       return null;
     } catch (e) {
@@ -595,26 +649,8 @@
     }
   }
 
-  function startRealtimeCloudStream() {
-    if (typeof EventSource === 'undefined') return;
-    try {
-      const es = new EventSource(`${CLOUD_RELAY_URL}/sse`);
-      es.onmessage = function (ev) {
-        try {
-          const data = JSON.parse(ev.data);
-          if (data && data.event === 'message' && typeof data.message === 'string') {
-            const decoded = decodePayload(data.message);
-            if (decoded && decoded.v === 3 && Array.isArray(decoded.students)) {
-              applyCloudPackets([decoded]);
-            }
-          }
-        } catch (e) {}
-      };
-    } catch (e) {}
-  }
-
   async function pullFromSupabaseIfConfigured() {
-    await pullFromCloudRelay();
+    await pullFromGoogleSheetIfConfigured();
     const cfg = getSupabaseConfig();
     if (!cfg || !cfg.url || !cfg.anonKey) return loadDb();
     try {
@@ -707,7 +743,6 @@
   }
 
   pullFromSupabaseIfConfigured();
-  startRealtimeCloudStream();
 
   function getCurrentStudentInternal() {
     const sess = decodePayload(localStorage.getItem(SESSION_KEY));
@@ -811,10 +846,23 @@
       const existingIdx = students.findIndex(s => s.whatsapp === cleanWa);
       if (existingIdx !== -1) {
         const existing = students[existingIdx];
+        const inputPinHash = hashPin(cleanWa, cleanPin);
+        const existingPinHash = existing.pinHash || hashPin(existing.whatsapp, existing.pin);
+        // Prevent unauthorized PIN overwrite or account takeover of an existing student
+        if (!isAdminLoggedIn() && inputPinHash !== existingPinHash) {
+          const rl = recordFailedAttempt('student_login');
+          return {
+            ok: false,
+            error: 'wrong_pin',
+            remainingAttempts: rl.remainingAttempts,
+            waitSeconds: rl.waitSeconds
+          };
+        }
+        clearRateLimit('student_login');
         if (sanitizeText(name, 80)) existing.name = sanitizeText(name, 80);
         if (sanitizeText(city, 80)) existing.city = sanitizeText(city, 80);
         existing.pin = cleanPin;
-        existing.pinHash = hashPin(cleanWa, cleanPin);
+        existing.pinHash = inputPinHash;
         existing.lastActive = new Date().toISOString();
         // Move to top of roster so teacher sees it immediately
         students.splice(existingIdx, 1);
@@ -1154,7 +1202,11 @@
     },
 
     getSupabaseConfig,
-    setSupabaseConfig
+    setSupabaseConfig,
+    getGoogleSheetUrl,
+    setGoogleSheetUrl,
+    signCertificateData,
+    verifyCertificateData
   };
 
   window.SumiyatiAuth = SumiyatiAuth;

@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://ntfy.sh; frame-ancestors 'none'; base-uri 'self';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://script.google.com https://script.googleusercontent.com; frame-ancestors 'none'; base-uri 'self';" />
   <link rel="icon" type="image/png" href="sumiyati-logo.png?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,7 +101,7 @@
               🔒 Change Passcode
             </button>
             <button type="button" class="btn-outline-sm" onclick="openCloudModal()" id="cloudSyncBtn">
-              ☁️ Cloud Setup (Supabase)
+              ☁️ Cloud &amp; Google Sheet Setup
             </button>
           </div>
         </div>
@@ -253,6 +253,45 @@
 
       <form onsubmit="handleSaveCloudConfig(event)">
         <div class="auth-form-group">
+          <label for="gsheetUrlInput">📊 Google Sheets Web App URL (Optional · Direct Google Sheet Sync)</label>
+          <input type="url" id="gsheetUrlInput" class="auth-input" placeholder="https://script.google.com/macros/s/.../exec" />
+        </div>
+
+        <details style="margin-bottom:1rem;font-size:.78rem;color:var(--sub);background:var(--bg);padding:.75rem;border:1px solid var(--border);border-radius:3px;">
+          <summary style="cursor:pointer;font-weight:600;color:var(--green);">📋 View Google Sheet Apps Script (Extensions → Apps Script)</summary>
+          <pre style="margin-top:.6rem;padding:.6rem;background:#1c1a17;color:#faf7f2;border-radius:2px;overflow-x:auto;font-size:.71rem;">function doGet(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Students') || SpreadsheetApp.getActiveSpreadsheet().insertSheet('Students');
+  var rows = sheet.getDataRange().getValues();
+  var out = [];
+  for (var i = 1; i &lt; rows.length; i++) {
+    if (!rows[i][2]) continue;
+    out.push({
+      id: rows[i][0], name: rows[i][1], whatsapp: String(rows[i][2]),
+      pin: String(rows[i][3]), city: rows[i][5], accessStatus: rows[i][6],
+      completedClasses: JSON.parse(rows[i][7] || '[1]'), currentLesson: Number(rows[i][8]) || 1,
+      cp1Status: rows[i][9], cp2Status: rows[i][10], notes: rows[i][11],
+      joinedAt: rows[i][12], lastActive: rows[i][13]
+    });
+  }
+  return ContentService.createTextOutput(JSON.stringify({ students: out })).setMimeType(ContentService.MimeType.JSON);
+}
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Students') || SpreadsheetApp.getActiveSpreadsheet().insertSheet('Students');
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['ID','Name','WhatsApp','PIN','Unlock Code','City','Status','Completed Classes','Current Lesson','CP1','CP2','Notes','Joined At','Last Active']);
+  }
+  var payload = JSON.parse(e.postData.contents);
+  var list = payload.students || [];
+  sheet.getRange(2, 1, Math.max(1, sheet.getLastRow()), 14).clearContent();
+  for (var i = 0; i &lt; list.length; i++) {
+    var s = list[i];
+    sheet.getRange(i + 2, 1, 1, 14).setValues([[s.id, s.name, s.whatsapp, s.pin, s.personalCode, s.city, s.accessStatus, JSON.stringify(s.completedClasses || [1]), s.currentLesson, s.cp1Status, s.cp2Status, s.notes, s.joinedAt, s.lastActive]]);
+  }
+  return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
+}</pre>
+        </details>
+
+        <div class="auth-form-group">
           <label for="supaUrlInput">Supabase Project URL</label>
           <input type="url" id="supaUrlInput" class="auth-input" placeholder="https://xyzcompany.supabase.co" />
         </div>
@@ -328,7 +367,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
     </div>
   </footer>
 
-  <script src="course-auth.js?v=7"></script>
+  <script src="course-auth.js?v=8"></script>
   <script>
     let currentLang = localStorage.getItem('sumiyati_lang') || 'en';
     let currentFilter = 'all';
@@ -857,6 +896,9 @@ create policy "Allow public read/write" on public.students for all using (true) 
       const cfg = SumiyatiAuth.getSupabaseConfig();
       document.getElementById('supaUrlInput').value = cfg?.url || '';
       document.getElementById('supaKeyInput').value = cfg?.anonKey || '';
+      if (document.getElementById('gsheetUrlInput') && SumiyatiAuth.getGoogleSheetUrl) {
+        document.getElementById('gsheetUrlInput').value = SumiyatiAuth.getGoogleSheetUrl() || '';
+      }
       document.getElementById('cloudSaveFeedback').style.display = 'none';
       document.getElementById('cloudSetupOverlay').classList.add('active');
     }
@@ -869,10 +911,14 @@ create policy "Allow public read/write" on public.students for all using (true) 
       e.preventDefault();
       const url = document.getElementById('supaUrlInput').value;
       const key = document.getElementById('supaKeyInput').value;
+      const gsheetUrl = document.getElementById('gsheetUrlInput') ? document.getElementById('gsheetUrlInput').value : '';
       SumiyatiAuth.setSupabaseConfig(url, key);
+      if (SumiyatiAuth.setGoogleSheetUrl) {
+        SumiyatiAuth.setGoogleSheetUrl(gsheetUrl);
+      }
       const fb = document.getElementById('cloudSaveFeedback');
       fb.className = 'passcode-feedback success';
-      fb.textContent = url ? '✓ Supabase Cloud configuration saved & synced!' : '✓ Reverted to browser storage mode.';
+      fb.textContent = '✓ Cloud & Google Sheet configuration saved and synced!';
       fb.style.display = 'block';
     }
 
