@@ -578,6 +578,11 @@
       </div>
 
       <div class="cert-field">
+        <label for="inpRightCourseTitle">Nama Kursus (Header Kanan Atas)</label>
+        <input type="text" id="inpRightCourseTitle" value="QURAN COURSE" placeholder="Contoh: QURAN COURSE / PRE-TAJWEED CLASS" oninput="syncCertPreview()" />
+      </div>
+
+      <div class="cert-field">
         <label for="inpProgramLine">Baris Program Pembuka</label>
         <input type="text" id="inpProgramLine" value="Program Kelas Pra-Tajwid &amp; Tahsin Al-Qur'an bersama Ustadzah Sumiyati" oninput="syncCertPreview()" />
       </div>
@@ -683,14 +688,12 @@
               </div>
             </div>
 
-            <!-- Right Emblem: New Sumiyati Logo + Quran Course -->
+            <!-- Right Emblem: New Sumiyati Logo + Dynamic Course Name -->
             <div class="cert-brand-right">
               <img src="sumiyati-logo.png?v=3" alt="Quran Course Sumiyati Logo" class="cert-rehal-icon" style="width:78px;height:64px;object-fit:contain;" />
               <div class="cert-brand-divider"></div>
-              <div class="cert-brand-right-text">
-                QURAN<br/>
-                COURSE
-              </div>
+              <div class="cert-brand-right-text" id="outRightCourseTitle" style="white-space:pre-line;">QURAN
+COURSE</div>
             </div>
           </div>
 
@@ -907,7 +910,26 @@
       syncCertPreview();
     }
 
+    function formatRightCourseHeader(rawText) {
+      const clean = String(rawText || 'QURAN COURSE').trim();
+      if (!clean) return 'QURAN\nCOURSE';
+      if (clean.includes('\n')) return clean;
+      if (clean.includes('/')) {
+        return clean.split('/').map(s => s.trim()).filter(Boolean).join('\n');
+      }
+      const words = clean.split(/\s+/);
+      if (words.length === 2) {
+        return `${words[0]}\n${words[1]}`;
+      }
+      if (words.length > 2) {
+        const mid = Math.ceil(words.length / 2);
+        return `${words.slice(0, mid).join(' ')}\n${words.slice(mid).join(' ')}`;
+      }
+      return clean;
+    }
+
     function syncCertPreview() {
+      const rightCourse = document.getElementById('inpRightCourseTitle')?.value || 'QURAN COURSE';
       const name = document.getElementById('inpStudentName').value || 'Nama Peserta';
       const capaian = document.getElementById('inpCapaian').value || '-';
       const kehadiran = document.getElementById('inpKehadiran').value || '100%';
@@ -924,6 +946,10 @@
       const advice = (document.getElementById('inpAdviceNote')?.value || '').trim();
       const closing = document.getElementById('inpClosingText')?.value || 'Demikian laporan hasil evaluasi ini disampaikan, semoga bisa menjadi motivasi untuk selalu berinteraksi dengan Al-Qur’an.';
 
+      const outRightCourseEl = document.getElementById('outRightCourseTitle');
+      if (outRightCourseEl) {
+        outRightCourseEl.textContent = formatRightCourseHeader(rightCourse);
+      }
       document.getElementById('outProgramLine').textContent = prog;
       document.getElementById('outStudentName').textContent = name;
       document.getElementById('outCapaian').textContent = capaian;
@@ -997,6 +1023,7 @@
 
     function getShareableCertificateUrl() {
       const payload = {
+        rcourse: document.getElementById('inpRightCourseTitle')?.value || 'QURAN COURSE',
         name: document.getElementById('inpStudentName').value,
         capaian: document.getElementById('inpCapaian').value,
         kehadiran: document.getElementById('inpKehadiran').value,
@@ -1059,6 +1086,7 @@
         document.getElementById('certAuthGate').style.display = 'block';
       }
 
+      if (qs.get('rcourse')) document.getElementById('inpRightCourseTitle').value = qs.get('rcourse');
       if (qs.get('name')) document.getElementById('inpStudentName').value = qs.get('name');
       if (qs.get('capaian')) document.getElementById('inpCapaian').value = qs.get('capaian');
       if (qs.get('kehadiran')) document.getElementById('inpKehadiran').value = qs.get('kehadiran');
