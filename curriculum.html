@@ -1894,13 +1894,13 @@
         <div class="bank-detail-box">
           <div class="bank-row">
             <div>
-              <div class="bank-lbl lang-en">Bank Name</div>
-              <div class="bank-lbl lang-id">Nama Bank</div>
-              <div class="bank-val" id="dispBankName">Bank Syariah Indonesia (BSI)</div>
+              <div class="bank-lbl lang-en">Bank Name (Domestic &amp; International)</div>
+              <div class="bank-lbl lang-id">Nama Bank (Domestik &amp; Internasional)</div>
+              <div class="bank-val" id="dispBankName">Bank Jago Syariah</div>
             </div>
             <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(30,74,53,0.1);color:var(--green);">
-              <span class="lang-en">Code: 451</span>
-              <span class="lang-id">Kode Bank: 451</span>
+              <span class="lang-en">🌍 International &amp; Local</span>
+              <span class="lang-id">🌍 Internasional &amp; Lokal</span>
             </span>
           </div>
 
@@ -1908,7 +1908,7 @@
             <div>
               <div class="bank-lbl lang-en">Account Number</div>
               <div class="bank-lbl lang-id">Nomor Rekening</div>
-              <div class="bank-acc-num" id="dispBankNumber">7123456789</div>
+              <div class="bank-acc-num" id="dispBankNumber">506501080590</div>
             </div>
             <button type="button" class="copy-acc-btn" id="copyBankBtn" onclick="copyBankNumber()">
               <span class="lang-en">📋 Copy Number</span>
@@ -1922,6 +1922,10 @@
               <div class="bank-lbl lang-id">Atas Nama Rekening</div>
               <div class="bank-val" id="dispBankHolder">Sumiyati</div>
             </div>
+            <span style="font-size:.74rem;color:var(--muted);font-weight:600;">
+              <span class="lang-en">Bank Code: 542 · SWIFT: JAGBIDJA</span>
+              <span class="lang-id">Kode Bank: 542 · SWIFT: JAGBIDJA</span>
+            </span>
           </div>
         </div>
 
@@ -2101,7 +2105,7 @@
       const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : (isId ? '[Nama Saya]' : '[My Name]');
       const methodLabel = activePayMethod === 'qr'
         ? (isId ? 'Scan QR / QRIS' : 'QR Code (QRIS)')
-        : (isId ? 'Transfer Bank (BSI)' : 'Bank Transfer (BSI)');
+        : (isId ? 'Transfer Bank Jago Syariah (506501080590)' : 'Bank Transfer - Bank Jago Syariah (506501080590)');
 
       const msg = isId
         ? `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar Kelas Pra-Tajwid (Pre-Tajweed Class).\n\n*Nama Lengkap:* ${studentName}\n*Metode Pembayaran:* ${methodLabel}\n\nBerikut saya lampirkan bukti pembayarannya:`
