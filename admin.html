@@ -137,7 +137,7 @@
           <button type="button" class="admin-filter-pill active" data-filter="all" onclick="setRosterFilter('all')" id="filterAllBtn">All Students</button>
           <button type="button" class="admin-filter-pill" data-filter="pending" onclick="setRosterFilter('pending')" id="filterPendingBtn">⏳ Pending Approval</button>
           <button type="button" class="admin-filter-pill" data-filter="paid" onclick="setRosterFilter('paid')" id="filterPaidBtn">✨ Full Access (Paid)</button>
-          <button type="button" class="admin-filter-pill" data-filter="free" onclick="setRosterFilter('free')" id="filterFreeBtn">🌱 Free Tier (Classes 1–6)</button>
+          <button type="button" class="admin-filter-pill" data-filter="free" onclick="setRosterFilter('free')" id="filterFreeBtn">🔒 Not Enrolled Yet</button>
         </div>
         <input type="search" id="rosterSearchInput" class="admin-search-input" placeholder="Search name, WhatsApp number, PIN, city..." oninput="renderStudentRoster()" />
       </div>
@@ -203,7 +203,7 @@
         <div class="auth-form-group">
           <label for="editStudentAccess" id="lblModalAccess">Course Enrollment Status</label>
           <select id="editStudentAccess" class="auth-input">
-            <option value="free">🌱 Free Tier (Classes 01–06 Only)</option>
+            <option value="free">🔒 Registered (Not Enrolled Yet)</option>
             <option value="pending">⏳ Pending Payment Approval (Rp 199.000)</option>
             <option value="paid">✨ Full Access Unlocked (Classes 01–18 + Checkpoints)</option>
           </select>
@@ -400,7 +400,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
         filter_all: "All Students",
         filter_pending: "⏳ Pending Approval",
         filter_paid: "✨ Full Access (Paid)",
-        filter_free: "🌱 Free Tier (Classes 1–6)",
+        filter_free: "🔒 Not Enrolled Yet",
         search_placeholder: "Search name, WhatsApp number, PIN, city...",
         th_student: "Student Name & Location",
         th_contact: "WhatsApp, PIN & Personal Code",
@@ -410,7 +410,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
         th_actions: "Instructor Actions",
         status_paid: "✨ FULL ACCESS",
         status_pending: "⏳ PENDING PAYMENT",
-        status_free: "🌱 FREE TIER",
+        status_free: "🔒 NOT ENROLLED",
         btn_approve: "✅ Approve Full Access",
         btn_send_code: "📲 Send PIN & Code via WA",
         btn_edit_notes: "✏️ Grade / PIN",
@@ -447,7 +447,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
         filter_all: "Semua Santri",
         filter_pending: "⏳ Menunggu Konfirmasi",
         filter_paid: "✨ Akses Penuh (Lunas)",
-        filter_free: "🌱 Kelas Gratis (01–06)",
+        filter_free: "🔒 Belum Aktif",
         search_placeholder: "Cari nama, nomor WhatsApp, PIN, kota...",
         th_student: "Nama Santri & Kota",
         th_contact: "Nomor WA, PIN & Kode Unik",
@@ -457,7 +457,7 @@ create policy "Allow public read/write" on public.students for all using (true) 
         th_actions: "Tindakan Pengajar",
         status_paid: "✨ AKSES PENUH",
         status_pending: "⏳ MENUNGGU VERIFIKASI",
-        status_free: "🌱 KELAS GRATIS",
+        status_free: "🔒 BELUM AKTIF",
         btn_approve: "✅ Setujui Akses Penuh",
         btn_send_code: "📲 Kirim PIN & Kode via WA",
         btn_edit_notes: "✏️ Nilai / PIN",
