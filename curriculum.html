@@ -733,6 +733,40 @@
     body.lang-id .lang-en {
       display: none !important;
     }
+    /* ── Payment Modal Language Visibility (Defaults to Bahasa Indonesia) ── */
+    .pay-modal-card.modal-lang-id .m-lang-en {
+      display: none !important;
+    }
+    .pay-modal-card.modal-lang-en .m-lang-id {
+      display: none !important;
+    }
+    .modal-lang-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 3px;
+      border-radius: 99px;
+      margin-bottom: .75rem;
+    }
+    .modal-lang-btn {
+      font-family: var(--ff-b);
+      font-size: .74rem;
+      font-weight: 700;
+      padding: .32rem .75rem;
+      border-radius: 99px;
+      border: none;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .modal-lang-btn.active {
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(30, 74, 53, 0.2);
+    }
 
     /* ── Course Registration & Payment Modal (Bank Transfer / QR Code) ── */
     .pay-modal-overlay {
@@ -2197,36 +2231,48 @@
     </div>
   </div>
 
-  <!-- COURSE REGISTRATION & PAYMENT MODAL (BANK TRANSFER OR QR CODE) -->
+  <!-- COURSE REGISTRATION & PAYMENT MODAL (DEFAULTS TO BAHASA INDONESIA, TOGGLEABLE TO ENGLISH) -->
   <div id="paymentModalOverlay" class="pay-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" onclick="if(event.target===this)closePaymentModal()">
-    <div class="pay-modal-card">
+    <div class="pay-modal-card modal-lang-id" id="paymentModalCard">
       <button type="button" class="pay-modal-close" onclick="closePaymentModal()" aria-label="Close">✕</button>
 
+      <!-- POPUP LANGUAGE TOGGLE (DEFAULT: BAHASA INDONESIA) -->
+      <div>
+        <div class="modal-lang-bar" role="group" aria-label="Popup Language Switcher">
+          <button type="button" class="modal-lang-btn js-modal-lang-btn active" data-mlang="id" onclick="setModalLang('id')">
+            🇮🇩 Bahasa Indonesia
+          </button>
+          <button type="button" class="modal-lang-btn js-modal-lang-btn" data-mlang="en" onclick="setModalLang('en')">
+            🇬🇧 English
+          </button>
+        </div>
+      </div>
+
       <span class="track-eyebrow-pill" style="margin-bottom:.6rem;">
-        <span class="lang-en">💳 Course Enrollment &amp; Payment</span>
-        <span class="lang-id">💳 Pendaftaran &amp; Pembayaran Kelas</span>
+        <span class="m-lang-en">💳 Course Enrollment &amp; Payment</span>
+        <span class="m-lang-id">💳 Pendaftaran &amp; Pembayaran Kelas</span>
       </span>
 
       <h3 id="payModalTitle" style="font-family:var(--ff-d);font-size:1.5rem;font-weight:600;color:#0f172a;margin-bottom:.3rem;">
-        <span class="lang-en">Pre-Tajweed Class Registration</span>
-        <span class="lang-id">Pendaftaran Kelas Pra-Tajwid</span>
+        <span class="m-lang-en">Pre-Tajweed Class Registration</span>
+        <span class="m-lang-id">Pendaftaran Kelas Pra-Tajwid</span>
       </h3>
       <p style="font-size:.86rem;color:var(--sub);line-height:1.55;">
-        <span class="lang-en">Choose your preferred payment method below: <strong>Bank Transfer</strong> or <strong>QR Code (QRIS)</strong>.</span>
-        <span class="lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong> atau <strong>Scan Kode QR (QRIS)</strong>.</span>
+        <span class="m-lang-en">Choose your preferred payment method below: <strong>Bank Transfer</strong> or <strong>QR Code (QRIS)</strong>.</span>
+        <span class="m-lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong> atau <strong>Scan Kode QR (QRIS)</strong>.</span>
       </p>
 
       <!-- 2-BUTTON TOGGLE: BANK TRANSFER vs QR CODE -->
       <div class="pay-method-tabs" role="tablist">
         <button type="button" class="pay-method-tab active" id="tabBtnBank" onclick="selectPaymentMethod('bank')" role="tab" aria-selected="true">
           <span>🏦</span>
-          <span class="lang-en">Bank Transfer</span>
-          <span class="lang-id">Transfer Bank</span>
+          <span class="m-lang-en">Bank Transfer</span>
+          <span class="m-lang-id">Transfer Bank</span>
         </button>
         <button type="button" class="pay-method-tab" id="tabBtnQr" onclick="selectPaymentMethod('qr')" role="tab" aria-selected="false">
           <span>📱</span>
-          <span class="lang-en">Scan QR Code</span>
-          <span class="lang-id">Scan QR / QRIS</span>
+          <span class="m-lang-en">Scan QR Code</span>
+          <span class="m-lang-id">Scan QR / QRIS</span>
         </button>
       </div>
 
@@ -2236,32 +2282,32 @@
         <div class="bank-detail-box" style="margin-bottom:.85rem;">
           <div class="bank-row">
             <div>
-              <div class="bank-lbl lang-en">Local Bank Transfer (Indonesia)</div>
-              <div class="bank-lbl lang-id">Transfer Bank Lokal (Indonesia)</div>
+              <div class="bank-lbl m-lang-en">Local Bank Transfer (Indonesia)</div>
+              <div class="bank-lbl m-lang-id">Transfer Bank Lokal (Indonesia)</div>
               <div class="bank-val">Bank Syariah Mandiri</div>
             </div>
             <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(30,74,53,0.1);color:var(--green);">
-              <span class="lang-en">🇮🇩 Local Transfer</span>
-              <span class="lang-id">🇮🇩 Transfer Lokal</span>
+              <span class="m-lang-en">🇮🇩 Local Transfer</span>
+              <span class="m-lang-id">🇮🇩 Transfer Lokal</span>
             </span>
           </div>
 
           <div class="bank-row">
             <div>
-              <div class="bank-lbl lang-en">Account Number</div>
-              <div class="bank-lbl lang-id">Nomor Rekening</div>
+              <div class="bank-lbl m-lang-en">Account Number</div>
+              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
               <div class="bank-acc-num" id="dispBankNumberLocal">7725419170</div>
             </div>
             <button type="button" class="copy-acc-btn" id="copyBankBtnLocal" onclick="copyBankNumber('7725419170', 'copyBankBtnLocal')">
-              <span class="lang-en">📋 Copy Number</span>
-              <span class="lang-id">📋 Salin Nomor</span>
+              <span class="m-lang-en">📋 Copy Number</span>
+              <span class="m-lang-id">📋 Salin Nomor</span>
             </button>
           </div>
 
           <div class="bank-row">
             <div>
-              <div class="bank-lbl lang-en">Account Holder Name</div>
-              <div class="bank-lbl lang-id">Atas Nama Rekening</div>
+              <div class="bank-lbl m-lang-en">Account Holder Name</div>
+              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
               <div class="bank-val">Sumiyati</div>
             </div>
           </div>
@@ -2271,32 +2317,32 @@
         <div class="bank-detail-box">
           <div class="bank-row">
             <div>
-              <div class="bank-lbl lang-en">International Payments</div>
-              <div class="bank-lbl lang-id">Pembayaran Internasional</div>
+              <div class="bank-lbl m-lang-en">International Payments</div>
+              <div class="bank-lbl m-lang-id">Pembayaran Internasional</div>
               <div class="bank-val">Bank Jago Syariah</div>
             </div>
             <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(184,134,11,0.14);color:#92400e;">
-              <span class="lang-en">🌍 International</span>
-              <span class="lang-id">🌍 Internasional</span>
+              <span class="m-lang-en">🌍 International</span>
+              <span class="m-lang-id">🌍 Internasional</span>
             </span>
           </div>
 
           <div class="bank-row">
             <div>
-              <div class="bank-lbl lang-en">Account Number</div>
-              <div class="bank-lbl lang-id">Nomor Rekening</div>
+              <div class="bank-lbl m-lang-en">Account Number</div>
+              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
               <div class="bank-acc-num" id="dispBankNumberIntl">506501080590</div>
             </div>
             <button type="button" class="copy-acc-btn" id="copyBankBtnIntl" onclick="copyBankNumber('506501080590', 'copyBankBtnIntl')">
-              <span class="lang-en">📋 Copy Number</span>
-              <span class="lang-id">📋 Salin Nomor</span>
+              <span class="m-lang-en">📋 Copy Number</span>
+              <span class="m-lang-id">📋 Salin Nomor</span>
             </button>
           </div>
 
           <div class="bank-row">
             <div>
-              <div class="bank-lbl lang-en">Account Holder Name</div>
-              <div class="bank-lbl lang-id">Atas Nama Rekening</div>
+              <div class="bank-lbl m-lang-en">Account Holder Name</div>
+              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
               <div class="bank-val">Sumiyati</div>
             </div>
             <span style="font-size:.73rem;color:var(--muted);font-weight:600;">
@@ -2306,8 +2352,8 @@
         </div>
 
         <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
-          <span class="lang-en">💡 After completing the bank transfer, please click the button below to send your payment receipt to Ustadzah Sumiyati on WhatsApp.</span>
-          <span class="lang-id">💡 Setelah melakukan transfer bank, silakan klik tombol di bawah untuk mengirimkan bukti transfer kepada Ustadzah Sumiyati melalui WhatsApp.</span>
+          <span class="m-lang-en">💡 After completing the bank transfer, please click the button below to send your payment receipt to Ustadzah Sumiyati on WhatsApp.</span>
+          <span class="m-lang-id">💡 Setelah melakukan transfer bank, silakan klik tombol di bawah untuk mengirimkan bukti transfer kepada Ustadzah Sumiyati melalui WhatsApp.</span>
         </p>
       </div>
 
@@ -2318,8 +2364,8 @@
             QURANWITHSUMIYATI · NMID: ID1026635416609
           </div>
           <div style="font-size:.78rem;color:var(--sub);margin-top:.15rem;">
-            <span class="lang-en">Scan using any Mobile Banking or E-Wallet app (QRIS)</span>
-            <span class="lang-id">Scan menggunakan Mobile Banking atau E-Wallet apa saja (QRIS)</span>
+            <span class="m-lang-en">Scan using any Mobile Banking or E-Wallet app (QRIS)</span>
+            <span class="m-lang-id">Scan menggunakan Mobile Banking atau E-Wallet apa saja (QRIS)</span>
           </div>
 
           <div class="qr-frame" id="qrImageContainer">
@@ -2329,30 +2375,30 @@
           <div style="margin-top:.5rem;">
             <a href="qris-sumiyati.jpg" download="QRIS-QURANWITHSUMIYATI.jpg" class="copy-acc-btn" style="display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;">
               <span>📥</span>
-              <span class="lang-en">Save / Download QR Image</span>
-              <span class="lang-id">Simpan / Unduh Gambar QRIS</span>
+              <span class="m-lang-en">Save / Download QR Image</span>
+              <span class="m-lang-id">Simpan / Unduh Gambar QRIS</span>
             </a>
           </div>
         </div>
 
         <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
-          <span class="lang-en">💡 After scanning and completing your QR payment, click the button below to send your payment screenshot via WhatsApp.</span>
-          <span class="lang-id">💡 Setelah melakukan pembayaran via QRIS, silakan klik tombol di bawah untuk mengirimkan tangkapan layar (screenshot) bukti bayar via WhatsApp.</span>
+          <span class="m-lang-en">💡 After scanning and completing your QR payment, click the button below to send your payment screenshot via WhatsApp.</span>
+          <span class="m-lang-id">💡 Setelah melakukan pembayaran via QRIS, silakan klik tombol di bawah untuk mengirimkan tangkapan layar (screenshot) bukti bayar via WhatsApp.</span>
         </p>
       </div>
 
       <!-- STUDENT NAME INPUT & WHATSAPP CONFIRMATION CTA -->
       <div style="border-top:1px solid var(--border);padding-top:1rem;">
         <label for="payStudentName" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.35rem;">
-          <span class="lang-en">Your Full Name (Optional):</span>
-          <span class="lang-id">Nama Lengkap Anda (Opsional):</span>
+          <span class="m-lang-en">Your Full Name (Optional):</span>
+          <span class="m-lang-id">Nama Lengkap Anda (Opsional):</span>
         </label>
-        <input type="text" id="payStudentName" class="lang-en" placeholder="Enter your name for registration..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentNameId').value=this.value" />
-        <input type="text" id="payStudentNameId" class="lang-id" placeholder="Masukkan nama lengkap Anda..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentName').value=this.value" />
+        <input type="text" id="payStudentName" class="m-lang-en" placeholder="Enter your name for registration..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentNameId').value=this.value" />
+        <input type="text" id="payStudentNameId" class="m-lang-id" placeholder="Masukkan nama lengkap Anda..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentName').value=this.value" />
 
         <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:.8rem 1.25rem;font-size:.88rem;cursor:pointer;" onclick="confirmPaymentViaWhatsApp()">
-          <span class="lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span>
-          <span class="lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>
+          <span class="m-lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span>
+          <span class="m-lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>
         </button>
       </div>
     </div>
@@ -2404,10 +2450,25 @@
       });
     }
 
-    // ── Payment Modal Logic (Bank Transfer / QR Code) ──
+    // ── Payment Modal Logic (Bank Transfer / QR Code, Defaults to Bahasa Indonesia) ──
     let activePayMethod = 'bank';
+    let activeModalLang = 'id';
+
+    function setModalLang(lang) {
+      activeModalLang = (lang === 'en') ? 'en' : 'id';
+      const card = document.getElementById('paymentModalCard');
+      if (card) {
+        card.classList.remove('modal-lang-id', 'modal-lang-en');
+        card.classList.add('modal-lang-' + activeModalLang);
+      }
+      document.querySelectorAll('.js-modal-lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-mlang') === activeModalLang);
+      });
+    }
 
     function openPaymentModal(defaultMethod) {
+      // Always default the popup to Bahasa Indonesia when opened
+      setModalLang('id');
       if (defaultMethod === 'bank' || defaultMethod === 'qr') {
         selectPaymentMethod(defaultMethod);
       }
@@ -2449,7 +2510,7 @@
     function copyBankNumber(numStr, btnId) {
       const btn = document.getElementById(btnId);
       if (!numStr || !btn) return;
-      const isId = document.body.classList.contains('lang-id');
+      const isId = activeModalLang === 'id';
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(numStr);
@@ -2474,7 +2535,7 @@
     }
 
     function confirmPaymentViaWhatsApp() {
-      const isId = document.body.classList.contains('lang-id');
+      const isId = activeModalLang === 'id';
       const nameInput = document.getElementById('payStudentName');
       const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : (isId ? '[Nama Saya]' : '[My Name]');
       const methodLabel = activePayMethod === 'qr'
