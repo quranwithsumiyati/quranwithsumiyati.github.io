@@ -39,10 +39,88 @@
       padding: 0 1.5rem;
     }
 
+    /* ── Top Header Language Switcher Pill ── */
+    .header-lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1.5px solid rgba(30, 74, 53, 0.28);
+      border-radius: 99px;
+      padding: 3px;
+      gap: 2px;
+      box-shadow: 0 2px 8px rgba(30, 74, 53, 0.06);
+    }
+    .header-lang-btn {
+      font-family: var(--ff-b);
+      font-size: .73rem;
+      font-weight: 700;
+      padding: .32rem .68rem;
+      border-radius: 99px;
+      border: none;
+      background: transparent;
+      color: var(--sub);
+      cursor: pointer;
+      transition: all .15s ease;
+      white-space: nowrap;
+    }
+    .header-lang-btn:hover {
+      color: var(--green);
+    }
+    .header-lang-btn.active {
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(30, 74, 53, 0.22);
+    }
+
+    /* ── Hero Language Bar ── */
+    .hero-lang-bar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .45rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: .45rem .65rem;
+      border-radius: 99px;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+    .hero-lang-lbl {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 0 .4rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .hero-lang-pill {
+      font-family: var(--ff-b);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .38rem .9rem;
+      border-radius: 99px;
+      border: 1px solid transparent;
+      background: var(--card);
+      color: var(--sub);
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .hero-lang-pill:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+    .hero-lang-pill.active {
+      background: var(--green);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(30, 74, 53, 0.2);
+    }
+
     /* 1. HERO + 4 STAT COUNTERS */
     .track-hero {
       position: relative;
-      padding: 6.25rem 0 6.5rem;
+      padding: 5.75rem 0 6.5rem;
       background:
         radial-gradient(55% 50% at 85% 15%, rgba(30, 74, 53, 0.08) 0%, transparent 70%),
         radial-gradient(50% 45% at 15% 80%, rgba(184, 134, 11, 0.08) 0%, transparent 70%),
@@ -70,7 +148,7 @@
 
     .track-hero-title {
       font-family: var(--ff-d);
-      font-size: clamp(2.25rem, 4.8vw, 3.6rem);
+      font-size: clamp(2.15rem, 4.6vw, 3.45rem);
       font-weight: 600;
       line-height: 1.15;
       color: #0f172a;
@@ -98,7 +176,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
       max-width: 960px;
-      margin: 1.5rem auto 1.75rem;
+      margin: .5rem auto 1.75rem;
       text-align: left;
     }
     .purpose-box {
@@ -210,7 +288,7 @@
     .who-card {
       display: flex;
       flex-direction: column;
-      gap: .75rem;
+      gap: .65rem;
       border-radius: 16px;
       border: 1px solid #e4e7ec;
       background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
@@ -235,11 +313,9 @@
     }
     .who-card h3 {
       font-family: var(--ff-b);
-      font-size: .95rem;
+      font-size: .92rem;
       font-weight: 700;
       color: #0f172a;
-      text-transform: uppercase;
-      letter-spacing: .02em;
       line-height: 1.35;
     }
     .who-card p {
@@ -266,7 +342,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: .75rem;
+      gap: .65rem;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
       transition: transform .22s ease, border-color .22s ease;
     }
@@ -285,7 +361,7 @@
       font-size: 1.65rem;
     }
     .eco-title {
-      font-size: 1rem;
+      font-size: .98rem;
       font-weight: 700;
       color: #0f172a;
     }
@@ -402,6 +478,7 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
+      flex-wrap: wrap;
     }
     .milestone-badge .free-pill {
       background: rgba(16, 185, 129, 0.2);
@@ -413,7 +490,7 @@
     }
     .milestone-title {
       font-family: var(--ff-d);
-      font-size: clamp(1.15rem, 2.2vw, 1.38rem);
+      font-size: clamp(1.1rem, 2.1vw, 1.35rem);
       font-weight: 600;
       color: #ffffff;
       transition: color .2s ease;
@@ -620,14 +697,14 @@
     }
     .journey-step-card h3 {
       font-family: var(--ff-d);
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       font-weight: 600;
       color: #0f172a;
       margin-bottom: .55rem;
       line-height: 1.3;
     }
     .journey-step-card p {
-      font-size: .88rem;
+      font-size: .86rem;
       color: var(--sub);
       line-height: 1.65;
     }
@@ -667,13 +744,15 @@
       font-size: .85rem;
     }
 
-    /* Language View Filter Modifiers */
+    /* ── Language View Filter Rules (Both / ID Only / EN Only) ── */
     body.view-id-only .en-col,
-    body.view-id-only .en-box {
+    body.view-id-only .en-box,
+    body.view-id-only .t-en-block {
       display: none !important;
     }
     body.view-en-only .id-col,
-    body.view-en-only .id-box {
+    body.view-en-only .id-box,
+    body.view-en-only .t-id-block {
       display: none !important;
     }
     body.view-id-only .ms-class-content-grid,
@@ -683,6 +762,23 @@
     body.view-id-only .session-notes-grid,
     body.view-en-only .session-notes-grid {
       grid-template-columns: 1fr;
+    }
+
+    /* Sub-text divider when in Bilingual mode */
+    .bilingual-sub-en {
+      display: block;
+      margin-top: .35rem;
+      padding-top: .35rem;
+      border-top: 1px dashed rgba(184, 134, 11, 0.28);
+      color: #785206;
+      font-size: .81rem;
+    }
+    body.view-en-only .bilingual-sub-en {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+      color: var(--sub);
+      font-size: .84rem;
     }
 
     @media (max-width: 900px) {
@@ -703,6 +799,10 @@
     }
 
     @media (max-width: 768px) {
+      .course-nav-inner {
+        flex-wrap: wrap;
+        gap: .6rem;
+      }
       .track-stats-row {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -729,29 +829,44 @@
 </head>
 <body class="course-page">
 
-  <!-- Top Navigation -->
+  <!-- Top Navigation (Sticky with Always-Visible Language Switcher) -->
   <header class="course-nav">
     <div class="wrap course-nav-inner">
-      <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="display:flex;align-items:center;gap:.85rem;">
         <a href="tahsin-tajweed.html" class="back-link">
           <span class="back-arrow" aria-hidden="true">←</span>
-          <span>Video Course Portal</span>
+          <span data-i18n-both="Video Portal" data-i18n-id="Portal Video" data-i18n-en="Video Portal">Video Portal</span>
         </a>
         <span style="color:var(--border);">|</span>
         <a href="index.html" class="back-link" style="color:var(--muted);font-weight:500;">
-          <span>Portfolio Home</span>
+          <span data-i18n-both="Portfolio Home" data-i18n-id="Beranda Portofolio" data-i18n-en="Portfolio Home">Portfolio Home</span>
         </a>
       </div>
+
       <div class="course-nav-brand" style="display:flex;align-items:center;gap:.55rem;">
         <img src="sumiyati-logo.png?v=3" alt="Sumiyati Logo" style="width:36px;height:30px;object-fit:contain;" />
         <div>
-          <span class="tag">Official Track Syllabus</span>
+          <span class="tag" data-i18n-both="Official Track Syllabus · Kurikulum Resmi" data-i18n-id="Kurikulum Resmi Kelas Pra-Tajwid" data-i18n-en="Official Track Syllabus">Official Track Syllabus · Kurikulum Resmi</span>
           <span class="brand-name">Pre-Tajweed Class · Sumiyati</span>
         </div>
       </div>
-      <div class="course-nav-actions">
-        <a href="tahsin-tajweed.html" class="btn btn-primary" style="padding:.45rem 1rem;font-size:.75rem;">
-          ▶ Start Learning (Classes 1–6 Free)
+
+      <div class="course-nav-actions" style="display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;">
+        <!-- ALWAYS-VISIBLE HEADER LANGUAGE TOGGLE -->
+        <div class="header-lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" class="header-lang-btn js-lang-btn active" data-lang-mode="both" onclick="setCurrView('both')" title="Show Both Languages (Indonesian & English)">
+            🌐 ID + EN
+          </button>
+          <button type="button" class="header-lang-btn js-lang-btn" data-lang-mode="id" onclick="setCurrView('id')" title="Bahasa Indonesia Saja">
+            🇮🇩 ID
+          </button>
+          <button type="button" class="header-lang-btn js-lang-btn" data-lang-mode="en" onclick="setCurrView('en')" title="English Only">
+            🇬🇧 EN
+          </button>
+        </div>
+
+        <a href="tahsin-tajweed.html" class="btn btn-primary" style="padding:.45rem .95rem;font-size:.74rem;" data-i18n-both="▶ Start Free (Classes 1–6)" data-i18n-id="▶ Mulai Gratis (Kelas 1–6)" data-i18n-en="▶ Start Free (Classes 1–6)">
+          ▶ Start Free (Classes 1–6)
         </a>
       </div>
     </div>
@@ -760,10 +875,34 @@
   <!-- 1. PHITRON-STYLE TRACK HERO + 4 STAT COUNTERS -->
   <section class="track-hero">
     <div class="track-container">
-      <span class="track-eyebrow-pill">📖 Foundation Recitation Track · Kurikulum Kelas Pra-Tajwid</span>
+      <div>
+        <span class="track-eyebrow-pill" data-i18n-both="📖 Foundation Recitation Track · Kurikulum Kelas Pra-Tajwid" data-i18n-id="📖 Kurikulum Resmi Kelas Pra-Tajwid · Bersama Ustadzah Sumiyati" data-i18n-en="📖 Foundation Recitation Track · Pre-Tajweed Class Curriculum">
+          📖 Foundation Recitation Track · Kurikulum Kelas Pra-Tajwid
+        </span>
+      </div>
+
       <h1 class="track-hero-title">
-        Start Your Journey to <span class="track-title-shine">Fluent &amp; Accurate</span> Qur'an Recitation
+        <span class="t-id-block" style="display:block;margin-bottom:.25rem;">
+          Mulai Perjalanan Membaca Al-Qur'an dengan <span class="track-title-shine">Baik, Benar &amp; Lancar</span>
+        </span>
+        <span class="t-en-block" style="display:block;font-size:.78em;opacity:.92;">
+          Start Your Journey to <span class="track-title-shine">Fluent &amp; Accurate</span> Qur'an Recitation
+        </span>
       </h1>
+
+      <!-- Prominent Hero Language Toggle Bar -->
+      <div class="hero-lang-bar" role="group" aria-label="Select Curriculum Language">
+        <span class="hero-lang-lbl" data-i18n-both="Language / Bahasa:" data-i18n-id="Pilih Bahasa:" data-i18n-en="Select Language:">Language / Bahasa:</span>
+        <button type="button" class="hero-lang-pill js-lang-btn active" data-lang-mode="both" onclick="setCurrView('both')">
+          🌐 Bilingual (ID + EN)
+        </button>
+        <button type="button" class="hero-lang-pill js-lang-btn" data-lang-mode="id" onclick="setCurrView('id')">
+          🇮🇩 Bahasa Indonesia
+        </button>
+        <button type="button" class="hero-lang-pill js-lang-btn" data-lang-mode="en" onclick="setCurrView('en')">
+          🇬🇧 English
+        </button>
+      </div>
 
       <!-- Bilingual Purpose Dual Cards -->
       <div class="purpose-dual-grid">
@@ -785,10 +924,10 @@
 
       <!-- Primary CTA Buttons -->
       <div class="track-cta-bar">
-        <a href="tahsin-tajweed.html" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;">
+        <a href="tahsin-tajweed.html" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;" data-i18n-both="▶ Start Free Classes (01–06) Now →" data-i18n-id="▶ Mulai Kelas Gratis (01–06) Sekarang →" data-i18n-en="▶ Start Free Classes (01–06) Now →">
           ▶ Start Free Classes (01–06) Now →
         </a>
-        <a href="#complete-outline" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;">
+        <a href="#complete-outline" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;" data-i18n-both="📋 Explore 4 Milestones &amp; 18 Classes ↓" data-i18n-id="📋 Lihat 4 Milestone &amp; 18 Kelas ↓" data-i18n-en="📋 Explore 4 Milestones &amp; 18 Classes ↓">
           📋 Explore 4 Milestones &amp; 18 Classes ↓
         </a>
       </div>
@@ -797,19 +936,19 @@
       <div class="track-stats-row">
         <div class="track-stat-item">
           <span class="track-stat-num c-emerald">18</span>
-          <span class="track-stat-lbl">Structured Practical Classes</span>
+          <span class="track-stat-lbl" data-i18n-both="Kelas Praktik · Practical Classes" data-i18n-id="Kelas Praktik Terstruktur" data-i18n-en="Structured Practical Classes">Kelas Praktik · Practical Classes</span>
         </div>
         <div class="track-stat-item">
           <span class="track-stat-num c-gold">40 Min</span>
-          <span class="track-stat-lbl">Focused Practice Per Session</span>
+          <span class="track-stat-lbl" data-i18n-both="Durasi Per Sesi · Per Session" data-i18n-id="Durasi Fokus Per Sesi" data-i18n-en="Focused Practice Per Session">Durasi Per Sesi · Per Session</span>
         </div>
         <div class="track-stat-item">
           <span class="track-stat-num c-green">6 + 1</span>
-          <span class="track-stat-lbl">Checkpoints &amp; Final Exam</span>
+          <span class="track-stat-lbl" data-i18n-both="Checkpoint &amp; Final Exam" data-i18n-id="Evaluasi Checkpoint &amp; Ujian Akhir" data-i18n-en="Checkpoints &amp; Final Exam">Checkpoint &amp; Final Exam</span>
         </div>
         <div class="track-stat-item">
           <span class="track-stat-num c-indigo">1-on-1</span>
-          <span class="track-stat-lbl">Direct Talaqqi Correction</span>
+          <span class="track-stat-lbl" data-i18n-both="Talaqqi &amp; Direct Correction" data-i18n-id="Talaqqi &amp; Koreksi Langsung" data-i18n-en="Direct Talaqqi Correction">Talaqqi &amp; Direct Correction</span>
         </div>
       </div>
     </div>
@@ -820,30 +959,44 @@
     <!-- 2. WHO IS THIS TRACK FOR? (4 Persona Cards) -->
     <section class="who-section" aria-label="Who Is This Track For">
       <div class="who-glass-wrap">
-        <h2 class="track-sec-heading">Kelas Ini Dirancang Untuk Siapa? · Who Is This Track For?</h2>
-        <p class="track-sec-sub">
-          Disusun bertahap dari pengenalan huruf hijaiyah tanpa harakat hingga bacaan khusus (Gharibul Qur'an) dalam Mushaf Rasm Utsmani Madinah.
+        <h2 class="track-sec-heading" data-i18n-both="Kelas Ini Dirancang Untuk Siapa? · Who Is This Track For?" data-i18n-id="Kelas Ini Dirancang Untuk Siapa?" data-i18n-en="Who Is This Track For?">
+          Kelas Ini Dirancang Untuk Siapa? · Who Is This Track For?
+        </h2>
+        <p class="track-sec-sub" data-i18n-both="Disusun bertahap dari pengenalan huruf hijaiyah tanpa harakat hingga bacaan khusus (Gharibul Qur'an) dalam Mushaf Rasm Utsmani Madinah. · Step-by-step progression from unvocalized Hijaiyah letters to special Qur'anic recitations." data-i18n-id="Disusun bertahap dari pengenalan huruf hijaiyah tanpa harakat hingga bacaan khusus (Gharibul Qur'an) dalam Mushaf Rasm Utsmani Madinah." data-i18n-en="Structured step-by-step from recognizing unvocalized Hijaiyah letters to mastering special recitations (Gharibul Qur'an) in the Madinah Uthmani Mushaf.">
+          Disusun bertahap dari pengenalan huruf hijaiyah tanpa harakat hingga bacaan khusus (Gharibul Qur'an) dalam Mushaf Rasm Utsmani Madinah. · Step-by-step progression from unvocalized Hijaiyah letters to special Qur'anic recitations.
         </p>
         <div class="who-grid">
           <article class="who-card">
             <div class="who-icon">🌱</div>
-            <h3>Pemula / Dasar (Absolute Beginners)</h3>
-            <p>Bagi peserta yang ingin mengenali 28–29 huruf hijaiyah, membedakan huruf serupa, dan membangun fondasi pelafalan dari nol.</p>
+            <h3 data-i18n-both="Pemula / Dasar · Complete Beginners" data-i18n-id="Pemula / Dasar (Dari Nol)" data-i18n-en="Complete Beginners">Pemula / Dasar · Complete Beginners</h3>
+            <p>
+              <span class="t-id-block">Bagi peserta yang ingin mengenali 28–29 huruf hijaiyah, membedakan huruf serupa, dan membangun fondasi pelafalan dari nol.</span>
+              <span class="t-en-block bilingual-sub-en">For students looking to recognize the 28–29 Hijaiyah letters, distinguish similar shapes, and build accurate pronunciation from scratch.</span>
+            </p>
           </article>
           <article class="who-card">
             <div class="who-icon">🎙️</div>
-            <h3>Perbaikan Makhraj &amp; Harakat</h3>
-            <p>Bagi yang sudah bisa membaca namun ingin memperbaiki tempat keluarnya huruf (makhraj), konsistensi mad 2 harakat, tasydid, dan sukun.</p>
+            <h3 data-i18n-both="Perbaikan Makhraj · Makhraj &amp; Vowel Accuracy" data-i18n-id="Perbaikan Makhraj &amp; Harakat" data-i18n-en="Makhraj &amp; Vowel Accuracy">Perbaikan Makhraj · Makhraj &amp; Vowel Accuracy</h3>
+            <p>
+              <span class="t-id-block">Bagi yang sudah bisa membaca namun ingin memperbaiki tempat keluarnya huruf (makhraj), konsistensi mad 2 harakat, tasydid, dan sukun.</span>
+              <span class="t-en-block bilingual-sub-en">For readers who want to refine their points of articulation (makhraj), 2-count elongation (madd), shaddah, and sukun accuracy.</span>
+            </p>
           </article>
           <article class="who-card">
             <div class="who-icon">📖</div>
-            <h3>Praktik Tanpa Beban Teori Rumit</h3>
-            <p>Fokus langsung pada latihan lisan membaca kata dan potongan ayat Al-Qur'an tanpa harus menghafal istilah teori tajwid yang berat terlebih dahulu.</p>
+            <h3 data-i18n-both="Praktik Langsung · Direct Practice Without Heavy Theory" data-i18n-id="Praktik Tanpa Beban Teori Rumit" data-i18n-en="Direct Practice Without Heavy Theory">Praktik Langsung · Direct Practice Without Heavy Theory</h3>
+            <p>
+              <span class="t-id-block">Fokus langsung pada latihan lisan membaca kata dan potongan ayat Al-Qur'an tanpa harus menghafal istilah teori tajwid yang berat terlebih dahulu.</span>
+              <span class="t-en-block bilingual-sub-en">Focuses directly on hands-on oral recitation of Qur'anic words and verse excerpts without memorizing complex tajweed terminology first.</span>
+            </p>
           </article>
           <article class="who-card">
             <div class="who-icon">🎯</div>
-            <h3>Persiapan Tajwid &amp; Tahfizh</h3>
-            <p>Menyiapkan kelancaran bacaan, ketepatan waqaf, huruf muqatta'ah, dan bacaan gharib sebelum naik ke tingkat Tajwid Lanjutan &amp; Tahfizh 30 Juz.</p>
+            <h3 data-i18n-both="Persiapan Tajwid &amp; Tahfizh · Pre-Tajweed &amp; Pre-Tahfiz" data-i18n-id="Persiapan Tajwid &amp; Tahfizh" data-i18n-en="Pre-Tajweed &amp; Pre-Tahfiz Readiness">Persiapan Tajwid &amp; Tahfizh · Pre-Tajweed &amp; Pre-Tahfiz</h3>
+            <p>
+              <span class="t-id-block">Menyiapkan kelancaran bacaan, ketepatan waqaf, huruf muqatta'ah, dan bacaan gharib sebelum naik ke tingkat Tajwid Lanjutan &amp; Tahfizh.</span>
+              <span class="t-en-block bilingual-sub-en">Builds smooth fluency, proper stopping (waqaf), disjointed letters, and uncommon readings before advancing to Tajweed &amp; Hifz.</span>
+            </p>
           </article>
         </div>
       </div>
@@ -851,40 +1004,60 @@
 
     <!-- 3. LEARNING ECOSYSTEM (6-Card Feature Grid) -->
     <section class="ecosystem-section" aria-label="Learning Ecosystem">
-      <h2 class="track-sec-heading">Sistem Pendampingan &amp; Ekosistem Belajar</h2>
-      <p class="track-sec-sub">
-        Dirancang dari pengalaman membina lebih dari 1.500 peserta agar setiap santri mampu menuntaskan seluruh 18 kelas hingga lulus evaluasi akhir.
+      <h2 class="track-sec-heading" data-i18n-both="Sistem Pendampingan &amp; Ekosistem Belajar · Learning Ecosystem" data-i18n-id="Sistem Pendampingan &amp; Ekosistem Belajar" data-i18n-en="The Best Learning Ecosystem for Qur'an Recitation">
+        Sistem Pendampingan &amp; Ekosistem Belajar · Learning Ecosystem
+      </h2>
+      <p class="track-sec-sub" data-i18n-both="Dirancang agar setiap peserta mampu menuntaskan seluruh 18 kelas dengan bimbingan terukur hingga lulus evaluasi akhir. · Designed to guide every student through all 18 classes to graduation." data-i18n-id="Dirancang agar setiap peserta mampu menuntaskan seluruh 18 kelas dengan bimbingan terukur hingga lulus evaluasi akhir." data-i18n-en="Thoughtfully designed so every student receives structured guidance across all 18 classes through to the comprehensive Final Test.">
+        Dirancang agar setiap peserta mampu menuntaskan seluruh 18 kelas dengan bimbingan terukur hingga lulus evaluasi akhir. · Designed to guide every student through all 18 classes to graduation.
       </p>
       <div class="ecosystem-grid">
         <div class="eco-card">
           <div class="eco-icon">🗣️</div>
-          <div class="eco-title">Talaqqi &amp; Koreksi Langsung</div>
-          <div class="eco-desc">Setiap sesi mencakup 10 menit talaqqi surat pendek dan 20 menit latihan intensif menggunakan buku ajar.</div>
+          <div class="eco-title" data-i18n-both="Talaqqi &amp; Koreksi Langsung · Direct Talaqqi" data-i18n-id="Talaqqi &amp; Koreksi Langsung" data-i18n-en="Direct Talaqqi &amp; Oral Correction">Talaqqi &amp; Koreksi Langsung · Direct Talaqqi</div>
+          <div class="eco-desc">
+            <span class="t-id-block">Setiap sesi mencakup 10 menit talaqqi surat pendek dan 20 menit latihan membaca buku ajar.</span>
+            <span class="t-en-block bilingual-sub-en">Every 40-minute session includes 10 minutes of short surah talaqqi and 20 minutes of guided textbook practice.</span>
+          </div>
         </div>
         <div class="eco-card">
           <div class="eco-icon">🛑</div>
-          <div class="eco-title">6 Evaluasi Checkpoint Bertahap</div>
-          <div class="eco-desc">Ujian evaluasi berkala di setiap akhir modul untuk memastikan makhraj dan bacaan benar-benar matang sebelum lanjut.</div>
+          <div class="eco-title" data-i18n-both="6 Evaluasi Checkpoint · 6 Milestone Checkpoints" data-i18n-id="6 Evaluasi Checkpoint Bertahap" data-i18n-en="6 Milestone Checkpoints">6 Evaluasi Checkpoint · 6 Milestone Checkpoints</div>
+          <div class="eco-desc">
+            <span class="t-id-block">Evaluasi berkala di setiap akhir modul untuk memastikan makhraj dan bacaan matang sebelum lanjut.</span>
+            <span class="t-en-block bilingual-sub-en">Periodic evaluations after key modules to verify pronunciation accuracy before advancing to the next stage.</span>
+          </div>
         </div>
         <div class="eco-card">
           <div class="eco-icon">🕌</div>
-          <div class="eco-title">Standar Mushaf Madinah</div>
-          <div class="eco-desc">Menggunakan acuan Mushaf Rasm Utsmani Madinah sehingga santri terbiasa dengan tanda baca mushaf internasional.</div>
+          <div class="eco-title" data-i18n-both="Standar Mushaf Madinah · Madinah Mushaf Standard" data-i18n-id="Standar Mushaf Rasm Utsmani Madinah" data-i18n-en="Madinah Uthmani Mushaf Standard">Standar Mushaf Madinah · Madinah Mushaf Standard</div>
+          <div class="eco-desc">
+            <span class="t-id-block">Menggunakan acuan Mushaf Rasm Utsmani Madinah sehingga siswa terbiasa dengan mushaf internasional.</span>
+            <span class="t-en-block bilingual-sub-en">Uses the Madinah Uthmani Rasm Mushaf as its reference so students master international Qur'anic script conventions.</span>
+          </div>
         </div>
         <div class="eco-card">
           <div class="eco-icon">▶️</div>
-          <div class="eco-title">Akses Gratis Kelas 01–06</div>
-          <div class="eco-desc">Pelajari 6 kelas fondasi pertama secara gratis di Portal Video sebelum mendaftar akses penuh Kelas 07–18.</div>
+          <div class="eco-title" data-i18n-both="Gratis Kelas 01–06 · Free Access (Classes 01–06)" data-i18n-id="Akses Gratis Kelas 01–06" data-i18n-en="Free Access to Classes 01–06">Gratis Kelas 01–06 · Free Access (Classes 01–06)</div>
+          <div class="eco-desc">
+            <span class="t-id-block">Pelajari 6 kelas fondasi pertama secara gratis di Portal Video sebelum membuka Kelas 07–18.</span>
+            <span class="t-en-block bilingual-sub-en">Start learning the first 6 foundational classes completely free on the Video Portal before unlocking Classes 07–18.</span>
+          </div>
         </div>
         <div class="eco-card">
           <div class="eco-icon">📈</div>
-          <div class="eco-title">Pemantauan Progres Santri</div>
-          <div class="eco-desc">Progres setiap bab, nilai checkpoint, dan catatan koreksi dari Ustadzah Sumiyati tersimpan rapi di akun santri.</div>
+          <div class="eco-title" data-i18n-both="Pemantauan Progres · Student Progress Tracker" data-i18n-id="Pemantauan Progres Siswa" data-i18n-en="Interactive Progress &amp; Score Tracker">Pemantauan Progres · Student Progress Tracker</div>
+          <div class="eco-desc">
+            <span class="t-id-block">Progres setiap bab, nilai checkpoint, dan catatan koreksi tersimpan rapi di akun siswa.</span>
+            <span class="t-en-block bilingual-sub-en">Lesson completion, checkpoint scores, and personalized teacher feedback are saved in your student account.</span>
+          </div>
         </div>
         <div class="eco-card">
           <div class="eco-icon">🎓</div>
-          <div class="eco-title">Sertifikat Hasil Evaluasi Resmi</div>
-          <div class="eco-desc">Setelah lulus Final Test, santri menerima sertifikat evaluasi resmi bertanda tangan Ustadzah Sumiyati, SE, MS.</div>
+          <div class="eco-title" data-i18n-both="Sertifikat Evaluasi · Verified Digital Certificate" data-i18n-id="Sertifikat Hasil Evaluasi Resmi" data-i18n-en="Verified Evaluation Certificate">Sertifikat Evaluasi · Verified Digital Certificate</div>
+          <div class="eco-desc">
+            <span class="t-id-block">Setelah lulus Final Test, siswa menerima sertifikat evaluasi resmi bertanda tangan Ustadzah Sumiyati.</span>
+            <span class="t-en-block bilingual-sub-en">Graduates who pass the Final Test receive a digitally signed evaluation certificate from Ustadzah Sumiyati.</span>
+          </div>
         </div>
       </div>
     </section>
@@ -894,21 +1067,23 @@
   <!-- 4. PHITRON-STYLE DARK COLLAPSIBLE MILESTONE OUTLINE ACCORDION -->
   <section class="outline-dark-section" id="complete-outline">
     <div class="track-container">
-      <h2 class="track-sec-heading">Complete Pre-Tajweed Curriculum Outline</h2>
-      <p class="track-sec-sub">
+      <h2 class="track-sec-heading" data-i18n-both="Complete Pre-Tajweed Curriculum Outline · Rincian Kurikulum Lengkap" data-i18n-id="Rincian Lengkap Kurikulum Kelas Pra-Tajwid" data-i18n-en="Complete Pre-Tajweed Curriculum Outline">
+        Complete Pre-Tajweed Curriculum Outline · Rincian Kurikulum Lengkap
+      </h2>
+      <p class="track-sec-sub" data-i18n-both="4 Milestones · 18 Practical Classes · 6 Milestone Checkpoints · 1 Comprehensive Final Test" data-i18n-id="4 Milestone · 18 Kelas Praktik · 6 Evaluasi Checkpoint · 1 Ujian Akhir (Final Test)" data-i18n-en="4 Milestones · 18 Practical Classes · 6 Milestone Checkpoints · 1 Comprehensive Final Test">
         4 Milestones · 18 Practical Classes · 6 Milestone Checkpoints · 1 Comprehensive Final Test
       </p>
 
       <!-- Language & Expand/Collapse Toolbar -->
       <div class="outline-toolbar">
         <div class="lang-filter-btns" role="group" aria-label="Curriculum Language View">
-          <button type="button" class="lang-view-btn active" id="btnViewBoth" onclick="setCurrView('both')">🌐 Bilingual (ID + EN)</button>
-          <button type="button" class="lang-view-btn" id="btnViewId" onclick="setCurrView('id')">🇮🇩 Bahasa Indonesia</button>
-          <button type="button" class="lang-view-btn" id="btnViewEn" onclick="setCurrView('en')">🇬🇧 English Only</button>
+          <button type="button" class="lang-view-btn js-lang-btn active" data-lang-mode="both" onclick="setCurrView('both')">🌐 Bilingual (ID + EN)</button>
+          <button type="button" class="lang-view-btn js-lang-btn" data-lang-mode="id" onclick="setCurrView('id')">🇮🇩 Bahasa Indonesia</button>
+          <button type="button" class="lang-view-btn js-lang-btn" data-lang-mode="en" onclick="setCurrView('en')">🇬🇧 English Only</button>
         </div>
         <div style="display:flex;gap:.5rem;">
-          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(true)">➕ Expand All Milestones</button>
-          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(false)">➖ Collapse All</button>
+          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(true)" data-i18n-both="➕ Expand All Milestones" data-i18n-id="➕ Buka Semua Milestone" data-i18n-en="➕ Expand All Milestones">➕ Expand All Milestones</button>
+          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(false)" data-i18n-both="➖ Collapse All" data-i18n-id="➖ Tutup Semua" data-i18n-en="➖ Collapse All">➖ Collapse All</button>
         </div>
       </div>
 
@@ -920,13 +1095,15 @@
           <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-01')" aria-expanded="true">
             <div class="milestone-meta-left">
               <span class="milestone-badge">
-                Milestone 01 · Kelas 01–06
-                <span class="free-pill">🔓 Free Access</span>
+                <span data-i18n-both="Milestone 01 · Kelas 01–06 (Classes 01–06)" data-i18n-id="Milestone 01 · Kelas 01–06" data-i18n-en="Milestone 01 · Classes 01–06">Milestone 01 · Kelas 01–06 (Classes 01–06)</span>
+                <span class="free-pill" data-i18n-both="🔓 Free Access · Akses Gratis" data-i18n-id="🔓 Akses Gratis" data-i18n-en="🔓 Free Access">🔓 Free Access · Akses Gratis</span>
               </span>
-              <span class="milestone-title">Fondasi Huruf Hijaiyah, Harakat, Mad 2 Harakat, Tasydid &amp; Sukun</span>
+              <span class="milestone-title" data-i18n-both="Fondasi Huruf Hijaiyah, Harakat, Mad 2 Harakat, Tasydid &amp; Sukun · Hijaiyah Letters, Vowels, 2-Count Madd, Shaddah &amp; Sukun" data-i18n-id="Fondasi Huruf Hijaiyah, Harakat, Mad 2 Harakat, Tasydid &amp; Sukun" data-i18n-en="Hijaiyah Letters, Harakat, 2-Count Madd, Shaddah &amp; Sukun Foundations">
+                Fondasi Huruf Hijaiyah, Harakat, Mad 2 Harakat, Tasydid &amp; Sukun · Hijaiyah Letters, Vowels, 2-Count Madd, Shaddah &amp; Sukun
+              </span>
             </div>
             <div class="milestone-meta-right">
-              <span>6 Classes + Checkpoint 1</span>
+              <span data-i18n-both="6 Classes + Checkpoint 1" data-i18n-id="6 Kelas + Checkpoint 1" data-i18n-en="6 Classes + Checkpoint 1">6 Classes + Checkpoint 1</span>
               <span class="milestone-chevron">▾</span>
             </div>
           </button>
@@ -1037,7 +1214,7 @@
             <!-- Checkpoint 1 -->
             <div class="ms-checkpoint-row">
               <div class="ms-checkpoint-badge">🎯 Checkpoint 1</div>
-              <div class="ms-checkpoint-desc">Evaluasi Kelancaran Bab 01–06 · Milestone Evaluation (Classes 01–06)</div>
+              <div class="ms-checkpoint-desc" data-i18n-both="Evaluasi Kelancaran Bab 01–06 · Milestone Evaluation (Classes 01–06)" data-i18n-id="Evaluasi Kelancaran &amp; Ketepatan Bab 01–06" data-i18n-en="Milestone Evaluation (Classes 01–06)">Evaluasi Kelancaran Bab 01–06 · Milestone Evaluation (Classes 01–06)</div>
             </div>
           </div>
         </div>
@@ -1046,11 +1223,13 @@
         <div class="milestone-item" id="ms-02">
           <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-02')" aria-expanded="false">
             <div class="milestone-meta-left">
-              <span class="milestone-badge">Milestone 02 · Kelas 07–10</span>
-              <span class="milestone-title">Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun dalam Kalimat</span>
+              <span class="milestone-badge" data-i18n-both="Milestone 02 · Kelas 07–10 (Classes 07–10)" data-i18n-id="Milestone 02 · Kelas 07–10" data-i18n-en="Milestone 02 · Classes 07–10">Milestone 02 · Kelas 07–10 (Classes 07–10)</span>
+              <span class="milestone-title" data-i18n-both="Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun dalam Kalimat · Nun Sakinah, Tanwin, Hamzat al-Wasl &amp; Mim Sakinah" data-i18n-id="Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun dalam Kalimat" data-i18n-en="Nūn Sākinah, Tanwīn, Hamzat al-Wasl &amp; Mīm Sākinah in Sentences">
+                Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun dalam Kalimat · Nun Sakinah, Tanwin, Hamzat al-Wasl &amp; Mim Sakinah
+              </span>
             </div>
             <div class="milestone-meta-right">
-              <span>4 Classes + Checkpoints 2 &amp; 3</span>
+              <span data-i18n-both="4 Classes + Checkpoints 2 &amp; 3" data-i18n-id="4 Kelas + Checkpoint 2 &amp; 3" data-i18n-en="4 Classes + Checkpoints 2 &amp; 3">4 Classes + Checkpoints 2 &amp; 3</span>
               <span class="milestone-chevron">▾</span>
             </div>
           </button>
@@ -1093,7 +1272,7 @@
             <!-- Checkpoint 2 -->
             <div class="ms-checkpoint-row">
               <div class="ms-checkpoint-badge">🎯 Checkpoint 2</div>
-              <div class="ms-checkpoint-desc">Evaluasi Nun Sukun &amp; Tanwin · Milestone Evaluation (Classes 07–08)</div>
+              <div class="ms-checkpoint-desc" data-i18n-both="Evaluasi Nun Sukun &amp; Tanwin · Milestone Evaluation (Classes 07–08)" data-i18n-id="Evaluasi Nun Sukun &amp; Tanwin (Kelas 07–08)" data-i18n-en="Milestone Evaluation: Nūn Sākinah &amp; Tanwīn (Classes 07–08)">Evaluasi Nun Sukun &amp; Tanwin · Milestone Evaluation (Classes 07–08)</div>
             </div>
 
             <!-- Class 09 -->
@@ -1133,7 +1312,7 @@
             <!-- Checkpoint 3 -->
             <div class="ms-checkpoint-row">
               <div class="ms-checkpoint-badge">🎯 Checkpoint 3</div>
-              <div class="ms-checkpoint-desc">Evaluasi Hamzah Washol &amp; Mim Sukun · Milestone Evaluation (Classes 09–10)</div>
+              <div class="ms-checkpoint-desc" data-i18n-both="Evaluasi Hamzah Washol &amp; Mim Sukun · Milestone Evaluation (Classes 09–10)" data-i18n-id="Evaluasi Hamzah Washol &amp; Mim Sukun (Kelas 09–10)" data-i18n-en="Milestone Evaluation: Hamzat al-Wasl &amp; Mīm Sākinah (Classes 09–10)">Evaluasi Hamzah Washol &amp; Mim Sukun · Milestone Evaluation (Classes 09–10)</div>
             </div>
           </div>
         </div>
@@ -1142,11 +1321,13 @@
         <div class="milestone-item" id="ms-03">
           <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-03')" aria-expanded="false">
             <div class="milestone-meta-left">
-              <span class="milestone-badge">Milestone 03 · Kelas 11–14</span>
-              <span class="milestone-title">Bacaan Mad (&gt; 2 Harakat) &amp; Kaidah Berhenti (Waqof)</span>
+              <span class="milestone-badge" data-i18n-both="Milestone 03 · Kelas 11–14 (Classes 11–14)" data-i18n-id="Milestone 03 · Kelas 11–14" data-i18n-en="Milestone 03 · Classes 11–14">Milestone 03 · Kelas 11–14 (Classes 11–14)</span>
+              <span class="milestone-title" data-i18n-both="Bacaan Mad (&gt; 2 Harakat) &amp; Kaidah Berhenti (Waqof) · Elongation (Madd &gt; 2 Counts) &amp; Rules of Stopping (Waqf)" data-i18n-id="Bacaan Mad (&gt; 2 Harakat) &amp; Kaidah Berhenti (Waqof)" data-i18n-en="Elongation Rules (Madd &gt; 2 Counts) &amp; Rules of Stopping (Waqf)">
+                Bacaan Mad (&gt; 2 Harakat) &amp; Kaidah Berhenti (Waqof) · Elongation (Madd &gt; 2 Counts) &amp; Rules of Stopping (Waqf)
+              </span>
             </div>
             <div class="milestone-meta-right">
-              <span>4 Classes + Checkpoint 4</span>
+              <span data-i18n-both="4 Classes + Checkpoint 4" data-i18n-id="4 Kelas + Checkpoint 4" data-i18n-en="4 Classes + Checkpoint 4">4 Classes + Checkpoint 4</span>
               <span class="milestone-chevron">▾</span>
             </div>
           </button>
@@ -1223,7 +1404,7 @@
             <!-- Checkpoint 4 -->
             <div class="ms-checkpoint-row">
               <div class="ms-checkpoint-badge">🎯 Checkpoint 4</div>
-              <div class="ms-checkpoint-desc">Evaluasi Mad &amp; Kaidah Waqof · Milestone Evaluation (Classes 11–14)</div>
+              <div class="ms-checkpoint-desc" data-i18n-both="Evaluasi Mad &amp; Kaidah Waqof · Milestone Evaluation (Classes 11–14)" data-i18n-id="Evaluasi Mad &amp; Kaidah Waqof (Kelas 11–14)" data-i18n-en="Milestone Evaluation: Madd &amp; Waqf Rules (Classes 11–14)">Evaluasi Mad &amp; Kaidah Waqof · Milestone Evaluation (Classes 11–14)</div>
             </div>
           </div>
         </div>
@@ -1232,11 +1413,13 @@
         <div class="milestone-item" id="ms-04">
           <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-04')" aria-expanded="false">
             <div class="milestone-meta-left">
-              <span class="milestone-badge">Milestone 04 · Kelas 15–18 &amp; Final Test</span>
-              <span class="milestone-title">Nun Wiqoyah, Idghom, Huruf Muqothoah, Gharibul Qur'an &amp; Final Test</span>
+              <span class="milestone-badge" data-i18n-both="Milestone 04 · Kelas 15–18 &amp; Final Test" data-i18n-id="Milestone 04 · Kelas 15–18 &amp; Ujian Akhir" data-i18n-en="Milestone 04 · Classes 15–18 &amp; Final Test">Milestone 04 · Kelas 15–18 &amp; Final Test</span>
+              <span class="milestone-title" data-i18n-both="Nun Wiqoyah, Idghom, Huruf Muqothoah, Gharibul Qur'an &amp; Final Test · Hidden Nun, Idgham, Disjointed Letters &amp; Uncommon Recitations" data-i18n-id="Nun Wiqoyah, Idghom, Huruf Muqothoah, Gharibul Qur'an &amp; Final Test" data-i18n-en="Hidden Nun (Wiqayah), Idgham, Disjointed Letters, Uncommon Recitations &amp; Final Exam">
+                Nun Wiqoyah, Idghom, Huruf Muqothoah, Gharibul Qur'an &amp; Final Test · Hidden Nun, Idgham, Disjointed Letters &amp; Uncommon Recitations
+              </span>
             </div>
             <div class="milestone-meta-right">
-              <span>4 Classes + Final Exam</span>
+              <span data-i18n-both="4 Classes + Final Exam" data-i18n-id="4 Kelas + Ujian Akhir" data-i18n-en="4 Classes + Final Exam">4 Classes + Final Exam</span>
               <span class="milestone-chevron">▾</span>
             </div>
           </button>
@@ -1285,7 +1468,7 @@
             <!-- Checkpoint (15-16) -->
             <div class="ms-checkpoint-row">
               <div class="ms-checkpoint-badge">🎯 Checkpoint</div>
-              <div class="ms-checkpoint-desc">Evaluasi Nun Wiqoyah &amp; Idghom · Milestone Evaluation (Classes 15–16)</div>
+              <div class="ms-checkpoint-desc" data-i18n-both="Evaluasi Nun Wiqoyah &amp; Idghom · Milestone Evaluation (Classes 15–16)" data-i18n-id="Evaluasi Nun Wiqoyah &amp; Idghom (Kelas 15–16)" data-i18n-en="Milestone Evaluation: Nun Wiqayah &amp; Idgham (Classes 15–16)">Evaluasi Nun Wiqoyah &amp; Idghom · Milestone Evaluation (Classes 15–16)</div>
             </div>
 
             <!-- Class 17 -->
@@ -1325,16 +1508,16 @@
             <!-- Checkpoint (17-18) -->
             <div class="ms-checkpoint-row">
               <div class="ms-checkpoint-badge">🎯 Checkpoint</div>
-              <div class="ms-checkpoint-desc">Evaluasi Huruf Muqothoah &amp; Gharibul Qur'an · Milestone Evaluation (Classes 17–18)</div>
+              <div class="ms-checkpoint-desc" data-i18n-both="Evaluasi Huruf Muqothoah &amp; Gharibul Qur'an · Milestone Evaluation (Classes 17–18)" data-i18n-id="Evaluasi Huruf Muqothoah &amp; Gharibul Qur'an (Kelas 17–18)" data-i18n-en="Milestone Evaluation: Disjointed Letters &amp; Uncommon Recitations (Classes 17–18)">Evaluasi Huruf Muqothoah &amp; Gharibul Qur'an · Milestone Evaluation (Classes 17–18)</div>
             </div>
 
             <!-- Final Test -->
             <div class="ms-checkpoint-row" style="background:linear-gradient(90deg, rgba(16, 185, 129, 0.3) 0%, rgba(217, 119, 6, 0.3) 100%);padding:1.35rem 1.75rem;">
               <div>
-                <div class="ms-checkpoint-badge" style="font-size:1.2rem;color:#ffffff;">🏆 Final Test (Ujian Akhir Kelulusan)</div>
-                <div class="ms-checkpoint-desc" style="color:#d1fae5;margin-top:.2rem;">Evaluasi Komprehensif Seluruh Materi Kelas Pra-Tajwid (Kelas 01–18) &amp; Penerbitan Sertifikat</div>
+                <div class="ms-checkpoint-badge" style="font-size:1.2rem;color:#ffffff;" data-i18n-both="🏆 Final Test (Ujian Akhir Kelulusan)" data-i18n-id="🏆 Final Test (Ujian Akhir Kelulusan)" data-i18n-en="🏆 Comprehensive Final Test (Graduation Evaluation)">🏆 Final Test (Ujian Akhir Kelulusan)</div>
+                <div class="ms-checkpoint-desc" style="color:#d1fae5;margin-top:.2rem;" data-i18n-both="Evaluasi Komprehensif Seluruh Materi Kelas Pra-Tajwid (Kelas 01–18) &amp; Penerbitan Sertifikat · Comprehensive Final Evaluation &amp; Certificate Issuance" data-i18n-id="Evaluasi Komprehensif Seluruh Materi Kelas Pra-Tajwid (Kelas 01–18) &amp; Penerbitan Sertifikat" data-i18n-en="Comprehensive Final Evaluation of All Pre-Tajweed Modules (Classes 01–18) &amp; Official Certificate Issuance">Evaluasi Komprehensif Seluruh Materi Kelas Pra-Tajwid (Kelas 01–18) &amp; Penerbitan Sertifikat · Comprehensive Final Evaluation &amp; Certificate Issuance</div>
               </div>
-              <a href="tahsin-tajweed.html" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#052e16;font-weight:700;">
+              <a href="tahsin-tajweed.html" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#052e16;font-weight:700;" data-i18n-both="Go to Video Course Portal →" data-i18n-id="Buka Portal Video Kursus →" data-i18n-en="Go to Video Course Portal →">
                 Go to Video Course Portal →
               </a>
             </div>
@@ -1348,9 +1531,11 @@
   <!-- 5. PHITRON-STYLE ZIG-ZAG ANIMATED STEP-BY-STEP JOURNEY ROADMAP -->
   <section class="journey-section">
     <div class="track-container">
-      <h2 class="track-sec-heading">Your Learning Journey in Pre-Tajweed</h2>
-      <p class="track-sec-sub">
-        4 langkah terstruktur dari mengenal huruf tunggal hingga lancar membaca ayat-ayat Al-Qur'an secara utuh.
+      <h2 class="track-sec-heading" data-i18n-both="Alur Perjalanan Belajar · Your Learning Journey in Pre-Tajweed" data-i18n-id="Alur Perjalanan Belajar di Kelas Pra-Tajwid" data-i18n-en="Your Step-by-Step Learning Journey in Pre-Tajweed">
+        Alur Perjalanan Belajar · Your Learning Journey in Pre-Tajweed
+      </h2>
+      <p class="track-sec-sub" data-i18n-both="4 langkah terstruktur dari mengenal huruf tunggal hingga lancar membaca ayat-ayat Al-Qur'an secara utuh. · 4 structured stages from individual letters to fluent verse recitation." data-i18n-id="4 langkah terstruktur dari mengenal huruf tunggal hingga lancar membaca ayat-ayat Al-Qur'an secara utuh." data-i18n-en="4 structured stages taking you from individual unvocalized letters to fluent, accurate Qur'anic verse recitation.">
+        4 langkah terstruktur dari mengenal huruf tunggal hingga lancar membaca ayat-ayat Al-Qur'an secara utuh. · 4 structured stages from individual letters to fluent verse recitation.
       </p>
 
       <div class="journey-map-wrap">
@@ -1368,10 +1553,15 @@
             <div>
               <div class="journey-step-top">
                 <span class="journey-step-icon">🔤</span>
-                <span class="journey-step-badge">Step - 01 · Kelas 01–06</span>
+                <span class="journey-step-badge" data-i18n-both="Step - 01 · Kelas 01–06" data-i18n-id="Tahap 01 · Kelas 01–06" data-i18n-en="Step - 01 · Classes 01–06">Step - 01 · Kelas 01–06</span>
               </div>
-              <h3>Huruf Hijaiyah, Makhraj, Harakat, Tasydid &amp; Sukun</h3>
-              <p>Menguasai 28–29 huruf hijaiyah, ketepatan makhraj &amp; harakat dalam kata, mad thabi'i 2 harakat, huruf bertasydid, serta sukun (termasuk qalqalah) hingga lulus <strong>Checkpoint 1</strong>.</p>
+              <h3 data-i18n-both="Huruf Hijaiyah, Makhraj, Harakat, Tasydid &amp; Sukun · Letters, Vowels, Shaddah &amp; Sukun" data-i18n-id="Huruf Hijaiyah, Makhraj, Harakat, Tasydid &amp; Sukun" data-i18n-en="Hijaiyah Letters, Makhraj, Vowels, Shaddah &amp; Sukun">
+                Huruf Hijaiyah, Makhraj, Harakat, Tasydid &amp; Sukun · Letters, Vowels, Shaddah &amp; Sukun
+              </h3>
+              <p>
+                <span class="t-id-block">Menguasai 28–29 huruf hijaiyah, ketepatan makhraj &amp; harakat dalam kata, mad thabi'i 2 harakat, huruf bertasydid, serta sukun (termasuk qalqalah) hingga lulus <strong>Checkpoint 1</strong>.</span>
+                <span class="t-en-block bilingual-sub-en">Master the 28–29 Hijaiyah letters, makhraj &amp; vowel accuracy in words, 2-count natural madd, shaddah, and sukun (including qalqalah), concluding with <strong>Checkpoint 1</strong>.</span>
+              </p>
             </div>
           </div>
           <div class="journey-spacer"></div>
@@ -1382,10 +1572,15 @@
             <div>
               <div class="journey-step-top">
                 <span class="journey-step-icon">📖</span>
-                <span class="journey-step-badge">Step - 02 · Kelas 07–10</span>
+                <span class="journey-step-badge" data-i18n-both="Step - 02 · Kelas 07–10" data-i18n-id="Tahap 02 · Kelas 07–10" data-i18n-en="Step - 02 · Classes 07–10">Step - 02 · Kelas 07–10</span>
               </div>
-              <h3>Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun</h3>
-              <p>Praktik langsung menerapkan bacaan nun sukun, tanwin, hamzah washal di awal kata, dan mim sukun pada potongan ayat-ayat Al-Qur'an, diuji melalui <strong>Checkpoint 2 &amp; 3</strong>.</p>
+              <h3 data-i18n-both="Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun · Nun/Mim Sakinah &amp; Hamzat al-Wasl" data-i18n-id="Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun" data-i18n-en="Nūn Sākinah, Tanwīn, Hamzat al-Wasl &amp; Mīm Sākinah">
+                Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun · Nun/Mim Sakinah &amp; Hamzat al-Wasl
+              </h3>
+              <p>
+                <span class="t-id-block">Praktik langsung menerapkan bacaan nun sukun, tanwin, hamzah washal di awal kata, dan mim sukun pada potongan ayat-ayat Al-Qur'an, diuji melalui <strong>Checkpoint 2 &amp; 3</strong>.</span>
+                <span class="t-en-block bilingual-sub-en">Hands-on recitation of nun sukun, tanwin, hamzat al-wasl, and meem sukun within real Qur'anic verse excerpts, evaluated via <strong>Checkpoints 2 &amp; 3</strong>.</span>
+              </p>
             </div>
           </div>
 
@@ -1394,10 +1589,15 @@
             <div>
               <div class="journey-step-top">
                 <span class="journey-step-icon">🛑</span>
-                <span class="journey-step-badge">Step - 03 · Kelas 11–14</span>
+                <span class="journey-step-badge" data-i18n-both="Step - 03 · Kelas 11–14" data-i18n-id="Tahap 03 · Kelas 11–14" data-i18n-en="Step - 03 · Classes 11–14">Step - 03 · Kelas 11–14</span>
               </div>
-              <h3>Mad (&gt;2 Harakat) &amp; Kaidah Berhenti (Waqof)</h3>
-              <p>Mempraktikkan bacaan mad lebih dari 2 harakat serta aturan berhenti (waqaf), termasuk waqaf pada huruf bertasydid dan huruf setelah sukun hingga lulus <strong>Checkpoint 4</strong>.</p>
+              <h3 data-i18n-both="Mad (&gt;2 Harakat) &amp; Kaidah Berhenti (Waqof) · Extended Madd &amp; Stopping Rules" data-i18n-id="Mad (&gt;2 Harakat) &amp; Kaidah Berhenti (Waqof)" data-i18n-en="Extended Madd (&gt;2 Counts) &amp; Rules of Stopping (Waqf)">
+                Mad (&gt;2 Harakat) &amp; Kaidah Berhenti (Waqof) · Extended Madd &amp; Stopping Rules
+              </h3>
+              <p>
+                <span class="t-id-block">Mempraktikkan bacaan mad lebih dari 2 harakat serta aturan berhenti (waqaf), termasuk waqaf pada huruf bertasydid dan huruf setelah sukun hingga lulus <strong>Checkpoint 4</strong>.</span>
+                <span class="t-en-block bilingual-sub-en">Practice elongations beyond 2 harakat and proper stopping rules (waqaf), including stopping on shaddah and after sukun, verified in <strong>Checkpoint 4</strong>.</span>
+              </p>
             </div>
           </div>
           <div class="journey-spacer"></div>
@@ -1408,10 +1608,15 @@
             <div>
               <div class="journey-step-top">
                 <span class="journey-step-icon">🎓</span>
-                <span class="journey-step-badge">Step - 04 · Kelas 15–18</span>
+                <span class="journey-step-badge" data-i18n-both="Step - 04 · Kelas 15–18" data-i18n-id="Tahap 04 · Kelas 15–18" data-i18n-en="Step - 04 · Classes 15–18">Step - 04 · Kelas 15–18</span>
               </div>
-              <h3>Nun Wiqoyah, Idghom, Gharibul Qur'an &amp; Final Test</h3>
-              <p>Menuntaskan bacaan Nun Wiqoyah (Mushaf Madinah), Idghom dua huruf, Huruf Muqatta'ah, dan bacaan Gharibul Qur'an, diakhiri dengan <strong>Final Test</strong> dan sertifikat evaluasi resmi.</p>
+              <h3 data-i18n-both="Nun Wiqoyah, Idghom, Gharibul Qur'an &amp; Final Test · Advanced Readings &amp; Graduation" data-i18n-id="Nun Wiqoyah, Idghom, Gharibul Qur'an &amp; Final Test" data-i18n-en="Nun Wiqayah, Idgham, Gharibul Qur'an &amp; Final Test">
+                Nun Wiqoyah, Idghom, Gharibul Qur'an &amp; Final Test · Advanced Readings &amp; Graduation
+              </h3>
+              <p>
+                <span class="t-id-block">Menuntaskan bacaan Nun Wiqoyah (Mushaf Madinah), Idghom dua huruf, Huruf Muqatta'ah, dan bacaan Gharibul Qur'an, diakhiri dengan <strong>Final Test</strong> dan sertifikat evaluasi resmi.</span>
+                <span class="t-en-block bilingual-sub-en">Complete Nun Wiqayah (Madinah Mushaf), Idgham of meeting letters, Muqatta'ah letters, and Gharibul Qur'an, culminating in the <strong>Final Test</strong> and official certificate.</span>
+              </p>
             </div>
           </div>
         </div>
@@ -1422,7 +1627,7 @@
   <!-- 6. SESSION DURATION & TIME GUIDANCE SECTION -->
   <div class="track-container">
     <section class="session-notes-card">
-      <p class="section-label">Catatan · Session Duration &amp; Time Guidance</p>
+      <p class="section-label" data-i18n-both="Catatan · Session Duration &amp; Time Guidance" data-i18n-id="Catatan Panduan Durasi Sesi" data-i18n-en="Session Duration &amp; Time Guidance">Catatan · Session Duration &amp; Time Guidance</p>
       <div class="session-notes-grid">
         <div class="id-box" style="background:var(--bg);border:1px solid var(--border);padding:1.5rem;border-radius:10px;">
           <span class="ms-lang-tag id-tag">Catatan</span>
@@ -1464,19 +1669,33 @@
     <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
       <p class="name">Sumiyati · Master's in Tafsir &amp; Quranic Sciences, IIUI 2026</p>
       <p class="meta">
-        <a href="tahsin-tajweed.html" style="color:var(--green);font-weight:600;text-decoration:underline;">← Back to Video Course Portal</a>
+        <a href="tahsin-tajweed.html" style="color:var(--green);font-weight:600;text-decoration:underline;" data-i18n-both="← Back to Video Course Portal · Kembali ke Portal Video" data-i18n-id="← Kembali ke Portal Video Kursus" data-i18n-en="← Back to Video Course Portal">← Back to Video Course Portal · Kembali ke Portal Video</a>
       </p>
     </div>
   </footer>
 
   <script>
     function setCurrView(mode) {
+      if (!['both', 'id', 'en'].includes(mode)) mode = 'both';
       document.body.classList.remove('view-id-only', 'view-en-only');
       if (mode === 'id') document.body.classList.add('view-id-only');
       if (mode === 'en') document.body.classList.add('view-en-only');
-      document.getElementById('btnViewBoth').classList.toggle('active', mode === 'both');
-      document.getElementById('btnViewId').classList.toggle('active', mode === 'id');
-      document.getElementById('btnViewEn').classList.toggle('active', mode === 'en');
+
+      // Sync all 3 language switcher bars (Header, Hero, and Milestone Outline Toolbar)
+      document.querySelectorAll('.js-lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang-mode') === mode);
+      });
+
+      // Dynamically update all elements with data-i18n-{mode}
+      const attrName = 'data-i18n-' + mode;
+      document.querySelectorAll('[data-i18n-both]').forEach(el => {
+        const val = el.getAttribute(attrName);
+        if (val) el.innerHTML = val;
+      });
+
+      try {
+        localStorage.setItem('sumiyati_curr_lang', mode);
+      } catch (e) {}
     }
 
     function toggleMilestone(id) {
@@ -1494,6 +1713,16 @@
         if (btn) btn.setAttribute('aria-expanded', openState ? 'true' : 'false');
       });
     }
+
+    // Restore saved language mode if set
+    (function initLangView() {
+      try {
+        const saved = localStorage.getItem('sumiyati_curr_lang');
+        if (saved && ['both', 'id', 'en'].includes(saved)) {
+          setCurrView(saved);
+        }
+      } catch (e) {}
+    })();
   </script>
 </body>
 </html>
