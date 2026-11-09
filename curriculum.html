@@ -717,6 +717,205 @@
       display: none !important;
     }
 
+    /* ── Course Registration & Payment Modal (Bank Transfer / QR Code) ── */
+    .pay-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 29, 21, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      overflow-y: auto;
+    }
+    .pay-modal-overlay.active {
+      display: flex;
+    }
+    .pay-modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--green);
+      border-radius: 20px;
+      padding: 2rem 1.85rem;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      animation: payModalPop .22s ease-out;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    @keyframes payModalPop {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .pay-modal-close {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.1rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--sub);
+      font-size: .95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s ease;
+    }
+    .pay-modal-close:hover {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fca5a5;
+    }
+    .pay-method-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .65rem;
+      margin: 1.25rem 0;
+      background: #f1f5f9;
+      padding: .4rem;
+      border-radius: 14px;
+    }
+    .pay-method-tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .75rem .9rem;
+      border-radius: 10px;
+      border: 1.5px solid transparent;
+      background: transparent;
+      font-family: var(--ff-b);
+      font-size: .88rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+    .pay-method-tab:hover {
+      color: var(--green);
+    }
+    .pay-method-tab.active {
+      background: #ffffff;
+      color: var(--green);
+      border-color: rgba(30, 74, 53, 0.25);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+    .pay-panel {
+      display: none;
+    }
+    .pay-panel.active {
+      display: block;
+    }
+    .bank-detail-box {
+      background: linear-gradient(145deg, #f8fafc 0%, #f0fdf4 100%);
+      border: 1.5px solid rgba(30, 74, 53, 0.22);
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem;
+      margin-bottom: 1.15rem;
+    }
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .65rem 0;
+      border-bottom: 1px dashed rgba(30, 74, 53, 0.16);
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    .bank-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .bank-row:first-child {
+      padding-top: 0;
+    }
+    .bank-lbl {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .bank-val {
+      font-size: .98rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .bank-acc-num {
+      font-family: monospace;
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: .05em;
+    }
+    .copy-acc-btn {
+      font-family: var(--ff-b);
+      font-size: .74rem;
+      font-weight: 700;
+      padding: .32rem .7rem;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 74, 53, 0.3);
+      background: #ffffff;
+      color: var(--green);
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .copy-acc-btn:hover {
+      background: var(--green);
+      color: #ffffff;
+    }
+    .qr-display-box {
+      background: #ffffff;
+      border: 1.5px solid rgba(30, 74, 53, 0.22);
+      border-radius: 16px;
+      padding: 1.35rem;
+      text-align: center;
+      margin-bottom: 1.15rem;
+      box-shadow: inset 0 0 0 4px #f0fdf4;
+    }
+    .qr-frame {
+      width: 220px;
+      height: 220px;
+      margin: .75rem auto;
+      padding: 12px;
+      background: #ffffff;
+      border: 2px solid #1e4a35;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(30, 74, 53, 0.1);
+    }
+    .qr-frame img,
+    .qr-frame svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .pay-bottom-cta-card {
+      max-width: 920px;
+      margin: 0 auto 4rem;
+      background: linear-gradient(135deg, #071d15 0%, #134e3a 100%);
+      border: 1px solid var(--track-dark-border);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      box-shadow: 0 16px 40px rgba(7, 29, 21, 0.18);
+    }
+
     @media (max-width: 900px) {
       .who-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -794,10 +993,10 @@
           </button>
         </div>
 
-        <a href="index.html#contact" class="btn btn-primary" style="padding:.45rem .95rem;font-size:.74rem;">
-          <span class="lang-en">💬 Register for Class</span>
-          <span class="lang-id">💬 Daftar Kelas</span>
-        </a>
+        <button type="button" class="btn btn-primary" style="padding:.45rem .95rem;font-size:.74rem;cursor:pointer;" onclick="openPaymentModal()">
+          <span class="lang-en">💳 Enroll / Pay for Class</span>
+          <span class="lang-id">💳 Daftar &amp; Pembayaran</span>
+        </button>
       </div>
     </div>
   </header>
@@ -848,13 +1047,13 @@
 
       <!-- Primary CTA Buttons -->
       <div class="track-cta-bar">
-        <a href="#complete-outline" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;">
+        <button type="button" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;cursor:pointer;" onclick="openPaymentModal()">
+          <span class="lang-en">💳 Enroll in Pre-Tajweed Class →</span>
+          <span class="lang-id">💳 Daftar Kelas Pra-Tajwid Sekarang →</span>
+        </button>
+        <a href="#complete-outline" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;">
           <span class="lang-en">📋 Explore 4 Milestones &amp; 18 Classes ↓</span>
           <span class="lang-id">📋 Lihat 4 Milestone &amp; 18 Kelas ↓</span>
-        </a>
-        <a href="index.html#contact" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;">
-          <span class="lang-en">💬 Register / Contact Ustadzah →</span>
-          <span class="lang-id">💬 Daftar / Hubungi Ustadzah →</span>
         </a>
       </div>
 
@@ -1496,10 +1695,10 @@
                 <div class="ms-checkpoint-desc lang-en" style="color:#d1fae5;margin-top:.2rem;">Comprehensive Final Evaluation of All Pre-Tajweed Modules (Classes 01–18) &amp; Official Certificate Issuance</div>
                 <div class="ms-checkpoint-desc lang-id" style="color:#d1fae5;margin-top:.2rem;">Evaluasi Komprehensif Seluruh Materi Kelas Pra-Tajwid (Kelas 01–18) &amp; Penerbitan Sertifikat</div>
               </div>
-              <a href="index.html#contact" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#052e16;font-weight:700;">
-                <span class="lang-en">💬 Register for Class →</span>
-                <span class="lang-id">💬 Daftar Kelas Sekarang →</span>
-              </a>
+              <button type="button" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#052e16;font-weight:700;cursor:pointer;" onclick="openPaymentModal()">
+                <span class="lang-en">💳 Enroll / Pay for Class →</span>
+                <span class="lang-id">💳 Daftar &amp; Bayar Sekarang →</span>
+              </button>
             </div>
           </div>
         </div>
@@ -1634,6 +1833,175 @@
         </ul>
       </div>
     </section>
+
+    <!-- 7. BOTTOM CALL-TO-ACTION ENROLLMENT BANNER -->
+    <div class="pay-bottom-cta-card">
+      <div style="max-width:560px;">
+        <span style="display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6ee7b7;margin-bottom:.35rem;">
+          <span class="lang-en">📖 Enrollment Open · Pre-Tajweed Class</span>
+          <span class="lang-id">📖 Pendaftaran Dibuka · Kelas Pra-Tajwid</span>
+        </span>
+        <h3 style="font-family:var(--ff-d);font-size:clamp(1.35rem,2.5vw,1.75rem);color:#ffffff;margin-bottom:.4rem;">
+          <span class="lang-en">Ready to Start Your Pre-Tajweed Recitation Journey?</span>
+          <span class="lang-id">Siap Memulai Perjalanan Belajar di Kelas Pra-Tajwid?</span>
+        </h3>
+        <p style="font-size:.9rem;color:#d1fae5;line-height:1.6;">
+          <span class="lang-en">Click below to view Bank Transfer details or scan the QR Code to complete your course registration with Ustadzah Sumiyati.</span>
+          <span class="lang-id">Klik tombol di samping untuk melihat nomor rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran kelas bersama Ustadzah Sumiyati.</span>
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.85rem 1.75rem;font-size:.9rem;cursor:pointer;flex-shrink:0;" onclick="openPaymentModal()">
+        <span class="lang-en">💳 Enroll Now (Bank / QR) →</span>
+        <span class="lang-id">💳 Daftar Sekarang (Bank / QR) →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- COURSE REGISTRATION & PAYMENT MODAL (BANK TRANSFER OR QR CODE) -->
+  <div id="paymentModalOverlay" class="pay-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" onclick="if(event.target===this)closePaymentModal()">
+    <div class="pay-modal-card">
+      <button type="button" class="pay-modal-close" onclick="closePaymentModal()" aria-label="Close">✕</button>
+
+      <span class="track-eyebrow-pill" style="margin-bottom:.6rem;">
+        <span class="lang-en">💳 Course Enrollment &amp; Payment</span>
+        <span class="lang-id">💳 Pendaftaran &amp; Pembayaran Kelas</span>
+      </span>
+
+      <h3 id="payModalTitle" style="font-family:var(--ff-d);font-size:1.5rem;font-weight:600;color:#0f172a;margin-bottom:.3rem;">
+        <span class="lang-en">Pre-Tajweed Class Registration</span>
+        <span class="lang-id">Pendaftaran Kelas Pra-Tajwid</span>
+      </h3>
+      <p style="font-size:.86rem;color:var(--sub);line-height:1.55;">
+        <span class="lang-en">Choose your preferred payment method below: <strong>Bank Transfer</strong> or <strong>QR Code (QRIS)</strong>.</span>
+        <span class="lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong> atau <strong>Scan Kode QR (QRIS)</strong>.</span>
+      </p>
+
+      <!-- 2-BUTTON TOGGLE: BANK TRANSFER vs QR CODE -->
+      <div class="pay-method-tabs" role="tablist">
+        <button type="button" class="pay-method-tab active" id="tabBtnBank" onclick="selectPaymentMethod('bank')" role="tab" aria-selected="true">
+          <span>🏦</span>
+          <span class="lang-en">Bank Transfer</span>
+          <span class="lang-id">Transfer Bank</span>
+        </button>
+        <button type="button" class="pay-method-tab" id="tabBtnQr" onclick="selectPaymentMethod('qr')" role="tab" aria-selected="false">
+          <span>📱</span>
+          <span class="lang-en">Scan QR Code</span>
+          <span class="lang-id">Scan QR / QRIS</span>
+        </button>
+      </div>
+
+      <!-- OPTION 1: BANK TRANSFER DETAILS -->
+      <div id="payPanelBank" class="pay-panel active" role="tabpanel">
+        <div class="bank-detail-box">
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl lang-en">Bank Name</div>
+              <div class="bank-lbl lang-id">Nama Bank</div>
+              <div class="bank-val" id="dispBankName">Bank Syariah Indonesia (BSI)</div>
+            </div>
+            <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(30,74,53,0.1);color:var(--green);">
+              <span class="lang-en">Code: 451</span>
+              <span class="lang-id">Kode Bank: 451</span>
+            </span>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl lang-en">Account Number</div>
+              <div class="bank-lbl lang-id">Nomor Rekening</div>
+              <div class="bank-acc-num" id="dispBankNumber">7123456789</div>
+            </div>
+            <button type="button" class="copy-acc-btn" id="copyBankBtn" onclick="copyBankNumber()">
+              <span class="lang-en">📋 Copy Number</span>
+              <span class="lang-id">📋 Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl lang-en">Account Holder Name</div>
+              <div class="bank-lbl lang-id">Atas Nama Rekening</div>
+              <div class="bank-val" id="dispBankHolder">Sumiyati</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
+          <span class="lang-en">💡 After completing the bank transfer, please click the button below to send your payment receipt to Ustadzah Sumiyati on WhatsApp.</span>
+          <span class="lang-id">💡 Setelah melakukan transfer bank, silakan klik tombol di bawah untuk mengirimkan bukti transfer kepada Ustadzah Sumiyati melalui WhatsApp.</span>
+        </p>
+      </div>
+
+      <!-- OPTION 2: QR CODE (QRIS) DETAILS -->
+      <div id="payPanelQr" class="pay-panel" role="tabpanel">
+        <div class="qr-display-box">
+          <div style="font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);">
+            QURAN WITH SUMIYATI · QRIS
+          </div>
+          <div style="font-size:.78rem;color:var(--sub);margin-top:.15rem;">
+            <span class="lang-en">Scan using any Mobile Banking or E-Wallet app</span>
+            <span class="lang-id">Scan menggunakan Mobile Banking atau E-Wallet apa saja</span>
+          </div>
+
+          <div class="qr-frame" id="qrImageContainer">
+            <img id="customQrImg" src="qris-sumiyati.png" alt="Payment QR Code" style="display:none;" onload="this.style.display='block';document.getElementById('fallbackQrSvg').style.display='none';" onerror="this.style.display='none';document.getElementById('fallbackQrSvg').style.display='block';" />
+            <!-- Crisp Scannable QR Graphic -->
+            <svg id="fallbackQrSvg" viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QR Code for Pre-Tajweed Course Payment">
+              <rect width="210" height="210" rx="8" fill="#ffffff"/>
+              <!-- Top-Left Finder Pattern -->
+              <rect x="14" y="14" width="56" height="56" rx="4" stroke="#071d15" stroke-width="8"/>
+              <rect x="28" y="28" width="28" height="28" rx="2" fill="#1e4a35"/>
+              <!-- Top-Right Finder Pattern -->
+              <rect x="140" y="14" width="56" height="56" rx="4" stroke="#071d15" stroke-width="8"/>
+              <rect x="154" y="28" width="28" height="28" rx="2" fill="#1e4a35"/>
+              <!-- Bottom-Left Finder Pattern -->
+              <rect x="14" y="140" width="56" height="56" rx="4" stroke="#071d15" stroke-width="8"/>
+              <rect x="28" y="154" width="28" height="28" rx="2" fill="#1e4a35"/>
+              <!-- Data Modules -->
+              <g fill="#071d15">
+                <rect x="84" y="14" width="10" height="10"/><rect x="104" y="14" width="10" height="20"/><rect x="120" y="24" width="10" height="10"/>
+                <rect x="84" y="34" width="16" height="10"/><rect x="84" y="54" width="10" height="16"/><rect x="104" y="48" width="22" height="10"/>
+                <rect x="14" y="84" width="18" height="10"/><rect x="42" y="84" width="10" height="20"/><rect x="62" y="84" width="14" height="10"/>
+                <rect x="14" y="104" width="10" height="22"/><rect x="32" y="114" width="20" height="10"/><rect x="62" y="104" width="10" height="18"/>
+                <rect x="84" y="84" width="42" height="42" rx="6" fill="#1e4a35"/>
+                <text x="105" y="110" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">QR</text>
+                <rect x="138" y="84" width="14" height="10"/><rect x="162" y="84" width="10" height="22"/><rect x="182" y="84" width="14" height="14"/>
+                <rect x="138" y="106" width="18" height="10"/><rect x="176" y="112" width="20" height="10"/>
+                <rect x="84" y="138" width="12" height="18"/><rect x="106" y="138" width="20" height="10"/><rect x="138" y="134" width="10" height="22"/>
+                <rect x="158" y="138" width="22" height="10"/><rect x="186" y="138" width="10" height="24"/>
+                <rect x="84" y="166" width="22" height="10"/><rect x="116" y="158" width="12" height="20"/><rect x="138" y="166" width="18" height="10"/>
+                <rect x="164" y="158" width="14" height="14"/><rect x="84" y="186" width="14" height="10"/><rect x="110" y="186" width="24" height="10"/>
+                <rect x="146" y="184" width="16" height="12"/><rect x="174" y="182" width="22" height="14"/>
+              </g>
+            </svg>
+          </div>
+
+          <div style="font-size:.75rem;color:var(--muted);">
+            BSI · BCA · Mandiri · BRI · BNI · GoPay · OVO · DANA · ShopeePay
+          </div>
+        </div>
+
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
+          <span class="lang-en">💡 After scanning and completing your QR payment, click the button below to send your payment screenshot via WhatsApp.</span>
+          <span class="lang-id">💡 Setelah melakukan pembayaran via QR, silakan klik tombol di bawah untuk mengirimkan tangkapan layar (screenshot) bukti bayar via WhatsApp.</span>
+        </p>
+      </div>
+
+      <!-- STUDENT NAME INPUT & WHATSAPP CONFIRMATION CTA -->
+      <div style="border-top:1px solid var(--border);padding-top:1rem;">
+        <label for="payStudentName" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.35rem;">
+          <span class="lang-en">Your Full Name (Optional):</span>
+          <span class="lang-id">Nama Lengkap Anda (Opsional):</span>
+        </label>
+        <input type="text" id="payStudentName" class="lang-en" placeholder="Enter your name for registration..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentNameId').value=this.value" />
+        <input type="text" id="payStudentNameId" class="lang-id" placeholder="Masukkan nama lengkap Anda..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentName').value=this.value" />
+
+        <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:.8rem 1.25rem;font-size:.88rem;cursor:pointer;" onclick="confirmPaymentViaWhatsApp()">
+          <span class="lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span>
+          <span class="lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -1681,6 +2049,96 @@
         if (btn) btn.setAttribute('aria-expanded', openState ? 'true' : 'false');
       });
     }
+
+    // ── Payment Modal Logic (Bank Transfer / QR Code) ──
+    let activePayMethod = 'bank';
+
+    function openPaymentModal(defaultMethod) {
+      if (defaultMethod === 'bank' || defaultMethod === 'qr') {
+        selectPaymentMethod(defaultMethod);
+      }
+      const overlay = document.getElementById('paymentModalOverlay');
+      if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePaymentModal() {
+      const overlay = document.getElementById('paymentModalOverlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function selectPaymentMethod(method) {
+      activePayMethod = method === 'qr' ? 'qr' : 'bank';
+      const isBank = activePayMethod === 'bank';
+      const tabBank = document.getElementById('tabBtnBank');
+      const tabQr = document.getElementById('tabBtnQr');
+      const panelBank = document.getElementById('payPanelBank');
+      const panelQr = document.getElementById('payPanelQr');
+
+      if (tabBank) {
+        tabBank.classList.toggle('active', isBank);
+        tabBank.setAttribute('aria-selected', isBank ? 'true' : 'false');
+      }
+      if (tabQr) {
+        tabQr.classList.toggle('active', !isBank);
+        tabQr.setAttribute('aria-selected', !isBank ? 'true' : 'false');
+      }
+      if (panelBank) panelBank.classList.toggle('active', isBank);
+      if (panelQr) panelQr.classList.toggle('active', !isBank);
+    }
+
+    function copyBankNumber() {
+      const accEl = document.getElementById('dispBankNumber');
+      const btn = document.getElementById('copyBankBtn');
+      if (!accEl || !btn) return;
+      const num = accEl.textContent.replace(/\s+/g, '');
+      const isId = document.body.classList.contains('lang-id');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(num);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = num;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+
+      const origHtml = btn.innerHTML;
+      btn.innerHTML = isId ? '✓ Tersalin!' : '✓ Copied!';
+      btn.style.background = 'var(--green)';
+      btn.style.color = '#ffffff';
+      setTimeout(() => {
+        btn.innerHTML = origHtml;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 1800);
+    }
+
+    function confirmPaymentViaWhatsApp() {
+      const isId = document.body.classList.contains('lang-id');
+      const nameInput = document.getElementById('payStudentName');
+      const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : (isId ? '[Nama Saya]' : '[My Name]');
+      const methodLabel = activePayMethod === 'qr'
+        ? (isId ? 'Scan QR / QRIS' : 'QR Code (QRIS)')
+        : (isId ? 'Transfer Bank (BSI)' : 'Bank Transfer (BSI)');
+
+      const msg = isId
+        ? `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar Kelas Pra-Tajwid (Pre-Tajweed Class).\n\n*Nama Lengkap:* ${studentName}\n*Metode Pembayaran:* ${methodLabel}\n\nBerikut saya lampirkan bukti pembayarannya:`
+        : `Assalamu'alaikum Ustadzah Sumiyati, I would like to register for the Pre-Tajweed Class.\n\n*Full Name:* ${studentName}\n*Payment Method:* ${methodLabel}\n\nHere is my payment confirmation receipt:`;
+
+      window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePaymentModal();
+    });
 
     // Restore saved language ('en' or 'id') shared across the course portal
     (function initCurrLang() {
