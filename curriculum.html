@@ -1045,37 +1045,76 @@
         padding: 1rem .95rem;
         gap: .65rem;
       }
-      .milestone-left {
-        gap: .65rem;
+      .milestone-meta-left {
+        gap: .45rem;
       }
       .milestone-badge {
         font-size: .66rem;
         padding: .28rem .58rem;
       }
-      .milestone-title-group h3 {
+      .milestone-title {
         font-size: .96rem;
         line-height: 1.35;
       }
       .ms-checkpoint-row {
-        padding: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 1.1rem 1rem !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: .85rem !important;
+      }
+      .ms-checkpoint-row .ms-checkpoint-badge {
+        font-size: 1rem !important;
+        line-height: 1.35;
       }
       .ms-checkpoint-row .btn {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        flex-shrink: 1 !important;
+        white-space: normal !important;
+        word-break: break-word;
+        line-height: 1.35 !important;
+        padding: .78rem 1rem !important;
+        font-size: .82rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 10px !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+      .session-notes-card {
+        padding: 1.35rem 1.1rem;
+        margin: .5rem auto 2rem;
       }
       .pay-bottom-cta-card {
-        padding: 1.5rem 1.2rem;
-        margin: 0 auto 2.5rem;
-        border-radius: 16px;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 1.15rem !important;
+        padding: 1.45rem 1.15rem !important;
+        margin: 0 auto 2.5rem !important;
+        border-radius: 16px !important;
         text-align: left;
+        box-sizing: border-box;
+      }
+      .pay-bottom-cta-card > div {
+        width: 100% !important;
+        max-width: 100% !important;
       }
       .pay-bottom-cta-card .btn {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        flex-shrink: 1 !important;
+        white-space: normal !important;
+        word-break: break-word;
+        line-height: 1.35 !important;
+        padding: .85rem 1rem !important;
+        font-size: .82rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 12px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        min-height: 48px;
       }
     }
 
@@ -1125,9 +1164,17 @@
         gap: .65rem;
       }
       .track-cta-bar .btn {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        line-height: 1.35 !important;
+        padding: .78rem 1rem !important;
+        font-size: .8rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 10px !important;
+        justify-content: center !important;
+        text-align: center !important;
         min-height: 46px;
       }
       /* Symmetrical 2x2 grid for Milestone Outline Toolbar on narrow phones */
@@ -1159,8 +1206,19 @@
         padding: .25rem .6rem;
         word-break: break-word;
       }
-      .journey-node-card {
+      .journey-step-card {
         padding: 1.2rem 1.05rem;
+      }
+      .pay-modal-card .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        line-height: 1.35 !important;
+        padding: .75rem .9rem !important;
+        font-size: .8rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 10px !important;
       }
       /* Native Android Bottom-Sheet style for Payment Modal + dvh keyboard support */
       .pay-modal-overlay {
@@ -2101,21 +2159,21 @@
 
     <!-- 7. BOTTOM CALL-TO-ACTION ENROLLMENT BANNER -->
     <div class="pay-bottom-cta-card">
-      <div style="max-width:560px;">
+      <div style="max-width:560px;width:100%;">
         <span style="display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6ee7b7;margin-bottom:.35rem;">
           <span class="lang-en">📖 Enrollment Open · Pre-Tajweed Class</span>
           <span class="lang-id">📖 Pendaftaran Dibuka · Kelas Pra-Tajwid</span>
         </span>
-        <h3 style="font-family:var(--ff-d);font-size:clamp(1.35rem,2.5vw,1.75rem);color:#ffffff;margin-bottom:.4rem;">
+        <h3 style="font-family:var(--ff-d);font-size:clamp(1.35rem,2.5vw,1.75rem);color:#ffffff;margin-bottom:.4rem;line-height:1.25;">
           <span class="lang-en">Ready to Start Your Pre-Tajweed Recitation Journey?</span>
           <span class="lang-id">Siap Memulai Perjalanan Belajar di Kelas Pra-Tajwid?</span>
         </h3>
         <p style="font-size:.9rem;color:#d1fae5;line-height:1.6;">
           <span class="lang-en">Click below to view Bank Transfer details or scan the QR Code to complete your course registration with Ustadzah Sumiyati.</span>
-          <span class="lang-id">Klik tombol di samping untuk melihat nomor rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran kelas bersama Ustadzah Sumiyati.</span>
+          <span class="lang-id">Klik tombol di bawah ini untuk melihat nomor rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran kelas bersama Ustadzah Sumiyati.</span>
         </p>
       </div>
-      <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.85rem 1.75rem;font-size:.9rem;cursor:pointer;flex-shrink:0;" onclick="openPaymentModal()">
+      <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.85rem 1.65rem;font-size:.88rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal()">
         <span class="lang-en">💳 Enroll Now (Bank / QR) →</span>
         <span class="lang-id">💳 Daftar Sekarang (Bank / QR) →</span>
       </button>
