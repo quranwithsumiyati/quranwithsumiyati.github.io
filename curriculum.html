@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Pre-Tajweed Class Curriculum · Sumiyati</title>
-  <meta name="description" content="Complete 18-class Pre-Tajweed Class Curriculum (Kurikulum Kelas Pra-Tajwid) by Ustadzah Sumiyati. Bilingual Indonesian & English syllabus covering Classes 01–18, Checkpoints, Final Test, and 40-minute session guidance." />
+  <meta name="description" content="Complete 18-class Pre-Tajweed Class Curriculum (Kurikulum Kelas Pra-Tajwid) by Ustadzah Sumiyati. Structured in interactive Milestones, Learning Roadmap, and 40-minute session guidance." />
   <meta name="author" content="Sumiyati" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -15,209 +15,632 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5" />
   <style>
-    .curr-page-wrap {
-      max-width: 960px;
+    /* ── Phitron Foundation-Track Inspired Curriculum Architecture ── */
+    :root {
+      --track-bg: #fcfbfe;
+      --track-dark: #071d15;
+      --track-dark-card: #0c291e;
+      --track-dark-open: #103528;
+      --track-dark-border: #1b4d3a;
+      --track-accent: #10b981;
+      --track-gold: #d97706;
+    }
+
+    body.course-page {
+      background: var(--track-bg);
+    }
+
+    .track-container {
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 6rem 1.5rem 4rem;
+      padding: 0 1.5rem;
     }
-    .curr-hero-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--green);
-      border-radius: 4px;
-      padding: 2.25rem;
-      margin-bottom: 2rem;
+
+    /* 1. HERO + 4 STAT COUNTERS */
+    .track-hero {
+      position: relative;
+      padding: 6.25rem 0 6.5rem;
+      background:
+        radial-gradient(55% 50% at 85% 15%, rgba(30, 74, 53, 0.08) 0%, transparent 70%),
+        radial-gradient(50% 45% at 15% 80%, rgba(184, 134, 11, 0.08) 0%, transparent 70%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      overflow: hidden;
     }
-    .curr-title {
-      font-family: var(--ff-d);
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 400;
+
+    .track-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .35rem .95rem;
+      border-radius: 99px;
+      background: rgba(30, 74, 53, 0.08);
+      border: 1px solid rgba(30, 74, 53, 0.25);
       color: var(--green);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.15rem;
     }
+
+    .track-hero-title {
+      font-family: var(--ff-d);
+      font-size: clamp(2.25rem, 4.8vw, 3.6rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: #0f172a;
+      max-width: 860px;
+      margin: 0 auto 1.25rem;
+    }
+
+    @keyframes shineGradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .track-title-shine {
+      background: linear-gradient(90deg, #1e4a35 0%, #b8860b 50%, #1e4a35 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shineGradient 4s linear infinite;
+    }
+
+    /* Bilingual Purpose Dual Cards in Hero */
     .purpose-dual-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1.25rem;
+      gap: 1.25rem;
+      max-width: 960px;
+      margin: 1.5rem auto 1.75rem;
+      text-align: left;
     }
     .purpose-box {
-      background: var(--bg);
+      background: #ffffff;
       border: 1px solid var(--border);
       padding: 1.35rem 1.5rem;
-      border-radius: 4px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
     }
     .purpose-box.id-box {
-      border-left: 3px solid var(--green);
+      border-top: 3px solid var(--green);
     }
     .purpose-box.en-box {
-      border-left: 3px solid var(--gold);
+      border-top: 3px solid var(--gold);
     }
     .purpose-box h2 {
       font-family: var(--ff-d);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--green);
-      margin-bottom: .6rem;
+      margin-bottom: .5rem;
     }
     .purpose-box p {
+      font-size: .89rem;
+      color: var(--sub);
+      line-height: 1.68;
+    }
+
+    .track-cta-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .85rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    /* 4 Stat Counters */
+    .track-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 880px;
+      margin: 0 auto;
+      padding-top: .5rem;
+    }
+    .track-stat-item {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem .85rem;
+      text-align: center;
+    }
+    .track-stat-num {
+      display: block;
+      font-family: var(--ff-d);
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: .3rem;
+    }
+    .track-stat-num.c-green { color: #0d9488; }
+    .track-stat-num.c-emerald { color: var(--green); }
+    .track-stat-num.c-gold { color: #b8860b; }
+    .track-stat-num.c-indigo { color: #4f46e5; }
+    .track-stat-lbl {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--sub);
+    }
+
+    /* 2. WHO IS THIS TRACK FOR? (Overlapping Glass Card) */
+    .who-section {
+      margin-top: -3.5rem;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 4.5rem;
+    }
+    .who-glass-wrap {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.25rem 2rem;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.07);
+    }
+    .track-sec-heading {
+      text-align: center;
+      font-family: var(--ff-d);
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: .5rem;
+    }
+    .track-sec-sub {
+      text-align: center;
       font-size: .92rem;
       color: var(--sub);
-      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.65;
     }
-    .lang-filter-bar {
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .who-card {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      border-radius: 16px;
+      border: 1px solid #e4e7ec;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      padding: 1.35rem 1.2rem;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .who-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+      box-shadow: 0 10px 24px rgba(30, 74, 53, 0.08);
+    }
+    .who-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(30, 74, 53, 0.08);
+      border: 1px solid rgba(30, 74, 53, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+    }
+    .who-card h3 {
+      font-family: var(--ff-b);
+      font-size: .95rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      line-height: 1.35;
+    }
+    .who-card p {
+      font-size: .83rem;
+      color: var(--sub);
+      line-height: 1.6;
+    }
+
+    /* 3. LEARNING ECOSYSTEM (6-Card Feature Grid) */
+    .ecosystem-section {
+      padding: 1rem 0 4.5rem;
+    }
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .eco-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.6rem 1.35rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: transform .22s ease, border-color .22s ease;
+    }
+    .eco-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--green);
+    }
+    .eco-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(30, 74, 53, 0.1), rgba(184, 134, 11, 0.12));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.65rem;
+    }
+    .eco-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .eco-desc {
+      font-size: .84rem;
+      color: var(--sub);
+      line-height: 1.55;
+    }
+
+    /* 4. DARK COLLAPSIBLE MILESTONE OUTLINE ACCORDION (Phitron Section U) */
+    .outline-dark-section {
+      position: relative;
+      background: var(--track-dark);
+      background-image:
+        radial-gradient(60% 45% at 100% 20%, #134e3a 0%, transparent 70%),
+        radial-gradient(45% 35% at 12% 78%, #1e3a2f 0%, transparent 70%);
+      padding: 4.5rem 0;
+      color: #ecfdf5;
+      overflow: hidden;
+    }
+    .outline-dark-section .track-sec-heading {
+      color: #ffffff;
+    }
+    .outline-dark-section .track-sec-sub {
+      color: #a7f3d0;
+    }
+
+    .outline-toolbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto 1.5rem;
       padding: .85rem 1.25rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--track-dark-border);
+      border-radius: 12px;
     }
-    .curr-list {
+    .lang-filter-btns {
       display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
+      gap: .45rem;
+      flex-wrap: wrap;
     }
-    .curr-class-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
+    .lang-view-btn {
+      font-family: var(--ff-b);
+      font-size: .76rem;
+      font-weight: 600;
+      padding: .42rem .9rem;
+      border-radius: 8px;
+      border: 1px solid var(--track-dark-border);
+      background: rgba(255, 255, 255, 0.05);
+      color: #d1fae5;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .lang-view-btn.active {
+      background: #10b981;
+      color: #052e16;
+      border-color: #10b981;
+      font-weight: 700;
+    }
+
+    .milestone-accordion {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 18px;
       overflow: hidden;
-      transition: border-color .2s ease, box-shadow .2s ease;
+      background: var(--track-dark-card);
+      border: 1px solid var(--track-dark-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
     }
-    .curr-class-card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+
+    .milestone-item {
+      border-bottom: 1px solid var(--track-dark-border);
+      transition: background .2s ease;
     }
-    .curr-class-header {
-      background: var(--card);
-      padding: .75rem 1.5rem;
-      border-bottom: 1px solid var(--border);
+    .milestone-item:last-child {
+      border-bottom: none;
+    }
+    .milestone-item.open {
+      background: var(--track-dark-open);
+    }
+
+    .milestone-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 1.35rem 1.75rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: .5rem;
+      gap: 1rem;
+      text-align: left;
+      cursor: pointer;
+      color: #ecfdf5;
+      transition: background .15s ease;
     }
-    .curr-class-badge {
+    .milestone-trigger:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .milestone-meta-left {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+    .milestone-badge {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #6ee7b7;
       display: inline-flex;
       align-items: center;
       gap: .5rem;
+    }
+    .milestone-badge .free-pill {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #34d399;
+      padding: 1px 8px;
+      border-radius: 99px;
+      font-size: .68rem;
+    }
+    .milestone-title {
+      font-family: var(--ff-d);
+      font-size: clamp(1.15rem, 2.2vw, 1.38rem);
+      font-weight: 600;
+      color: #ffffff;
+      transition: color .2s ease;
+    }
+    .milestone-item.open .milestone-title {
+      color: #34d399;
+    }
+    .milestone-meta-right {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      flex-shrink: 0;
+      font-size: .85rem;
+      color: #a7f3d0;
+      font-weight: 500;
+    }
+    .milestone-chevron {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      transition: transform .28s ease, background .2s ease;
+    }
+    .milestone-item.open .milestone-chevron {
+      transform: rotate(180deg);
+      background: #10b981;
+      color: #052e16;
+    }
+
+    .milestone-body {
+      display: none;
+      border-top: 1px solid var(--track-dark-border);
+      background: rgba(7, 29, 21, 0.55);
+    }
+    .milestone-item.open .milestone-body {
+      display: block;
+    }
+
+    /* Individual Class Rows inside Milestone */
+    .ms-class-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.25rem;
+      padding: 1.35rem 1.75rem;
+      border-bottom: 1px solid rgba(27, 77, 58, 0.65);
+      align-items: flex-start;
+    }
+    .ms-class-row:last-child {
+      border-bottom: none;
+    }
+    .ms-class-num {
       font-family: var(--ff-b);
-      font-size: .8rem;
+      font-size: .82rem;
       font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--green);
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: .35rem .65rem;
+      border-radius: 8px;
+      text-align: center;
+      white-space: nowrap;
     }
-    .curr-class-badge span.sep {
-      color: var(--gold);
-    }
-    .curr-class-body {
+    .ms-class-content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem;
+      gap: 1.35rem;
     }
-    .curr-lang-col h3 {
+    .ms-lang-col h4 {
       font-family: var(--ff-d);
-      font-size: 1.15rem;
+      font-size: 1.08rem;
       font-weight: 600;
-      color: var(--green);
-      margin-bottom: .5rem;
+      color: #ffffff;
+      margin-bottom: .4rem;
       line-height: 1.35;
     }
-    .curr-lang-col.en-col h3 {
-      color: #8a5a00;
+    .ms-lang-col.en-col h4 {
+      color: #fde68a;
     }
-    .curr-lang-col p {
-      font-size: .92rem;
-      color: var(--sub);
-      line-height: 1.7;
+    .ms-lang-col p {
+      font-size: .88rem;
+      color: #d1fae5;
+      line-height: 1.68;
+      opacity: .92;
     }
-    .curr-lang-tag {
+    .ms-lang-tag {
       display: inline-block;
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .08em;
       padding: 2px 7px;
-      border-radius: 10px;
-      margin-bottom: .45rem;
-    }
-    .curr-lang-tag.id-tag {
-      background: rgba(30, 74, 53, 0.1);
-      color: var(--green);
-    }
-    .curr-lang-tag.en-tag {
-      background: rgba(184, 134, 11, 0.14);
-      color: #8a5a00;
-    }
-    .curr-note-callout {
-      margin-top: .85rem;
-      padding: .75rem 1rem;
-      background: var(--card);
-      border-left: 3px solid var(--gold);
-      font-size: .85rem;
-      color: var(--sub);
-      border-radius: 2px;
-      line-height: 1.6;
-    }
-    .curr-checkpoint-banner {
-      background: linear-gradient(135deg, rgba(184, 134, 11, 0.14) 0%, rgba(30, 74, 53, 0.08) 100%);
-      border: 1px dashed var(--gold);
-      border-left: 4px solid var(--gold);
-      padding: 1rem 1.5rem;
       border-radius: 4px;
+      margin-bottom: .4rem;
+    }
+    .ms-lang-tag.id-tag {
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+    }
+    .ms-lang-tag.en-tag {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fcd34d;
+    }
+    .ms-note-callout {
+      margin-top: .65rem;
+      padding: .65rem .85rem;
+      background: rgba(245, 158, 11, 0.12);
+      border-left: 3px solid #f59e0b;
+      border-radius: 4px;
+      font-size: .81rem;
+      color: #fef3c7;
+      line-height: 1.55;
+    }
+
+    /* Checkpoint Row inside Milestone */
+    .ms-checkpoint-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: .75rem;
+      padding: 1rem 1.75rem;
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.22) 0%, rgba(16, 185, 129, 0.12) 100%);
+      border-bottom: 1px solid rgba(27, 77, 58, 0.65);
     }
-    .curr-checkpoint-title {
-      font-family: var(--ff-d);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--green);
-      display: flex;
+    .ms-checkpoint-badge {
+      display: inline-flex;
       align-items: center;
-      gap: .6rem;
-    }
-    .curr-final-banner {
-      background: var(--green);
-      color: var(--green-fg);
-      padding: 1.35rem 1.75rem;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      box-shadow: 0 8px 24px rgba(30, 74, 53, 0.14);
-    }
-    .curr-final-banner h3 {
+      gap: .5rem;
       font-family: var(--ff-d);
-      font-size: 1.35rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: #ffffff;
-      margin: 0;
+      color: #fcd34d;
     }
-    .session-notes-card {
-      margin-top: 2.5rem;
-      background: var(--card);
+    .ms-checkpoint-desc {
+      font-size: .83rem;
+      color: #fef3c7;
+    }
+
+    /* 5. ZIG-ZAG ANIMATED JOURNEY ROADMAP (Phitron Section se) */
+    .journey-section {
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+    }
+    .journey-map-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: 2rem auto 0;
+    }
+    .journey-svg-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .journey-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3.5rem;
+    }
+    .journey-step-card {
+      background: #ffffff;
       border: 1px solid var(--border);
-      border-top: 3px solid var(--gold);
-      border-radius: 4px;
+      border-bottom: 3px solid var(--green);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .journey-step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(30, 74, 53, 0.11);
+    }
+    .journey-step-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .journey-step-icon {
+      font-size: 1.5rem;
+    }
+    .journey-step-badge {
+      padding: .3rem .75rem;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 74, 53, 0.3);
+      background: rgba(30, 74, 53, 0.08);
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .journey-step-card h3 {
+      font-family: var(--ff-d);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: .55rem;
+      line-height: 1.3;
+    }
+    .journey-step-card p {
+      font-size: .88rem;
+      color: var(--sub);
+      line-height: 1.65;
+    }
+
+    /* 6. SESSION DURATION & TIME GUIDANCE CARD */
+    .session-notes-card {
+      margin: 1rem auto 4rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 16px;
       padding: 2rem;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
     }
     .session-notes-grid {
       display: grid;
@@ -233,45 +656,73 @@
       gap: .45rem;
     }
     .session-list li {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: .55rem .85rem;
-      border-radius: 3px;
-      font-size: .88rem;
-      color: var(--fg);
+      font-size: .9rem;
+      color: var(--sub);
       display: flex;
       align-items: center;
-      gap: .6rem;
+      gap: .5rem;
     }
-    .session-list li strong {
-      color: var(--green);
-      min-width: 85px;
+    .session-list li::before {
+      content: '⏱️';
+      font-size: .85rem;
     }
+
+    /* Language View Filter Modifiers */
     body.view-id-only .en-col,
     body.view-id-only .en-box {
-      display: none;
+      display: none !important;
     }
     body.view-en-only .id-col,
     body.view-en-only .id-box {
-      display: none;
+      display: none !important;
     }
-    body.view-id-only .curr-class-body,
-    body.view-en-only .curr-class-body,
+    body.view-id-only .ms-class-content-grid,
+    body.view-en-only .ms-class-content-grid,
     body.view-id-only .purpose-dual-grid,
     body.view-en-only .purpose-dual-grid,
     body.view-id-only .session-notes-grid,
     body.view-en-only .session-notes-grid {
       grid-template-columns: 1fr;
     }
+
+    @media (max-width: 900px) {
+      .who-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .ecosystem-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .journey-svg-bg,
+      .journey-spacer {
+        display: none;
+      }
+      .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+    }
+
     @media (max-width: 768px) {
+      .track-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
       .purpose-dual-grid,
-      .curr-class-body,
-      .session-notes-grid {
+      .ms-class-content-grid,
+      .session-notes-grid,
+      .who-grid,
+      .ecosystem-grid {
         grid-template-columns: 1fr;
       }
-      .curr-hero-card,
-      .session-notes-card {
-        padding: 1.5rem;
+      .ms-class-row {
+        grid-template-columns: 1fr;
+        gap: .65rem;
+        padding: 1.15rem 1.25rem;
+      }
+      .ms-class-num {
+        width: fit-content;
+      }
+      .milestone-trigger {
+        padding: 1.1rem 1.25rem;
       }
     }
   </style>
@@ -284,509 +735,697 @@
       <div style="display:flex;align-items:center;gap:1rem;">
         <a href="tahsin-tajweed.html" class="back-link">
           <span class="back-arrow" aria-hidden="true">←</span>
-          <span>Back to Video Course Portal</span>
+          <span>Video Course Portal</span>
         </a>
         <span style="color:var(--border);">|</span>
         <a href="index.html" class="back-link" style="color:var(--muted);font-weight:500;">
           <span>Portfolio Home</span>
         </a>
       </div>
-      <div class="course-nav-brand" style="display:flex;align-items:center;gap:.55rem;"><img src="sumiyati-logo.png?v=3" alt="Sumiyati Logo" style="width:36px;height:30px;object-fit:contain;" /><div>
-        <span class="tag">Official Syllabus</span>
-        <span class="brand-name">Pre-Tajweed Class · Sumiyati</span>
+      <div class="course-nav-brand" style="display:flex;align-items:center;gap:.55rem;">
+        <img src="sumiyati-logo.png?v=3" alt="Sumiyati Logo" style="width:36px;height:30px;object-fit:contain;" />
+        <div>
+          <span class="tag">Official Track Syllabus</span>
+          <span class="brand-name">Pre-Tajweed Class · Sumiyati</span>
+        </div>
       </div>
       <div class="course-nav-actions">
-        <button type="button" class="btn-outline-sm" onclick="window.print()">
-          🖨️ Print / Save PDF
-        </button>
-        <a href="tahsin-tajweed.html" class="btn btn-primary" style="padding:.45rem .95rem;font-size:.75rem;">
-          ▶ Start Classes 01–06 Free
+        <a href="tahsin-tajweed.html" class="btn btn-primary" style="padding:.45rem 1rem;font-size:.75rem;">
+          ▶ Start Learning (Classes 1–6 Free)
         </a>
       </div>
     </div>
   </header>
 
-  <main class="curr-page-wrap">
+  <!-- 1. PHITRON-STYLE TRACK HERO + 4 STAT COUNTERS -->
+  <section class="track-hero">
+    <div class="track-container">
+      <span class="track-eyebrow-pill">📖 Foundation Recitation Track · Kurikulum Kelas Pra-Tajwid</span>
+      <h1 class="track-hero-title">
+        Start Your Journey to <span class="track-title-shine">Fluent &amp; Accurate</span> Qur'an Recitation
+      </h1>
 
-    <!-- Header & Purpose Section -->
-    <section class="curr-hero-card">
-      <p class="section-label">Kurikulum Kelas Pra-Tajwid · Official Bilingual Syllabus</p>
-      <h1 class="curr-title">Pre-Tajweed Class Curriculum</h1>
-
+      <!-- Bilingual Purpose Dual Cards -->
       <div class="purpose-dual-grid">
         <div class="purpose-box id-box">
-          <span class="curr-lang-tag id-tag">Bahasa Indonesia</span>
+          <span class="ms-lang-tag id-tag">Bahasa Indonesia</span>
           <h2>Tujuan dari kelas ini adalah</h2>
           <p>
             Kelas Pra-Tajwid merupakan kelas yang dirancang khusus untuk membantu peserta memperbaiki dan meningkatkan kemampuan membaca Al-Qur’an agar lebih baik, benar, dan lancar. Pembelajaran berfokus pada praktik membaca Al-Qur’an secara langsung, dengan memperbaiki makhraj, pelafalan huruf, panjang-pendek bacaan, kelancaran, serta ketepatan dalam membaca. Kelas ini belum berfokus pada penjelasan teori dan kaidah ilmu tajwid.
           </p>
         </div>
-
         <div class="purpose-box en-box">
-          <span class="curr-lang-tag en-tag">English</span>
+          <span class="ms-lang-tag en-tag">English</span>
           <h2>The purpose of this class</h2>
           <p>
             This class aims to help students read the Qur'an well, correctly, and fluently. Students will focus on practicing direct hands-on improvement of their recitation, covering makhraj (points of articulation), the length of recitation, waqaf (stopping), and special readings in the Qur'an, without needing to study tajwid theory in depth beforehand.
           </p>
         </div>
       </div>
-    </section>
 
-    <!-- Language View Mode Bar -->
-    <div class="lang-filter-bar">
-      <div style="font-size:.85rem;color:var(--sub);font-weight:500;">
-        📖 Showing complete <strong>18-Class Curriculum</strong>, <strong>Checkpoints</strong>, and <strong>40-Minute Session Guide</strong>
-      </div>
-      <div style="display:flex;align-items:center;gap:.4rem;">
-        <span style="font-size:.75rem;color:var(--muted);margin-right:.25rem;">View Mode:</span>
-        <button type="button" class="lesson-lang-pill active" id="btnViewBoth" onclick="setCurrView('both')">Bilingual (ID + EN)</button>
-        <button type="button" class="lesson-lang-pill" id="btnViewId" onclick="setCurrView('id')">Bahasa Indonesia</button>
-        <button type="button" class="lesson-lang-pill" id="btnViewEn" onclick="setCurrView('en')">English</button>
-      </div>
-    </div>
-
-    <!-- All 18 Classes & Checkpoints -->
-    <div class="curr-list">
-
-      <!-- Class 01 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 01 <span class="sep">·</span> Class 01</div>
-          <span class="badge-access badge-free">Free Access</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 01</span>
-            <h3>MENGENAL HURUF HIJAIYAH</h3>
-            <p>Pada bab ini, siswa akan diperkenalkan dengan 28–29 huruf hijaiyah dalam bentuk tanpa harakat. Siswa akan belajar mengenali setiap huruf, membedakan huruf-huruf yang memiliki bentuk serupa, serta berlatih melafalkan setiap huruf dengan benar sebagai dasar untuk melanjutkan ke tahap membaca Al-Qur’an.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 01</span>
-            <h3>Introduction to the Hijaiyah Letters</h3>
-            <p>In this section, students will be introduced to the 28-29 Hijaiyah letters in their unvocalized form (without harakat). Students will learn to recognize each letter, distinguish letters with similar shapes, and practice correct pronunciation as a foundation before moving on to the stage of reading the Qur'an.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 02 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 02 <span class="sep">·</span> Class 02</div>
-          <span class="badge-access badge-free">Free Access</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 02</span>
-            <h3>Latihan Pelafalan Huruf Sesuai dengan Harakat dan Makhrajnya</h3>
-            <p>Pada bab ini, siswa akan berlatih melafalkan huruf-huruf hijaiyah dengan menerapkan harakat fathah, kasrah, dan dhammah dengan benar. Siswa juga akan berlatih memperhatikan makhraj, yaitu tempat keluarnya setiap huruf, agar dapat mengucapkan huruf-huruf hijaiyah dengan tepat.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 02</span>
-            <h3>Practice Pronouncing the Letters According to Their Harakat and Makharij</h3>
-            <p>In this section, students will practice pronouncing the Hijaiyah letters by correctly applying harakat (fathah, kasrah, and dhammah), while paying attention to the makhraj, or the point of articulation, of each letter.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 03 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 03 <span class="sep">·</span> Class 03</div>
-          <span class="badge-access badge-free">Free Access</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 03</span>
-            <h3>Latihan Pelafalan Huruf Sesuai dengan Harakat dan Makhrajnya dalam Kata</h3>
-            <p>Pada bab ini, siswa akan berlatih membaca huruf-huruf hijaiyah dalam sebuah kata, dengan tetap memperhatikan harakat dan makhraj setiap huruf. Latihan ini bertujuan untuk melatih kelancaran siswa dalam membaca rangkaian huruf dalam sebuah kata, sekaligus menjadi tahap peralihan sebelum siswa melanjutkan ke pembacaan kalimat dan ayat-ayat Al-Qur’an secara utuh.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 03</span>
-            <h3>Practicing Letter Pronunciation According to Their Harakat and Makharij in Words</h3>
-            <p>In this section, students will practice pronouncing Hijaiyah letters combined into words, while still paying close attention to the harakat and makhraj of each letter. This exercise aims to train students' fluency in reading strings of letters as words, serving as a bridge before moving on to reading complete sentences and verses of the Qur'an.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 04 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 04 <span class="sep">·</span> Class 04</div>
-          <span class="badge-access badge-free">Free Access</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 04</span>
-            <h3>Latihan Memanjangkan Bacaan 2 Harakat</h3>
-            <p>Pada bab ini, siswa akan belajar mengenali dan mempraktikkan bacaan mad thabi’i, yaitu bacaan yang dipanjangkan sebanyak 2 harakat. Siswa akan dilatih untuk mengenali huruf-huruf yang menjadi sebab terjadinya mad, yaitu alif, waw sukun, dan ya sukun, serta membacanya dengan panjang yang tepat.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 04</span>
-            <h3>Practicing 2-Count Madd (2 Harakat)</h3>
-            <p>In this section, students will learn to recognize and practice the mad thabi'i, a recitation that is lengthened for 2 harakat. Students will be trained to identify the letters that cause mad (alif, waw, and ya' sukun).</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 05 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 05 <span class="sep">·</span> Class 05</div>
-          <span class="badge-access badge-free">Free Access</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 05</span>
-            <h3>Latihan Membaca Huruf Bertasydid</h3>
-            <p>Pada bab ini, siswa akan belajar membaca huruf-huruf hijaiyah yang ber-tasydid (syaddah). Siswa akan dilatih untuk membedakan cara membaca huruf yang bertasydid dengan huruf yang tidak bertasydid. Selain itu, siswa juga akan diperkenalkan pada beberapa huruf bertasydid yang memiliki karakteristik khusus, seperti waw dan ya bertasydid, serta mim dan nun bertasydid.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 05</span>
-            <h3>Practicing Letters with Shaddah (doubles a letter's sound)</h3>
-            <p>In this section, students will learn to read letters with tasydid (shaddah). Students will be trained to distinguish the pronunciation of letters with tasydid from regular letters. In addition, students will also be introduced to letters with tasydid that have special characteristics, such as waw and ya' with tasydid, as well as meem and noon with tasydid.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 06 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 06 <span class="sep">·</span> Class 06</div>
-          <span class="badge-access badge-free">Free Access</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 06</span>
-            <h3>Latihan Membaca Huruf Sukun ( ْ )</h3>
-            <p>Pada bab ini, siswa akan belajar membaca huruf sukun. Siswa akan dilatih untuk melafalkan huruf bersukun dengan benar serta membedakan cara membacanya dengan huruf yang berharakat. Latihan ini bertujuan untuk melatih ketepatan siswa dalam membaca rangkaian huruf yang terdiri dari huruf berharakat dan huruf bersukun. Selain itu, siswa juga akan diperkenalkan pada huruf-huruf bersukun yang memiliki karakteristik khusus, seperti huruf-huruf qalqalah, serta huruf ك، ت، dan ء.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 06</span>
-            <h3>Practice Reading Letters with Sukūn ( ْ )</h3>
-            <p>In this section, students will learn to read letters with sukun, which are letters without harakat and are pronounced without a vowel sound. Students will be trained to pronounce sukun letters correctly and distinguish their pronunciation from voweled letters. This exercise aims to train students' accuracy in reading combinations of voweled and sukun letters. In addition, students will also be introduced to sukun letters with special characteristics, such as letters with the qalqalah property, as well as the letters ك, ت, and ء.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Checkpoint 1 -->
-      <div class="curr-checkpoint-banner">
-        <div class="curr-checkpoint-title">
-          <span>🎯</span>
-          <span>Checkpoint 1</span>
-        </div>
-        <span style="font-size:.82rem;color:var(--sub);">Evaluasi Kelancaran Bab 01–06 · Milestone Evaluation (Classes 01–06)</span>
-      </div>
-
-      <!-- Class 07 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 07 <span class="sep">·</span> Class 07</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 07</span>
-            <h3>Mengenal Nun Sukun dan Tanwin</h3>
-            <p>Pada bab ini, siswa akan belajar mengenali dan melafalkan nun sukun dan tanwin dengan benar. Siswa akan dilatih untuk membedakan bentuk serta cara membaca nun sukun dan tanwin.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 07</span>
-            <h3>Introduction to Nūn Sākinah and Tanwīn</h3>
-            <p>In this section, students will learn to recognize and pronounce nun sukun and tanwin correctly.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 08 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 08 <span class="sep">·</span> Class 08</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 08</span>
-            <h3>Latihan Pengucapan Nun Sukun ( نْ ) dan Tanwin ( ً ٌ ) dalam Kalimat</h3>
-            <p>Pada bab ini, siswa akan berlatih membaca nun sukun dan tanwin yang terdapat dalam rangkaian kata dan kalimat pada potongan ayat-ayat Al-Qur’an. Latihan ini berfokus pada peningkatan kelancaran dan ketepatan dalam membaca. Dengan menggunakan potongan ayat Al-Qur’an sebagai bahan latihan, siswa akan terbiasa menerapkan bacaan nun sukun dan tanwin dalam konteks bacaan Al-Qur’an yang sebenarnya.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 08</span>
-            <h3>Practice Pronouncing Nūn Sākinah (نْ) and Tanwīn (ً ٌ) in Sentences</h3>
-            <p>In this section, students will practice reading nun sukun and tanwin as they appear in sentences taken from excerpts of Qur'anic verses. This exercise focuses on the students' fluency and accuracy in pronunciation. By using Qur'anic excerpts as practice material, students become accustomed to reading within a real recitation context.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Checkpoint 2 -->
-      <div class="curr-checkpoint-banner">
-        <div class="curr-checkpoint-title">
-          <span>🎯</span>
-          <span>Checkpoint 2</span>
-        </div>
-        <span style="font-size:.82rem;color:var(--sub);">Evaluasi Nun Sukun &amp; Tanwin · Milestone Evaluation (Classes 07–08)</span>
-      </div>
-
-      <!-- Class 09 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 09 <span class="sep">·</span> Class 09</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 09</span>
-            <h3>Hamzah Washol</h3>
-            <p>Pada bab ini, siswa akan belajar mengenali dan membaca hamzah washal yang berada di awal kata dengan memperhatikan harakat fathah, kasrah, dan dhammah. Siswa akan dilatih untuk membedakan cara membaca hamzah washal sesuai dengan harakatnya agar dapat membacanya dengan tepat.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 09</span>
-            <h3>Hamzat al-Wasl</h3>
-            <p>In this section, students will learn how to read hamzah washal that begins with the harakat fathah, kasrah, or dhammah.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 10 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 10 <span class="sep">·</span> Class 10</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 10</span>
-            <h3>Latihan Pengucapan Mim Sukun dalam Kalimat</h3>
-            <p>Pada bab ini, siswa akan belajar membaca mim sukun ketika bertemu dengan huruf ب, م, dan huruf-huruf selain kedua huruf tersebut. Siswa akan dilatih untuk membedakan cara membaca mim sukun sesuai dengan huruf yang mengikutinya agar dapat membaca dengan baik dan benar.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 10</span>
-            <h3>Practice Pronouncing Mīm Sākinah (مْ) in Sentences</h3>
-            <p>In this section, students will learn how to read meem sukun when it meets the letters ب, م, and letters other than those two.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Checkpoint 3 -->
-      <div class="curr-checkpoint-banner">
-        <div class="curr-checkpoint-title">
-          <span>🎯</span>
-          <span>Checkpoint 3</span>
-        </div>
-        <span style="font-size:.82rem;color:var(--sub);">Evaluasi Hamzah Washol &amp; Mim Sukun · Milestone Evaluation (Classes 09–10)</span>
-      </div>
-
-      <!-- Class 11 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 11 <span class="sep">·</span> Class 11</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 11</span>
-            <h3>MAD</h3>
-            <p>Pada bab ini, siswa akan belajar mengenali dan membaca bacaan mad yang dipanjangkan lebih dari 2 harakat. Siswa akan berlatih mengenali bacaan mad serta mempraktikkannya.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 11</span>
-            <h3>The Rules of Elongation (Madd)</h3>
-            <p>In this section, students will learn how to read recitations that are lengthened for more than 2 harakat. Students will practice recognizing mad and reading it with the correct length.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 12 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 12 <span class="sep">·</span> Class 12</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 12</span>
-            <h3>Waqof</h3>
-            <p>Pada bab ini, siswa akan belajar cara berhenti (waqaf) ketika membaca Al-Qur’an, serta cara melafalkan huruf atau harakat ketika bacaan diwaqofkan. Siswa akan berlatih mengenali perubahan cara membaca pada saat waqaf agar dapat waqof dengan tepat.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 12</span>
-            <h3>Waqof (The Rules of Stopping)</h3>
-            <p>In this section, students will learn how to stop (waqaf) while reading the Qur'an and how to pronounce letters or harakat when a recitation is paused.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 13 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 13 <span class="sep">·</span> Class 13</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 13</span>
-            <h3>Berhenti pada Huruf Tasydid</h3>
-            <p>Pada bab ini, siswa akan belajar cara membaca huruf-huruf yang memiliki tasydid (syaddah) ketika berhenti (waqaf).</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 13</span>
-            <h3>Waqf on a Shaddah / (Doubled Letter)</h3>
-            <p>In this section, students will learn how to read letters with tasydid (shaddah) when stopping (waqaf).</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 14 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 14 <span class="sep">·</span> Class 14</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 14</span>
-            <h3>Berhenti pada Huruf Setelah Sukun</h3>
-            <p>Pada bab ini, siswa akan belajar cara berhenti (waqaf) pada huruf yang didahului oleh huruf bersukun.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 14</span>
-            <h3>Meeting of two sukoons due to stopping</h3>
-            <p>In this section, students will learn how to stop (waqaf) on a letter that is preceded by a letter with sukun.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Checkpoint 4 -->
-      <div class="curr-checkpoint-banner">
-        <div class="curr-checkpoint-title">
-          <span>🎯</span>
-          <span>Checkpoint 4</span>
-        </div>
-        <span style="font-size:.82rem;color:var(--sub);">Evaluasi Mad &amp; Kaidah Waqof · Milestone Evaluation (Classes 11–14)</span>
-      </div>
-
-      <!-- Class 15 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 15 <span class="sep">·</span> Class 15</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 15</span>
-            <h3>Nun Maksurah / Nun Wiqoyah</h3>
-            <p>Pada bab ini, siswa akan belajar mengenali dan membaca Nun Wiqayah dengan benar, memahami bentuknya, serta mengetahui kapan Nun Wiqayah muncul dalam bacaan Al-Qur’an.</p>
-            <div class="curr-note-callout">
-              <strong>Catatan:</strong> Kurikulum ini menggunakan acuan Mushaf Rasm Utsmani Madinah. Dalam mushaf ini, Nun Wiqayah tidak ditampilkan dengan huruf nun kecil, tetapi cara membacanya dipahami berdasarkan kaidah bacaan.
-            </div>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 15</span>
-            <h3>The Hidden Nun</h3>
-            <p>In this section, students will learn how to read Nun Wiqoyah, recognize its form, and understand when it appears while reading the Qur'an.</p>
-            <div class="curr-note-callout">
-              <strong>Note:</strong> This curriculum uses the Madinah Uthmani Rasm Mushaf as its reference. In this mushaf, Nun Wiqayah is not indicated by a small nun, but its pronunciation is understood and applied according to the relevant recitation rules.
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 16 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 16 <span class="sep">·</span> Class 16</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 16</span>
-            <h3>Idghom (bertemunya 2 huruf) (Mutamathilayn, Mutaqaribayn, Mutajanisayn)</h3>
-            <p>Pada bab ini, siswa akan belajar membaca dua huruf yang bertemu dengan cara meleburkan huruf pertama ke dalam huruf berikutnya (idgham). Siswa akan berlatih mengenali pertemuan kedua huruf tersebut dan membaca dengan bacaan yang benar.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 16</span>
-            <h3>Idgham of Meeting Letters (Mutamathilayn, Mutaqaribayn, Mutajanisayn)</h3>
-            <p>In this section, students will learn how to read two meeting letters that are pronounced with idgham.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Checkpoint -->
-      <div class="curr-checkpoint-banner">
-        <div class="curr-checkpoint-title">
-          <span>🎯</span>
-          <span>Checkpoint</span>
-        </div>
-        <span style="font-size:.82rem;color:var(--sub);">Evaluasi Nun Wiqoyah &amp; Idghom · Milestone Evaluation (Classes 15–16)</span>
-      </div>
-
-      <!-- Class 17 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 17 <span class="sep">·</span> Class 17</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 17</span>
-            <h3>Huruf Muqothoah</h3>
-            <p>Pada bab ini, siswa akan belajar membaca Huruf Muqatta’ah, yaitu huruf-huruf yang terdapat di awal beberapa surah dalam Al-Qur’an.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 17</span>
-            <h3>The Disjointed Letters</h3>
-            <p>In this section, students will learn how to read the Muqatta’ah Letters, which are the letters that appear at the beginning of some chapters (surahs) of the Qur’an.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Class 18 -->
-      <article class="curr-class-card">
-        <div class="curr-class-header">
-          <div class="curr-class-badge">Kelas 18 <span class="sep">·</span> Class 18</div>
-          <span class="badge-access badge-locked">Full Course</span>
-        </div>
-        <div class="curr-class-body">
-          <div class="curr-lang-col id-col">
-            <span class="curr-lang-tag id-tag">Kelas 18</span>
-            <h3>Bacaan di Luar Kaidah</h3>
-            <p>Pada bab ini, siswa akan belajar membaca bacaan-bacaan khusus yang dikenal sebagai Gharibul Qur’an yang terdapat dalam Al-Qur’an.</p>
-          </div>
-          <div class="curr-lang-col en-col">
-            <span class="curr-lang-tag en-tag">Class 18</span>
-            <h3>Uncommon Recitations</h3>
-            <p>In this section, students will learn how to read the special recitations known as Gharibul Qur'an found within the Qur'an.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Checkpoint after Class 18 -->
-      <div class="curr-checkpoint-banner">
-        <div class="curr-checkpoint-title">
-          <span>🎯</span>
-          <span>Checkpoint</span>
-        </div>
-        <span style="font-size:.82rem;color:var(--sub);">Evaluasi Huruf Muqothoah &amp; Gharibul Qur'an · Milestone Evaluation (Classes 17–18)</span>
-      </div>
-
-      <!-- Final Test -->
-      <div class="curr-final-banner">
-        <div>
-          <span style="font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-light);font-weight:700;">Course Completion Assessment</span>
-          <h3>🏆 Final Test (Ujian Akhir Kelulusan)</h3>
-        </div>
-        <a href="tahsin-tajweed.html" class="btn btn-primary" style="background:var(--gold);border-color:var(--gold);color:#fff;">
-          Go to Video Course Portal →
+      <!-- Primary CTA Buttons -->
+      <div class="track-cta-bar">
+        <a href="tahsin-tajweed.html" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;">
+          ▶ Start Free Classes (01–06) Now →
+        </a>
+        <a href="#complete-outline" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;">
+          📋 Explore 4 Milestones &amp; 18 Classes ↓
         </a>
       </div>
 
+      <!-- 4 Big Stat Counters -->
+      <div class="track-stats-row">
+        <div class="track-stat-item">
+          <span class="track-stat-num c-emerald">18</span>
+          <span class="track-stat-lbl">Structured Practical Classes</span>
+        </div>
+        <div class="track-stat-item">
+          <span class="track-stat-num c-gold">40 Min</span>
+          <span class="track-stat-lbl">Focused Practice Per Session</span>
+        </div>
+        <div class="track-stat-item">
+          <span class="track-stat-num c-green">6 + 1</span>
+          <span class="track-stat-lbl">Checkpoints &amp; Final Exam</span>
+        </div>
+        <div class="track-stat-item">
+          <span class="track-stat-num c-indigo">1-on-1</span>
+          <span class="track-stat-lbl">Direct Talaqqi Correction</span>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Session Duration & Time Guidance Section -->
+  <main class="track-container">
+
+    <!-- 2. WHO IS THIS TRACK FOR? (4 Persona Cards) -->
+    <section class="who-section" aria-label="Who Is This Track For">
+      <div class="who-glass-wrap">
+        <h2 class="track-sec-heading">Kelas Ini Dirancang Untuk Siapa? · Who Is This Track For?</h2>
+        <p class="track-sec-sub">
+          Disusun bertahap dari pengenalan huruf hijaiyah tanpa harakat hingga bacaan khusus (Gharibul Qur'an) dalam Mushaf Rasm Utsmani Madinah.
+        </p>
+        <div class="who-grid">
+          <article class="who-card">
+            <div class="who-icon">🌱</div>
+            <h3>Pemula / Dasar (Absolute Beginners)</h3>
+            <p>Bagi peserta yang ingin mengenali 28–29 huruf hijaiyah, membedakan huruf serupa, dan membangun fondasi pelafalan dari nol.</p>
+          </article>
+          <article class="who-card">
+            <div class="who-icon">🎙️</div>
+            <h3>Perbaikan Makhraj &amp; Harakat</h3>
+            <p>Bagi yang sudah bisa membaca namun ingin memperbaiki tempat keluarnya huruf (makhraj), konsistensi mad 2 harakat, tasydid, dan sukun.</p>
+          </article>
+          <article class="who-card">
+            <div class="who-icon">📖</div>
+            <h3>Praktik Tanpa Beban Teori Rumit</h3>
+            <p>Fokus langsung pada latihan lisan membaca kata dan potongan ayat Al-Qur'an tanpa harus menghafal istilah teori tajwid yang berat terlebih dahulu.</p>
+          </article>
+          <article class="who-card">
+            <div class="who-icon">🎯</div>
+            <h3>Persiapan Tajwid &amp; Tahfizh</h3>
+            <p>Menyiapkan kelancaran bacaan, ketepatan waqaf, huruf muqatta'ah, dan bacaan gharib sebelum naik ke tingkat Tajwid Lanjutan &amp; Tahfizh 30 Juz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. LEARNING ECOSYSTEM (6-Card Feature Grid) -->
+    <section class="ecosystem-section" aria-label="Learning Ecosystem">
+      <h2 class="track-sec-heading">Sistem Pendampingan &amp; Ekosistem Belajar</h2>
+      <p class="track-sec-sub">
+        Dirancang dari pengalaman membina lebih dari 1.500 peserta agar setiap santri mampu menuntaskan seluruh 18 kelas hingga lulus evaluasi akhir.
+      </p>
+      <div class="ecosystem-grid">
+        <div class="eco-card">
+          <div class="eco-icon">🗣️</div>
+          <div class="eco-title">Talaqqi &amp; Koreksi Langsung</div>
+          <div class="eco-desc">Setiap sesi mencakup 10 menit talaqqi surat pendek dan 20 menit latihan intensif menggunakan buku ajar.</div>
+        </div>
+        <div class="eco-card">
+          <div class="eco-icon">🛑</div>
+          <div class="eco-title">6 Evaluasi Checkpoint Bertahap</div>
+          <div class="eco-desc">Ujian evaluasi berkala di setiap akhir modul untuk memastikan makhraj dan bacaan benar-benar matang sebelum lanjut.</div>
+        </div>
+        <div class="eco-card">
+          <div class="eco-icon">🕌</div>
+          <div class="eco-title">Standar Mushaf Madinah</div>
+          <div class="eco-desc">Menggunakan acuan Mushaf Rasm Utsmani Madinah sehingga santri terbiasa dengan tanda baca mushaf internasional.</div>
+        </div>
+        <div class="eco-card">
+          <div class="eco-icon">▶️</div>
+          <div class="eco-title">Akses Gratis Kelas 01–06</div>
+          <div class="eco-desc">Pelajari 6 kelas fondasi pertama secara gratis di Portal Video sebelum mendaftar akses penuh Kelas 07–18.</div>
+        </div>
+        <div class="eco-card">
+          <div class="eco-icon">📈</div>
+          <div class="eco-title">Pemantauan Progres Santri</div>
+          <div class="eco-desc">Progres setiap bab, nilai checkpoint, dan catatan koreksi dari Ustadzah Sumiyati tersimpan rapi di akun santri.</div>
+        </div>
+        <div class="eco-card">
+          <div class="eco-icon">🎓</div>
+          <div class="eco-title">Sertifikat Hasil Evaluasi Resmi</div>
+          <div class="eco-desc">Setelah lulus Final Test, santri menerima sertifikat evaluasi resmi bertanda tangan Ustadzah Sumiyati, SE, MS.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 4. PHITRON-STYLE DARK COLLAPSIBLE MILESTONE OUTLINE ACCORDION -->
+  <section class="outline-dark-section" id="complete-outline">
+    <div class="track-container">
+      <h2 class="track-sec-heading">Complete Pre-Tajweed Curriculum Outline</h2>
+      <p class="track-sec-sub">
+        4 Milestones · 18 Practical Classes · 6 Milestone Checkpoints · 1 Comprehensive Final Test
+      </p>
+
+      <!-- Language & Expand/Collapse Toolbar -->
+      <div class="outline-toolbar">
+        <div class="lang-filter-btns" role="group" aria-label="Curriculum Language View">
+          <button type="button" class="lang-view-btn active" id="btnViewBoth" onclick="setCurrView('both')">🌐 Bilingual (ID + EN)</button>
+          <button type="button" class="lang-view-btn" id="btnViewId" onclick="setCurrView('id')">🇮🇩 Bahasa Indonesia</button>
+          <button type="button" class="lang-view-btn" id="btnViewEn" onclick="setCurrView('en')">🇬🇧 English Only</button>
+        </div>
+        <div style="display:flex;gap:.5rem;">
+          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(true)">➕ Expand All Milestones</button>
+          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(false)">➖ Collapse All</button>
+        </div>
+      </div>
+
+      <!-- MILESTONE ACCORDION CONTAINER -->
+      <div class="milestone-accordion">
+
+        <!-- ================= MILESTONE 01 (Classes 01–06 + Checkpoint 1) ================= -->
+        <div class="milestone-item open" id="ms-01">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-01')" aria-expanded="true">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">
+                Milestone 01 · Kelas 01–06
+                <span class="free-pill">🔓 Free Access</span>
+              </span>
+              <span class="milestone-title">Fondasi Huruf Hijaiyah, Harakat, Mad 2 Harakat, Tasydid &amp; Sukun</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span>6 Classes + Checkpoint 1</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Class 01 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 01<br/><small style="font-weight:500;opacity:.8;">Class 01</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 01</span>
+                  <h4>MENGENAL HURUF HIJAIYAH</h4>
+                  <p>Pada bab ini, siswa akan diperkenalkan dengan 28–29 huruf hijaiyah dalam bentuk tanpa harakat. Siswa akan belajar mengenali setiap huruf, membedakan huruf-huruf yang memiliki bentuk serupa, serta berlatih melafalkan setiap huruf dengan benar sebagai dasar untuk melanjutkan ke tahap membaca Al-Qur’an.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 01</span>
+                  <h4>Introduction to the Hijaiyah Letters</h4>
+                  <p>In this section, students will be introduced to the 28-29 Hijaiyah letters in their unvocalized form (without harakat). Students will learn to recognize each letter, distinguish letters with similar shapes, and practice correct pronunciation as a foundation before moving on to the stage of reading the Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 02 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 02<br/><small style="font-weight:500;opacity:.8;">Class 02</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 02</span>
+                  <h4>Latihan Pelafalan Huruf Sesuai dengan Harakat dan Makhrajnya</h4>
+                  <p>Pada bab ini, siswa akan berlatih melafalkan huruf-huruf hijaiyah dengan menerapkan harakat fathah, kasrah, dan dhammah dengan benar. Siswa juga akan berlatih memperhatikan makhraj, yaitu tempat keluarnya setiap huruf, agar dapat mengucapkan huruf-huruf hijaiyah dengan tepat.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 02</span>
+                  <h4>Practice Pronouncing the Letters According to Their Harakat and Makharij</h4>
+                  <p>In this section, students will practice pronouncing the Hijaiyah letters by correctly applying harakat (fathah, kasrah, and dhammah), while paying attention to the makhraj, or the point of articulation, of each letter.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 03 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 03<br/><small style="font-weight:500;opacity:.8;">Class 03</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 03</span>
+                  <h4>Latihan Pelafalan Huruf Sesuai dengan Harakat dan Makhrajnya dalam Kata</h4>
+                  <p>Pada bab ini, siswa akan berlatih membaca huruf-huruf hijaiyah dalam sebuah kata, dengan tetap memperhatikan harakat dan makhraj setiap huruf. Latihan ini bertujuan untuk melatih kelancaran siswa dalam membaca rangkaian huruf dalam sebuah kata, sekaligus menjadi tahap peralihan sebelum siswa melanjutkan ke pembacaan kalimat dan ayat-ayat Al-Qur’an secara utuh.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 03</span>
+                  <h4>Practicing Letter Pronunciation According to Their Harakat and Makharij in Words</h4>
+                  <p>In this section, students will practice pronouncing Hijaiyah letters combined into words, while still paying close attention to the harakat and makhraj of each letter. This exercise aims to train students' fluency in reading strings of letters as words, serving as a bridge before moving on to reading complete sentences and verses of the Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 04 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 04<br/><small style="font-weight:500;opacity:.8;">Class 04</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 04</span>
+                  <h4>Latihan Memanjangkan Bacaan 2 Harakat</h4>
+                  <p>Pada bab ini, siswa akan belajar mengenali dan mempraktikkan bacaan mad thabi’i, yaitu bacaan yang dipanjangkan sebanyak 2 harakat. Siswa akan dilatih untuk mengenali huruf-huruf yang menjadi sebab terjadinya mad, yaitu alif, waw sukun, dan ya sukun, serta membacanya dengan panjang yang tepat.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 04</span>
+                  <h4>Practicing 2-Count Madd (2 Harakat)</h4>
+                  <p>In this section, students will learn to recognize and practice the mad thabi'i, a recitation that is lengthened for 2 harakat. Students will be trained to identify the letters that cause mad (alif, waw, and ya' sukun).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 05 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 05<br/><small style="font-weight:500;opacity:.8;">Class 05</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 05</span>
+                  <h4>Latihan Membaca Huruf Bertasydid</h4>
+                  <p>Pada bab ini, siswa akan belajar membaca huruf-huruf hijaiyah yang ber-tasydid (syaddah). Siswa akan dilatih untuk membedakan cara membaca huruf yang bertasydid dengan huruf yang tidak bertasydid. Selain itu, siswa juga akan diperkenalkan pada beberapa huruf bertasydid yang memiliki karakteristik khusus, seperti waw dan ya bertasydid, serta mim dan nun bertasydid.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 05</span>
+                  <h4>Practicing Letters with Shaddah (doubles a letter's sound)</h4>
+                  <p>In this section, students will learn to read letters with tasydid (shaddah). Students will be trained to distinguish the pronunciation of letters with tasydid from regular letters. In addition, students will also be introduced to letters with tasydid that have special characteristics, such as waw and ya' with tasydid, as well as meem and noon with tasydid.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 06 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 06<br/><small style="font-weight:500;opacity:.8;">Class 06</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 06</span>
+                  <h4>Latihan Membaca Huruf Sukun ( ْ )</h4>
+                  <p>Pada bab ini, siswa akan belajar membaca huruf sukun. Siswa akan dilatih untuk melafalkan huruf bersukun dengan benar serta membedakan cara membacanya dengan huruf yang berharakat. Latihan ini bertujuan untuk melatih ketepatan siswa dalam membaca rangkaian huruf yang terdiri dari huruf berharakat dan huruf bersukun. Selain itu, siswa juga akan diperkenalkan pada huruf-huruf bersukun yang memiliki karakteristik khusus, seperti huruf-huruf qalqalah, serta huruf ك، ت، dan ء.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 06</span>
+                  <h4>Practice Reading Letters with Sukūn ( ْ )</h4>
+                  <p>In this section, students will learn to read letters with sukun, which are letters without harakat and are pronounced without a vowel sound. Students will be trained to pronounce sukun letters correctly and distinguish their pronunciation from voweled letters. This exercise aims to train students' accuracy in reading combinations of voweled and sukun letters. In addition, students will also be introduced to sukun letters with special characteristics, such as letters with the qalqalah property, as well as the letters ك, ت, and ء.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 1 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 1</div>
+              <div class="ms-checkpoint-desc">Evaluasi Kelancaran Bab 01–06 · Milestone Evaluation (Classes 01–06)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MILESTONE 02 (Classes 07–10 + Checkpoints 2 & 3) ================= -->
+        <div class="milestone-item" id="ms-02">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-02')" aria-expanded="false">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">Milestone 02 · Kelas 07–10</span>
+              <span class="milestone-title">Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun dalam Kalimat</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span>4 Classes + Checkpoints 2 &amp; 3</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Class 07 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 07<br/><small style="font-weight:500;opacity:.8;">Class 07</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 07</span>
+                  <h4>Mengenal Nun Sukun dan Tanwin</h4>
+                  <p>Pada bab ini, siswa akan belajar mengenali dan melafalkan nun sukun dan tanwin dengan benar. Siswa akan dilatih untuk membedakan bentuk serta cara membaca nun sukun dan tanwin.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 07</span>
+                  <h4>Introduction to Nūn Sākinah and Tanwīn</h4>
+                  <p>In this section, students will learn to recognize and pronounce nun sukun and tanwin correctly.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 08 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 08<br/><small style="font-weight:500;opacity:.8;">Class 08</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 08</span>
+                  <h4>Latihan Pengucapan Nun Sukun ( نْ ) dan Tanwin ( ً ٌ ) dalam Kalimat</h4>
+                  <p>Pada bab ini, siswa akan berlatih membaca nun sukun dan tanwin yang terdapat dalam rangkaian kata dan kalimat pada potongan ayat-ayat Al-Qur’an. Latihan ini berfokus pada peningkatan kelancaran dan ketepatan dalam membaca. Dengan menggunakan potongan ayat Al-Qur’an sebagai bahan latihan, siswa akan terbiasa menerapkan bacaan nun sukun dan tanwin dalam konteks bacaan Al-Qur’an yang sebenarnya.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 08</span>
+                  <h4>Practice Pronouncing Nūn Sākinah (نْ) and Tanwīn (ً ٌ) in Sentences</h4>
+                  <p>In this section, students will practice reading nun sukun and tanwin as they appear in sentences taken from excerpts of Qur'anic verses. This exercise focuses on the students' fluency and accuracy in pronunciation. By using Qur'anic excerpts as practice material, students become accustomed to reading within a real recitation context.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 2 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 2</div>
+              <div class="ms-checkpoint-desc">Evaluasi Nun Sukun &amp; Tanwin · Milestone Evaluation (Classes 07–08)</div>
+            </div>
+
+            <!-- Class 09 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 09<br/><small style="font-weight:500;opacity:.8;">Class 09</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 09</span>
+                  <h4>Hamzah Washol</h4>
+                  <p>Pada bab ini, siswa akan belajar mengenali dan membaca hamzah washal yang berada di awal kata dengan memperhatikan harakat fathah, kasrah, dan dhammah. Siswa akan dilatih untuk membedakan cara membaca hamzah washal sesuai dengan harakatnya agar dapat membacanya dengan tepat.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 09</span>
+                  <h4>Hamzat al-Wasl</h4>
+                  <p>In this section, students will learn how to read hamzah washal that begins with the harakat fathah, kasrah, or dhammah.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 10 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 10<br/><small style="font-weight:500;opacity:.8;">Class 10</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 10</span>
+                  <h4>Latihan Pengucapan Mim Sukun dalam Kalimat</h4>
+                  <p>Pada bab ini, siswa akan belajar membaca mim sukun ketika bertemu dengan huruf ب, م, dan huruf-huruf selain kedua huruf tersebut. Siswa akan dilatih untuk membedakan cara membaca mim sukun sesuai dengan huruf yang mengikutinya agar dapat membaca dengan baik dan benar.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 10</span>
+                  <h4>Practice Pronouncing Mīm Sākinah (مْ) in Sentences</h4>
+                  <p>In this section, students will learn how to read meem sukun when it meets the letters ب, م, and letters other than those two.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 3 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 3</div>
+              <div class="ms-checkpoint-desc">Evaluasi Hamzah Washol &amp; Mim Sukun · Milestone Evaluation (Classes 09–10)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MILESTONE 03 (Classes 11–14 + Checkpoint 4) ================= -->
+        <div class="milestone-item" id="ms-03">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-03')" aria-expanded="false">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">Milestone 03 · Kelas 11–14</span>
+              <span class="milestone-title">Bacaan Mad (&gt; 2 Harakat) &amp; Kaidah Berhenti (Waqof)</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span>4 Classes + Checkpoint 4</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Class 11 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 11<br/><small style="font-weight:500;opacity:.8;">Class 11</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 11</span>
+                  <h4>MAD</h4>
+                  <p>Pada bab ini, siswa akan belajar mengenali dan membaca bacaan mad yang dipanjangkan lebih dari 2 harakat. Siswa akan berlatih mengenali bacaan mad serta mempraktikkannya.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 11</span>
+                  <h4>The Rules of Elongation (Madd)</h4>
+                  <p>In this section, students will learn how to read recitations that are lengthened for more than 2 harakat. Students will practice recognizing mad and reading it with the correct length.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 12 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 12<br/><small style="font-weight:500;opacity:.8;">Class 12</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 12</span>
+                  <h4>Waqof</h4>
+                  <p>Pada bab ini, siswa akan belajar cara berhenti (waqaf) ketika membaca Al-Qur’an, serta cara melafalkan huruf atau harakat ketika bacaan diwaqofkan. Siswa akan berlatih mengenali perubahan cara membaca pada saat waqaf agar dapat waqof dengan tepat.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 12</span>
+                  <h4>Waqof (The Rules of Stopping)</h4>
+                  <p>In this section, students will learn how to stop (waqaf) while reading the Qur'an and how to pronounce letters or harakat when a recitation is paused.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 13 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 13<br/><small style="font-weight:500;opacity:.8;">Class 13</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 13</span>
+                  <h4>Berhenti pada Huruf Tasydid</h4>
+                  <p>Pada bab ini, siswa akan belajar cara membaca huruf-huruf yang memiliki tasydid (syaddah) ketika berhenti (waqaf).</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 13</span>
+                  <h4>Waqf on a Shaddah / (Doubled Letter)</h4>
+                  <p>In this section, students will learn how to read letters with tasydid (shaddah) when stopping (waqaf).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 14 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 14<br/><small style="font-weight:500;opacity:.8;">Class 14</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 14</span>
+                  <h4>Berhenti pada Huruf Setelah Sukun</h4>
+                  <p>Pada bab ini, siswa akan belajar cara berhenti (waqaf) pada huruf yang didahului oleh huruf bersukun.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 14</span>
+                  <h4>Meeting of two sukoons due to stopping</h4>
+                  <p>In this section, students will learn how to stop (waqaf) on a letter that is preceded by a letter with sukun.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 4 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 4</div>
+              <div class="ms-checkpoint-desc">Evaluasi Mad &amp; Kaidah Waqof · Milestone Evaluation (Classes 11–14)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MILESTONE 04 (Classes 15–18 + Checkpoints + Final Test) ================= -->
+        <div class="milestone-item" id="ms-04">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-04')" aria-expanded="false">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">Milestone 04 · Kelas 15–18 &amp; Final Test</span>
+              <span class="milestone-title">Nun Wiqoyah, Idghom, Huruf Muqothoah, Gharibul Qur'an &amp; Final Test</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span>4 Classes + Final Exam</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Class 15 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 15<br/><small style="font-weight:500;opacity:.8;">Class 15</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 15</span>
+                  <h4>Nun Maksurah / Nun Wiqoyah</h4>
+                  <p>Pada bab ini, siswa akan belajar mengenali dan membaca Nun Wiqayah dengan benar, memahami bentuknya, serta mengetahui kapan Nun Wiqayah muncul dalam bacaan Al-Qur’an.</p>
+                  <div class="ms-note-callout">
+                    <strong>Catatan:</strong> Kurikulum ini menggunakan acuan Mushaf Rasm Utsmani Madinah. Dalam mushaf ini, Nun Wiqayah tidak ditampilkan dengan huruf nun kecil, tetapi cara membacanya dipahami berdasarkan kaidah bacaan.
+                  </div>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 15</span>
+                  <h4>The Hidden Nun</h4>
+                  <p>In this section, students will learn how to read Nun Wiqoyah, recognize its form, and understand when it appears while reading the Qur'an.</p>
+                  <div class="ms-note-callout">
+                    <strong>Note:</strong> This curriculum uses the Madinah Uthmani Rasm Mushaf as its reference. In this mushaf, Nun Wiqayah is not indicated by a small nun, but its pronunciation is understood and applied according to the relevant recitation rules.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 16 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 16<br/><small style="font-weight:500;opacity:.8;">Class 16</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 16</span>
+                  <h4>Idghom (bertemunya 2 huruf) (Mutamathilayn, Mutaqaribayn, Mutajanisayn)</h4>
+                  <p>Pada bab ini, siswa akan belajar membaca dua huruf yang bertemu dengan cara meleburkan huruf pertama ke dalam huruf berikutnya (idgham). Siswa akan berlatih mengenali pertemuan kedua huruf tersebut dan membaca dengan bacaan yang benar.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 16</span>
+                  <h4>Idgham of Meeting Letters (Mutamathilayn, Mutaqaribayn, Mutajanisayn)</h4>
+                  <p>In this section, students will learn how to read two meeting letters that are pronounced with idgham.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint (15-16) -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint</div>
+              <div class="ms-checkpoint-desc">Evaluasi Nun Wiqoyah &amp; Idghom · Milestone Evaluation (Classes 15–16)</div>
+            </div>
+
+            <!-- Class 17 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 17<br/><small style="font-weight:500;opacity:.8;">Class 17</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 17</span>
+                  <h4>Huruf Muqothoah</h4>
+                  <p>Pada bab ini, siswa akan belajar membaca Huruf Muqatta’ah, yaitu huruf-huruf yang terdapat di awal beberapa surah dalam Al-Qur’an.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 17</span>
+                  <h4>The Disjointed Letters</h4>
+                  <p>In this section, students will learn how to read the Muqatta’ah Letters, which are the letters that appear at the beginning of some chapters (surahs) of the Qur’an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Class 18 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">Kelas 18<br/><small style="font-weight:500;opacity:.8;">Class 18</small></div>
+              <div class="ms-class-content-grid">
+                <div class="ms-lang-col id-col">
+                  <span class="ms-lang-tag id-tag">Kelas 18</span>
+                  <h4>Bacaan di Luar Kaidah</h4>
+                  <p>Pada bab ini, siswa akan belajar membaca bacaan-bacaan khusus yang dikenal sebagai Gharibul Qur’an yang terdapat dalam Al-Qur’an.</p>
+                </div>
+                <div class="ms-lang-col en-col">
+                  <span class="ms-lang-tag en-tag">Class 18</span>
+                  <h4>Uncommon Recitations</h4>
+                  <p>In this section, students will learn how to read the special recitations known as Gharibul Qur'an found within the Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint (17-18) -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint</div>
+              <div class="ms-checkpoint-desc">Evaluasi Huruf Muqothoah &amp; Gharibul Qur'an · Milestone Evaluation (Classes 17–18)</div>
+            </div>
+
+            <!-- Final Test -->
+            <div class="ms-checkpoint-row" style="background:linear-gradient(90deg, rgba(16, 185, 129, 0.3) 0%, rgba(217, 119, 6, 0.3) 100%);padding:1.35rem 1.75rem;">
+              <div>
+                <div class="ms-checkpoint-badge" style="font-size:1.2rem;color:#ffffff;">🏆 Final Test (Ujian Akhir Kelulusan)</div>
+                <div class="ms-checkpoint-desc" style="color:#d1fae5;margin-top:.2rem;">Evaluasi Komprehensif Seluruh Materi Kelas Pra-Tajwid (Kelas 01–18) &amp; Penerbitan Sertifikat</div>
+              </div>
+              <a href="tahsin-tajweed.html" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#052e16;font-weight:700;">
+                Go to Video Course Portal →
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PHITRON-STYLE ZIG-ZAG ANIMATED STEP-BY-STEP JOURNEY ROADMAP -->
+  <section class="journey-section">
+    <div class="track-container">
+      <h2 class="track-sec-heading">Your Learning Journey in Pre-Tajweed</h2>
+      <p class="track-sec-sub">
+        4 langkah terstruktur dari mengenal huruf tunggal hingga lancar membaca ayat-ayat Al-Qur'an secara utuh.
+      </p>
+
+      <div class="journey-map-wrap">
+        <!-- Animated Dashed SVG Path (Phitron Foundation-Track Style) -->
+        <svg class="journey-svg-bg" viewBox="0 0 830 960" fill="none" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M240 120 H590 Q620 120 620 150 V360 Q620 390 590 390 H210 Q180 390 180 420 V640 Q180 670 210 670 H590 Q620 670 620 700 V850"
+                stroke="#b8860b" stroke-width="2.5" stroke-dasharray="7 9" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+            <animate attributeName="stroke-dashoffset" from="160" to="0" dur="7s" repeatCount="indefinite" />
+          </path>
+        </svg>
+
+        <div class="journey-grid">
+          <!-- Step 01 (Left) -->
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">🔤</span>
+                <span class="journey-step-badge">Step - 01 · Kelas 01–06</span>
+              </div>
+              <h3>Huruf Hijaiyah, Makhraj, Harakat, Tasydid &amp; Sukun</h3>
+              <p>Menguasai 28–29 huruf hijaiyah, ketepatan makhraj &amp; harakat dalam kata, mad thabi'i 2 harakat, huruf bertasydid, serta sukun (termasuk qalqalah) hingga lulus <strong>Checkpoint 1</strong>.</p>
+            </div>
+          </div>
+          <div class="journey-spacer"></div>
+
+          <!-- Step 02 (Right) -->
+          <div class="journey-spacer"></div>
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">📖</span>
+                <span class="journey-step-badge">Step - 02 · Kelas 07–10</span>
+              </div>
+              <h3>Nun Sukun, Tanwin, Hamzah Washal &amp; Mim Sukun</h3>
+              <p>Praktik langsung menerapkan bacaan nun sukun, tanwin, hamzah washal di awal kata, dan mim sukun pada potongan ayat-ayat Al-Qur'an, diuji melalui <strong>Checkpoint 2 &amp; 3</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Step 03 (Left) -->
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">🛑</span>
+                <span class="journey-step-badge">Step - 03 · Kelas 11–14</span>
+              </div>
+              <h3>Mad (&gt;2 Harakat) &amp; Kaidah Berhenti (Waqof)</h3>
+              <p>Mempraktikkan bacaan mad lebih dari 2 harakat serta aturan berhenti (waqaf), termasuk waqaf pada huruf bertasydid dan huruf setelah sukun hingga lulus <strong>Checkpoint 4</strong>.</p>
+            </div>
+          </div>
+          <div class="journey-spacer"></div>
+
+          <!-- Step 04 (Right) -->
+          <div class="journey-spacer"></div>
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">🎓</span>
+                <span class="journey-step-badge">Step - 04 · Kelas 15–18</span>
+              </div>
+              <h3>Nun Wiqoyah, Idghom, Gharibul Qur'an &amp; Final Test</h3>
+              <p>Menuntaskan bacaan Nun Wiqoyah (Mushaf Madinah), Idghom dua huruf, Huruf Muqatta'ah, dan bacaan Gharibul Qur'an, diakhiri dengan <strong>Final Test</strong> dan sertifikat evaluasi resmi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SESSION DURATION & TIME GUIDANCE SECTION -->
+  <div class="track-container">
     <section class="session-notes-card">
       <p class="section-label">Catatan · Session Duration &amp; Time Guidance</p>
       <div class="session-notes-grid">
-        <div class="id-box" style="background:var(--bg);border:1px solid var(--border);padding:1.5rem;border-radius:4px;">
-          <span class="curr-lang-tag id-tag">Catatan</span>
+        <div class="id-box" style="background:var(--bg);border:1px solid var(--border);padding:1.5rem;border-radius:10px;">
+          <span class="ms-lang-tag id-tag">Catatan</span>
           <h3 style="font-family:var(--ff-d);color:var(--green);font-size:1.15rem;margin-bottom:.5rem;">
             1. Panduan Waktu dan Durasi dalam Satu Sesi
           </h3>
@@ -801,8 +1440,8 @@
           </ul>
         </div>
 
-        <div class="en-box" style="background:var(--bg);border:1px solid var(--border);padding:1.5rem;border-radius:4px;">
-          <span class="curr-lang-tag en-tag">Session Guidance</span>
+        <div class="en-box" style="background:var(--bg);border:1px solid var(--border);padding:1.5rem;border-radius:10px;">
+          <span class="ms-lang-tag en-tag">Session Guidance</span>
           <h3 style="font-family:var(--ff-d);color:var(--green);font-size:1.15rem;margin-bottom:.5rem;">
             Session Duration and Time Guidance
           </h3>
@@ -818,8 +1457,7 @@
         </div>
       </div>
     </section>
-
-  </main>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -839,6 +1477,22 @@
       document.getElementById('btnViewBoth').classList.toggle('active', mode === 'both');
       document.getElementById('btnViewId').classList.toggle('active', mode === 'id');
       document.getElementById('btnViewEn').classList.toggle('active', mode === 'en');
+    }
+
+    function toggleMilestone(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isOpen = el.classList.toggle('open');
+      const btn = el.querySelector('.milestone-trigger');
+      if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function toggleAllMilestones(openState) {
+      document.querySelectorAll('.milestone-item').forEach(el => {
+        el.classList.toggle('open', openState);
+        const btn = el.querySelector('.milestone-trigger');
+        if (btn) btn.setAttribute('aria-expanded', openState ? 'true' : 'false');
+      });
     }
   </script>
 </body>
