@@ -1345,9 +1345,19 @@
         max-width: min(250px, 72vw);
         padding: .45rem;
       }
+      /* 16px font-size prevents mobile browser auto-zoom when tapping input */
       #payStudentName,
-      #payStudentNameId {
+      #payStudentEmail,
+      #payStudentWhatsapp {
         font-size: 16px !important;
+      }
+      .pay-student-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 520px) {
+        .pay-student-grid {
+          grid-template-columns: 1fr !important;
+        }
       }
     }
 
@@ -2395,19 +2405,74 @@
         </p>
       </div>
 
-      <!-- STUDENT NAME INPUT & WHATSAPP CONFIRMATION CTA -->
-      <div style="border-top:1px solid var(--border);padding-top:1rem;">
-        <label for="payStudentName" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.35rem;">
-          <span class="m-lang-en">Your Full Name (Optional):</span>
-          <span class="m-lang-id">Nama Lengkap Anda (Opsional):</span>
-        </label>
-        <input type="text" id="payStudentName" class="m-lang-en" placeholder="Enter your name for registration..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentNameId').value=this.value" />
-        <input type="text" id="payStudentNameId" class="m-lang-id" placeholder="Masukkan nama lengkap Anda..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentName').value=this.value" />
+      <!-- STUDENT REGISTRATION & RECEIPT UPLOAD FORM -->
+      <div style="border-top:1px solid var(--border);padding-top:1rem;margin-top:.25rem;">
+        <div style="font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem;">
+          <span class="m-lang-en">📝 Step 2: Student Details &amp; Payment Proof</span>
+          <span class="m-lang-id">📝 Langkah 2: Data Pendaftaran &amp; Bukti Transfer</span>
+        </div>
 
-        <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:.8rem 1.25rem;font-size:.88rem;cursor:pointer;" onclick="confirmPaymentViaWhatsApp()">
+        <div class="pay-student-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.65rem;">
+          <!-- Full Name -->
+          <div style="grid-column:1 / -1;">
+            <label for="payStudentName" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+              <span class="m-lang-en">Full Name <span style="color:#ef4444;">*</span></span>
+              <span class="m-lang-id">Nama Lengkap Santri <span style="color:#ef4444;">*</span></span>
+            </label>
+            <input type="text" id="payStudentName" placeholder="Contoh: Fatimah Az-Zahra" style="width:100%;padding:.62rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;box-sizing:border-box;" required />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="payStudentEmail" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+              <span class="m-lang-en">Email Address <span style="color:#ef4444;">*</span></span>
+              <span class="m-lang-id">Alamat Email <span style="color:#ef4444;">*</span></span>
+            </label>
+            <input type="email" id="payStudentEmail" placeholder="nama@email.com" style="width:100%;padding:.62rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;box-sizing:border-box;" required />
+          </div>
+
+          <!-- WhatsApp -->
+          <div>
+            <label for="payStudentWhatsapp" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+              <span class="m-lang-en">WhatsApp Number <span style="color:#ef4444;">*</span></span>
+              <span class="m-lang-id">Nomor WhatsApp <span style="color:#ef4444;">*</span></span>
+            </label>
+            <input type="tel" id="payStudentWhatsapp" placeholder="081234567890" style="width:100%;padding:.62rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;box-sizing:border-box;" required />
+          </div>
+        </div>
+
+        <!-- Receipt File Upload -->
+        <div style="margin-bottom:.85rem;">
+          <label style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+            <span class="m-lang-en">Payment Receipt Image / PDF (Optional)</span>
+            <span class="m-lang-id">Bukti Transfer / Resi Pembayaran (Opsional)</span>
+          </label>
+          <div style="position:relative;border:1.5px dashed #cbd5e1;border-radius:10px;padding:.75rem .85rem;text-align:center;background:#f8fafc;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('payReceiptFile').click()">
+            <input type="file" id="payReceiptFile" accept="image/*,application/pdf" style="display:none;" onchange="handleReceiptFileChange(this)" />
+            <div id="receiptFilePrompt" style="font-size:.8rem;color:var(--sub);display:flex;align-items:center;justify-content:center;gap:.4rem;">
+              <span>📎</span>
+              <span class="m-lang-en">Click to choose receipt screenshot / photo</span>
+              <span class="m-lang-id">Klik untuk unggah screenshot / foto bukti transfer</span>
+            </div>
+            <div id="receiptFilePreview" style="display:none;font-size:.8rem;font-weight:600;color:var(--green);align-items:center;justify-content:center;gap:.35rem;">
+              <span>✅</span>
+              <span id="receiptFileName"></span>
+              <button type="button" onclick="event.stopPropagation();clearReceiptFile();" style="background:none;border:none;color:#ef4444;font-size:.85rem;cursor:pointer;padding:0 .3rem;" title="Hapus file">✕</button>
+            </div>
+          </div>
+          <div style="font-size:.7rem;color:var(--muted);margin-top:.25rem;text-align:center;">
+            <span class="m-lang-en">JPG, PNG, PDF up to 10MB · Automatically saved to Ustadzah's Google Drive</span>
+            <span class="m-lang-id">JPG, PNG, PDF maks. 10MB · Otomatis tersimpan ke Google Drive Ustadzah</span>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="button" id="btnConfirmPay" class="btn btn-primary" style="width:100%;justify-content:center;padding:.85rem 1.25rem;font-size:.88rem;cursor:pointer;gap:.45rem;" onclick="confirmPaymentViaWhatsApp()">
           <span class="m-lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span>
           <span class="m-lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>
         </button>
+
+        <div id="payStatusMsg" style="display:none;font-size:.8rem;text-align:center;margin-top:.6rem;padding:.5rem .75rem;border-radius:8px;"></div>
       </div>
     </div>
   </div>
@@ -2475,6 +2540,13 @@
       document.querySelectorAll('.js-modal-lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-mlang') === activeModalLang);
       });
+
+      const nameInput = document.getElementById('payStudentName');
+      const emailInput = document.getElementById('payStudentEmail');
+      const waInput = document.getElementById('payStudentWhatsapp');
+      if (nameInput) nameInput.placeholder = activeModalLang === 'en' ? 'e.g. Maryam Ahmad' : 'Contoh: Fatimah Az-Zahra';
+      if (emailInput) emailInput.placeholder = activeModalLang === 'en' ? 'name@example.com' : 'nama@email.com';
+      if (waInput) waInput.placeholder = activeModalLang === 'en' ? '+1 234 567 8900' : '081234567890';
     }
 
     function openPaymentModal(defaultMethod) {
@@ -2554,21 +2626,174 @@
       }, 1800);
     }
 
-    function confirmPaymentViaWhatsApp() {
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx5wRwjfQjP5O7Vkn-BPGVnzpURcRdzH_PEcNgnHEwV-E2y0o-vXRrEw93rLdeV_eqV/exec';
+
+    function handleReceiptFileChange(input) {
+      const promptEl = document.getElementById('receiptFilePrompt');
+      const prevEl = document.getElementById('receiptFilePreview');
+      const nameEl = document.getElementById('receiptFileName');
+      if (input.files && input.files[0]) {
+        const f = input.files[0];
+        const sizeKb = Math.round(f.size / 1024);
+        if (nameEl) nameEl.textContent = f.name + ' (' + (sizeKb > 1024 ? (sizeKb / 1024).toFixed(1) + ' MB' : sizeKb + ' KB') + ')';
+        if (promptEl) promptEl.style.display = 'none';
+        if (prevEl) prevEl.style.display = 'inline-flex';
+      }
+    }
+
+    function clearReceiptFile() {
+      const input = document.getElementById('payReceiptFile');
+      if (input) input.value = '';
+      const promptEl = document.getElementById('receiptFilePrompt');
+      const prevEl = document.getElementById('receiptFilePreview');
+      if (promptEl) promptEl.style.display = 'flex';
+      if (prevEl) prevEl.style.display = 'none';
+    }
+
+    async function confirmPaymentViaWhatsApp() {
       const isId = activeModalLang === 'id';
       const nameInput = document.getElementById('payStudentName');
-      const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : (isId ? '[Nama Saya]' : '[My Name]');
+      const emailInput = document.getElementById('payStudentEmail');
+      const waInput = document.getElementById('payStudentWhatsapp');
+      const fileInput = document.getElementById('payReceiptFile');
+      const btn = document.getElementById('btnConfirmPay');
+      const statusMsg = document.getElementById('payStatusMsg');
+
+      const studentName = nameInput ? nameInput.value.trim() : '';
+      const studentEmail = emailInput ? emailInput.value.trim() : '';
+      const studentWa = waInput ? waInput.value.trim() : '';
+
+      if (!studentName) {
+        alert(isId ? 'Silakan masukkan Nama Lengkap Anda terlebih dahulu.' : 'Please enter your Full Name first.');
+        if (nameInput) nameInput.focus();
+        return;
+      }
+      if (!studentEmail) {
+        alert(isId ? 'Silakan masukkan Alamat Email Anda.' : 'Please enter your Email Address.');
+        if (emailInput) emailInput.focus();
+        return;
+      }
+      if (!studentWa) {
+        alert(isId ? 'Silakan masukkan Nomor WhatsApp Anda.' : 'Please enter your WhatsApp Number.');
+        if (waInput) waInput.focus();
+        return;
+      }
+
       const methodLabel = activePayMethod === 'qr'
         ? (isId ? 'Scan QR / QRIS (QURANWITHSUMIYATI)' : 'QR Code / QRIS (QURANWITHSUMIYATI)')
         : activePayMethod === 'overseas'
           ? (isId ? 'Transfer Luar Negeri (Bank Jago Syariah · SWIFT: JAGBIDJA)' : 'Overseas Student Transfer (Bank Jago Syariah · SWIFT: JAGBIDJA)')
           : (isId ? 'Transfer Bank Lokal (Bank Syariah Mandiri)' : 'Local Bank Transfer (Bank Syariah Mandiri)');
 
-      const msg = isId
-        ? `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar Kelas Tajwid (Tajweed Class).\n\n*Nama Lengkap:* ${studentName}\n*Biaya Kelas:* Rp 120.000 ($7.50 USD)\n*Metode Pembayaran:* ${methodLabel}\n\nBerikut saya lampirkan bukti pembayarannya:`
-        : `Assalamu'alaikum Ustadzah Sumiyati, I would like to register for the Tajweed Class.\n\n*Full Name:* ${studentName}\n*Course Fee:* $7.50 USD (Rp 120.000)\n*Payment Method:* ${methodLabel}\n\nHere is my payment confirmation receipt:`;
+      const courseName = 'Tajwid Bersanad Matan Al-Jazariyyah (Tajweed)';
+      const courseFee = '$7.50 USD / Rp 120.000';
 
-      window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      const waMsg = isId
+        ? `Assalamu'alaikum Ustadzah Sumiyati, saya telah mendaftar kelas:\n\n` +
+          `📖 *Kelas:* ${courseName}\n` +
+          `👤 *Nama Lengkap:* ${studentName}\n` +
+          `📧 *Email:* ${studentEmail}\n` +
+          `📱 *WhatsApp:* ${studentWa}\n` +
+          `💳 *Metode Pembayaran:* ${methodLabel}\n` +
+          `💰 *Biaya:* ${courseFee}\n\n` +
+          `Data saya telah tersimpan di sistem. Berikut saya lampirkan juga bukti transfernya:`
+        : `Assalamu'alaikum Ustadzah Sumiyati, I have registered for the course:\n\n` +
+          `📖 *Course:* ${courseName}\n` +
+          `👤 *Full Name:* ${studentName}\n` +
+          `📧 *Email:* ${studentEmail}\n` +
+          `📱 *WhatsApp:* ${studentWa}\n` +
+          `💳 *Payment Method:* ${methodLabel}\n` +
+          `💰 *Fee:* ${courseFee}\n\n` +
+          `My registration data is saved in your system. Here is my payment receipt:`;
+
+      // Update button state
+      if (btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.75';
+        btn.innerHTML = isId
+          ? '<span>⏳ Menyimpan data & membuka WhatsApp...</span>'
+          : '<span>⏳ Saving data & opening WhatsApp...</span>';
+      }
+
+      if (statusMsg) {
+        statusMsg.style.display = 'block';
+        statusMsg.style.background = '#eff6ff';
+        statusMsg.style.color = '#1d4ed8';
+        statusMsg.textContent = isId
+          ? '⏳ Mengirim data ke Google Sheet & membuka WhatsApp...'
+          : '⏳ Sending data to Google Sheets & opening WhatsApp...';
+      }
+
+      // Read file if attached
+      let fileBase64 = null;
+      let fileName = null;
+      let mimeType = null;
+
+      if (fileInput && fileInput.files && fileInput.files[0]) {
+        const file = fileInput.files[0];
+        fileName = file.name;
+        mimeType = file.type || 'image/jpeg';
+        try {
+          fileBase64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+              const res = reader.result;
+              const base64 = typeof res === 'string' && res.includes(',') ? res.split(',')[1] : res;
+              resolve(base64);
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          });
+        } catch (e) {
+          console.warn('Could not read file as base64', e);
+        }
+      }
+
+      const payload = {
+        name: studentName,
+        email: studentEmail,
+        whatsapp: studentWa,
+        course: courseName,
+        method: methodLabel,
+        amount: courseFee,
+        fileName: fileName,
+        mimeType: mimeType,
+        fileBase64: fileBase64
+      };
+
+      // Background submit to Google Apps Script
+      try {
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        }).catch(err => console.warn('Apps Script log note:', err));
+      } catch (err) {
+        console.warn('Apps Script submission error:', err);
+      }
+
+      // Open WhatsApp chat in a new tab
+      window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(waMsg), '_blank', 'noopener');
+
+      setTimeout(() => {
+        if (btn) {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          btn.innerHTML = isId
+            ? '<span>✅ Data Tersimpan! Buka WhatsApp Kembali</span>'
+            : '<span>✅ Data Saved! Reopen WhatsApp</span>';
+        }
+        if (statusMsg) {
+          statusMsg.style.background = '#ecfdf5';
+          statusMsg.style.color = '#047857';
+          statusMsg.textContent = isId
+            ? '✅ Data pendaftaran telah dicatat ke Google Sheet Ustadzah & WhatsApp telah dibuka!'
+            : '✅ Registration recorded in Google Sheets & WhatsApp has opened!';
+        }
+      }, 1200);
     }
 
     document.addEventListener('keydown', function(e) {
