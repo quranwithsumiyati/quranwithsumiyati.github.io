@@ -48,6 +48,38 @@
 
     body.course-page {
       background: var(--track-bg);
+      padding-top: 0 !important;
+    }
+
+    /* ── Course Track Switcher Pill (Pre-Tajweed ↔ Tajweed) ── */
+    .course-track-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 3px;
+      border-radius: 99px;
+    }
+    .course-track-tab {
+      font-family: var(--ff-b);
+      font-size: .73rem;
+      font-weight: 600;
+      padding: .32rem .75rem;
+      border-radius: 99px;
+      color: var(--sub);
+      text-decoration: none;
+      transition: all .15s ease;
+      white-space: nowrap;
+    }
+    .course-track-tab:hover {
+      color: var(--green);
+    }
+    .course-track-tab.active {
+      background: #ffffff;
+      color: var(--green);
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
     }
 
     .track-container {
@@ -1240,13 +1272,24 @@
         width: 100%;
         gap: .45rem !important;
       }
-      .outline-ctrl-btn {
+      .outline-ctrl-btn,
+      .lang-view-btn {
         width: 100%;
         text-align: center;
         justify-content: center;
         padding: .5rem .45rem;
         font-size: .73rem;
         white-space: nowrap;
+      }
+      .course-track-tabs {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .course-track-tab {
+        flex: 1;
+        text-align: center;
+        font-size: .7rem;
+        padding: .32rem .4rem;
       }
       /* Hide redundant right meta text on milestone accordion trigger so title has full width */
       .milestone-meta-right > span:not(.milestone-chevron) {
@@ -1339,12 +1382,22 @@
   <!-- Top Navigation (Sticky with Simple 2-Button Language Toggle) -->
   <header class="course-nav">
     <div class="wrap course-nav-inner">
-      <div style="display:flex;align-items:center;gap:.85rem;">
+      <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;">
         <a href="index.html" class="back-link">
           <span class="back-arrow" aria-hidden="true">←</span>
           <span class="lang-en">Back to Portfolio</span>
           <span class="lang-id">Kembali ke Portofolio</span>
         </a>
+        <div class="course-track-tabs" role="navigation" aria-label="Course Curriculum Switcher">
+          <a href="curriculum.html" class="course-track-tab active" aria-current="page">
+            <span class="lang-en">01 · Pre-Tajweed</span>
+            <span class="lang-id">01 · Pra-Tajwid</span>
+          </a>
+          <a href="tajweed-curriculum.html" class="course-track-tab">
+            <span class="lang-en">02 · Tajweed</span>
+            <span class="lang-id">02 · Kelas Tajwid</span>
+          </a>
+        </div>
       </div>
 
       <div class="course-nav-brand" style="display:flex;align-items:center;gap:.55rem;">
@@ -2409,6 +2462,10 @@
     <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
       <p class="name">Sumiyati · Master's in Tafsir &amp; Quranic Sciences, IIUI 2026</p>
       <p class="meta">
+        <a href="tajweed-curriculum.html" style="color:var(--green);font-weight:600;text-decoration:underline;margin-right:1rem;">
+          <span class="lang-en">📜 Tajweed Curriculum</span>
+          <span class="lang-id">📜 Kurikulum Kelas Tajwid</span>
+        </a>
         <a href="index.html" style="color:var(--green);font-weight:600;text-decoration:underline;">
           <span class="lang-en">← Back to Portfolio</span>
           <span class="lang-id">← Kembali ke Portofolio</span>

@@ -1,0 +1,2529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Tajweed Class Curriculum · Sumiyati</title>
+  <meta name="description" content="Complete 15-class Tajweed Class Curriculum (Kurikulum Kelas Tajwid) by Ustadzah Sumiyati. Combining Tajweed theory and direct Qur'an recitation practice across 5 Milestones, 5 Checkpoints, and Final Test." />
+  <meta name="author" content="Sumiyati" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; base-uri 'self';" />
+
+  <!-- Favicon & Browser Search Bar Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1e4a35" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Quran with Sumiyati",
+    "url": "https://quranwithsumiyati.github.io/tajweed-curriculum.html",
+    "logo": "https://quranwithsumiyati.github.io/favicon-512x512.png"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5" />
+  <style>
+    /* ── Phitron Foundation-Track Inspired Curriculum Architecture ── */
+    :root {
+      --track-bg: #fcfbfe;
+      --track-dark: #071d15;
+      --track-dark-card: #0c291e;
+      --track-dark-open: #103528;
+      --track-dark-border: #1b4d3a;
+      --track-accent: #10b981;
+      --track-gold: #d97706;
+    }
+
+    body.course-page {
+      background: var(--track-bg);
+      padding-top: 0 !important;
+    }
+
+    .track-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Top Header Language Switcher Pill ── */
+    .header-lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1.5px solid rgba(30, 74, 53, 0.28);
+      border-radius: 99px;
+      padding: 3px;
+      gap: 2px;
+      box-shadow: 0 2px 8px rgba(30, 74, 53, 0.06);
+    }
+    .header-lang-btn {
+      font-family: var(--ff-b);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .34rem .78rem;
+      border-radius: 99px;
+      border: none;
+      background: transparent;
+      color: var(--sub);
+      cursor: pointer;
+      transition: all .15s ease;
+      white-space: nowrap;
+    }
+    .header-lang-btn:hover {
+      color: var(--green);
+    }
+    .header-lang-btn.active {
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(30, 74, 53, 0.22);
+    }
+
+    /* ── Course Track Switcher Pill (Pre-Tajweed ↔ Tajweed) ── */
+    .course-track-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 3px;
+      border-radius: 99px;
+    }
+    .course-track-tab {
+      font-family: var(--ff-b);
+      font-size: .73rem;
+      font-weight: 600;
+      padding: .32rem .75rem;
+      border-radius: 99px;
+      color: var(--sub);
+      text-decoration: none;
+      transition: all .15s ease;
+      white-space: nowrap;
+    }
+    .course-track-tab:hover {
+      color: var(--green);
+    }
+    .course-track-tab.active {
+      background: #ffffff;
+      color: var(--green);
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    }
+
+    /* ── Hero Language Bar ── */
+    .hero-lang-bar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .45rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: .42rem .65rem;
+      border-radius: 99px;
+      margin: 0 auto 1.35rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+    .hero-lang-lbl {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 0 .45rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .hero-lang-pill {
+      font-family: var(--ff-b);
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .4rem 1.05rem;
+      border-radius: 99px;
+      border: 1px solid transparent;
+      background: var(--card);
+      color: var(--sub);
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .hero-lang-pill:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+    .hero-lang-pill.active {
+      background: var(--green);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(30, 74, 53, 0.2);
+    }
+
+    /* 1. HERO + 4 STAT COUNTERS */
+    .track-hero {
+      position: relative;
+      padding: 5.75rem 0 6.5rem;
+      background:
+        radial-gradient(55% 50% at 85% 15%, rgba(30, 74, 53, 0.08) 0%, transparent 70%),
+        radial-gradient(50% 45% at 15% 80%, rgba(184, 134, 11, 0.08) 0%, transparent 70%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .track-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .35rem .95rem;
+      border-radius: 99px;
+      background: rgba(30, 74, 53, 0.08);
+      border: 1px solid rgba(30, 74, 53, 0.25);
+      color: var(--green);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.15rem;
+    }
+
+    .track-hero-title {
+      font-family: var(--ff-d);
+      font-size: clamp(2.2rem, 4.7vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: #0f172a;
+      max-width: 840px;
+      margin: 0 auto 1.25rem;
+    }
+
+    @keyframes shineGradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .track-title-shine {
+      background: linear-gradient(90deg, #1e4a35 0%, #b8860b 50%, #1e4a35 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shineGradient 4s linear infinite;
+    }
+
+    /* Single Clean Purpose Card in Hero */
+    .purpose-single-wrap {
+      max-width: 820px;
+      margin: .35rem auto 1.85rem;
+      text-align: left;
+    }
+    .purpose-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--green);
+      padding: 1.5rem 1.75rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.035);
+    }
+    .purpose-box h2 {
+      font-family: var(--ff-d);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: .5rem;
+    }
+    .purpose-box p {
+      font-size: .94rem;
+      color: var(--sub);
+      line-height: 1.72;
+    }
+    .purpose-box p + p {
+      margin-top: .75rem;
+    }
+
+    .track-cta-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .85rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    /* 4 Stat Counters */
+    .track-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 880px;
+      margin: 0 auto;
+      padding-top: .5rem;
+    }
+    .track-stat-item {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem .85rem;
+      text-align: center;
+    }
+    .track-stat-num {
+      display: block;
+      font-family: var(--ff-d);
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: .3rem;
+    }
+    .track-stat-num.c-green { color: #0d9488; }
+    .track-stat-num.c-emerald { color: var(--green); }
+    .track-stat-num.c-gold { color: #b8860b; }
+    .track-stat-num.c-indigo { color: #4f46e5; }
+    .track-stat-lbl {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--sub);
+    }
+
+    /* 2. WHO IS THIS TRACK FOR? (Overlapping Glass Card) */
+    .who-section {
+      margin-top: -3.5rem;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 4.5rem;
+    }
+    .who-glass-wrap {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.25rem 2rem;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.07);
+    }
+    .track-sec-heading {
+      text-align: center;
+      font-family: var(--ff-d);
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: .5rem;
+    }
+    .track-sec-sub {
+      text-align: center;
+      font-size: .92rem;
+      color: var(--sub);
+      max-width: 680px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.65;
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .who-card {
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      border-radius: 16px;
+      border: 1px solid #e4e7ec;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      padding: 1.35rem 1.2rem;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .who-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+      box-shadow: 0 10px 24px rgba(30, 74, 53, 0.08);
+    }
+    .who-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(30, 74, 53, 0.08);
+      border: 1px solid rgba(30, 74, 53, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+    }
+    .who-card h3 {
+      font-family: var(--ff-b);
+      font-size: .94rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+    }
+    .who-card p {
+      font-size: .85rem;
+      color: var(--sub);
+      line-height: 1.62;
+    }
+
+    /* 3. LEARNING ECOSYSTEM (6-Card Feature Grid) */
+    .ecosystem-section {
+      padding: 1rem 0 4.5rem;
+    }
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .eco-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.6rem 1.35rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .65rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: transform .22s ease, border-color .22s ease;
+    }
+    .eco-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--green);
+    }
+    .eco-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(30, 74, 53, 0.1), rgba(184, 134, 11, 0.12));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.65rem;
+    }
+    .eco-title {
+      font-size: .98rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .eco-desc {
+      font-size: .85rem;
+      color: var(--sub);
+      line-height: 1.6;
+    }
+
+    /* 4. DARK COLLAPSIBLE MILESTONE OUTLINE ACCORDION */
+    .outline-dark-section {
+      position: relative;
+      background: var(--track-dark);
+      background-image:
+        radial-gradient(60% 45% at 100% 20%, #134e3a 0%, transparent 70%),
+        radial-gradient(45% 35% at 12% 78%, #1e3a2f 0%, transparent 70%);
+      padding: 4.5rem 0;
+      color: #ecfdf5;
+      overflow: hidden;
+    }
+    .outline-dark-section .track-sec-heading {
+      color: #ffffff;
+    }
+    .outline-dark-section .track-sec-sub {
+      color: #a7f3d0;
+    }
+
+    .outline-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 920px;
+      margin: 0 auto 1.5rem;
+      padding: .85rem 1.25rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--track-dark-border);
+      border-radius: 12px;
+    }
+    .lang-filter-btns {
+      display: flex;
+      gap: .45rem;
+      flex-wrap: wrap;
+    }
+    .lang-view-btn {
+      font-family: var(--ff-b);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .44rem .95rem;
+      border-radius: 8px;
+      border: 1px solid var(--track-dark-border);
+      background: rgba(255, 255, 255, 0.05);
+      color: #d1fae5;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .lang-view-btn.active {
+      background: #10b981;
+      color: #052e16;
+      border-color: #10b981;
+      font-weight: 700;
+    }
+
+    .milestone-accordion {
+      max-width: 920px;
+      margin: 0 auto;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--track-dark-card);
+      border: 1px solid var(--track-dark-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .milestone-item {
+      border-bottom: 1px solid var(--track-dark-border);
+      transition: background .2s ease;
+    }
+    .milestone-item:last-child {
+      border-bottom: none;
+    }
+    .milestone-item.open {
+      background: var(--track-dark-open);
+    }
+
+    .milestone-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 1.35rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      text-align: left;
+      cursor: pointer;
+      color: #ecfdf5;
+      transition: background .15s ease;
+    }
+    .milestone-trigger:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .milestone-meta-left {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+    .milestone-badge {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #6ee7b7;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .milestone-title {
+      font-family: var(--ff-d);
+      font-size: clamp(1.15rem, 2.2vw, 1.38rem);
+      font-weight: 600;
+      color: #ffffff;
+      transition: color .2s ease;
+    }
+    .milestone-item.open .milestone-title {
+      color: #34d399;
+    }
+    .milestone-meta-right {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      flex-shrink: 0;
+      font-size: .85rem;
+      color: #a7f3d0;
+      font-weight: 500;
+    }
+    .milestone-chevron {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      transition: transform .28s ease, background .2s ease;
+    }
+    .milestone-item.open .milestone-chevron {
+      transform: rotate(180deg);
+      background: #10b981;
+      color: #052e16;
+    }
+
+    .milestone-body {
+      display: none;
+      border-top: 1px solid var(--track-dark-border);
+      background: rgba(7, 29, 21, 0.55);
+    }
+    .milestone-item.open .milestone-body {
+      display: block;
+    }
+
+    /* Single-Column Clean Class Row inside Milestone */
+    .ms-class-row {
+      display: grid;
+      grid-template-columns: 115px 1fr;
+      gap: 1.35rem;
+      padding: 1.35rem 1.75rem;
+      border-bottom: 1px solid rgba(27, 77, 58, 0.65);
+      align-items: flex-start;
+    }
+    .ms-class-row:last-child {
+      border-bottom: none;
+    }
+    .ms-class-num {
+      font-family: var(--ff-b);
+      font-size: .82rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: .42rem .7rem;
+      border-radius: 8px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .ms-class-single-body h4 {
+      font-family: var(--ff-d);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: .4rem;
+      line-height: 1.35;
+    }
+    .ms-class-single-body p {
+      font-size: .92rem;
+      color: #d1fae5;
+      line-height: 1.72;
+      opacity: .94;
+    }
+
+    /* Checkpoint Row inside Milestone */
+    .ms-checkpoint-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+      padding: 1rem 1.75rem;
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.22) 0%, rgba(16, 185, 129, 0.12) 100%);
+      border-bottom: 1px solid rgba(27, 77, 58, 0.65);
+    }
+    .ms-checkpoint-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-d);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fcd34d;
+    }
+    .ms-checkpoint-desc {
+      font-size: .86rem;
+      color: #fef3c7;
+    }
+
+    /* 5. ZIG-ZAG ANIMATED JOURNEY ROADMAP */
+    .journey-section {
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+    }
+    .journey-map-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: 2rem auto 0;
+    }
+    .journey-svg-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .journey-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3.5rem;
+    }
+    .journey-step-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-bottom: 3px solid var(--green);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .journey-step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(30, 74, 53, 0.11);
+    }
+    .journey-step-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .journey-step-icon {
+      font-size: 1.5rem;
+    }
+    .journey-step-badge {
+      padding: .3rem .75rem;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 74, 53, 0.3);
+      background: rgba(30, 74, 53, 0.08);
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .journey-step-card h3 {
+      font-family: var(--ff-d);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: .55rem;
+      line-height: 1.3;
+    }
+    .journey-step-card p {
+      font-size: .88rem;
+      color: var(--sub);
+      line-height: 1.65;
+    }
+
+    /* 6. SINGLE-TABLE SESSION DURATION & TIME GUIDANCE CARD */
+    .session-notes-card {
+      max-width: 920px;
+      margin: 1rem auto 4rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
+    }
+    .session-list {
+      list-style: none;
+      margin-top: .85rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .65rem;
+    }
+    .session-list li {
+      font-size: .92rem;
+      color: var(--fg);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: .65rem .95rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .session-list li::before {
+      content: '⏱️';
+      font-size: .9rem;
+    }
+
+    /* ── Clean Single-Language Visibility Rules (English vs Bahasa Indonesia) ── */
+    body.lang-en .lang-id {
+      display: none !important;
+    }
+    body.lang-id .lang-en {
+      display: none !important;
+    }
+    /* ── Payment Modal Language Visibility (Defaults to Bahasa Indonesia) ── */
+    .pay-modal-card.modal-lang-id .m-lang-en {
+      display: none !important;
+    }
+    .pay-modal-card.modal-lang-en .m-lang-id {
+      display: none !important;
+    }
+    .modal-lang-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 3px;
+      border-radius: 99px;
+      margin-bottom: .75rem;
+    }
+    .modal-lang-btn {
+      font-family: var(--ff-b);
+      font-size: .74rem;
+      font-weight: 700;
+      padding: .32rem .75rem;
+      border-radius: 99px;
+      border: none;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .modal-lang-btn.active {
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(30, 74, 53, 0.2);
+    }
+
+    /* ── Course Registration & Payment Modal (Bank Transfer / QR Code) ── */
+    .pay-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 29, 21, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      overflow-y: auto;
+    }
+    .pay-modal-overlay.active {
+      display: flex;
+    }
+    .pay-modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--green);
+      border-radius: 20px;
+      padding: 2rem 1.85rem;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      animation: payModalPop .22s ease-out;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    @keyframes payModalPop {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .pay-modal-close {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.1rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--sub);
+      font-size: .95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s ease;
+    }
+    .pay-modal-close:hover {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fca5a5;
+    }
+    .pay-method-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .65rem;
+      margin: 1.25rem 0;
+      background: #f1f5f9;
+      padding: .4rem;
+      border-radius: 14px;
+    }
+    .pay-method-tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .75rem .9rem;
+      border-radius: 10px;
+      border: 1.5px solid transparent;
+      background: transparent;
+      font-family: var(--ff-b);
+      font-size: .88rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+    .pay-method-tab:hover {
+      color: var(--green);
+    }
+    .pay-method-tab.active {
+      background: #ffffff;
+      color: var(--green);
+      border-color: rgba(30, 74, 53, 0.25);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+    .pay-panel {
+      display: none;
+    }
+    .pay-panel.active {
+      display: block;
+    }
+    .bank-detail-box {
+      background: linear-gradient(145deg, #f8fafc 0%, #f0fdf4 100%);
+      border: 1.5px solid rgba(30, 74, 53, 0.22);
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem;
+      margin-bottom: 1.15rem;
+    }
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .65rem 0;
+      border-bottom: 1px dashed rgba(30, 74, 53, 0.16);
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    .bank-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .bank-row:first-child {
+      padding-top: 0;
+    }
+    .bank-lbl {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .bank-val {
+      font-size: .98rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .bank-acc-num {
+      font-family: monospace;
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: .05em;
+    }
+    .copy-acc-btn {
+      font-family: var(--ff-b);
+      font-size: .74rem;
+      font-weight: 700;
+      padding: .32rem .7rem;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 74, 53, 0.3);
+      background: #ffffff;
+      color: var(--green);
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .copy-acc-btn:hover {
+      background: var(--green);
+      color: #ffffff;
+    }
+    .qr-display-box {
+      background: #ffffff;
+      border: 1.5px solid rgba(30, 74, 53, 0.22);
+      border-radius: 16px;
+      padding: 1.35rem;
+      text-align: center;
+      margin-bottom: 1.15rem;
+      box-shadow: inset 0 0 0 4px #f0fdf4;
+    }
+    .qr-frame {
+      width: 100%;
+      max-width: 310px;
+      margin: .65rem auto .75rem;
+      background: #ffffff;
+      border: 2px solid #0284c7;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+    }
+    .qr-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .pay-bottom-cta-card {
+      max-width: 920px;
+      margin: 0 auto 4rem;
+      background: linear-gradient(135deg, #071d15 0%, #134e3a 100%);
+      border: 1px solid var(--track-dark-border);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      box-shadow: 0 16px 40px rgba(7, 29, 21, 0.18);
+    }
+
+    @media (max-width: 900px) {
+      .who-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .ecosystem-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .journey-svg-bg,
+      .journey-spacer {
+        display: none;
+      }
+      .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+    }
+
+    /* ── Sticky Header Override (Prevents Fixed Header Overlap on Android Font Scaling) ── */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    .course-nav {
+      position: sticky !important;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+    }
+    .track-hero {
+      padding: 3.25rem 0 6.5rem;
+    }
+
+    /* ── Mobile & Indonesian Android / Chinese Smartphone Optimization (320px–768px) ── */
+    @media (max-width: 768px) {
+      .course-nav,
+      .who-glass-wrap,
+      .pay-modal-overlay {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .course-nav {
+        background: #ffffff !important;
+        padding: .65rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .who-glass-wrap {
+        background: #ffffff !important;
+        padding: 1.5rem 1.1rem;
+        border-radius: 18px;
+      }
+      .course-nav-inner {
+        flex-wrap: wrap;
+        gap: .5rem;
+        justify-content: space-between;
+      }
+      .course-nav-brand > div {
+        display: none;
+      }
+      .course-nav-brand img {
+        width: 34px !important;
+        height: 34px !important;
+      }
+      .course-nav-actions {
+        width: 100%;
+        justify-content: space-between;
+        gap: .45rem !important;
+      }
+      .track-hero {
+        padding: 2rem 0 4.5rem;
+      }
+      .track-eyebrow-pill {
+        font-size: .68rem;
+        padding: .32rem .75rem;
+        letter-spacing: .04em;
+        line-height: 1.35;
+        white-space: normal;
+        text-align: center;
+      }
+      .track-hero-title {
+        font-size: clamp(1.65rem, 6.5vw, 2.25rem);
+        line-height: 1.22;
+        margin-bottom: 1rem;
+      }
+      .purpose-box {
+        padding: 1.15rem 1.1rem;
+        border-radius: 14px;
+      }
+      .purpose-box p {
+        font-size: .92rem;
+        line-height: 1.65;
+      }
+      .track-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .65rem;
+      }
+      .track-stat-item {
+        padding: .9rem .75rem;
+      }
+      .track-stat-num {
+        font-size: 1.4rem;
+      }
+      .who-section {
+        margin-top: -2.25rem;
+        padding-bottom: 2.75rem;
+      }
+      .who-grid,
+      .ecosystem-grid,
+      .session-list {
+        grid-template-columns: 1fr;
+        gap: .9rem;
+      }
+      .ecosystem-section,
+      .outline-section,
+      .journey-section {
+        padding: 3rem 0;
+      }
+      .ms-class-row {
+        grid-template-columns: 1fr;
+        gap: .65rem;
+        padding: 1.1rem 1rem;
+      }
+      .ms-class-num {
+        width: fit-content;
+      }
+      .milestone-trigger {
+        padding: 1rem .95rem;
+        gap: .65rem;
+      }
+      .milestone-meta-left {
+        gap: .45rem;
+      }
+      .milestone-badge {
+        font-size: .66rem;
+        padding: .28rem .58rem;
+      }
+      .milestone-title {
+        font-size: .96rem;
+        line-height: 1.35;
+      }
+      .ms-checkpoint-row {
+        padding: 1.1rem 1rem !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: .85rem !important;
+      }
+      .ms-checkpoint-row .ms-checkpoint-badge {
+        font-size: 1rem !important;
+        line-height: 1.35;
+      }
+      .ms-checkpoint-row .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        flex-shrink: 1 !important;
+        white-space: normal !important;
+        word-break: break-word;
+        line-height: 1.35 !important;
+        padding: .78rem 1rem !important;
+        font-size: .82rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 10px !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+      .session-notes-card {
+        padding: 1.35rem 1.1rem;
+        margin: .5rem auto 2rem;
+      }
+      .pay-bottom-cta-card {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 1.15rem !important;
+        padding: 1.45rem 1.15rem !important;
+        margin: 0 auto 2.5rem !important;
+        border-radius: 16px !important;
+        text-align: left;
+        box-sizing: border-box;
+      }
+      .pay-bottom-cta-card > div {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .pay-bottom-cta-card .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        flex-shrink: 1 !important;
+        white-space: normal !important;
+        word-break: break-word;
+        line-height: 1.35 !important;
+        padding: .85rem 1rem !important;
+        font-size: .82rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 12px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        min-height: 48px;
+      }
+    }
+
+    /* ── Narrow 320px–600px Android Screens ── */
+    @media (max-width: 600px) {
+      .track-container {
+        padding: 0 .9rem;
+      }
+      .header-lang-switcher {
+        flex: 1;
+        display: flex;
+      }
+      .header-lang-btn {
+        flex: 1;
+        text-align: center;
+        padding: .36rem .4rem;
+        font-size: .71rem;
+      }
+      .course-nav-actions .btn {
+        padding: .42rem .7rem !important;
+        font-size: .72rem !important;
+        white-space: nowrap;
+      }
+      .hero-lang-bar {
+        display: flex;
+        width: 100%;
+        max-width: 360px;
+        border-radius: 14px;
+        padding: .35rem;
+        gap: .35rem;
+      }
+      .hero-lang-lbl {
+        display: none;
+      }
+      .hero-lang-pill {
+        flex: 1;
+        text-align: center;
+        padding: .45rem .5rem;
+        font-size: .78rem;
+      }
+      .track-cta-bar {
+        flex-direction: column;
+        width: 100%;
+        gap: .65rem;
+      }
+      .track-cta-bar .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        line-height: 1.35 !important;
+        padding: .78rem 1rem !important;
+        font-size: .8rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 10px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        min-height: 46px;
+      }
+      .outline-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .55rem;
+      }
+      .outline-toolbar > div {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: .45rem !important;
+      }
+      .lang-view-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: .5rem .45rem;
+        font-size: .73rem;
+        white-space: nowrap;
+      }
+      .course-track-tabs {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .course-track-tab {
+        flex: 1;
+        text-align: center;
+        font-size: .7rem;
+        padding: .32rem .4rem;
+      }
+      .milestone-meta-right > span:not(.milestone-chevron) {
+        display: none;
+      }
+      .journey-step-card {
+        padding: 1.2rem 1.05rem;
+      }
+      .pay-modal-card .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        line-height: 1.35 !important;
+        padding: .75rem .9rem !important;
+        font-size: .8rem !important;
+        letter-spacing: .03em !important;
+        border-radius: 10px !important;
+      }
+      .pay-modal-overlay {
+        align-items: flex-end;
+        padding: 0;
+        background: rgba(7, 29, 21, 0.72);
+      }
+      .pay-modal-card {
+        border-radius: 20px 20px 0 0;
+        max-width: 100%;
+        max-height: 92vh;
+        max-height: 92dvh;
+        padding: 1.25rem 1rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+      }
+      .pay-method-tabs {
+        gap: .45rem;
+      }
+      .pay-method-tab {
+        padding: .65rem .5rem;
+        font-size: .78rem;
+      }
+      .bank-detail-box {
+        padding: .9rem .85rem;
+      }
+      .bank-acc-num {
+        font-size: 1.05rem;
+        word-break: break-all;
+      }
+      .copy-acc-btn {
+        padding: .42rem .7rem;
+        font-size: .74rem;
+      }
+      .qr-display-box {
+        padding: .95rem .75rem;
+      }
+      .qr-frame {
+        max-width: min(250px, 72vw);
+        padding: .45rem;
+      }
+      #payStudentName,
+      #payStudentNameId {
+        font-size: 16px !important;
+      }
+    }
+
+    @media (max-width: 359px) {
+      .track-stats-row {
+        grid-template-columns: 1fr;
+      }
+      .course-nav-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .course-nav-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="course-page lang-en">
+
+  <!-- Top Navigation (Sticky with Course Track Switcher & Simple 2-Button Language Toggle) -->
+  <header class="course-nav">
+    <div class="wrap course-nav-inner">
+      <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;">
+        <a href="index.html" class="back-link">
+          <span class="back-arrow" aria-hidden="true">←</span>
+          <span class="lang-en">Back to Portfolio</span>
+          <span class="lang-id">Kembali ke Portofolio</span>
+        </a>
+        <div class="course-track-tabs" role="navigation" aria-label="Course Curriculum Switcher">
+          <a href="curriculum.html" class="course-track-tab">
+            <span class="lang-en">01 · Pre-Tajweed</span>
+            <span class="lang-id">01 · Pra-Tajwid</span>
+          </a>
+          <a href="tajweed-curriculum.html" class="course-track-tab active" aria-current="page">
+            <span class="lang-en">02 · Tajweed</span>
+            <span class="lang-id">02 · Kelas Tajwid</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="course-nav-brand" style="display:flex;align-items:center;gap:.55rem;">
+        <img src="sumiyati-logo.png?v=4" alt="Quran with Sumiyati Logo" style="width:42px;height:42px;object-fit:contain;" />
+        <div>
+          <span class="tag lang-en">Official Track Syllabus</span>
+          <span class="tag lang-id">Kurikulum Resmi Kelas Tajwid</span>
+          <span class="brand-name">Tajweed Class · Sumiyati</span>
+        </div>
+      </div>
+
+      <div class="course-nav-actions" style="display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;">
+        <div class="header-lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" class="header-lang-btn js-lang-btn active" data-lang="en" onclick="setCurrLang('en')">
+            🇬🇧 English
+          </button>
+          <button type="button" class="header-lang-btn js-lang-btn" data-lang="id" onclick="setCurrLang('id')">
+            🇮🇩 Bahasa Indonesia
+          </button>
+        </div>
+
+        <button type="button" class="btn btn-primary" style="padding:.45rem .95rem;font-size:.74rem;cursor:pointer;" onclick="openPaymentModal()">
+          <span class="lang-en">💳 Enroll / Pay for Class</span>
+          <span class="lang-id">💳 Daftar &amp; Pembayaran</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. PHITRON-STYLE TRACK HERO + 4 STAT COUNTERS -->
+  <section class="track-hero">
+    <div class="track-container">
+      <div>
+        <span class="track-eyebrow-pill lang-en">📜 Tajweed Theory &amp; Recitation Track · Tajweed Class Curriculum</span>
+        <span class="track-eyebrow-pill lang-id">📜 Kurikulum Resmi Kelas Tajwid · Bersama Ustadzah Sumiyati</span>
+      </div>
+
+      <h1 class="track-hero-title lang-en">
+        Master <span class="track-title-shine">Tajweed Principles &amp; Practice</span> in Qur'an Recitation
+      </h1>
+      <h1 class="track-hero-title lang-id">
+        Kuasai <span class="track-title-shine">Kaidah Ilmu Tajwid &amp; Praktik</span> Membaca Al-Qur'an
+      </h1>
+
+      <!-- Prominent 2-Button Hero Language Toggle Bar -->
+      <div class="hero-lang-bar" role="group" aria-label="Select Curriculum Language">
+        <span class="hero-lang-lbl lang-en">Language:</span>
+        <span class="hero-lang-lbl lang-id">Bahasa:</span>
+        <button type="button" class="hero-lang-pill js-lang-btn active" data-lang="en" onclick="setCurrLang('en')">
+          🇬🇧 English
+        </button>
+        <button type="button" class="hero-lang-pill js-lang-btn" data-lang="id" onclick="setCurrLang('id')">
+          🇮🇩 Bahasa Indonesia
+        </button>
+      </div>
+
+      <!-- Single Purpose Card (Switches cleanly between English and Bahasa Indonesia) -->
+      <div class="purpose-single-wrap">
+        <div class="purpose-box lang-en">
+          <h2>The Purpose of This Class</h2>
+          <p>
+            The Tajweed Class is designed to help students gradually understand the rules and principles of Tajweed and apply them correctly when reading the Qur’an. The lessons do not focus solely on theoretical understanding but also include direct Qur’an reading practice to improve and refine the accuracy of their recitation.
+          </p>
+          <p>
+            Through a combination of theory and practice, students will understand the reasoning behind different recitation rules, recognize how these rules are applied in Qur’anic verses, and develop the habit of reading the Qur’an according to the Tajweed rules they have learned. In this way, Tajweed is not merely understood as a set of theoretical rules, but becomes a practical guide that helps students read the Qur’an well and correctly.
+          </p>
+        </div>
+
+        <div class="purpose-box lang-id">
+          <h2>Tujuan dari Kelas Ini</h2>
+          <p>
+            Kelas Tajwid merupakan kelas yang dirancang untuk membantu murid memahami kaidah-kaidah ilmu tajwid secara bertahap serta mampu menerapkannya dalam membaca Al-Qur’an. Pembelajaran tidak hanya berfokus pada pemahaman teori, tetapi juga disertai dengan praktik membaca Al-Qur’an secara langsung untuk memperbaiki bacaan.
+          </p>
+          <p>
+            Melalui pembelajaran teori dan praktik, murid akan memahami alasan di balik suatu hukum bacaan, mengenali penerapannya dalam ayat-ayat Al-Qur’an, serta membiasakan diri membaca sesuai dengan kaidah tajwid yang telah dipelajari. Dengan demikian, ilmu tajwid tidak hanya dipahami sebagai teori, tetapi menjadi pedoman yang membantu murid membaca Al-Qur’an dengan baik dan benar.
+          </p>
+        </div>
+      </div>
+
+      <!-- Primary CTA Buttons -->
+      <div class="track-cta-bar">
+        <button type="button" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;cursor:pointer;" onclick="openPaymentModal()">
+          <span class="lang-en">💳 Enroll in Tajweed Class →</span>
+          <span class="lang-id">💳 Daftar Kelas Tajwid Sekarang →</span>
+        </button>
+        <a href="#complete-outline" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;">
+          <span class="lang-en">📋 Explore 5 Milestones &amp; 15 Chapters ↓</span>
+          <span class="lang-id">📋 Lihat 5 Milestone &amp; 15 Bab ↓</span>
+        </a>
+      </div>
+
+      <!-- 4 Big Stat Counters -->
+      <div class="track-stats-row">
+        <div class="track-stat-item">
+          <span class="track-stat-num c-emerald">15</span>
+          <span class="track-stat-lbl lang-en">Structured Tajweed Chapters</span>
+          <span class="track-stat-lbl lang-id">Bab Ilmu Tajwid &amp; Praktik</span>
+        </div>
+        <div class="track-stat-item">
+          <span class="track-stat-num c-gold">5</span>
+          <span class="track-stat-lbl lang-en">Structured Learning Milestones</span>
+          <span class="track-stat-lbl lang-id">Tahapan Milestone Belajar</span>
+        </div>
+        <div class="track-stat-item">
+          <span class="track-stat-num c-green">5 + 1</span>
+          <span class="track-stat-lbl lang-en">Checkpoints &amp; Final Exam</span>
+          <span class="track-stat-lbl lang-id">Evaluasi Checkpoint &amp; Ujian Akhir</span>
+        </div>
+        <div class="track-stat-item">
+          <span class="track-stat-num c-indigo">1-on-1</span>
+          <span class="track-stat-lbl lang-en">Theory + Direct Talaqqi</span>
+          <span class="track-stat-lbl lang-id">Teori &amp; Praktik Talaqqi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="track-container">
+
+    <!-- 2. WHO IS THIS TRACK FOR? (4 Persona Cards) -->
+    <section class="who-section" aria-label="Who Is This Track For">
+      <div class="who-glass-wrap">
+        <h2 class="track-sec-heading lang-en">Who Is This Track For?</h2>
+        <h2 class="track-sec-heading lang-id">Kelas Tajwid Ini Dirancang Untuk Siapa?</h2>
+
+        <p class="track-sec-sub lang-en">
+          Designed for students who can already read the Qur'an and want to understand the principles of Tajweed deeply while applying them accurately in recitation.
+        </p>
+        <p class="track-sec-sub lang-id">
+          Dirancang bagi murid yang ingin memahami kaidah-kaidah ilmu tajwid secara bertahap sekaligus mempraktikkannya langsung dalam bacaan Al-Qur'an.
+        </p>
+
+        <div class="who-grid">
+          <article class="who-card">
+            <div class="who-icon">📘</div>
+            <h3 class="lang-en">Pre-Tajweed Graduates</h3>
+            <h3 class="lang-id">Lulusan Kelas Pra-Tajwid</h3>
+            <p class="lang-en">Students who have built reading fluency and are ready to understand the theoretical rules and reasoning behind each recitation ruling.</p>
+            <p class="lang-id">Murid yang sudah lancar membaca dan siap mendalami alasan serta kaidah ilmu tajwid di balik setiap hukum bacaan.</p>
+          </article>
+
+          <article class="who-card">
+            <div class="who-icon">⚖️</div>
+            <h3 class="lang-en">Theory + Direct Application</h3>
+            <h3 class="lang-id">Kombinasi Teori &amp; Praktik</h3>
+            <p class="lang-en">Learners who want Tajweed to be a living, practical guide when reciting the Mushaf rather than dry memorization of definitions.</p>
+            <p class="lang-id">Pembelajar yang ingin menjadikan ilmu tajwid sebagai pedoman praktik nyata saat membaca Al-Qur'an, bukan sekadar hafalan teori.</p>
+          </article>
+
+          <article class="who-card">
+            <div class="who-icon">🎙️</div>
+            <h3 class="lang-en">Makhraj &amp; Sifat Precision</h3>
+            <h3 class="lang-id">Ketepatan Makhraj &amp; Sifat Huruf</h3>
+            <p class="lang-en">Readers aiming to refine general &amp; specific makharij, opposing &amp; non-opposing sifat al-huruf, tafkhim/tarqiq, and waqf/ibtida'.</p>
+            <p class="lang-id">Murid yang ingin menyempurnakan makhraj umum/spesifik, sifat huruf berlawanan &amp; tak berlawanan, tafkhim/tarqiq, serta waqaf/ibtida'.</p>
+          </article>
+
+          <article class="who-card">
+            <div class="who-icon">🎓</div>
+            <h3 class="lang-en">Future Teachers &amp; Hafizh</h3>
+            <h3 class="lang-id">Calon Pengajar &amp; Penghafal</h3>
+            <p class="lang-en">Students preparing for Sanad, Tahfiz, or teaching others who need a solid grasp of Tajweed evidence, terminology, and application.</p>
+            <p class="lang-id">Peserta yang mempersiapkan diri untuk Tahfizh, pengambilan sanad, maupun mengajar Al-Qur'an dengan landasan tajwid yang kokoh.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. LEARNING ECOSYSTEM (6-Card Feature Grid) -->
+    <section class="ecosystem-section" aria-label="Learning Ecosystem">
+      <h2 class="track-sec-heading lang-en">How the Tajweed Class Works</h2>
+      <h2 class="track-sec-heading lang-id">Sistem Pembelajaran Kelas Tajwid</h2>
+
+      <p class="track-sec-sub lang-en">
+        Structured across 5 progressive Milestones with 5 Checkpoints and a comprehensive Final Test.
+      </p>
+      <p class="track-sec-sub lang-id">
+        Tersusun dalam 5 Milestone bertahap dilengkapi 5 evaluasi Checkpoint dan Final Test komprehensif.
+      </p>
+
+      <div class="ecosystem-grid">
+        <div class="eco-card">
+          <div class="eco-icon">📖</div>
+          <div class="eco-title lang-en">Structured Theory &amp; Dalil</div>
+          <div class="eco-title lang-id">Pemahaman Kaidah &amp; Landasan</div>
+          <div class="eco-desc lang-en">Understand the definition, legal basis, and reasoning behind every Tajweed ruling clearly and systematically.</div>
+          <div class="eco-desc lang-id">Memahami pengertian, dalil landasan hukum, serta alasan di balik setiap kaidah bacaan secara bertahap dan sistematis.</div>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-icon">🗣️</div>
+          <div class="eco-title lang-en">Direct Qur'anic Verse Practice</div>
+          <div class="eco-title lang-id">Praktik Langsung pada Ayat Al-Qur'an</div>
+          <div class="eco-desc lang-en">Every theoretical chapter is paired with direct oral recitation practice to build lasting accuracy and habit.</div>
+          <div class="eco-desc lang-id">Setiap pembahasan teori langsung disertai latihan membaca ayat-ayat Al-Qur'an untuk memperbaiki dan membiasakan bacaan.</div>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-icon">🎯</div>
+          <div class="eco-title lang-en">5 Milestone Checkpoints</div>
+          <div class="eco-title lang-id">5 Evaluasi Checkpoint Bertahap</div>
+          <div class="eco-desc lang-en">Dedicated checkpoints after each milestone verify both your conceptual understanding and oral application.</div>
+          <div class="eco-desc lang-id">Evaluasi berkala di setiap akhir milestone untuk menguji pemahaman kaidah sekaligus ketepatan praktik bacaan.</div>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-icon">🔍</div>
+          <div class="eco-title lang-en">Lahn (Mistake) Correction</div>
+          <div class="eco-title lang-id">Koreksi Kesalahan Bacaan (Lahn)</div>
+          <div class="eco-desc lang-en">Learn to identify and avoid common recitation mistakes (lahn jali &amp; lahn khafi) with 1-on-1 teacher guidance.</div>
+          <div class="eco-desc lang-id">Mengenali dan memperbaiki jenis-jenis kesalahan yang sering terjadi dalam membaca Al-Qur'an secara langsung bersama Ustadzah.</div>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-icon">🛑</div>
+          <div class="eco-title lang-en">Waqf, Ibtida' &amp; Gharib Mastery</div>
+          <div class="eco-title lang-id">Penguasaan Waqf, Ibtida' &amp; Gharib</div>
+          <div class="eco-desc lang-en">Preserve the completeness of Qur'anic meaning through proper pausing/resuming rules and special recitations.</div>
+          <div class="eco-desc lang-id">Menjaga kesempurnaan makna ayat melalui ketepatan berhenti/memulai kembali (ibtida') serta penguasaan lafaz Gharibul Qur'an.</div>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-icon">🎓</div>
+          <div class="eco-title lang-en">Final Test &amp; Official Certificate</div>
+          <div class="eco-title lang-id">Final Test &amp; Sertifikat Resmi</div>
+          <div class="eco-desc lang-en">Complete the Final Test covering all 15 chapters to receive your verified Tajweed Class Certificate from Ustadzah Sumiyati.</div>
+          <div class="eco-desc lang-id">Lulus ujian akhir (Final Test) seluruh bab untuk memperoleh Sertifikat Kelulusan Kelas Tajwid dari Ustadzah Sumiyati.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 4. PHITRON-STYLE DARK COLLAPSIBLE MILESTONE OUTLINE ACCORDION (SINGLE TABLE PER LANGUAGE) -->
+  <section class="outline-dark-section" id="complete-outline">
+    <div class="track-container">
+      <h2 class="track-sec-heading lang-en">Complete Tajweed Class Curriculum Outline</h2>
+      <h2 class="track-sec-heading lang-id">Rincian Lengkap Kurikulum Kelas Tajwid</h2>
+
+      <p class="track-sec-sub lang-en">
+        5 Milestones · 15 Theory &amp; Practice Chapters · 5 Milestone Checkpoints · 1 Comprehensive Final Test
+      </p>
+      <p class="track-sec-sub lang-id">
+        5 Milestone · 15 Bab Teori &amp; Praktik · 5 Evaluasi Checkpoint · 1 Ujian Akhir (Final Test)
+      </p>
+
+      <!-- 2-Button Language Toggle & Expand/Collapse Toolbar -->
+      <div class="outline-toolbar">
+        <div class="lang-filter-btns" role="group" aria-label="Curriculum Language View">
+          <button type="button" class="lang-view-btn js-lang-btn active" data-lang="en" onclick="setCurrLang('en')">🇬🇧 English</button>
+          <button type="button" class="lang-view-btn js-lang-btn" data-lang="id" onclick="setCurrLang('id')">🇮🇩 Bahasa Indonesia</button>
+        </div>
+        <div style="display:flex;gap:.5rem;">
+          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(true)">
+            <span class="lang-en">➕ Expand All Milestones</span>
+            <span class="lang-id">➕ Buka Semua Milestone</span>
+          </button>
+          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(false)">
+            <span class="lang-en">➖ Collapse All</span>
+            <span class="lang-id">➖ Tutup Semua</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MILESTONE ACCORDION CONTAINER (ONE CLEAN SINGLE-COLUMN TABLE) -->
+      <div class="milestone-accordion">
+
+        <!-- ================= MILESTONE 01 (Chapters 01–04 + Checkpoint 1) ================= -->
+        <div class="milestone-item open" id="ms-01">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-01')" aria-expanded="true">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">
+                <span class="lang-en">Milestone 01 · Chapters 01–04</span>
+                <span class="lang-id">Milestone 01 · Bab 01–04</span>
+              </span>
+              <span class="milestone-title lang-en">Virtues of the Qur'an, Adab, Introduction to Tajweed &amp; Isti'adzah / Basmallah</span>
+              <span class="milestone-title lang-id">Keutamaan Belajar Al-Qur'an, Adab Membaca, Pengantar Ilmu Tajwid &amp; Isti'adzah / Basmalah</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span class="lang-en">4 Chapters + Checkpoint 1</span>
+              <span class="lang-id">4 Bab + Checkpoint 1</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Chapter 01 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 01</span>
+                <span class="lang-id">Bab 01</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>The Virtues of Learning the Qur’an</h4>
+                  <p>In this chapter, students will study several Qur’anic ayah and hadiths about the virtues of engaging with the Qur’an. The discussion will cover the virtues of studying, reading, memorizing, teaching, and practicing the Qur’an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Keutamaan Belajar Al-Qur'an</h4>
+                  <p>Pada bab ini, murid akan mempelajari beberapa ayat Al-Qur’an dan hadis tentang keutamaan berinteraksi dengan Al-Qur’an. Pembahasan mencakup keutamaan mempelajari, membaca, menghafal, mengajarkan, dan mengamalkan Al-Qur’an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 02 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 02</span>
+                <span class="lang-id">Bab 02</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Manners When Reading the Qur’an</h4>
+                  <p>In this chapter, students will learn about the proper manners (adab) that should be observed when reading and learning the Qur'an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Adab Membaca Al-Qur'an</h4>
+                  <p>Pada bab ini, murid akan mempelajari apa saja adab yang harus diperhatikan ketika membaca dan belajar Al-Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 03 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 03</span>
+                <span class="lang-id">Bab 03</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Introduction to Tajwid of the Qur’an</h4>
+                  <p>In this chapter, students will learn the definition of tajwid, the evidence and legal basis underlying the importance of studying tajwid, as well as the types of mistakes commonly made when reading the Qur'an. This material aims to build students' fundamental understanding of why tajwid needs to be studied.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Pengantar Ilmu Tajwid</h4>
+                  <p>Pada bab ini, siswa akan mempelajari pengertian ilmu tajwid, dalil dan landasan hukum yang mendasari pentingnya mempelajari ilmu tajwid, serta jenis-jenis kesalahan yang sering terjadi dalam membaca Al-Qur'an. Materi ini bertujuan untuk membangun pemahaman dasar siswa mengenai mengapa ilmu tajwid perlu dipelajari.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 04 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 04</span>
+                <span class="lang-id">Bab 04</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Seeking Refuge and Saying Basmallah (Isti'adzah &amp; Basmallah)</h4>
+                  <p>In this section, students will learn the recitation of isti'adzah (ta'awudz) and basmalah, which are recited before beginning to read the Qur'an. Students will learn to pronounce both correctly, understand when each is recited, and recognize how to read them when connected to the beginning of a surah, whether through washal (continuous recitation) or waqaf (stopping).</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Isti'adzah dan Basmallah</h4>
+                  <p>Pada bagian ini, siswa akan mempelajari bacaan isti'adzah (ta'awudz) dan basmalah, yaitu bacaan yang diucapkan sebelum memulai membaca Al-Qur'an. Siswa akan belajar melafalkan kedua bacaan tersebut dengan benar, memahami kapan keduanya dibaca, serta mengenali cara membacanya ketika bersambung dengan awal surah, baik dengan cara washal (disambung) maupun waqaf (dihentikan).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 1 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 1</div>
+              <div class="ms-checkpoint-desc lang-en">Milestone 1 Evaluation: Virtues, Adab, Introduction to Tajweed &amp; Isti'adzah / Basmallah (Chapters 01–04)</div>
+              <div class="ms-checkpoint-desc lang-id">Evaluasi Milestone 1: Keutamaan Al-Qur'an, Adab, Pengantar Ilmu Tajwid &amp; Isti'adzah / Basmallah (Bab 01–04)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MILESTONE 02 (Chapters 05–06 + Checkpoint 2) ================= -->
+        <div class="milestone-item" id="ms-02">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-02')" aria-expanded="false">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">
+                <span class="lang-en">Milestone 02 · Chapters 05–06</span>
+                <span class="lang-id">Milestone 02 · Bab 05–06</span>
+              </span>
+              <span class="milestone-title lang-en">Articulation Points of Letters (Makhraj Huruf) &amp; Rules of Lam Ta'rif (Shamsiyyah &amp; Qamariyyah)</span>
+              <span class="milestone-title lang-id">Makhroj Huruf &amp; Hukum Lam Ta’rif (Syamsiyyah dan Qamariyyah)</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span class="lang-en">2 Chapters + Checkpoint 2</span>
+              <span class="lang-id">2 Bab + Checkpoint 2</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Chapter 05 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 05</span>
+                <span class="lang-id">Bab 05</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>The Articulation Point of the Letters (Makhraj Huruf)</h4>
+                  <p>In this section, students will learn about the makhraj huruf, which are the points of articulation where letters originate. Students will learn about the number of makhraj, both general and specific, as well as how to pronounce each letter correctly.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Makhroj Huruf</h4>
+                  <p>Pada bagian ini, siswa akan mempelajari makhraj huruf, yaitu tempat-tempat keluarnya huruf. Siswa akan belajar mengenai jumlah makhraj huruf baik secara umum maupun spesifik, serta belajar bagaimana cara mengucapkannya.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 06 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 06</span>
+                <span class="lang-id">Bab 06</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>The Rules of Shamsiyyah and Qamariyyah “Al” (Lam Ta’rif)</h4>
+                  <p>In this chapter, students will learn about alif lam qamariyah and syamsiyah, including their characteristics and how to read them.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Lam Ta’rif Shamsiyyah dan Qamariyyah</h4>
+                  <p>Pada bab ini, siswa akan belajar tentang alif lam qamariyah dan syamsiyah, apa saja ciri-cirinya, dan bagaimana cara membacanya.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 2 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 2</div>
+              <div class="ms-checkpoint-desc lang-en">Milestone 2 Evaluation: Makhraj Huruf &amp; Lam Ta'rif Shamsiyyah / Qamariyyah (Chapters 05–06)</div>
+              <div class="ms-checkpoint-desc lang-id">Evaluasi Milestone 2: Makhroj Huruf &amp; Lam Ta’rif Shamsiyyah / Qamariyyah (Bab 05–06)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MILESTONE 03 (Chapters 07–09 + Checkpoint 3) ================= -->
+        <div class="milestone-item" id="ms-03">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-03')" aria-expanded="false">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">
+                <span class="lang-en">Milestone 03 · Chapters 07–09</span>
+                <span class="lang-id">Milestone 03 · Bab 07–09</span>
+              </span>
+              <span class="milestone-title lang-en">Noon Sakinah &amp; Tanween Rules, Miim Sakinah Rules &amp; Rules of Elongation (Madd)</span>
+              <span class="milestone-title lang-id">Hukum Nun Sukun &amp; Tanwin, Hukum Mim Sukun &amp; Hukum Bacaan Mad</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span class="lang-en">3 Chapters + Checkpoint 3</span>
+              <span class="lang-id">3 Bab + Checkpoint 3</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Chapter 07 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 07</span>
+                <span class="lang-id">Bab 07</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>The Noon Sakinah and Tanween Rules</h4>
+                  <p>In this chapter, students will learn the rulings of nun sukun and tanwin when they meet certain Hijaiyah letters, namely izhar, idgham, iqlab, and ikhfa. Students will learn to recognize the letters included in each ruling, understand how to read them, and apply them when reading verses of the Qur'an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Hukum Nun Sukun dan Tanwin</h4>
+                  <p>Pada bab ini, siswa akan mempelajari hukum bacaan nun sukun dan tanwin ketika bertemu dengan huruf-huruf hijaiyah, yaitu izhar, idgham, iqlab, dan ikhfa. Siswa akan belajar mengenali huruf-huruf yang termasuk dalam setiap hukum bacaan tersebut, memahami cara membacanya masing-masing, serta berlatih menerapkannya saat membaca kata atau ayat Al-Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 08 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 08</span>
+                <span class="lang-id">Bab 08</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>The Miim Sakinah Rules</h4>
+                  <p>In this chapter, students will learn the rulings of meem sukun when it meets certain Hijaiyah letters, namely idgham mitslain, ikhfa syafawi, and izhar syafawi. Students will learn to recognize the letters included in each ruling, understand how to read them, and apply them when reading verses of the Qur'an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Hukum Mim Sukun</h4>
+                  <p>Pada bab ini, siswa akan mempelajari hukum bacaan mim sukun ketika bertemu dengan huruf-huruf hijaiyah, yaitu idgham mitslain, ikhfa syafawi, dan izhar syafawi. Siswa akan belajar mengenali huruf-huruf yang termasuk dalam setiap hukum bacaan tersebut, memahami cara membacanya, dan menerapkannya saat membaca ayat Al-Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 09 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 09</span>
+                <span class="lang-id">Bab 09</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>The Rules of Elongation (Madd)</h4>
+                  <p>In this section, students will learn the definition of mad, the classification of mad, the causes of each type of mad, as well as the number of harakat read in each mad ruling. Students will also practice applying these mad readings in verses of the Qur'an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Mad</h4>
+                  <p>Pada bagian ini, siswa akan mempelajari pengertian mad, pembagian mad, sebab-sebab terjadinya setiap jenis mad, serta jumlah harakat yang dibaca pada setiap hukum mad. Siswa juga akan berlatih menerapkan bacaan mad tersebut dalam ayat Al-Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 3 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 3</div>
+              <div class="ms-checkpoint-desc lang-en">Milestone 3 Evaluation: Noon Sakinah &amp; Tanween, Miim Sakinah &amp; Madd Rules (Chapters 07–09)</div>
+              <div class="ms-checkpoint-desc lang-id">Evaluasi Milestone 3: Hukum Nun Sukun &amp; Tanwin, Mim Sukun &amp; Hukum Mad (Bab 07–09)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MILESTONE 04 (Chapters 10–13 + Checkpoint 4) ================= -->
+        <div class="milestone-item" id="ms-04">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-04')" aria-expanded="false">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">
+                <span class="lang-en">Milestone 04 · Chapters 10–13</span>
+                <span class="lang-id">Milestone 04 · Bab 10–13</span>
+              </span>
+              <span class="milestone-title lang-en">Characteristics of Letters (Sifat Huruf), Tafkhim &amp; Tarqiq, Idhgom &amp; Rules of Stopping (Waqf)</span>
+              <span class="milestone-title lang-id">Sifat Huruf, Tafkhim &amp; Tarqiq, Idgham &amp; Kaidah Waqf (Berhenti dan Ibtida')</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span class="lang-en">4 Chapters + Checkpoint 4</span>
+              <span class="lang-id">4 Bab + Checkpoint 4</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Chapter 10 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 10</span>
+                <span class="lang-id">Bab 10</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>The Characteristics of the Letters (Sifat al-Huruf)</h4>
+                  <p>In this section, students will learn the definition of Sifat al-Huruf (the characteristics or qualities of Arabic letters), which describe how their sounds are produced. These include audible and physical characteristics such as heaviness and lightness, voiced and whispered sounds, strength and softness, and bouncing effects. Students will also practice identifying and applying these characteristics when reciting the Qur'an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Sifat Huruf</h4>
+                  <p>Pada bagian ini, murid akan mempelajari pengertian sifat huruf, pembagian sifat huruf yang memiliki lawan dan sifat huruf yang tidak memiliki lawan, serta karakteristik masing-masing sifat. Murid juga akan berlatih mengenali dan mempraktikkan sifat-sifat huruf dalam bacaan Al-Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 11 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 11</span>
+                <span class="lang-id">Bab 11</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Tafkhim &amp; Tarqiq (Heavy / Light Pronunciation)</h4>
+                  <p>In this section, students will learn the definitions of Tafkhim (heavy pronunciation) and Tarqiq (light pronunciation). Students will learn to identify the letters pronounced heavily and lightly, understand the rules governing the pronunciation of Ra’ (ر) as either heavy or light, and practice applying these rules correctly when reciting the Qur’an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Tafkhim dan Tarqiq</h4>
+                  <p>Pada bagian ini, murid akan mempelajari pengertian tafkhim dan tarqiq, mengenali huruf-huruf yang dibaca tebal dan tipis, serta memahami ketentuan bacaan ra' (ر) yang dibaca tebal maupun tipis. Murid juga akan berlatih menerapkan hukum bacaan tafkhim dan tarqiq dalam ayat-ayat Al-Qur'an.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 12 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 12</span>
+                <span class="lang-id">Bab 12</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Idhgom (Assimilation) — The Rules of Mithlayn, Mutaqaaribayn, and Mutajaanisayn</h4>
+                  <p>In this section, students will learn the definition of Idgham and its classification based on the relationship between the two letters involved in the merging process. It is divided into three main categories: Idgham Mutamatsilain, Idgham Mutajanisain, and Idgham Mutaqaribain. Students will also learn the rules and pronunciation of each type and practice applying them when reciting verses of the Qur'an.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Idgham (Mutamatsilain, Mutajanisain, dan Mutaqaribain)</h4>
+                  <p>Pada bagian ini, murid akan mempelajari pengertian Idgham dan pengelompokannya berdasarkan hubungan antara dua huruf, yaitu Idgham Mutamatsilain, Idgham Mutajanisain, dan Idgham Mutaqaribain. Murid juga akan memahami ketentuan dan cara membaca masing-masing jenis idgham serta berlatih membacanya.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 13 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 13</span>
+                <span class="lang-id">Bab 13</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Waqf (The Rules of Stopping)</h4>
+                  <p>In this section, students will learn the concept of Waqf (pausing) in Qur'anic recitation, recognizing the various Waqf symbols found in the Mushaf and understanding the rules of stopping and resuming recitation (Ibtida'). Students will also explore the different types of Waqf, including where and why to pause and how to properly apply each rule. Through this study, students will develop the ability to pause and resume their recitation correctly while preserving the clarity and completeness of the Qur'anic meanings.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Waqf</h4>
+                  <p>Pada bagian ini, murid akan mempelajari pengertian Waqf, mengenali berbagai tanda waqaf dalam Al-Qur'an, serta memahami ketentuan berhenti dan memulai kembali bacaan (ibtida'). Murid juga akan mempelajari jenis-jenis waqaf dan cara penerapannya agar dapat membaca Al-Qur'an dengan tepat serta memperhatikan kesempurnaan makna ayat.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 4 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 4</div>
+              <div class="ms-checkpoint-desc lang-en">Milestone 4 Evaluation: Sifat al-Huruf, Tafkhim / Tarqiq, Idhgom &amp; Waqf Rules (Chapters 10–13)</div>
+              <div class="ms-checkpoint-desc lang-id">Evaluasi Milestone 4: Sifat Huruf, Tafkhim / Tarqiq, Idgham &amp; Kaidah Waqf (Bab 10–13)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MILESTONE 05 (Chapters 14–15 + Checkpoint 5 + Final Test) ================= -->
+        <div class="milestone-item" id="ms-05">
+          <button type="button" class="milestone-trigger" onclick="toggleMilestone('ms-05')" aria-expanded="false">
+            <div class="milestone-meta-left">
+              <span class="milestone-badge">
+                <span class="lang-en">Milestone 05 · Chapters 14–15 &amp; Final Test</span>
+                <span class="lang-id">Milestone 05 · Bab 14–15 &amp; Final Test</span>
+              </span>
+              <span class="milestone-title lang-en">Hamzatul Wasl &amp; Hamzatul Qath, Uncommon Recitations (Gharibul Qur'an) &amp; Final Exam</span>
+              <span class="milestone-title lang-id">Hamzah Wasol &amp; Hamzah Qotho’, Ghoribul Qur'an &amp; Final Test</span>
+            </div>
+            <div class="milestone-meta-right">
+              <span class="lang-en">2 Chapters + Checkpoint 5 + Final Exam</span>
+              <span class="lang-id">2 Bab + Checkpoint 5 + Ujian Akhir</span>
+              <span class="milestone-chevron">▾</span>
+            </div>
+          </button>
+
+          <div class="milestone-body">
+            <!-- Chapter 14 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 14</span>
+                <span class="lang-id">Bab 14</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Hamzatul Wasl and Hamzatul Qath</h4>
+                  <p>In this section, students will learn the definitions of Hamzatul Wasl and Hamzatul Qat‘, identify their written forms in the Mushaf, and understand the differences between them. Students will also learn the pronunciation rules of both types and practice applying them in Qur'anic recitation.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Hamzah Wasol dan Hamzah Qotho’</h4>
+                  <p>Pada bagian ini, murid akan mempelajari pengertian Hamzatul Wasl dan Hamzatul Qat‘, mengenali bentuk penulisannya dalam mushaf Al-Qur'an, serta memahami perbedaan keduanya. Murid juga akan mempelajari ketentuan pelafalan hamzah ketika memulai dan menyambung bacaan, serta berlatih membacanya.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 15 -->
+            <div class="ms-class-row">
+              <div class="ms-class-num">
+                <span class="lang-en">Chapter 15</span>
+                <span class="lang-id">Bab 15</span>
+              </div>
+              <div class="ms-class-single-body">
+                <div class="lang-en">
+                  <h4>Uncommon Recitations (Gharibul Qur’an)</h4>
+                  <p>In this section, students will learn about Gharibul Qur’an, which refers to special or uncommon words in the Qur’an that have unique pronunciation rules differing from standard Tajweed patterns. Students will identify these words, understand their specific pronunciation rules, and practice reciting them correctly.</p>
+                </div>
+                <div class="lang-id">
+                  <h4>Ghoribul Qur'an</h4>
+                  <p>Pada bagian ini, murid akan mempelajari lafaz-lafaz khusus dalam Al-Qur’an yang memiliki cara baca berbeda dari kaidah umum tajwid. Murid akan mengenali bentuk lafaz, memahami ketentuan cara membacanya, serta berlatih membacanya.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkpoint 5 -->
+            <div class="ms-checkpoint-row">
+              <div class="ms-checkpoint-badge">🎯 Checkpoint 5</div>
+              <div class="ms-checkpoint-desc lang-en">Milestone 5 Evaluation: Hamzatul Wasl &amp; Qath and Gharibul Qur'an (Chapters 14–15)</div>
+              <div class="ms-checkpoint-desc lang-id">Evaluasi Milestone 5: Hamzah Wasol &amp; Qotho’ serta Ghoribul Qur'an (Bab 14–15)</div>
+            </div>
+
+            <!-- Final Test -->
+            <div class="ms-checkpoint-row" style="background:linear-gradient(90deg, rgba(16, 185, 129, 0.3) 0%, rgba(217, 119, 6, 0.3) 100%);padding:1.35rem 1.75rem;">
+              <div>
+                <div class="ms-checkpoint-badge lang-en" style="font-size:1.2rem;color:#ffffff;">🏆 Final Test (Graduation Evaluation)</div>
+                <div class="ms-checkpoint-badge lang-id" style="font-size:1.2rem;color:#ffffff;">🏆 Final Test (Ujian Akhir Kelulusan)</div>
+                <div class="ms-checkpoint-desc lang-en" style="color:#d1fae5;margin-top:.2rem;">Comprehensive Final Evaluation of All Tajweed Class Chapters (Chapters 01–15) &amp; Official Certificate Issuance</div>
+                <div class="ms-checkpoint-desc lang-id" style="color:#d1fae5;margin-top:.2rem;">Evaluasi Komprehensif Seluruh Materi Kelas Tajwid (Bab 01–15) &amp; Penerbitan Sertifikat Kelulusan</div>
+              </div>
+              <button type="button" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#052e16;font-weight:700;cursor:pointer;" onclick="openPaymentModal()">
+                <span class="lang-en">💳 Enroll / Pay for Class →</span>
+                <span class="lang-id">💳 Daftar &amp; Bayar Sekarang →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PHITRON-STYLE ZIG-ZAG ANIMATED STEP-BY-STEP JOURNEY ROADMAP (5 STAGES) -->
+  <section class="journey-section">
+    <div class="track-container">
+      <h2 class="track-sec-heading lang-en">Your 5-Stage Learning Journey in the Tajweed Class</h2>
+      <h2 class="track-sec-heading lang-id">5 Tahap Perjalanan Belajar di Kelas Tajwid</h2>
+
+      <p class="track-sec-sub lang-en">
+        5 progressive milestones taking you from the virtues and foundations of Tajweed to complete mastery of articulation, elongation, stopping rules, and uncommon recitations.
+      </p>
+      <p class="track-sec-sub lang-id">
+        5 tahapan terstruktur mulai dari keutamaan &amp; pengantar ilmu tajwid hingga penguasaan makhraj, sifat huruf, mad, waqaf, dan bacaan Gharibul Qur'an.
+      </p>
+
+      <div class="journey-map-wrap">
+        <svg class="journey-svg-bg" viewBox="0 0 830 1200" fill="none" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M240 110 H590 Q620 110 620 140 V340 Q620 370 590 370 H210 Q180 370 180 400 V610 Q180 640 210 640 H590 Q620 640 620 670 V880 Q620 910 590 910 H210 Q180 910 180 940 V1100"
+                stroke="#b8860b" stroke-width="2.5" stroke-dasharray="7 9" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+            <animate attributeName="stroke-dashoffset" from="160" to="0" dur="7s" repeatCount="indefinite" />
+          </path>
+        </svg>
+
+        <div class="journey-grid">
+          <!-- Step 01 (Left) -->
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">🌟</span>
+                <span class="journey-step-badge lang-en">Stage 01 · Chapters 01–04</span>
+                <span class="journey-step-badge lang-id">Tahap 01 · Bab 01–04</span>
+              </div>
+              <h3 class="lang-en">Virtues, Adab, Intro to Tajweed &amp; Isti'adzah / Basmallah</h3>
+              <h3 class="lang-id">Keutamaan Al-Qur'an, Adab, Pengantar Tajwid &amp; Isti'adzah</h3>
+              <p class="lang-en">Study Qur'anic virtues, proper manners (adab), legal foundations of Tajweed, types of mistakes, and rules of Isti'adzah &amp; Basmallah, ending with <strong>Checkpoint 1</strong>.</p>
+              <p class="lang-id">Mempelajari keutamaan Al-Qur'an, adab membaca, landasan hukum ilmu tajwid, jenis kesalahan bacaan, serta kaidah Isti'adzah &amp; Basmallah hingga <strong>Checkpoint 1</strong>.</p>
+            </div>
+          </div>
+          <div class="journey-spacer"></div>
+
+          <!-- Step 02 (Right) -->
+          <div class="journey-spacer"></div>
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">🗣️</span>
+                <span class="journey-step-badge lang-en">Stage 02 · Chapters 05–06</span>
+                <span class="journey-step-badge lang-id">Tahap 02 · Bab 05–06</span>
+              </div>
+              <h3 class="lang-en">Makhraj Huruf &amp; Rules of Lam Ta'rif</h3>
+              <h3 class="lang-id">Makhroj Huruf &amp; Lam Ta’rif (Syamsiyyah / Qamariyyah)</h3>
+              <p class="lang-en">Master general and specific points of articulation (makhraj) and the characteristics and pronunciation of Alif Lam Qamariyyah and Shamsiyyah, concluding with <strong>Checkpoint 2</strong>.</p>
+              <p class="lang-id">Menguasai tempat keluarnya huruf secara umum &amp; spesifik serta ciri dan cara membaca Alif Lam Qamariyah dan Syamsiyah hingga lulus <strong>Checkpoint 2</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Step 03 (Left) -->
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">📖</span>
+                <span class="journey-step-badge lang-en">Stage 03 · Chapters 07–09</span>
+                <span class="journey-step-badge lang-id">Tahap 03 · Bab 07–09</span>
+              </div>
+              <h3 class="lang-en">Noon Sakinah &amp; Tanween, Miim Sakinah &amp; Madd</h3>
+              <h3 class="lang-id">Hukum Nun Sukun &amp; Tanwin, Mim Sukun &amp; Mad</h3>
+              <p class="lang-en">Understand and apply Izhar, Idgham, Iqlab, Ikhfa, Meem Sakinah rulings, and the classifications, causes, and harakat counts of Madd, evaluated in <strong>Checkpoint 3</strong>.</p>
+              <p class="lang-id">Memahami dan menerapkan hukum Nun Sukun/Tanwin, Mim Sukun, serta pembagian, sebab, dan jumlah harakat pada setiap hukum Mad hingga <strong>Checkpoint 3</strong>.</p>
+            </div>
+          </div>
+          <div class="journey-spacer"></div>
+
+          <!-- Step 04 (Right) -->
+          <div class="journey-spacer"></div>
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">🛑</span>
+                <span class="journey-step-badge lang-en">Stage 04 · Chapters 10–13</span>
+                <span class="journey-step-badge lang-id">Tahap 04 · Bab 10–13</span>
+              </div>
+              <h3 class="lang-en">Sifat al-Huruf, Tafkhim / Tarqiq, Idhgom &amp; Waqf</h3>
+              <h3 class="lang-id">Sifat Huruf, Tafkhim / Tarqiq, Idgham &amp; Waqf</h3>
+              <p class="lang-en">Master letter qualities, heavy/light letters and Ra' (ر) rulings, the 3 categories of Idgham, and Waqf/Ibtida' rules to preserve Qur'anic meaning, verified in <strong>Checkpoint 4</strong>.</p>
+              <p class="lang-id">Menguasai sifat huruf, ketebalan/ketipisan huruf &amp; hukum Ra' (ر), tiga jenis Idgham, serta kaidah Waqf dan Ibtida' demi kesempurnaan makna ayat di <strong>Checkpoint 4</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Step 05 (Left) -->
+          <div class="journey-step-card">
+            <div>
+              <div class="journey-step-top">
+                <span class="journey-step-icon">🎓</span>
+                <span class="journey-step-badge lang-en">Stage 05 · Chapters 14–15</span>
+                <span class="journey-step-badge lang-id">Tahap 05 · Bab 14–15</span>
+              </div>
+              <h3 class="lang-en">Hamzatul Wasl &amp; Qath, Gharibul Qur'an &amp; Final Test</h3>
+              <h3 class="lang-id">Hamzah Wasol &amp; Qotho’, Ghoribul Qur'an &amp; Final Test</h3>
+              <p class="lang-en">Distinguish and pronounce Hamzatul Wasl &amp; Qat' and special Gharibul Qur'an words, completing <strong>Checkpoint 5</strong> and the comprehensive <strong>Final Test</strong>.</p>
+              <p class="lang-id">Membedakan dan melafalkan Hamzatul Wasl &amp; Qat‘ serta lafaz khusus Ghoribul Qur'an, menuntaskan <strong>Checkpoint 5</strong> dan <strong>Final Test</strong> kelulusan.</p>
+            </div>
+          </div>
+          <div class="journey-spacer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. BOTTOM CALL-TO-ACTION ENROLLMENT BANNER -->
+  <div class="track-container">
+    <div class="pay-bottom-cta-card">
+      <div style="max-width:560px;width:100%;">
+        <span style="display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6ee7b7;margin-bottom:.35rem;">
+          <span class="lang-en">📜 Enrollment Open · Tajweed Class</span>
+          <span class="lang-id">📜 Pendaftaran Dibuka · Kelas Tajwid</span>
+        </span>
+        <h3 style="font-family:var(--ff-d);font-size:clamp(1.35rem,2.5vw,1.75rem);color:#ffffff;margin-bottom:.4rem;line-height:1.25;">
+          <span class="lang-en">Ready to Master Tajweed Theory &amp; Recitation Practice?</span>
+          <span class="lang-id">Siap Memulai Perjalanan Belajar di Kelas Tajwid?</span>
+        </h3>
+        <p style="font-size:.9rem;color:#d1fae5;line-height:1.6;">
+          <span class="lang-en">Click below to view Bank Transfer details or scan the QR Code to complete your Tajweed Class registration with Ustadzah Sumiyati.</span>
+          <span class="lang-id">Klik tombol di bawah ini untuk melihat nomor rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran Kelas Tajwid bersama Ustadzah Sumiyati.</span>
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.85rem 1.65rem;font-size:.88rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal()">
+        <span class="lang-en">💳 Enroll Now (Bank / QR) →</span>
+        <span class="lang-id">💳 Daftar Sekarang (Bank / QR) →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- COURSE REGISTRATION & PAYMENT MODAL (DEFAULTS TO BAHASA INDONESIA, TOGGLEABLE TO ENGLISH) -->
+  <div id="paymentModalOverlay" class="pay-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" onclick="if(event.target===this)closePaymentModal()">
+    <div class="pay-modal-card modal-lang-id" id="paymentModalCard">
+      <button type="button" class="pay-modal-close" onclick="closePaymentModal()" aria-label="Close">✕</button>
+
+      <!-- POPUP LANGUAGE TOGGLE (DEFAULT: BAHASA INDONESIA) -->
+      <div>
+        <div class="modal-lang-bar" role="group" aria-label="Popup Language Switcher">
+          <button type="button" class="modal-lang-btn js-modal-lang-btn active" data-mlang="id" onclick="setModalLang('id')">
+            🇮🇩 Bahasa Indonesia
+          </button>
+          <button type="button" class="modal-lang-btn js-modal-lang-btn" data-mlang="en" onclick="setModalLang('en')">
+            🇬🇧 English
+          </button>
+        </div>
+      </div>
+
+      <span class="track-eyebrow-pill" style="margin-bottom:.6rem;">
+        <span class="m-lang-en">💳 Course Enrollment &amp; Payment</span>
+        <span class="m-lang-id">💳 Pendaftaran &amp; Pembayaran Kelas</span>
+      </span>
+
+      <h3 id="payModalTitle" style="font-family:var(--ff-d);font-size:1.5rem;font-weight:600;color:#0f172a;margin-bottom:.3rem;">
+        <span class="m-lang-en">Tajweed Class Registration</span>
+        <span class="m-lang-id">Pendaftaran Kelas Tajwid</span>
+      </h3>
+      <p style="font-size:.86rem;color:var(--sub);line-height:1.55;">
+        <span class="m-lang-en">Choose your preferred payment method below: <strong>Bank Transfer</strong> or <strong>QR Code (QRIS)</strong>.</span>
+        <span class="m-lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong> atau <strong>Scan Kode QR (QRIS)</strong>.</span>
+      </p>
+
+      <!-- 2-BUTTON TOGGLE: BANK TRANSFER vs QR CODE -->
+      <div class="pay-method-tabs" role="tablist">
+        <button type="button" class="pay-method-tab active" id="tabBtnBank" onclick="selectPaymentMethod('bank')" role="tab" aria-selected="true">
+          <span>🏦</span>
+          <span class="m-lang-en">Bank Transfer</span>
+          <span class="m-lang-id">Transfer Bank</span>
+        </button>
+        <button type="button" class="pay-method-tab" id="tabBtnQr" onclick="selectPaymentMethod('qr')" role="tab" aria-selected="false">
+          <span>📱</span>
+          <span class="m-lang-en">Scan QR Code</span>
+          <span class="m-lang-id">Scan QR / QRIS</span>
+        </button>
+      </div>
+
+      <!-- OPTION 1: BANK TRANSFER DETAILS (LOCAL + INTERNATIONAL) -->
+      <div id="payPanelBank" class="pay-panel active" role="tabpanel">
+        <!-- 1. Local Transfer: Bank Syariah Mandiri -->
+        <div class="bank-detail-box" style="margin-bottom:.85rem;">
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Local Bank Transfer (Indonesia)</div>
+              <div class="bank-lbl m-lang-id">Transfer Bank Lokal (Indonesia)</div>
+              <div class="bank-val">Bank Syariah Mandiri</div>
+            </div>
+            <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(30,74,53,0.1);color:var(--green);">
+              <span class="m-lang-en">🇮🇩 Local Transfer</span>
+              <span class="m-lang-id">🇮🇩 Transfer Lokal</span>
+            </span>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Number</div>
+              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
+              <div class="bank-acc-num" id="dispBankNumberLocal">7725419170</div>
+            </div>
+            <button type="button" class="copy-acc-btn" id="copyBankBtnLocal" onclick="copyBankNumber('7725419170', 'copyBankBtnLocal')">
+              <span class="m-lang-en">📋 Copy Number</span>
+              <span class="m-lang-id">📋 Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Holder Name</div>
+              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
+              <div class="bank-val">Sumiyati</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. International Payments: Bank Jago Syariah -->
+        <div class="bank-detail-box">
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">International Payments</div>
+              <div class="bank-lbl m-lang-id">Pembayaran Internasional</div>
+              <div class="bank-val">Bank Jago Syariah</div>
+            </div>
+            <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(184,134,11,0.14);color:#92400e;">
+              <span class="m-lang-en">🌍 International</span>
+              <span class="m-lang-id">🌍 Internasional</span>
+            </span>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Number</div>
+              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
+              <div class="bank-acc-num" id="dispBankNumberIntl">506501080590</div>
+            </div>
+            <button type="button" class="copy-acc-btn" id="copyBankBtnIntl" onclick="copyBankNumber('506501080590', 'copyBankBtnIntl')">
+              <span class="m-lang-en">📋 Copy Number</span>
+              <span class="m-lang-id">📋 Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Holder Name</div>
+              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
+              <div class="bank-val">Sumiyati</div>
+            </div>
+            <span style="font-size:.73rem;color:var(--muted);font-weight:600;">
+              SWIFT: JAGBIDJA · Code: 542
+            </span>
+          </div>
+        </div>
+
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
+          <span class="m-lang-en">💡 After completing the bank transfer, please click the button below to send your payment receipt to Ustadzah Sumiyati on WhatsApp.</span>
+          <span class="m-lang-id">💡 Setelah melakukan transfer bank, silakan klik tombol di bawah untuk mengirimkan bukti transfer kepada Ustadzah Sumiyati melalui WhatsApp.</span>
+        </p>
+      </div>
+
+      <!-- OPTION 2: QR CODE (QRIS) DETAILS -->
+      <div id="payPanelQr" class="pay-panel" role="tabpanel">
+        <div class="qr-display-box">
+          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);">
+            QURANWITHSUMIYATI · NMID: ID1026635416609
+          </div>
+          <div style="font-size:.78rem;color:var(--sub);margin-top:.15rem;">
+            <span class="m-lang-en">Scan using any Mobile Banking or E-Wallet app (QRIS)</span>
+            <span class="m-lang-id">Scan menggunakan Mobile Banking atau E-Wallet apa saja (QRIS)</span>
+          </div>
+
+          <div class="qr-frame" id="qrImageContainer">
+            <img id="customQrImg" src="qris-sumiyati.jpg?v=1" alt="QURANWITHSUMIYATI Official QRIS Payment Code" />
+          </div>
+
+          <div style="margin-top:.5rem;">
+            <a href="qris-sumiyati.jpg" download="QRIS-QURANWITHSUMIYATI.jpg" class="copy-acc-btn" style="display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;">
+              <span>📥</span>
+              <span class="m-lang-en">Save / Download QR Image</span>
+              <span class="m-lang-id">Simpan / Unduh Gambar QRIS</span>
+            </a>
+          </div>
+        </div>
+
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
+          <span class="m-lang-en">💡 After scanning and completing your QR payment, click the button below to send your payment screenshot via WhatsApp.</span>
+          <span class="m-lang-id">💡 Setelah melakukan pembayaran via QRIS, silakan klik tombol di bawah untuk mengirimkan tangkapan layar (screenshot) bukti bayar via WhatsApp.</span>
+        </p>
+      </div>
+
+      <!-- STUDENT NAME INPUT & WHATSAPP CONFIRMATION CTA -->
+      <div style="border-top:1px solid var(--border);padding-top:1rem;">
+        <label for="payStudentName" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.35rem;">
+          <span class="m-lang-en">Your Full Name (Optional):</span>
+          <span class="m-lang-id">Nama Lengkap Anda (Opsional):</span>
+        </label>
+        <input type="text" id="payStudentName" class="m-lang-en" placeholder="Enter your name for registration..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentNameId').value=this.value" />
+        <input type="text" id="payStudentNameId" class="m-lang-id" placeholder="Masukkan nama lengkap Anda..." style="width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:10px;font-size:.88rem;margin-bottom:.85rem;" oninput="document.getElementById('payStudentName').value=this.value" />
+
+        <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:.8rem 1.25rem;font-size:.88rem;cursor:pointer;" onclick="confirmPaymentViaWhatsApp()">
+          <span class="m-lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span>
+          <span class="m-lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p class="name">Sumiyati · Master's in Tafsir &amp; Quranic Sciences, IIUI 2026</p>
+      <p class="meta">
+        <a href="curriculum.html" style="color:var(--green);font-weight:600;text-decoration:underline;margin-right:1rem;">
+          <span class="lang-en">📖 Pre-Tajweed Curriculum</span>
+          <span class="lang-id">📖 Kurikulum Pra-Tajwid</span>
+        </a>
+        <a href="index.html" style="color:var(--green);font-weight:600;text-decoration:underline;">
+          <span class="lang-en">← Back to Portfolio</span>
+          <span class="lang-id">← Kembali ke Portofolio</span>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function setCurrLang(lang) {
+      if (lang !== 'id' && lang !== 'en') lang = 'en';
+      document.body.classList.remove('lang-en', 'lang-id');
+      document.body.classList.add('lang-' + lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('.js-lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      try {
+        localStorage.setItem('sumiyati_lang', lang);
+      } catch (e) {}
+    }
+
+    function toggleMilestone(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isOpen = el.classList.toggle('open');
+      const btn = el.querySelector('.milestone-trigger');
+      if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function toggleAllMilestones(openState) {
+      document.querySelectorAll('.milestone-item').forEach(el => {
+        el.classList.toggle('open', openState);
+        const btn = el.querySelector('.milestone-trigger');
+        if (btn) btn.setAttribute('aria-expanded', openState ? 'true' : 'false');
+      });
+    }
+
+    // ── Payment Modal Logic (Bank Transfer / QR Code, Defaults to Bahasa Indonesia) ──
+    let activePayMethod = 'bank';
+    let activeModalLang = 'id';
+
+    function setModalLang(lang) {
+      activeModalLang = (lang === 'en') ? 'en' : 'id';
+      const card = document.getElementById('paymentModalCard');
+      if (card) {
+        card.classList.remove('modal-lang-id', 'modal-lang-en');
+        card.classList.add('modal-lang-' + activeModalLang);
+      }
+      document.querySelectorAll('.js-modal-lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-mlang') === activeModalLang);
+      });
+    }
+
+    function openPaymentModal(defaultMethod) {
+      setModalLang('id');
+      if (defaultMethod === 'bank' || defaultMethod === 'qr') {
+        selectPaymentMethod(defaultMethod);
+      }
+      const overlay = document.getElementById('paymentModalOverlay');
+      if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePaymentModal() {
+      const overlay = document.getElementById('paymentModalOverlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function selectPaymentMethod(method) {
+      activePayMethod = method === 'qr' ? 'qr' : 'bank';
+      const isBank = activePayMethod === 'bank';
+      const tabBank = document.getElementById('tabBtnBank');
+      const tabQr = document.getElementById('tabBtnQr');
+      const panelBank = document.getElementById('payPanelBank');
+      const panelQr = document.getElementById('payPanelQr');
+
+      if (tabBank) {
+        tabBank.classList.toggle('active', isBank);
+        tabBank.setAttribute('aria-selected', isBank ? 'true' : 'false');
+      }
+      if (tabQr) {
+        tabQr.classList.toggle('active', !isBank);
+        tabQr.setAttribute('aria-selected', !isBank ? 'true' : 'false');
+      }
+      if (panelBank) panelBank.classList.toggle('active', isBank);
+      if (panelQr) panelQr.classList.toggle('active', !isBank);
+    }
+
+    function copyBankNumber(numStr, btnId) {
+      const btn = document.getElementById(btnId);
+      if (!numStr || !btn) return;
+      const isId = activeModalLang === 'id';
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(numStr);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = numStr;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+
+      const origHtml = btn.innerHTML;
+      btn.innerHTML = isId ? '✓ Tersalin!' : '✓ Copied!';
+      btn.style.background = 'var(--green)';
+      btn.style.color = '#ffffff';
+      setTimeout(() => {
+        btn.innerHTML = origHtml;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 1800);
+    }
+
+    function confirmPaymentViaWhatsApp() {
+      const isId = activeModalLang === 'id';
+      const nameInput = document.getElementById('payStudentName');
+      const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : (isId ? '[Nama Saya]' : '[My Name]');
+      const methodLabel = activePayMethod === 'qr'
+        ? (isId ? 'Scan QR / QRIS (QURANWITHSUMIYATI)' : 'QR Code / QRIS (QURANWITHSUMIYATI)')
+        : (isId ? 'Transfer Bank (Bank Syariah Mandiri / Bank Jago Syariah)' : 'Bank Transfer (Bank Syariah Mandiri / Bank Jago Syariah)');
+
+      const msg = isId
+        ? `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar Kelas Tajwid (Tajweed Class).\n\n*Nama Lengkap:* ${studentName}\n*Metode Pembayaran:* ${methodLabel}\n\nBerikut saya lampirkan bukti pembayarannya:`
+        : `Assalamu'alaikum Ustadzah Sumiyati, I would like to register for the Tajweed Class.\n\n*Full Name:* ${studentName}\n*Payment Method:* ${methodLabel}\n\nHere is my payment confirmation receipt:`;
+
+      window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePaymentModal();
+    });
+
+    (function initCurrLang() {
+      try {
+        const saved = localStorage.getItem('sumiyati_lang');
+        if (saved === 'id' || saved === 'en') {
+          setCurrLang(saved);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
