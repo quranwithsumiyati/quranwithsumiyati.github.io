@@ -21,13 +21,38 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#1e4a35" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "Quran with Sumiyati",
-    "url": "https://quranwithsumiyati.github.io/tajweed-curriculum.html",
-    "logo": "https://quranwithsumiyati.github.io/favicon-512x512.png"
-  }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Quran with Sumiyati",
+      "url": "https://quranwithsumiyati.github.io/tajweed-curriculum.html",
+      "logo": "https://quranwithsumiyati.github.io/favicon-512x512.png"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Tajweed Class Curriculum",
+      "description": "Structured 15-chapter Tajweed theory and direct Qur'an reading practice with 5 checkpoints and final test by Ustadzah Sumiyati.",
+      "provider": {
+        "@type": "Person",
+        "name": "Sumiyati",
+        "jobTitle": "Quran Teacher & Hafizhah 30 Juz"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "120000",
+        "priceCurrency": "IDR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "7.50",
+          "priceCurrency": "USD"
+        },
+        "availability": "https://schema.org/InStock",
+        "category": "PaidCourse"
+      }
+    }
+  ]
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1425,10 +1450,18 @@
       </div>
 
       <!-- Primary CTA Buttons -->
+      <div style="display:flex;justify-content:center;margin-bottom:.75rem;">
+        <div style="display:inline-flex;align-items:center;justify-content:center;gap:.45rem;background:#ffffff;border:1.5px solid #10b981;border-radius:99px;padding:.4rem 1.15rem;box-shadow:0 3px 12px rgba(16,185,129,0.12);">
+          <span style="font-size:.84rem;font-weight:700;color:#065f46;">
+            <span class="lang-en">🏷️ Course Fee: <strong>$7.50 USD</strong> · Rp 120.000 (One-Time)</span>
+            <span class="lang-id">🏷️ Biaya Investasi: <strong>Rp 120.000</strong> · $7.50 USD (Satu Kali)</span>
+          </span>
+        </div>
+      </div>
       <div class="track-cta-bar">
         <button type="button" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;cursor:pointer;" onclick="openPaymentModal()">
-          <span class="lang-en">💳 Enroll in Tajweed Class →</span>
-          <span class="lang-id">💳 Daftar Kelas Tajwid Sekarang →</span>
+          <span class="lang-en">💳 Enroll Now · $7.50 USD (Rp 120.000) →</span>
+          <span class="lang-id">💳 Daftar Sekarang · Rp 120.000 ($7.50) →</span>
         </button>
         <a href="#complete-outline" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;">
           <span class="lang-en">📋 Explore 5 Milestones &amp; 15 Chapters ↓</span>
@@ -2158,14 +2191,18 @@
           <span class="lang-en">Ready to Master Tajweed Theory &amp; Recitation Practice?</span>
           <span class="lang-id">Siap Memulai Perjalanan Belajar di Kelas Tajwid?</span>
         </h3>
+        <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(16,185,129,0.22);border:1px solid #34d399;border-radius:99px;padding:.32rem .95rem;margin-bottom:.65rem;color:#a7f3d0;font-size:.82rem;font-weight:700;">
+          <span class="lang-en">🏷️ Course Fee: $7.50 USD (Rp 120.000) · Full Program Access</span>
+          <span class="lang-id">🏷️ Biaya Kelas: Rp 120.000 ($7.50 USD) · Akses Penuh</span>
+        </div>
         <p style="font-size:.9rem;color:#d1fae5;line-height:1.6;">
           <span class="lang-en">Click below to view Bank Transfer details or scan the QR Code to complete your Tajweed Class registration with Ustadzah Sumiyati.</span>
           <span class="lang-id">Klik tombol di bawah ini untuk melihat nomor rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran Kelas Tajwid bersama Ustadzah Sumiyati.</span>
         </p>
       </div>
       <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.85rem 1.65rem;font-size:.88rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal()">
-        <span class="lang-en">💳 Enroll Now (Bank / QR) →</span>
-        <span class="lang-id">💳 Daftar Sekarang (Bank / QR) →</span>
+        <span class="lang-en">💳 Enroll Now · $7.50 USD (Rp 120.000) →</span>
+        <span class="lang-id">💳 Daftar Sekarang · Rp 120.000 ($7.50) →</span>
       </button>
     </div>
   </div>
@@ -2200,6 +2237,22 @@
         <span class="m-lang-en">Choose your preferred payment method below: <strong>Bank Transfer</strong> or <strong>QR Code (QRIS)</strong>.</span>
         <span class="m-lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong> atau <strong>Scan Kode QR (QRIS)</strong>.</span>
       </p>
+
+      <!-- COURSE FEE SUMMARY CARD -->
+      <div style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);border:1.5px solid #10b981;border-radius:14px;padding:.9rem 1.15rem;margin:1rem 0 .95rem;text-align:center;">
+        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#047857;margin-bottom:.2rem;">
+          <span class="m-lang-en">Course Fee / Transfer Amount</span>
+          <span class="m-lang-id">Biaya Kelas / Nominal Transfer</span>
+        </div>
+        <div style="font-family:var(--ff-d);font-size:1.65rem;font-weight:700;color:#065f46;line-height:1.2;">
+          <span class="m-lang-en">$7.50 <span style="font-size:.92rem;font-weight:600;color:#047857;">USD</span> <span style="font-size:1rem;font-weight:500;color:#374151;">(Rp 120.000)</span></span>
+          <span class="m-lang-id">Rp 120.000 <span style="font-size:1rem;font-weight:500;color:#374151;">($7.50 USD)</span></span>
+        </div>
+        <div style="font-size:.76rem;color:#047857;margin-top:.25rem;">
+          <span class="m-lang-en">✓ One-time fee · Full lifetime access, evaluations &amp; certificate</span>
+          <span class="m-lang-id">✓ Satu kali pembayaran · Akses penuh, evaluasi berkala &amp; sertifikat</span>
+        </div>
+      </div>
 
       <!-- 2-BUTTON TOGGLE: BANK TRANSFER vs QR CODE -->
       <div class="pay-method-tabs" role="tablist">
@@ -2484,8 +2537,8 @@
         : (isId ? 'Transfer Bank (Bank Syariah Mandiri / Bank Jago Syariah)' : 'Bank Transfer (Bank Syariah Mandiri / Bank Jago Syariah)');
 
       const msg = isId
-        ? `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar Kelas Tajwid (Tajweed Class).\n\n*Nama Lengkap:* ${studentName}\n*Metode Pembayaran:* ${methodLabel}\n\nBerikut saya lampirkan bukti pembayarannya:`
-        : `Assalamu'alaikum Ustadzah Sumiyati, I would like to register for the Tajweed Class.\n\n*Full Name:* ${studentName}\n*Payment Method:* ${methodLabel}\n\nHere is my payment confirmation receipt:`;
+        ? `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar Kelas Tajwid (Tajweed Class).\n\n*Nama Lengkap:* ${studentName}\n*Biaya Kelas:* Rp 120.000 ($7.50 USD)\n*Metode Pembayaran:* ${methodLabel}\n\nBerikut saya lampirkan bukti pembayarannya:`
+        : `Assalamu'alaikum Ustadzah Sumiyati, I would like to register for the Tajweed Class.\n\n*Full Name:* ${studentName}\n*Course Fee:* $7.50 USD (Rp 120.000)\n*Payment Method:* ${methodLabel}\n\nHere is my payment confirmation receipt:`;
 
       window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     }
