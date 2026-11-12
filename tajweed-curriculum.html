@@ -121,51 +121,6 @@
       box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
     }
 
-    /* ── Hero Language Bar ── */
-    .hero-lang-bar {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: .45rem;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: .42rem .65rem;
-      border-radius: 99px;
-      margin: 0 auto 1.35rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    }
-    .hero-lang-lbl {
-      font-size: .75rem;
-      font-weight: 700;
-      color: var(--muted);
-      padding: 0 .45rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
-    .hero-lang-pill {
-      font-family: var(--ff-b);
-      font-size: .8rem;
-      font-weight: 600;
-      padding: .4rem 1.05rem;
-      border-radius: 99px;
-      border: 1px solid transparent;
-      background: var(--card);
-      color: var(--sub);
-      cursor: pointer;
-      transition: all .15s ease;
-    }
-    .hero-lang-pill:hover {
-      border-color: var(--green);
-      color: var(--green);
-    }
-    .hero-lang-pill.active {
-      background: var(--green);
-      color: #ffffff;
-      font-weight: 700;
-      box-shadow: 0 3px 10px rgba(30, 74, 53, 0.2);
-    }
-
     /* 1. HERO + 4 STAT COUNTERS */
     .track-hero {
       position: relative;
@@ -1256,23 +1211,6 @@
         font-size: .72rem !important;
         white-space: nowrap;
       }
-      .hero-lang-bar {
-        display: flex;
-        width: 100%;
-        max-width: 360px;
-        border-radius: 14px;
-        padding: .35rem;
-        gap: .35rem;
-      }
-      .hero-lang-lbl {
-        display: none;
-      }
-      .hero-lang-pill {
-        flex: 1;
-        text-align: center;
-        padding: .45rem .5rem;
-        font-size: .78rem;
-      }
       .track-cta-bar {
         flex-direction: column;
         width: 100%;
@@ -1462,18 +1400,6 @@
       <h1 class="track-hero-title lang-id">
         Kuasai <span class="track-title-shine">Kaidah Ilmu Tajwid &amp; Praktik</span> Membaca Al-Qur'an
       </h1>
-
-      <!-- Prominent 2-Button Hero Language Toggle Bar -->
-      <div class="hero-lang-bar" role="group" aria-label="Select Curriculum Language">
-        <span class="hero-lang-lbl lang-en">Language:</span>
-        <span class="hero-lang-lbl lang-id">Bahasa:</span>
-        <button type="button" class="hero-lang-pill js-lang-btn active" data-lang="en" onclick="setCurrLang('en')">
-          🇬🇧 English
-        </button>
-        <button type="button" class="hero-lang-pill js-lang-btn" data-lang="id" onclick="setCurrLang('id')">
-          🇮🇩 Bahasa Indonesia
-        </button>
-      </div>
 
       <!-- Single Purpose Card (Switches cleanly between English and Bahasa Indonesia) -->
       <div class="purpose-single-wrap">
