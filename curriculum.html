@@ -881,24 +881,24 @@
     }
     .pay-method-tabs {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .65rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .45rem;
       margin: 1.25rem 0;
       background: #f1f5f9;
-      padding: .4rem;
+      padding: .35rem;
       border-radius: 14px;
     }
     .pay-method-tab {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: .5rem;
-      padding: .75rem .9rem;
+      gap: .4rem;
+      padding: .7rem .5rem;
       border-radius: 10px;
       border: 1.5px solid transparent;
       background: transparent;
       font-family: var(--ff-b);
-      font-size: .88rem;
+      font-size: .8rem;
       font-weight: 700;
       color: #475569;
       cursor: pointer;
@@ -1346,11 +1346,16 @@
         overscroll-behavior: contain;
       }
       .pay-method-tabs {
-        gap: .45rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: .32rem;
+        padding: .3rem;
       }
       .pay-method-tab {
-        padding: .65rem .5rem;
-        font-size: .78rem;
+        flex-direction: column;
+        gap: .25rem;
+        padding: .6rem .3rem;
+        font-size: .72rem;
+        text-align: center;
       }
       .bank-detail-box {
         padding: .9rem .85rem;
@@ -2347,7 +2352,7 @@
         </div>
       </div>
 
-      <!-- 2-BUTTON TOGGLE: BANK TRANSFER vs QR CODE -->
+      <!-- 3-BUTTON TOGGLE: BANK TRANSFER vs QR CODE vs OVERSEAS STUDENT -->
       <div class="pay-method-tabs" role="tablist">
         <button type="button" class="pay-method-tab active" id="tabBtnBank" onclick="selectPaymentMethod('bank')" role="tab" aria-selected="true">
           <span>🏦</span>
@@ -2359,12 +2364,16 @@
           <span class="m-lang-en">Scan QR Code</span>
           <span class="m-lang-id">Scan QR / QRIS</span>
         </button>
+        <button type="button" class="pay-method-tab" id="tabBtnOverseas" onclick="selectPaymentMethod('overseas')" role="tab" aria-selected="false">
+          <span>🌍</span>
+          <span class="m-lang-en">Overseas Student</span>
+          <span class="m-lang-id">Luar Negeri</span>
+        </button>
       </div>
 
-      <!-- OPTION 1: BANK TRANSFER DETAILS (LOCAL + INTERNATIONAL) -->
+      <!-- OPTION 1: LOCAL BANK TRANSFER DETAILS (INDONESIA) -->
       <div id="payPanelBank" class="pay-panel active" role="tabpanel">
-        <!-- 1. Local Transfer: Bank Syariah Mandiri -->
-        <div class="bank-detail-box" style="margin-bottom:.85rem;">
+        <div class="bank-detail-box">
           <div class="bank-row">
             <div>
               <div class="bank-lbl m-lang-en">Local Bank Transfer (Indonesia)</div>
@@ -2395,44 +2404,6 @@
               <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
               <div class="bank-val">Sumiyati</div>
             </div>
-          </div>
-        </div>
-
-        <!-- 2. International Payments: Bank Jago Syariah -->
-        <div class="bank-detail-box">
-          <div class="bank-row">
-            <div>
-              <div class="bank-lbl m-lang-en">International Payments</div>
-              <div class="bank-lbl m-lang-id">Pembayaran Internasional</div>
-              <div class="bank-val">Bank Jago Syariah</div>
-            </div>
-            <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(184,134,11,0.14);color:#92400e;">
-              <span class="m-lang-en">🌍 International</span>
-              <span class="m-lang-id">🌍 Internasional</span>
-            </span>
-          </div>
-
-          <div class="bank-row">
-            <div>
-              <div class="bank-lbl m-lang-en">Account Number</div>
-              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
-              <div class="bank-acc-num" id="dispBankNumberIntl">506501080590</div>
-            </div>
-            <button type="button" class="copy-acc-btn" id="copyBankBtnIntl" onclick="copyBankNumber('506501080590', 'copyBankBtnIntl')">
-              <span class="m-lang-en">📋 Copy Number</span>
-              <span class="m-lang-id">📋 Salin Nomor</span>
-            </button>
-          </div>
-
-          <div class="bank-row">
-            <div>
-              <div class="bank-lbl m-lang-en">Account Holder Name</div>
-              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
-              <div class="bank-val">Sumiyati</div>
-            </div>
-            <span style="font-size:.73rem;color:var(--muted);font-weight:600;">
-              SWIFT: JAGBIDJA · Code: 542
-            </span>
           </div>
         </div>
 
@@ -2469,6 +2440,51 @@
         <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
           <span class="m-lang-en">💡 After scanning and completing your QR payment, click the button below to send your payment screenshot via WhatsApp.</span>
           <span class="m-lang-id">💡 Setelah melakukan pembayaran via QRIS, silakan klik tombol di bawah untuk mengirimkan tangkapan layar (screenshot) bukti bayar via WhatsApp.</span>
+        </p>
+      </div>
+
+      <!-- OPTION 3: OVERSEAS STUDENTS (OUTSIDE INDONESIA) -->
+      <div id="payPanelOverseas" class="pay-panel" role="tabpanel">
+        <div class="bank-detail-box">
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Overseas Student Transfer (Outside Indonesia)</div>
+              <div class="bank-lbl m-lang-id">Pembayaran Santri Luar Negeri</div>
+              <div class="bank-val">Bank Jago Syariah</div>
+            </div>
+            <span style="font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(184,134,11,0.14);color:#92400e;">
+              <span class="m-lang-en">🌍 Overseas Student</span>
+              <span class="m-lang-id">🌍 Luar Negeri</span>
+            </span>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Number</div>
+              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
+              <div class="bank-acc-num" id="dispBankNumberIntl">506501080590</div>
+            </div>
+            <button type="button" class="copy-acc-btn" id="copyBankBtnIntl" onclick="copyBankNumber('506501080590', 'copyBankBtnIntl')">
+              <span class="m-lang-en">📋 Copy Number</span>
+              <span class="m-lang-id">📋 Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Holder Name</div>
+              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
+              <div class="bank-val">Sumiyati</div>
+            </div>
+            <span style="font-size:.73rem;color:var(--muted);font-weight:600;">
+              SWIFT: JAGBIDJA · Code: 542
+            </span>
+          </div>
+        </div>
+
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;">
+          <span class="m-lang-en">💡 Overseas students can send via international wire transfer, Wise, Remitly, or global remittance apps, then send your receipt to Ustadzah Sumiyati on WhatsApp below.</span>
+          <span class="m-lang-id">💡 Santri di luar negeri dapat mentransfer melalui Wise, Remitly, atau transfer internasional lainnya, lalu kirimkan bukti pembayaran kepada Ustadzah Sumiyati via WhatsApp.</span>
         </p>
       </div>
 
@@ -2577,23 +2593,33 @@
     }
 
     function selectPaymentMethod(method) {
-      activePayMethod = method === 'qr' ? 'qr' : 'bank';
+      activePayMethod = (method === 'qr' || method === 'overseas') ? method : 'bank';
       const isBank = activePayMethod === 'bank';
+      const isQr = activePayMethod === 'qr';
+      const isOverseas = activePayMethod === 'overseas';
+
       const tabBank = document.getElementById('tabBtnBank');
       const tabQr = document.getElementById('tabBtnQr');
+      const tabOverseas = document.getElementById('tabBtnOverseas');
       const panelBank = document.getElementById('payPanelBank');
       const panelQr = document.getElementById('payPanelQr');
+      const panelOverseas = document.getElementById('payPanelOverseas');
 
       if (tabBank) {
         tabBank.classList.toggle('active', isBank);
         tabBank.setAttribute('aria-selected', isBank ? 'true' : 'false');
       }
       if (tabQr) {
-        tabQr.classList.toggle('active', !isBank);
-        tabQr.setAttribute('aria-selected', !isBank ? 'true' : 'false');
+        tabQr.classList.toggle('active', isQr);
+        tabQr.setAttribute('aria-selected', isQr ? 'true' : 'false');
+      }
+      if (tabOverseas) {
+        tabOverseas.classList.toggle('active', isOverseas);
+        tabOverseas.setAttribute('aria-selected', isOverseas ? 'true' : 'false');
       }
       if (panelBank) panelBank.classList.toggle('active', isBank);
-      if (panelQr) panelQr.classList.toggle('active', !isBank);
+      if (panelQr) panelQr.classList.toggle('active', isQr);
+      if (panelOverseas) panelOverseas.classList.toggle('active', isOverseas);
     }
 
     function copyBankNumber(numStr, btnId) {
@@ -2629,7 +2655,9 @@
       const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : (isId ? '[Nama Saya]' : '[My Name]');
       const methodLabel = activePayMethod === 'qr'
         ? (isId ? 'Scan QR / QRIS (QURANWITHSUMIYATI)' : 'QR Code / QRIS (QURANWITHSUMIYATI)')
-        : (isId ? 'Transfer Bank (Bank Syariah Mandiri / Bank Jago Syariah)' : 'Bank Transfer (Bank Syariah Mandiri / Bank Jago Syariah)');
+        : activePayMethod === 'overseas'
+          ? (isId ? 'Transfer Luar Negeri (Bank Jago Syariah · SWIFT: JAGBIDJA)' : 'Overseas Student Transfer (Bank Jago Syariah · SWIFT: JAGBIDJA)')
+          : (isId ? 'Transfer Bank Lokal (Bank Syariah Mandiri)' : 'Local Bank Transfer (Bank Syariah Mandiri)');
 
       const msg = isId
         ? `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar Kelas Pra-Tajwid (Pre-Tajweed Class).\n\n*Nama Lengkap:* ${studentName}\n*Biaya Kelas:* Rp 120.000 ($7.50 USD)\n*Metode Pembayaran:* ${methodLabel}\n\nBerikut saya lampirkan bukti pembayarannya:`
