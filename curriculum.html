@@ -53,7 +53,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=7" />
   <style>
     /* ── Phitron Foundation-Track Inspired Curriculum Architecture ── */
     :root {
@@ -69,6 +69,94 @@
     body.course-page {
       background: var(--track-bg);
       padding-top: 0 !important;
+      overflow-x: clip;
+    }
+
+    #main-hero { scroll-margin-top: 76px; }
+    #complete-outline { scroll-margin-top: 76px; }
+
+    /* ── Sleek Single-Row Responsive Top Header ── */
+    .course-nav {
+      position: sticky !important;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      padding: .55rem 0;
+    }
+    .course-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      flex-wrap: nowrap;
+    }
+    .course-nav-left {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      min-width: 0;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      min-height: 40px;
+      padding: 0 .55rem;
+      border-radius: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .back-link:hover {
+      background: rgba(30, 74, 53, 0.06);
+    }
+    .course-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      flex-shrink: 0;
+    }
+    .course-nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .course-nav-brand-text .tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: none;
+      padding: 0;
+    }
+    .course-nav-brand-text .brand-name {
+      font-family: var(--ff-d);
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--green);
+      white-space: nowrap;
+    }
+    .course-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      flex-shrink: 0;
+    }
+    .nav-enroll-btn {
+      min-height: 40px !important;
+      padding: .45rem 1rem !important;
+      font-size: .74rem !important;
+      border-radius: 99px !important;
+      white-space: nowrap;
+    }
+    .lang-short { display: none; }
+    .lang-full { display: inline; }
+    @media (max-width: 1140px) {
+      .course-nav-brand-text { display: none; }
+    }
+    @media (max-width: 960px) {
+      .lang-short { display: inline; }
+      .lang-full { display: none; }
     }
 
     /* ── Course Track Switcher Pill (Pre-Tajweed ↔ Tajweed) ── */
@@ -85,10 +173,14 @@
       font-family: var(--ff-b);
       font-size: .73rem;
       font-weight: 600;
-      padding: .32rem .75rem;
+      min-height: 36px;
+      padding: .25rem .78rem;
       border-radius: 99px;
       color: var(--sub);
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: all .15s ease;
       white-space: nowrap;
     }
@@ -121,14 +213,19 @@
     }
     .header-lang-btn {
       font-family: var(--ff-b);
-      font-size: .75rem;
+      font-size: .74rem;
       font-weight: 700;
-      padding: .34rem .78rem;
+      min-height: 36px;
+      min-width: 40px;
+      padding: .25rem .72rem;
       border-radius: 99px;
       border: none;
       background: transparent;
       color: var(--sub);
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: all .15s ease;
       white-space: nowrap;
     }
@@ -432,12 +529,16 @@
       font-family: var(--ff-b);
       font-size: .78rem;
       font-weight: 600;
-      padding: .44rem .95rem;
+      min-height: 42px;
+      padding: .45rem .95rem;
       border-radius: 8px;
       border: 1px solid var(--track-dark-border);
       background: rgba(255, 255, 255, 0.05);
       color: #d1fae5;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: all .15s ease;
     }
     .lang-view-btn.active {
@@ -486,6 +587,10 @@
     }
     .milestone-trigger:hover {
       background: rgba(255, 255, 255, 0.03);
+    }
+    .milestone-trigger:focus-visible {
+      outline: 2px solid #fbbf24;
+      outline-offset: -2px;
     }
     .milestone-meta-left {
       display: flex;
@@ -746,6 +851,30 @@
       text-align: center;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
     }
+    .session-notes-card .section-label {
+      justify-content: center;
+    }
+    .session-notes-card .section-label::after {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .footer-course-link {
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: underline;
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: .2rem .5rem;
+      border-radius: 6px;
+    }
+    .footer-course-link:hover {
+      background: rgba(30, 74, 53, 0.06);
+      color: var(--gold);
+    }
     .session-list {
       list-style: none;
       margin-top: .85rem;
@@ -799,12 +928,16 @@
       font-family: var(--ff-b);
       font-size: .74rem;
       font-weight: 700;
-      padding: .32rem .75rem;
+      min-height: 38px;
+      padding: .32rem .85rem;
       border-radius: 99px;
       border: none;
       background: transparent;
       color: #475569;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: all .15s ease;
     }
     .modal-lang-btn.active {
@@ -836,14 +969,28 @@
       max-width: 520px;
       background: #ffffff;
       border: 1px solid var(--border);
-      border-top: 4px solid var(--green);
       border-radius: 20px;
-      padding: 2rem 1.85rem;
+      padding: 1.65rem 1.55rem;
       text-align: center;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      box-shadow: inset 0 4px 0 0 var(--green), 0 24px 60px rgba(0, 0, 0, 0.28);
       animation: payModalPop .22s ease-out;
       max-height: 92vh;
       overflow-y: auto;
+      scrollbar-width: thin;
+      box-sizing: border-box;
+    }
+    .pay-modal-card::-webkit-scrollbar {
+      width: 6px;
+    }
+    .pay-modal-card::-webkit-scrollbar-thumb {
+      background: rgba(30, 74, 53, 0.22);
+      border-radius: 99px;
+    }
+    #payStudentName,
+    #payStudentEmail,
+    #payStudentWhatsapp {
+      min-height: 44px;
+      box-sizing: border-box;
     }
     .pay-modal-card p {
       text-align: center;
@@ -854,20 +1001,21 @@
     }
     .pay-modal-close {
       position: absolute;
-      top: 1.1rem;
-      right: 1.1rem;
-      width: 34px;
-      height: 34px;
+      top: .9rem;
+      right: .9rem;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       border: 1px solid var(--border);
       background: var(--bg);
       color: var(--sub);
-      font-size: .95rem;
+      font-size: 1rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       transition: all .15s ease;
+      z-index: 2;
     }
     .pay-modal-close:hover {
       background: #fee2e2;
@@ -961,14 +1109,19 @@
     }
     .copy-acc-btn {
       font-family: var(--ff-b);
-      font-size: .74rem;
+      font-size: .75rem;
       font-weight: 700;
-      padding: .32rem .7rem;
+      min-height: 40px;
+      padding: .4rem .85rem;
       border-radius: 8px;
       border: 1px solid rgba(30, 74, 53, 0.3);
       background: #ffffff;
       color: var(--green);
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
       transition: all .15s ease;
     }
     .copy-acc-btn:hover {
@@ -1037,22 +1190,16 @@
       }
     }
 
-    /* ── Sticky Header Override (Prevents Fixed Header Overlap on Android Font Scaling) ── */
+    /* ── Sticky Header Override ── */
     html, body {
-      overflow-x: hidden;
+      overflow-x: clip;
       max-width: 100%;
     }
-    .course-nav {
-      position: sticky !important;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
-    }
     .track-hero {
-      padding: 3.25rem 0 6.5rem;
+      padding: 2.75rem 0 5.5rem;
     }
 
-    /* ── Mobile & Indonesian Android / Chinese Smartphone Optimization (320px–768px) ── */
+    /* ── Mobile & Smartphone Optimization (320px–768px) ── */
     @media (max-width: 768px) {
       /* Remove heavy GPU blur on mid-range/budget Android phones for 60fps scrolling */
       .course-nav,
@@ -1063,55 +1210,96 @@
       }
       .course-nav {
         background: #ffffff !important;
-        padding: .65rem 0;
+        padding: .45rem 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .course-nav .wrap {
+        padding: 0 .75rem;
+      }
+      .course-nav-inner {
+        flex-wrap: nowrap;
+        gap: .4rem;
+        justify-content: space-between;
+      }
+      .course-nav-left {
+        gap: .35rem;
+        flex: 1;
+        min-width: 0;
+      }
+      .back-link {
+        padding: 0 .45rem;
+        font-size: .8rem;
+        border: 1px solid var(--border);
+        background: var(--card);
+        min-width: 40px;
+        justify-content: center;
+      }
+      .back-link-text {
+        display: none;
+      }
+      .course-track-tabs {
+        flex: 1;
+        min-width: 0;
+        justify-content: space-between;
+      }
+      .course-track-tab {
+        flex: 1;
+        padding: .2rem .45rem;
+        font-size: .71rem;
+      }
+      .course-nav-brand {
+        display: none !important;
+      }
+      .course-nav-actions {
+        gap: .35rem;
+      }
+      .nav-enroll-btn {
+        display: none !important;
+      }
+      .header-lang-btn {
+        min-width: 38px;
+        padding: .2rem .55rem;
+        font-size: .72rem;
       }
       .who-glass-wrap {
         background: #ffffff !important;
         padding: 1.5rem 1.1rem;
         border-radius: 18px;
       }
-      .course-nav-inner {
-        flex-wrap: wrap;
-        gap: .5rem;
-        justify-content: space-between;
-      }
-      /* Hide redundant brand text on mobile header while keeping logo & controls clean */
-      .course-nav-brand > div {
-        display: none;
-      }
-      .course-nav-brand img {
-        width: 34px !important;
-        height: 34px !important;
-      }
-      .course-nav-actions {
-        width: 100%;
-        justify-content: space-between;
-        gap: .45rem !important;
-      }
       .track-hero {
-        padding: 2rem 0 4.5rem;
+        padding: 1.35rem 0 3.75rem;
       }
       .track-eyebrow-pill {
-        font-size: .68rem;
-        padding: .32rem .75rem;
+        font-size: .67rem;
+        padding: .28rem .75rem;
         letter-spacing: .04em;
         line-height: 1.35;
         white-space: normal;
         text-align: center;
+        margin-bottom: .7rem;
       }
       .track-hero-title {
-        font-size: clamp(1.65rem, 6.5vw, 2.25rem);
-        line-height: 1.22;
-        margin-bottom: 1rem;
+        font-size: clamp(1.55rem, 6vw, 2.15rem);
+        line-height: 1.18;
+        margin-bottom: .75rem;
+      }
+      .purpose-single-wrap {
+        margin: .15rem auto 1rem;
       }
       .purpose-box {
-        padding: 1.15rem 1.1rem;
+        padding: .95rem .95rem;
         border-radius: 14px;
       }
+      .purpose-box h2 {
+        font-size: 1.05rem;
+        margin-bottom: .3rem;
+      }
       .purpose-box p {
-        font-size: .92rem;
-        line-height: 1.65;
+        font-size: .85rem;
+        line-height: 1.56;
+      }
+      .track-cta-bar {
+        margin-bottom: 1.5rem;
       }
       .track-stats-row {
         grid-template-columns: repeat(2, 1fr);
@@ -1217,12 +1405,11 @@
         max-width: 100% !important;
         box-sizing: border-box !important;
         flex-shrink: 1 !important;
-        white-space: normal !important;
-        word-break: break-word;
-        line-height: 1.35 !important;
-        padding: .85rem 1rem !important;
-        font-size: .82rem !important;
-        letter-spacing: .03em !important;
+        white-space: nowrap !important;
+        line-height: 1.25 !important;
+        padding: .82rem .75rem !important;
+        font-size: .78rem !important;
+        letter-spacing: .02em !important;
         border-radius: 12px !important;
         justify-content: center !important;
         text-align: center !important;
@@ -1235,21 +1422,9 @@
       .track-container {
         padding: 0 .9rem;
       }
-      /* Keep top bar compact & single-row for Back Link + Logo, second row for Lang + Pay */
-      .header-lang-switcher {
-        flex: 1;
-        display: flex;
-      }
       .header-lang-btn {
-        flex: 1;
-        text-align: center;
-        padding: .36rem .4rem;
-        font-size: .71rem;
-      }
-      .course-nav-actions .btn {
-        padding: .42rem .7rem !important;
-        font-size: .72rem !important;
-        white-space: nowrap;
+        padding: .2rem .5rem;
+        font-size: .7rem;
       }
       /* Full-width thumb-friendly CTA buttons */
       .track-cta-bar {
@@ -1333,10 +1508,12 @@
       }
       .pay-modal-card {
         border-radius: 20px 20px 0 0;
+        width: 100%;
         max-width: 100%;
+        margin: 0;
         max-height: 92vh;
         max-height: 92dvh;
-        padding: 1.25rem 1rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
+        padding: 1.15rem .95rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
       }
@@ -1403,15 +1580,16 @@
   </style>
 </head>
 <body class="course-page lang-en">
+  <a href="#main-hero" class="skip-link">Skip to curriculum</a>
 
-  <!-- Top Navigation (Sticky with Simple 2-Button Language Toggle) -->
+  <!-- Top Navigation (Compact Single-Row Sticky Header) -->
   <header class="course-nav">
     <div class="wrap course-nav-inner">
-      <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;">
-        <a href="index.html" class="back-link">
+      <div class="course-nav-left">
+        <a href="index.html" class="back-link" aria-label="Back to Portfolio">
           <span class="back-arrow" aria-hidden="true">←</span>
-          <span class="lang-en">Back to Portfolio</span>
-          <span class="lang-id">Kembali ke Portofolio</span>
+          <span class="back-link-text lang-en">Portfolio</span>
+          <span class="back-link-text lang-id">Portofolio</span>
         </a>
         <div class="course-track-tabs" role="navigation" aria-label="Course Curriculum Switcher">
           <a href="curriculum.html" class="course-track-tab active" aria-current="page">
@@ -1420,41 +1598,41 @@
           </a>
           <a href="tajweed-curriculum.html" class="course-track-tab">
             <span class="lang-en">02 · Tajweed</span>
-            <span class="lang-id">02 · Kelas Tajwid</span>
+            <span class="lang-id">02 · Tajwid</span>
           </a>
         </div>
       </div>
 
-      <div class="course-nav-brand" style="display:flex;align-items:center;gap:.55rem;">
-        <img src="sumiyati-logo.png?v=4" alt="Quran with Sumiyati Logo" style="width:42px;height:42px;object-fit:contain;" />
-        <div>
-          <span class="tag lang-en">Official Track Syllabus</span>
-          <span class="tag lang-id">Kurikulum Resmi Kelas Pra-Tajwid</span>
-          <span class="brand-name">Pre-Tajweed Class · Sumiyati</span>
+      <div class="course-nav-brand">
+        <img src="sumiyati-logo.png?v=4" alt="Quran with Sumiyati Logo" width="38" height="38" style="width:38px;height:38px;object-fit:contain;" />
+        <div class="course-nav-brand-text">
+          <span class="tag lang-en">Official Syllabus</span>
+          <span class="tag lang-id">Kurikulum Resmi</span>
+          <span class="brand-name">Pre-Tajweed Class</span>
         </div>
       </div>
 
-      <div class="course-nav-actions" style="display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;">
+      <div class="course-nav-actions">
         <!-- SIMPLE 2-BUTTON LANGUAGE TOGGLE (ENGLISH / BAHASA INDONESIA) -->
         <div class="header-lang-switcher" role="group" aria-label="Language Switcher">
-          <button type="button" class="header-lang-btn js-lang-btn active" data-lang="en" onclick="setCurrLang('en')">
-            🇬🇧 English
+          <button type="button" class="header-lang-btn js-lang-btn active" data-lang="en" onclick="setCurrLang('en')" aria-label="English">
+            <span class="lang-full">🇬🇧 English</span><span class="lang-short">EN</span>
           </button>
-          <button type="button" class="header-lang-btn js-lang-btn" data-lang="id" onclick="setCurrLang('id')">
-            🇮🇩 Bahasa Indonesia
+          <button type="button" class="header-lang-btn js-lang-btn" data-lang="id" onclick="setCurrLang('id')" aria-label="Bahasa Indonesia">
+            <span class="lang-full">🇮🇩 Indonesia</span><span class="lang-short">ID</span>
           </button>
         </div>
 
-        <button type="button" class="btn btn-primary" style="padding:.45rem .95rem;font-size:.74rem;cursor:pointer;" onclick="openPaymentModal()">
-          <span class="lang-en">💳 Enroll / Pay for Class</span>
-          <span class="lang-id">💳 Daftar &amp; Pembayaran</span>
+        <button type="button" class="btn btn-primary nav-enroll-btn" onclick="openPaymentModal()">
+          <span class="lang-en">💳 Enroll · IDR 120.000</span>
+          <span class="lang-id">💳 Daftar · Rp 120.000</span>
         </button>
       </div>
     </div>
   </header>
 
   <!-- 1. PHITRON-STYLE TRACK HERO + 4 STAT COUNTERS -->
-  <section class="track-hero">
+  <section class="track-hero" id="main-hero">
     <div class="track-container">
       <div>
         <span class="track-eyebrow-pill lang-en">📖 Foundation Recitation Track · Pre-Tajweed Class Curriculum</span>
@@ -2293,8 +2471,8 @@
           <span class="lang-en">Ready to Start Your Pre-Tajweed Recitation Journey?</span>
           <span class="lang-id">Siap Memulai Perjalanan Belajar di Kelas Pra-Tajwid?</span>
         </h3>
-        <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(16,185,129,0.22);border:1px solid #34d399;border-radius:99px;padding:.32rem .95rem;margin-bottom:.65rem;color:#a7f3d0;font-size:.82rem;font-weight:700;">
-          <span class="lang-en">🏷️ Course Fee: IDR 120.000 · Full Program Access</span>
+        <div style="display:inline-flex;align-items:center;gap:.45rem;background:rgba(16,185,129,0.22);border:1px solid #34d399;border-radius:99px;padding:.32rem .85rem;margin-bottom:.65rem;color:#a7f3d0;font-size:.78rem;font-weight:700;max-width:100%;">
+          <span class="lang-en">🏷️ Course Fee: IDR 120.000 · Full Access</span>
           <span class="lang-id">🏷️ Biaya Kelas: Rp 120.000 · Akses Penuh</span>
         </div>
         <p style="font-size:.9rem;color:#d1fae5;line-height:1.6;">
@@ -2336,8 +2514,8 @@
         <span class="m-lang-id">Pendaftaran Kelas Pra-Tajwid</span>
       </h3>
       <p style="font-size:.86rem;color:var(--sub);line-height:1.55;">
-        <span class="m-lang-en">Choose your preferred payment method below: <strong>Bank Transfer</strong> or <strong>QR Code (QRIS)</strong>.</span>
-        <span class="m-lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong> atau <strong>Scan Kode QR (QRIS)</strong>.</span>
+        <span class="m-lang-en">Choose your preferred payment method below: <strong>Bank Transfer</strong>, <strong>QR Code (QRIS)</strong>, or <strong>Overseas Transfer</strong>.</span>
+        <span class="m-lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong>, <strong>Scan QRIS</strong>, atau <strong>Luar Negeri</strong>.</span>
       </p>
 
       <!-- COURSE FEE SUMMARY CARD -->
@@ -2568,12 +2746,12 @@
   <footer>
     <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
       <p class="name">Sumiyati · Master's in Tafsir &amp; Quranic Sciences, IIUI 2026</p>
-      <p class="meta">
-        <a href="tajweed-curriculum.html" style="color:var(--green);font-weight:600;text-decoration:underline;margin-right:1rem;">
+      <p class="meta" style="display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;justify-content:center;">
+        <a href="tajweed-curriculum.html" class="footer-course-link">
           <span class="lang-en">📜 Tajweed Curriculum</span>
           <span class="lang-id">📜 Kurikulum Kelas Tajwid</span>
         </a>
-        <a href="index.html" style="color:var(--green);font-weight:600;text-decoration:underline;">
+        <a href="index.html" class="footer-course-link">
           <span class="lang-en">← Back to Portfolio</span>
           <span class="lang-id">← Kembali ke Portofolio</span>
         </a>
