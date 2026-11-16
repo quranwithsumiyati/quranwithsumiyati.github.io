@@ -82,13 +82,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <body>
+  <a href="#hero" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
   <header>
-    <a href="#" class="logo"><img src="sumiyati-logo.png?v=4" alt="Quran with Sumiyati Logo" style="width:44px;height:44px;object-fit:contain;" /><span>Sumiyati</span></a>
+    <a href="#" class="logo"><img src="sumiyati-logo.png?v=4" alt="Quran with Sumiyati Logo" width="40" height="40" decoding="sync" /><span>Sumiyati</span></a>
     <div class="header-actions">
       <nav>
         <a href="#story" class="active" data-section="story" data-i18n="nav_story">Story</a>
@@ -119,7 +120,7 @@
             <div class="photo-arch-outer">
               <picture>
                 <source srcset="sumaiyati.webp" type="image/webp" />
-                <img src="sumaiyati.jpg" alt="Sumiyati · Lifelong Student of the Qur'an" class="hero-photo" width="900" height="1200" fetchpriority="high" decoding="async" />
+                <img src="sumaiyati.jpg" alt="Sumiyati · Lifelong Student of the Qur'an" class="hero-photo" width="900" height="1200" fetchpriority="high" decoding="sync" />
               </picture>
               <div class="photo-badge">
                 <span class="badge-title">Sumiyati</span>
@@ -148,7 +149,7 @@
             <div class="photo-arch-outer">
               <picture>
                 <source srcset="sumaiyati.webp" type="image/webp" />
-                <img src="sumaiyati.jpg" alt="Sumiyati · Lifelong Student of the Qur'an" class="hero-photo" width="900" height="1200" fetchpriority="high" decoding="async" />
+                <img src="sumaiyati.jpg" alt="Sumiyati · Lifelong Student of the Qur'an" class="hero-photo" width="900" height="1200" fetchpriority="high" decoding="sync" />
               </picture>
               <div class="photo-badge">
                 <span class="badge-title">Sumiyati</span>
@@ -240,8 +241,14 @@
       <div class="grid">
         <div class="teach-card">
           <p class="teach-num" id="teach-pretajweed" style="scroll-margin-top:110px;">01</p>
-          <h3 data-i18n="teach_c1_title">Pre-Tajweed &amp; Tahsin</h3>
-          <p data-i18n="teach_c1_desc">One-on-one and structured recitation guidance. Explore the 18-class Pre-Tajweed curriculum or the 15-chapter Tajweed curriculum with checkpoints and talaqqi feedback.</p><div style="margin-top:.65rem;display:inline-flex;align-items:center;gap:.35rem;background:rgba(30,74,53,0.08);border:1px solid rgba(30,74,53,0.22);padding:.22rem .65rem;border-radius:99px;font-size:.74rem;font-weight:700;color:var(--green);"><span>🏷️ Rp 120.000 (IDR)</span></div><div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.65rem;justify-content:center;"><a href="curriculum.html" class="btn btn-primary" style="padding:.5rem .95rem;font-size:.72rem;" data-i18n="card_btn_pretajweed">📖 Pre-Tajweed →</a><a href="tajweed-curriculum.html" class="btn btn-secondary" style="padding:.5rem .95rem;font-size:.72rem;" data-i18n="card_btn_tajweed">📜 Tajweed Class →</a></div></div>
+          <h3 data-i18n="teach_c1_title">Pre-Tajweed &amp; Tajweed</h3>
+          <p data-i18n="teach_c1_desc">One-on-one and structured recitation guidance. Explore the 18-class Pre-Tajweed curriculum or the 15-chapter Tajweed curriculum with checkpoints and talaqqi feedback.</p>
+          <div class="teach-price-badge"><span>🏷️ Rp 120.000 (IDR)</span></div>
+          <div class="teach-card-actions">
+            <a href="curriculum.html" class="btn btn-primary teach-card-btn" data-i18n="card_btn_pretajweed">📖 Pre-Tajweed →</a>
+            <a href="tajweed-curriculum.html" class="btn btn-secondary teach-card-btn" data-i18n="card_btn_tajweed">📜 Tajweed Class →</a>
+          </div>
+        </div>
         <div class="teach-card">
           <p class="teach-num" id="teach-tahfiz" style="scroll-margin-top:110px;">02</p>
           <h3 data-i18n="teach_c2_title">Tahfiz Guidance</h3>
@@ -423,15 +430,15 @@
     </div>
   </section>
 
-  <div class="tab-spacer"></div>
-
   <!-- Footer -->
   <footer>
     <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;width:100%;">
       <p class="name" data-i18n="footer_name">Sumiyati · Master's in Tafsir &amp; Quranic Sciences, IIUI 2026</p>
-      <p class="meta"><span data-i18n="footer_meta">Indonesia · Quran teacher, hafizhah, founder of Teman Murojaah</span> &nbsp;·&nbsp; <a href="admin.html" style="color:var(--green);font-weight:600;text-decoration:underline;">🎓 Instructor Portal</a></p>
+      <p class="meta"><span data-i18n="footer_meta">Indonesia · Quran teacher, hafizhah, founder of Teman Murojaah</span> &nbsp;·&nbsp; <a href="admin.html" class="footer-portal-link">🎓 Instructor Portal</a></p>
     </div>
   </footer>
+
+  <div class="tab-spacer"></div>
 
   <!-- Mobile bottom tab bar -->
   <div class="tab-bar">
@@ -501,7 +508,7 @@
         teach_label: "Teaching",
         teach_title: "What I teach",
         teach_c1_title: "Pre-Tajweed & Tajweed",
-        teach_c1_desc: "One-on-one and structured recitation guidance. Explore the 18-class Pre-Tajweed curriculum or the 15-chapter Tajweed curriculum with checkpoints and talaqqi feedback →",
+        teach_c1_desc: "One-on-one and structured recitation guidance. Explore the 18-class Pre-Tajweed curriculum or the 15-chapter Tajweed curriculum with checkpoints and talaqqi feedback.",
         card_btn_pretajweed: "📖 Pre-Tajweed →",
         card_btn_tajweed: "📜 Tajweed Class →",
         teach_c2_title: "Tahfiz Guidance",
@@ -590,7 +597,7 @@
         teach_label: "Pengajaran",
         teach_title: "Program Pembelajaran",
         teach_c1_title: "Kelas Pra-Tajwid & Tajwid",
-        teach_c1_desc: "Bimbingan talaqqi privat dan terstruktur. Pelajari 18 kelas Pra-Tajwid atau 15 bab Kelas Tajwid lengkap dengan checkpoint evaluasi dan bimbingan talaqqi →",
+        teach_c1_desc: "Bimbingan talaqqi privat dan terstruktur. Pelajari 18 kelas Pra-Tajwid atau 15 bab Kelas Tajwid lengkap dengan checkpoint evaluasi dan bimbingan talaqqi.",
         card_btn_pretajweed: "📖 Pra-Tajwid →",
         card_btn_tajweed: "📜 Kelas Tajwid →",
         teach_c2_title: "Bimbingan Tahfiz",
