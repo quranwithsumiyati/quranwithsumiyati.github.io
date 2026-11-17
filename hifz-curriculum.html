@@ -301,7 +301,7 @@
       border-top: 3.5px solid var(--track-primary);
       border-radius: 16px;
       padding: 1.75rem 2rem;
-      text-align: left;
+      text-align: center;
       box-shadow: 0 12px 30px -12px rgba(30, 58, 138, 0.1);
     }
     .purpose-box h2 {
@@ -312,6 +312,7 @@
       margin: 0 0 .85rem;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: .45rem;
     }
     .purpose-box p {
@@ -407,6 +408,7 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.45rem 1.2rem;
+      text-align: center;
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .who-card:hover {
@@ -451,6 +453,7 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.4rem 1.2rem;
+      text-align: center;
       position: relative;
     }
     .journey-num {
@@ -551,13 +554,15 @@
       justify-content: space-between;
       gap: 1rem;
       cursor: pointer;
-      text-align: left;
+      text-align: center;
       font-family: var(--ff-b);
     }
     .faq-trigger:hover { background: rgba(255, 255, 255, 0.03); }
     .faq-meta-left {
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex: 1;
       gap: .9rem;
       flex-wrap: wrap;
     }
@@ -607,6 +612,7 @@
       font-size: .94rem;
       line-height: 1.8;
       color: #e2e8f0;
+      text-align: center;
     }
     .faq-answer p {
       margin: 0 0 .8rem;
@@ -660,6 +666,7 @@
     /* ── 3B. SISTERS-ONLY HAFIZAH CALCULATOR & PLANNER (SCOPED) ── */
     .planner-section {
       padding: 3.5rem 0 2.5rem;
+      text-align: center;
     }
     .planner-header-pills {
       display: flex;
@@ -721,10 +728,11 @@
     .planner-step-head {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: .5rem;
       margin-bottom: .65rem;
       flex-wrap: wrap;
+      text-align: center;
     }
     .planner-step-lbl {
       font-size: .72rem;
@@ -755,11 +763,12 @@
       border: 1.5px solid var(--border);
       background: #ffffff;
       color: #475569;
-      text-align: left;
+      text-align: center;
+      align-items: center;
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       transition: all .15s ease;
       font-family: var(--ff-b);
     }
@@ -775,7 +784,7 @@
     .planner-opt-top {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: .35rem;
       width: 100%;
     }
@@ -993,15 +1002,18 @@
     }
     .planner-res-head {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: .75rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
       padding-bottom: .9rem;
       border-bottom: 1px solid #f1f5f9;
+      text-align: center;
     }
     .planner-res-badges {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: .35rem;
       margin-bottom: .45rem;
     }
@@ -1138,10 +1150,11 @@
       border: 1px solid #bfdbfe;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       gap: .5rem;
       font-size: .75rem;
+      text-align: center;
     }
     .planner-svg-wrap {
       background: #f8faff;
@@ -1190,13 +1203,14 @@
       border: none;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: .55rem;
       font-family: var(--ff-b);
       font-size: .92rem;
       font-weight: 700;
       color: var(--track-deep);
       cursor: pointer;
-      text-align: left;
+      text-align: center;
       padding: .25rem 0;
     }
     .planner-timetable-grid {
