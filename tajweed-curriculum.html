@@ -61,17 +61,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=8" />
   <style>
     /* ── Phitron Foundation-Track Inspired Curriculum Architecture ── */
     :root {
-      --track-bg: #fcfbfe;
-      --track-dark: #071d15;
-      --track-dark-card: #0c291e;
-      --track-dark-open: #103528;
-      --track-dark-border: #1b4d3a;
-      --track-accent: #10b981;
-      --track-gold: #d97706;
+      --track-bg: #fdfaf5;
+      --track-dark: #1c1409;
+      --track-dark-card: #261b0d;
+      --track-dark-open: #322411;
+      --track-dark-border: #573e1c;
+      --track-accent: #d97706;
+      --track-gold: #b45309;
+      --track-bronze: #92400e;
     }
 
     body.course-page {
@@ -141,7 +142,7 @@
       font-family: var(--ff-d);
       font-size: .95rem;
       font-weight: 600;
-      color: var(--green);
+      color: var(--track-bronze);
       white-space: nowrap;
     }
     .course-nav-actions {
@@ -156,6 +157,9 @@
       font-size: .74rem !important;
       border-radius: 99px !important;
       white-space: nowrap;
+      background: linear-gradient(135deg, #92400e 0%, #b45309 100%) !important;
+      border-color: #92400e !important;
+      color: #ffffff !important;
     }
     .lang-short { display: none; }
     .lang-full { display: inline; }
@@ -178,11 +182,11 @@
       display: inline-flex;
       align-items: center;
       background: var(--bg);
-      border: 1.5px solid rgba(30, 74, 53, 0.28);
+      border: 1.5px solid rgba(180, 83, 9, 0.32);
       border-radius: 99px;
       padding: 3px;
       gap: 2px;
-      box-shadow: 0 2px 8px rgba(30, 74, 53, 0.06);
+      box-shadow: 0 2px 8px rgba(180, 83, 9, 0.08);
     }
     .header-lang-btn {
       font-family: var(--ff-b);
@@ -206,9 +210,9 @@
       color: var(--green);
     }
     .header-lang-btn.active {
-      background: var(--green);
+      background: var(--track-bronze);
       color: #ffffff;
-      box-shadow: 0 2px 6px rgba(30, 74, 53, 0.22);
+      box-shadow: 0 2px 6px rgba(146, 64, 14, 0.24);
     }
 
     /* ── Course Track Switcher Pill (Pre-Tajweed ↔ Tajweed) ── */
@@ -240,10 +244,10 @@
       color: var(--green);
     }
     .course-track-tab.active {
-      background: #ffffff;
-      color: var(--green);
+      background: #fffbeb;
+      color: var(--track-bronze);
+      box-shadow: inset 0 0 0 1px rgba(180, 83, 9, 0.28), 0 2px 6px rgba(146, 64, 14, 0.1);
       font-weight: 700;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
     }
 
     /* 1. HERO + 4 STAT COUNTERS */
@@ -251,10 +255,10 @@
       position: relative;
       padding: 5.75rem 0 6.5rem;
       background:
-        radial-gradient(55% 50% at 85% 15%, rgba(30, 74, 53, 0.08) 0%, transparent 70%),
-        radial-gradient(50% 45% at 15% 80%, rgba(184, 134, 11, 0.08) 0%, transparent 70%),
-        linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
-      border-bottom: 1px solid var(--border);
+        radial-gradient(55% 50% at 85% 15%, rgba(217, 119, 6, 0.13) 0%, transparent 70%),
+        radial-gradient(50% 45% at 15% 80%, rgba(146, 64, 14, 0.09) 0%, transparent 70%),
+        linear-gradient(180deg, #fffdf9 0%, #f9f3e8 100%);
+      border-bottom: 1px solid rgba(180, 83, 9, 0.18);
       text-align: center;
       overflow: hidden;
     }
@@ -265,9 +269,9 @@
       gap: .45rem;
       padding: .35rem .95rem;
       border-radius: 99px;
-      background: rgba(30, 74, 53, 0.08);
-      border: 1px solid rgba(30, 74, 53, 0.25);
-      color: var(--green);
+      background: rgba(217, 119, 6, 0.11);
+      border: 1px solid rgba(180, 83, 9, 0.34);
+      color: var(--track-bronze);
       font-size: .76rem;
       font-weight: 700;
       letter-spacing: .08em;
@@ -291,7 +295,7 @@
     }
 
     .track-title-shine {
-      background: linear-gradient(90deg, #1e4a35 0%, #b8860b 50%, #1e4a35 100%);
+      background: linear-gradient(90deg, #92400e 0%, #d97706 50%, #78350f 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
@@ -307,18 +311,18 @@
     }
     .purpose-box {
       background: #ffffff;
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--green);
+      border: 1px solid rgba(180, 83, 9, 0.2);
+      border-top: 3px solid var(--track-gold);
       padding: 1.15rem 1.5rem;
       border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.035);
+      box-shadow: 0 6px 20px rgba(146, 64, 14, 0.05);
       text-align: center;
     }
     .purpose-box h2 {
       font-family: var(--ff-d);
       font-size: 1.15rem;
       font-weight: 600;
-      color: var(--green);
+      color: var(--track-bronze);
       margin-bottom: .4rem;
     }
     .purpose-box p {
@@ -433,8 +437,8 @@
       width: 48px;
       height: 48px;
       border-radius: 12px;
-      background: rgba(30, 74, 53, 0.08);
-      border: 1px solid rgba(30, 74, 53, 0.18);
+      background: rgba(217, 119, 6, 0.11);
+      border: 1px solid rgba(180, 83, 9, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -477,7 +481,7 @@
     }
     .eco-card:hover {
       transform: translateY(-3px);
-      border-color: var(--green);
+      border-color: var(--track-gold);
     }
     .eco-icon {
       width: 56px;
@@ -500,22 +504,22 @@
       line-height: 1.6;
     }
 
-    /* 4. DARK COLLAPSIBLE MILESTONE OUTLINE ACCORDION */
+    /* 4. DARK COLLAPSIBLE MILESTONE OUTLINE ACCORDION (Royal Bronze & Gold) */
     .outline-dark-section {
       position: relative;
       background: var(--track-dark);
       background-image:
-        radial-gradient(60% 45% at 100% 20%, #134e3a 0%, transparent 70%),
-        radial-gradient(45% 35% at 12% 78%, #1e3a2f 0%, transparent 70%);
+        radial-gradient(60% 45% at 100% 20%, #4a2e10 0%, transparent 70%),
+        radial-gradient(45% 35% at 12% 78%, #3b250d 0%, transparent 70%);
       padding: 4.5rem 0;
-      color: #ecfdf5;
+      color: #fef3c7;
       overflow: hidden;
     }
     .outline-dark-section .track-sec-heading {
       color: #ffffff;
     }
     .outline-dark-section .track-sec-sub {
-      color: #a7f3d0;
+      color: #fde68a;
     }
 
     .outline-toolbar {
@@ -545,7 +549,7 @@
       border-radius: 8px;
       border: 1px solid var(--track-dark-border);
       background: rgba(255, 255, 255, 0.05);
-      color: #d1fae5;
+      color: #fef3c7;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -553,9 +557,9 @@
       transition: all .15s ease;
     }
     .lang-view-btn.active {
-      background: #10b981;
-      color: #052e16;
-      border-color: #10b981;
+      background: #f59e0b;
+      color: #1c1409;
+      border-color: #f59e0b;
       font-weight: 700;
     }
 
@@ -615,7 +619,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .08em;
-      color: #6ee7b7;
+      color: #fbbf24;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -630,7 +634,7 @@
       transition: color .2s ease;
     }
     .milestone-item.open .milestone-title {
-      color: #34d399;
+      color: #fbbf24;
     }
     .milestone-meta-right {
       display: flex;
@@ -639,7 +643,7 @@
       gap: .85rem;
       flex-shrink: 0;
       font-size: .85rem;
-      color: #a7f3d0;
+      color: #fde68a;
       font-weight: 500;
     }
     .milestone-chevron {
@@ -650,8 +654,8 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
+      background: rgba(245, 158, 11, 0.18);
+      color: #fbbf24;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -660,14 +664,14 @@
     }
     .milestone-item.open .milestone-chevron {
       transform: translateY(-50%) rotate(180deg);
-      background: #10b981;
-      color: #052e16;
+      background: #f59e0b;
+      color: #1c1409;
     }
 
     .milestone-body {
       display: none;
       border-top: 1px solid var(--track-dark-border);
-      background: rgba(7, 29, 21, 0.55);
+      background: rgba(28, 20, 9, 0.6);
     }
     .milestone-item.open .milestone-body {
       display: block;
@@ -681,7 +685,7 @@
       text-align: center;
       gap: .75rem;
       padding: 1.5rem 1.75rem;
-      border-bottom: 1px solid rgba(27, 77, 58, 0.65);
+      border-bottom: 1px solid rgba(87, 62, 28, 0.65);
     }
     .ms-class-row:last-child {
       border-bottom: none;
@@ -690,9 +694,9 @@
       font-family: var(--ff-b);
       font-size: .82rem;
       font-weight: 700;
-      color: #34d399;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.35);
       padding: .42rem .7rem;
       border-radius: 8px;
       text-align: center;
@@ -714,7 +718,7 @@
     }
     .ms-class-single-body p {
       font-size: .92rem;
-      color: #d1fae5;
+      color: #fef3c7;
       line-height: 1.72;
       opacity: .94;
     }
@@ -776,8 +780,8 @@
     }
     .journey-step-card {
       background: #ffffff;
-      border: 1px solid var(--border);
-      border-bottom: 3px solid var(--green);
+      border: 1px solid rgba(180, 83, 9, 0.2);
+      border-bottom: 3px solid var(--track-gold);
       border-radius: 18px;
       padding: 1.75rem;
       box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
@@ -806,9 +810,9 @@
     .journey-step-badge {
       padding: .3rem .75rem;
       border-radius: 8px;
-      border: 1px solid rgba(30, 74, 53, 0.3);
-      background: rgba(30, 74, 53, 0.08);
-      color: var(--green);
+      border: 1px solid rgba(180, 83, 9, 0.32);
+      background: rgba(217, 119, 6, 0.11);
+      color: var(--track-bronze);
       font-size: .78rem;
       font-weight: 800;
       letter-spacing: .04em;
@@ -1139,7 +1143,7 @@
     .pay-bottom-cta-card {
       max-width: 920px;
       margin: 0 auto 4rem;
-      background: linear-gradient(135deg, #071d15 0%, #134e3a 100%);
+      background: linear-gradient(135deg, #1c1409 0%, #4a2c0f 100%);
       border: 1px solid var(--track-dark-border);
       border-radius: 20px;
       padding: 2.25rem 2rem;
@@ -1642,15 +1646,15 @@
 
       <!-- Primary CTA Buttons -->
       <div style="display:flex;justify-content:center;margin-bottom:.75rem;">
-        <div style="display:inline-flex;align-items:center;justify-content:center;gap:.45rem;background:#ffffff;border:1.5px solid #10b981;border-radius:99px;padding:.4rem 1.15rem;box-shadow:0 3px 12px rgba(16,185,129,0.12);">
-          <span style="font-size:.84rem;font-weight:700;color:#065f46;">
+        <div style="display:inline-flex;align-items:center;justify-content:center;gap:.45rem;background:#fffbeb;border:1.5px solid #d97706;border-radius:99px;padding:.4rem 1.15rem;box-shadow:0 3px 12px rgba(217,119,6,0.14);">
+          <span style="font-size:.84rem;font-weight:700;color:#92400e;">
             <span class="lang-en">🏷️ Course Fee: <strong>IDR 120.000</strong> (One-Time)</span>
             <span class="lang-id">🏷️ Biaya Investasi: <strong>Rp 120.000</strong> (Satu Kali)</span>
           </span>
         </div>
       </div>
       <div class="track-cta-bar">
-        <button type="button" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;cursor:pointer;" onclick="openPaymentModal()">
+        <button type="button" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;cursor:pointer;background:linear-gradient(135deg, #92400e 0%, #b45309 100%);border-color:#92400e;" onclick="openPaymentModal()">
           <span class="lang-en">💳 Enroll Now · IDR 120.000 →</span>
           <span class="lang-id">💳 Daftar Sekarang · Rp 120.000 →</span>
         </button>
@@ -2374,7 +2378,7 @@
   <div class="track-container">
     <div class="pay-bottom-cta-card">
       <div style="max-width:640px;width:100%;margin:0 auto;text-align:center;">
-        <span style="display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6ee7b7;margin-bottom:.35rem;">
+        <span style="display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fbbf24;margin-bottom:.35rem;">
           <span class="lang-en">📜 Enrollment Open · Tajweed Class</span>
           <span class="lang-id">📜 Pendaftaran Dibuka · Kelas Tajwid</span>
         </span>
@@ -2382,16 +2386,16 @@
           <span class="lang-en">Ready to Master Tajweed Theory &amp; Recitation Practice?</span>
           <span class="lang-id">Siap Memulai Perjalanan Belajar di Kelas Tajwid?</span>
         </h3>
-        <div style="display:inline-flex;align-items:center;gap:.45rem;background:rgba(16,185,129,0.22);border:1px solid #34d399;border-radius:99px;padding:.32rem .85rem;margin-bottom:.65rem;color:#a7f3d0;font-size:.78rem;font-weight:700;max-width:100%;">
+        <div style="display:inline-flex;align-items:center;gap:.45rem;background:rgba(245,158,11,0.2);border:1px solid #fbbf24;border-radius:99px;padding:.32rem .85rem;margin-bottom:.65rem;color:#fde68a;font-size:.78rem;font-weight:700;max-width:100%;">
           <span class="lang-en">🏷️ Course Fee: IDR 120.000 · Full Access</span>
           <span class="lang-id">🏷️ Biaya Kelas: Rp 120.000 · Akses Penuh</span>
         </div>
-        <p style="font-size:.9rem;color:#d1fae5;line-height:1.6;">
+        <p style="font-size:.9rem;color:#fef3c7;line-height:1.6;">
           <span class="lang-en">Click below to view Bank Transfer details or scan the QR Code to complete your Tajweed Class registration with Ustadzah Sumiyati.</span>
           <span class="lang-id">Klik tombol di bawah ini untuk melihat nomor rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran Kelas Tajwid bersama Ustadzah Sumiyati.</span>
         </p>
       </div>
-      <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.85rem 1.65rem;font-size:.88rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal()">
+      <button type="button" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#1c1409;font-weight:800;padding:.85rem 1.65rem;font-size:.88rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal()">
         <span class="lang-en">💳 Enroll Now · IDR 120.000 →</span>
         <span class="lang-id">💳 Daftar Sekarang · Rp 120.000 →</span>
       </button>
