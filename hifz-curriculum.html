@@ -77,6 +77,7 @@
     }
 
     #main-hero { scroll-margin-top: 76px; }
+    #hifz-planner { scroll-margin-top: 76px; }
     #hifz-faq { scroll-margin-top: 76px; }
 
     /* ── Sleek Single-Row Responsive Top Header ── */
@@ -656,10 +657,584 @@
       color: var(--track-deep);
     }
 
+    /* ── 3B. SISTERS-ONLY HAFIZAH CALCULATOR & PLANNER (SCOPED) ── */
+    .planner-section {
+      padding: 3.5rem 0 2.5rem;
+    }
+    .planner-header-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .5rem;
+      margin-bottom: .9rem;
+    }
+    .planner-pill-sisters {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      color: #be123c;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .3rem .8rem;
+      border-radius: 99px;
+    }
+    .planner-pill-ages {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: #eff6ff;
+      border: 1px solid rgba(29, 78, 216, 0.25);
+      color: var(--track-deep);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .3rem .8rem;
+      border-radius: 99px;
+    }
+    .planner-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .planner-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: 0 12px 32px -12px rgba(30, 58, 138, 0.08);
+    }
+    .planner-builder {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .planner-step {
+      padding-top: 1.15rem;
+      border-top: 1px solid #f1f5f9;
+    }
+    .planner-step:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+    .planner-step-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+      margin-bottom: .65rem;
+      flex-wrap: wrap;
+    }
+    .planner-step-lbl {
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #64748b;
+    }
+    .planner-step-badge {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--track-primary);
+    }
+    .planner-opt-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .55rem;
+    }
+    .planner-opt-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .55rem;
+    }
+    .planner-opt-btn {
+      min-height: 48px;
+      padding: .65rem .75rem;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: #475569;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all .15s ease;
+      font-family: var(--ff-b);
+    }
+    .planner-opt-btn:hover {
+      border-color: #93c5fd;
+    }
+    .planner-opt-btn.active {
+      border-color: var(--track-primary);
+      background: #eff6ff;
+      color: var(--track-deep);
+      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.1);
+    }
+    .planner-opt-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .35rem;
+      width: 100%;
+    }
+    .planner-opt-title {
+      font-size: .82rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .planner-opt-tag {
+      font-size: .64rem;
+      font-weight: 800;
+      padding: .15rem .4rem;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: #475569;
+      white-space: nowrap;
+    }
+    .planner-opt-btn.active .planner-opt-tag {
+      background: #dbeafe;
+      color: var(--track-deep);
+    }
+    .planner-opt-sub {
+      font-size: .71rem;
+      opacity: .85;
+      margin-top: .22rem;
+      line-height: 1.3;
+    }
+    .planner-micro {
+      font-size: .75rem;
+      color: #64748b;
+      line-height: 1.5;
+      margin: .55rem 0 0;
+    }
+    .planner-subbox {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: .85rem;
+      margin-top: .75rem;
+    }
+    .planner-stepper-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .45rem .7rem;
+      margin-top: .65rem;
+    }
+    .planner-stepper-btns {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    .planner-step-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: var(--track-deep);
+      font-weight: 800;
+      font-size: .95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .planner-step-btn:hover { background: #eff6ff; border-color: #93c5fd; }
+    .planner-step-val {
+      min-width: 68px;
+      text-align: center;
+      font-size: .76rem;
+      font-weight: 800;
+      color: var(--track-deep);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: .32rem .5rem;
+    }
+    .planner-banner-tip {
+      margin-top: .65rem;
+      padding: .7rem .8rem;
+      border-radius: 10px;
+      font-size: .74rem;
+      line-height: 1.5;
+    }
+    .planner-banner-tip.is-ok {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+    .planner-banner-tip.is-warn {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      color: #78350f;
+    }
+    .planner-rhythm-strip {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: .3rem;
+      margin-top: .5rem;
+    }
+    .planner-day-cell {
+      padding: .35rem .15rem;
+      border-radius: 8px;
+      text-align: center;
+      font-size: .62rem;
+      line-height: 1.25;
+    }
+    .planner-day-cell.new { background: var(--track-deep); color: #fff; font-weight: 700; }
+    .planner-day-cell.review { background: #d97706; color: #fff; font-weight: 700; }
+    .planner-day-cell.rest { background: #ffffff; border: 1px solid var(--border); color: #94a3b8; font-weight: 600; }
+
+    .planner-select-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .65rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .55rem .8rem;
+      margin-top: .75rem;
+    }
+    .planner-select-row select {
+      min-height: 38px;
+      padding: .3rem .65rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-family: var(--ff-b);
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    .planner-seg-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .35rem;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 4px;
+      margin-bottom: .75rem;
+    }
+    .planner-seg-btn {
+      min-height: 40px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      font-family: var(--ff-b);
+      font-size: .78rem;
+      font-weight: 700;
+      color: #64748b;
+      cursor: pointer;
+    }
+    .planner-seg-btn.active {
+      background: #ffffff;
+      color: var(--track-deep);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    }
+    .planner-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      background: #cbd5e1;
+      border-radius: 999px;
+      outline: none;
+      margin: .65rem 0;
+      cursor: pointer;
+    }
+    .planner-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--track-deep);
+      border: 3px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.28);
+    }
+    .planner-chip-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: .35rem;
+      margin-top: .45rem;
+    }
+    .planner-chip {
+      min-height: 38px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      font-family: var(--ff-b);
+      font-size: .74rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+    }
+    .planner-chip.active {
+      background: var(--track-deep);
+      border-color: var(--track-deep);
+      color: #ffffff;
+    }
+
+    /* Right Results Column */
+    .planner-results-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .planner-res-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .75rem;
+      padding-bottom: .9rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .planner-res-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: .45rem;
+    }
+    .planner-badge-blue {
+      font-size: .68rem;
+      font-weight: 800;
+      padding: .22rem .55rem;
+      border-radius: 6px;
+      background: #eff6ff;
+      color: var(--track-deep);
+    }
+    .planner-badge-gold {
+      font-size: .68rem;
+      font-weight: 700;
+      padding: .22rem .55rem;
+      border-radius: 6px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+    .planner-res-title {
+      font-family: var(--ff-d);
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      font-weight: 700;
+      color: var(--fg);
+      margin: 0;
+    }
+    .planner-copy-btn {
+      min-height: 40px;
+      padding: .4rem .8rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      font-family: var(--ff-b);
+      font-size: .75rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .planner-copy-btn:hover { background: #eff6ff; color: var(--track-deep); border-color: #93c5fd; }
+
+    .planner-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
+      margin: 1.1rem 0;
+    }
+    .planner-metric-box {
+      padding: .85rem .9rem;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+    .planner-metric-box.primary {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+    .planner-metric-lbl {
+      font-size: .67rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #64748b;
+    }
+    .planner-metric-val {
+      font-family: var(--ff-d);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--track-deep);
+      margin: .2rem 0;
+    }
+    .planner-metric-sub {
+      font-size: .72rem;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .planner-mushaf-box {
+      background: #f8faff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: .95rem;
+      margin-bottom: 1.1rem;
+    }
+    .planner-mushaf-bars {
+      display: grid;
+      grid-template-columns: repeat(15, minmax(0, 1fr));
+      gap: 4px;
+      height: 14px;
+      margin: .55rem 0 .35rem;
+    }
+    .planner-mushaf-seg {
+      border-radius: 3px;
+      background: #e2e8f0;
+    }
+    .planner-mushaf-seg.filled {
+      background: var(--track-primary);
+    }
+    .planner-dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin-top: .75rem;
+    }
+    .planner-dual-card {
+      padding: .85rem;
+      border-radius: 12px;
+      font-size: .75rem;
+    }
+    .planner-dual-card.new-days {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+    .planner-dual-card.review-days {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+    .planner-stack-bar {
+      width: 100%;
+      height: 10px;
+      border-radius: 99px;
+      overflow: hidden;
+      display: flex;
+      background: #e2e8f0;
+      margin: .5rem 0;
+    }
+    .planner-inspector {
+      margin: .75rem 0;
+      padding: .65rem .85rem;
+      border-radius: 10px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: .5rem;
+      font-size: .75rem;
+    }
+    .planner-svg-wrap {
+      background: #f8faff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: .6rem;
+      overflow: hidden;
+    }
+    .planner-quick-ms {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .45rem;
+      margin-top: .65rem;
+    }
+    .planner-ms-btn {
+      min-height: 42px;
+      padding: .35rem .4rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-family: var(--ff-b);
+      font-size: .71rem;
+      cursor: pointer;
+    }
+    .planner-ms-btn.active {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+      font-weight: 800;
+    }
+    .planner-phase-bar {
+      width: 100%;
+      height: 24px;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      font-size: .68rem;
+      font-weight: 700;
+      color: #fff;
+      margin: .4rem 0;
+    }
+    .planner-acc-btn {
+      width: 100%;
+      min-height: 44px;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--ff-b);
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--track-deep);
+      cursor: pointer;
+      text-align: left;
+      padding: .25rem 0;
+    }
+    .planner-timetable-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .5rem;
+      margin-top: .5rem;
+    }
+    .planner-routine-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .6rem;
+      margin-top: .5rem;
+    }
+    .planner-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0f172a;
+      color: #fff;
+      padding: .75rem 1.1rem;
+      border-radius: 12px;
+      font-size: .78rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 200;
+    }
+    .planner-toast.show { opacity: 1; }
+    .planner-hidden { display: none !important; }
+
     /* Responsive Breakpoints */
     @media (max-width: 960px) {
       .who-grid, .journey-grid { grid-template-columns: repeat(2, 1fr); }
       .track-stats-row { grid-template-columns: repeat(2, 1fr); }
+      .planner-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .track-container { padding: 0 1rem; }
@@ -690,6 +1265,10 @@
       .track-stats-row { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding-top: 1.5rem; }
       .who-glass-wrap { padding: 1.75rem 1.15rem; border-radius: 16px; }
       .who-grid, .journey-grid { grid-template-columns: 1fr; }
+      .planner-metrics-grid, .planner-dual-grid, .planner-timetable-grid, .planner-routine-grid { grid-template-columns: 1fr; }
+      .planner-opt-grid-3 { grid-template-columns: 1fr; }
+      .planner-quick-ms { grid-template-columns: repeat(2, 1fr); }
+      .planner-card { padding: 1rem; }
       .faq-trigger { padding: 1rem 1.05rem; }
       .faq-body { padding: 0 1.05rem 1.1rem; }
       .enroll-banner { padding: 2.25rem 1.25rem; margin: 2.5rem auto; }
@@ -800,6 +1379,10 @@
         <a href="https://wa.me/6285693622186?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mendaftar%20Program%20Tahfiz%20(Ziyadah%2030%20Juz)%20dan%20mengikuti%20tes%20bacaan." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:.78rem 1.7rem;font-size:.86rem;background:linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);border-color:#1e3a8a;">
           <span class="lang-en">💬 Book Recitation Assessment &amp; Enroll →</span>
           <span class="lang-id">💬 Daftar &amp; Tes Bacaan via WhatsApp →</span>
+        </a>
+        <a href="#hifz-planner" class="btn btn-secondary" style="padding:.78rem 1.5rem;font-size:.86rem;">
+          <span class="lang-en">🧮 30-Juz Pace Calculator ↓</span>
+          <span class="lang-id">🧮 Kalkulator Target 30 Juz ↓</span>
         </a>
         <a href="#hifz-faq" class="btn btn-secondary" style="padding:.78rem 1.5rem;font-size:.86rem;">
           <span class="lang-en">❓ Read Program Q&amp;A ↓</span>
@@ -926,6 +1509,382 @@
           <h3 class="lang-id">Ujian Sambung Ayat</h3>
           <p class="lang-en">Answer all 4 continuation questions accurately at the end of each Juz to unlock the next Juz with confidence.</p>
           <p class="lang-id">Menjawab 4 soal potongan ayat per juz dengan baik dan benar sebelum melanjutkan hafalan ke juz berikutnya.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3B. SISTERS-ONLY HAFIZAH CALCULATOR & PLANNER -->
+    <section class="planner-section" id="hifz-planner" aria-label="Sisters-Only Hafizah Calculator and Planner">
+      <div class="planner-header-pills">
+        <span class="planner-pill-sisters">
+          <span class="lang-en">🌷 Exclusively for Sisters</span>
+          <span class="lang-id">🌷 Khusus Muslimah (Akhwat)</span>
+        </span>
+        <span class="planner-pill-ages">
+          <span class="lang-en">🌱 Ages 7 to 80+ · 604-Page Madani Mushaf</span>
+          <span class="lang-id">🌱 Usia 7–80+ Tahun · Mushaf Madani 604 Halaman</span>
+        </span>
+      </div>
+
+      <h2 class="track-sec-heading lang-en">Sisters-Only Hafizah Calculator &amp; 30-Juz Planner</h2>
+      <h2 class="track-sec-heading lang-id">Kalkulator &amp; Perencana Target Hafizhah 30 Juz</h2>
+
+      <p class="track-sec-sub lang-en">
+        Estimate how long your 30-Juz Ziyadah journey will take based on your age stage, reading fluency, prior full-Qur'an readings, and weekly schedule.
+      </p>
+      <p class="track-sec-sub lang-id">
+        Perkirakan durasi hafalan 30 juz Anda secara realistis sesuai usia, kelancaran bacaan, jumlah khatam tilawah, dan pilihan jadwal mingguan.
+      </p>
+
+      <div class="planner-grid">
+        <!-- LEFT: 4-STEP SCENARIO BUILDER -->
+        <div class="planner-card planner-builder">
+
+          <!-- STEP 1: Age & Life Stage -->
+          <div class="planner-step">
+            <div class="planner-step-head">
+              <span class="planner-step-lbl lang-en">Step 1 · Sister's Age &amp; Life Stage</span>
+              <span class="planner-step-lbl lang-id">Langkah 1 · Usia &amp; Tahap Kehidupan</span>
+              <span class="planner-step-badge" id="step1PaceBadge">1.0x</span>
+            </div>
+            <div class="planner-opt-grid-2" role="radiogroup" aria-label="Age Stage">
+              <button type="button" class="planner-opt-btn" id="age-child" onclick="updatePlannerState('age','child')">
+                <div class="planner-opt-top">
+                  <span class="planner-opt-title"><span class="lang-en">Young Girl</span><span class="lang-id">Anak / Remaja Awal</span></span>
+                  <span class="planner-opt-tag">1.1x</span>
+                </div>
+                <span class="planner-opt-sub"><span class="lang-en">Ages 7–12 · Fast memory</span><span class="lang-id">Usia 7–12 · Daya ingat cepat</span></span>
+              </button>
+              <button type="button" class="planner-opt-btn" id="age-youth" onclick="updatePlannerState('age','youth')">
+                <div class="planner-opt-top">
+                  <span class="planner-opt-title"><span class="lang-en">Youth Sister</span><span class="lang-id">Mahasiswi / Remaja</span></span>
+                  <span class="planner-opt-tag">1.25x</span>
+                </div>
+                <span class="planner-opt-sub"><span class="lang-en">Ages 13–24 · Peak pace</span><span class="lang-id">Usia 13–24 · Ritme optimal</span></span>
+              </button>
+              <button type="button" class="planner-opt-btn active" id="age-adult" onclick="updatePlannerState('age','adult')">
+                <div class="planner-opt-top">
+                  <span class="planner-opt-title"><span class="lang-en">Adult Sister</span><span class="lang-id">Ibu / Pekerja</span></span>
+                  <span class="planner-opt-tag">1.0x</span>
+                </div>
+                <span class="planner-opt-sub"><span class="lang-en">Ages 25–49 · Home / Career</span><span class="lang-id">Usia 25–49 · Rumah / Karier</span></span>
+              </button>
+              <button type="button" class="planner-opt-btn" id="age-senior" onclick="updatePlannerState('age','senior')">
+                <div class="planner-opt-top">
+                  <span class="planner-opt-title"><span class="lang-en">Senior Sister</span><span class="lang-id">Muslimah Senior</span></span>
+                  <span class="planner-opt-tag">0.8x</span>
+                </div>
+                <span class="planner-opt-sub"><span class="lang-en">Ages 50–80+ · Calm pace</span><span class="lang-id">Usia 50–80+ · Ritme tenang</span></span>
+              </button>
+            </div>
+            <p class="planner-micro" id="ageMicroCopy"></p>
+          </div>
+
+          <!-- STEP 2: Fluency & Full Quran Reads -->
+          <div class="planner-step">
+            <div class="planner-step-head">
+              <span class="planner-step-lbl lang-en">Step 2 · Reading Fluency &amp; Full Reads</span>
+              <span class="planner-step-lbl lang-id">Langkah 2 · Kelancaran &amp; Khatam Tilawah</span>
+            </div>
+            <div class="planner-opt-grid-3" role="radiogroup" aria-label="Reading Fluency">
+              <button type="button" class="planner-opt-btn" id="fluency-beginner" onclick="updatePlannerState('fluency','beginner')">
+                <span class="planner-opt-title"><span class="lang-en">Beginner</span><span class="lang-id">Pemula</span></span>
+                <span class="planner-opt-sub"><span class="lang-en">Refining Tajweed</span><span class="lang-id">Perkuat Tajwid</span></span>
+              </button>
+              <button type="button" class="planner-opt-btn active" id="fluency-intermediate" onclick="updatePlannerState('fluency','intermediate')">
+                <span class="planner-opt-title"><span class="lang-en">Smooth</span><span class="lang-id">Lancar</span></span>
+                <span class="planner-opt-sub"><span class="lang-en">Steady flow</span><span class="lang-id">Bacaan stabil</span></span>
+              </button>
+              <button type="button" class="planner-opt-btn" id="fluency-fluent" onclick="updatePlannerState('fluency','fluent')">
+                <span class="planner-opt-title"><span class="lang-en">Fluent</span><span class="lang-id">Fasih</span></span>
+                <span class="planner-opt-sub"><span class="lang-en">Tajweed fluent</span><span class="lang-id">Lancar &amp; tepat</span></span>
+              </button>
+            </div>
+
+            <div class="planner-subbox">
+              <div class="planner-step-head" style="margin-bottom:.35rem;">
+                <span style="font-size:.76rem;font-weight:700;color:var(--fg);">
+                  <span class="lang-en">Full Quran Readings (Nazirah Khatam):</span>
+                  <span class="lang-id">Berapa Kali Khatam Baca Al-Qur'an (Nazirah)?</span>
+                </span>
+                <span class="planner-opt-tag" id="khatamMultiplierBadge">1.00x</span>
+              </div>
+              <div class="planner-opt-grid-2" role="radiogroup" aria-label="Full Quran Reads">
+                <button type="button" class="planner-opt-btn" id="khatam-0" onclick="setKhatamBracket('0')">
+                  <div class="planner-opt-top"><span class="planner-opt-title">0×</span><span class="planner-opt-tag">1.22x</span></div>
+                  <span class="planner-opt-sub"><span class="lang-en">First full read ahead</span><span class="lang-id">Baru memulai khatam</span></span>
+                </button>
+                <button type="button" class="planner-opt-btn" id="khatam-1_2" onclick="setKhatamBracket('1_2')">
+                  <div class="planner-opt-top"><span class="planner-opt-title">1–2×</span><span class="planner-opt-tag">1.10x</span></div>
+                  <span class="planner-opt-sub"><span class="lang-en">Building familiarity</span><span class="lang-id">Mulai terbiasa</span></span>
+                </button>
+                <button type="button" class="planner-opt-btn active" id="khatam-3_4" onclick="setKhatamBracket('3_4')">
+                  <div class="planner-opt-top"><span class="planner-opt-title">3–4×</span><span class="planner-opt-tag">1.00x</span></div>
+                  <span class="planner-opt-sub"><span class="lang-en">Good visual memory</span><span class="lang-id">Familiaritas baik</span></span>
+                </button>
+                <button type="button" class="planner-opt-btn" id="khatam-5_plus" onclick="setKhatamBracket('5_plus')">
+                  <div class="planner-opt-top"><span class="planner-opt-title">5+ × ★</span><span class="planner-opt-tag">0.78x</span></div>
+                  <span class="planner-opt-sub"><span class="lang-en">~22% faster Hifz</span><span class="lang-id">Hafal ~22% lebih cepat</span></span>
+                </button>
+              </div>
+
+              <div class="planner-stepper-row">
+                <span style="font-size:.74rem;font-weight:700;color:#334155;">
+                  <span class="lang-en">Exact Full Reads:</span>
+                  <span class="lang-id">Jumlah Khatam:</span>
+                </span>
+                <div class="planner-stepper-btns">
+                  <button type="button" class="planner-step-btn" onclick="adjustExactKhatam(-1)" aria-label="Decrease">−</button>
+                  <span class="planner-step-val" id="exactKhatamCountLabel">3×</span>
+                  <button type="button" class="planner-step-btn" onclick="adjustExactKhatam(1)" aria-label="Increase">+</button>
+                </div>
+              </div>
+
+              <div class="planner-banner-tip is-warn" id="instructorKhatamBanner"></div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Weekly Schedule & Starting Point -->
+          <div class="planner-step">
+            <div class="planner-step-head">
+              <span class="planner-step-lbl lang-en">Step 3 · Weekly Schedule</span>
+              <span class="planner-step-lbl lang-id">Langkah 3 · Jadwal Mingguan</span>
+              <span class="planner-step-badge" id="step3AnnualBadge"></span>
+            </div>
+            <div class="planner-opt-grid-2" role="radiogroup" aria-label="Weekly Schedule">
+              <button type="button" class="planner-opt-btn" id="days-3" onclick="updatePlannerState('days',3)">
+                <div class="planner-opt-top">
+                  <span class="planner-opt-title"><span class="lang-en">3 Days / Wk</span><span class="lang-id">3 Hari / Mgg</span></span>
+                  <span class="planner-opt-tag">2+1</span>
+                </div>
+                <span class="planner-opt-sub"><span class="lang-en">2d new + 1d pure review</span><span class="lang-id">2h baru + 1h murojaah</span></span>
+              </button>
+              <button type="button" class="planner-opt-btn active" id="days-5" onclick="updatePlannerState('days',5)">
+                <div class="planner-opt-top">
+                  <span class="planner-opt-title"><span class="lang-en">5 Days / Wk</span><span class="lang-id">5 Hari / Mgg</span></span>
+                  <span class="planner-opt-tag">3+2</span>
+                </div>
+                <span class="planner-opt-sub"><span class="lang-en">3d new + 2d pure review</span><span class="lang-id">3h baru + 2h murojaah</span></span>
+              </button>
+            </div>
+
+            <div class="planner-rhythm-strip" id="weeklyRhythmStrip"></div>
+
+            <div class="planner-select-row">
+              <label for="memorizedSelect" style="font-size:.76rem;font-weight:700;color:#334155;">
+                <span class="lang-en">Already Memorized:</span>
+                <span class="lang-id">Hafalan Saat Ini:</span>
+              </label>
+              <select id="memorizedSelect" onchange="updatePlannerState('memorizedJuz', parseFloat(this.value))">
+                <option value="0">0 Juz</option>
+                <option value="1" selected>1 Juz (Juz 'Amma)</option>
+                <option value="2">2 Juz</option>
+                <option value="3">3 Juz</option>
+                <option value="5">5 Juz</option>
+                <option value="10">10 Juz</option>
+                <option value="15">15 Juz</option>
+                <option value="20">20 Juz</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- STEP 4: Planning Mode & Slider -->
+          <div class="planner-step">
+            <div class="planner-step-head">
+              <span class="planner-step-lbl lang-en">Step 4 · Planning Mode</span>
+              <span class="planner-step-lbl lang-id">Langkah 4 · Mode Perencanaan</span>
+            </div>
+            <div class="planner-seg-switch">
+              <button type="button" class="planner-seg-btn active" id="mode-byTime" onclick="updatePlannerState('mode','byTime')">
+                <span class="lang-en">By Daily Time</span><span class="lang-id">Berdasarkan Waktu</span>
+              </button>
+              <button type="button" class="planner-seg-btn" id="mode-byYears" onclick="updatePlannerState('mode','byYears')">
+                <span class="lang-en">By Target Years</span><span class="lang-id">Berdasarkan Tahun</span>
+              </button>
+            </div>
+
+            <div id="control-byTime" class="planner-subbox" style="margin-top:0;">
+              <div class="planner-step-head" style="margin-bottom:.2rem;">
+                <span style="font-size:.76rem;font-weight:700;color:#334155;">
+                  <span class="lang-en">Time / Study Day:</span><span class="lang-id">Durasi / Hari Belajar:</span>
+                </span>
+                <span class="planner-opt-tag" id="label-dailyTime" style="background:#dbeafe;color:#1e3a8a;font-size:.78rem;">1 hr / day</span>
+              </div>
+              <input type="range" class="planner-slider" id="slider-dailyTime" min="30" max="180" step="15" value="60" oninput="onSliderChange('time', this.value)" aria-label="Daily Study Minutes" />
+              <div class="planner-chip-row">
+                <button type="button" class="planner-chip" id="chip-time-30" onclick="setSliderValue('time',30)">30m</button>
+                <button type="button" class="planner-chip active" id="chip-time-60" onclick="setSliderValue('time',60)">1h</button>
+                <button type="button" class="planner-chip" id="chip-time-90" onclick="setSliderValue('time',90)">1.5h</button>
+                <button type="button" class="planner-chip" id="chip-time-120" onclick="setSliderValue('time',120)">2h</button>
+                <button type="button" class="planner-chip" id="chip-time-180" onclick="setSliderValue('time',180)">3h</button>
+              </div>
+            </div>
+
+            <div id="control-byYears" class="planner-subbox planner-hidden" style="margin-top:0;">
+              <div class="planner-step-head" style="margin-bottom:.2rem;">
+                <span style="font-size:.76rem;font-weight:700;color:#334155;">
+                  <span class="lang-en">Target Years:</span><span class="lang-id">Target Khatam:</span>
+                </span>
+                <span class="planner-opt-tag" id="label-targetYears" style="background:#dbeafe;color:#1e3a8a;font-size:.78rem;">3 Years</span>
+              </div>
+              <input type="range" class="planner-slider" id="slider-targetYears" min="1" max="10" step="0.5" value="3" oninput="onSliderChange('years', this.value)" aria-label="Target Completion Years" />
+              <div class="planner-chip-row">
+                <button type="button" class="planner-chip" id="chip-years-2" onclick="setSliderValue('years',2)">2y</button>
+                <button type="button" class="planner-chip active" id="chip-years-3" onclick="setSliderValue('years',3)">3y</button>
+                <button type="button" class="planner-chip" id="chip-years-4" onclick="setSliderValue('years',4)">4y</button>
+                <button type="button" class="planner-chip" id="chip-years-5" onclick="setSliderValue('years',5)">5y</button>
+                <button type="button" class="planner-chip" id="chip-years-7" onclick="setSliderValue('years',7)">7y</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: RESULTS, MUSHAF VISUALIZER & INTERACTIVE GRAPHS -->
+        <div class="planner-results-col">
+
+          <!-- CARD 1: CORE PLAN SUMMARY -->
+          <div class="planner-card">
+            <div class="planner-res-head">
+              <div>
+                <div class="planner-res-badges">
+                  <span class="planner-badge-blue" id="resultRoleBadge"></span>
+                  <span class="planner-badge-gold" id="resultCadenceBadge"></span>
+                  <span class="planner-badge-blue" id="resultKhatamBadge"></span>
+                </div>
+                <h3 class="planner-res-title" id="resultMainHeadline"></h3>
+              </div>
+              <button type="button" class="planner-copy-btn" onclick="copyPlanText()">
+                <span class="lang-en">📋 Copy Plan</span>
+                <span class="lang-id">📋 Salin Rencana</span>
+              </button>
+            </div>
+
+            <div class="planner-metrics-grid">
+              <div class="planner-metric-box primary">
+                <div class="planner-metric-lbl"><span class="lang-en">Time to Complete</span><span class="lang-id">Estimasi Khatam</span></div>
+                <div class="planner-metric-val" id="metricDuration"></div>
+                <div class="planner-metric-sub" id="metricFinishDate"></div>
+              </div>
+              <div class="planner-metric-box">
+                <div class="planner-metric-lbl"><span class="lang-en">Time / Study Day</span><span class="lang-id">Durasi / Hari</span></div>
+                <div class="planner-metric-val" id="metricDailyTime"></div>
+                <div class="planner-metric-sub" id="metricWeeklyCommitment"></div>
+              </div>
+              <div class="planner-metric-box">
+                <div class="planner-metric-lbl" id="metricLinesHeader"></div>
+                <div class="planner-metric-val" id="metricDailyLines"></div>
+                <div class="planner-metric-sub" id="metricWeeklyLines"></div>
+              </div>
+            </div>
+
+            <!-- 15-Line Madani Mushaf Visualizer -->
+            <div class="planner-mushaf-box">
+              <div class="planner-step-head" style="margin-bottom:0;">
+                <span style="font-size:.76rem;font-weight:700;color:var(--track-deep);" id="mushafVisualizerTitle"></span>
+                <span class="planner-opt-tag" id="mushafRatioLabel" style="background:#dbeafe;color:#1e3a8a;"></span>
+              </div>
+              <div class="planner-mushaf-bars" id="mushafMiniBars"></div>
+              <div style="display:flex;justify-content:space-between;font-size:.68rem;color:#64748b;font-weight:600;">
+                <span>1</span><span>8 (½)</span><span>15 (1 Page)</span>
+              </div>
+              <div style="margin-top:.65rem;padding-top:.55rem;border-top:1px solid #e2e8f0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.4rem;font-size:.72rem;">
+                <span class="planner-badge-gold" id="pureReviewCalloutBadge"></span>
+                <span style="color:#475569;font-weight:600;" id="pureReviewCalloutDesc"></span>
+              </div>
+            </div>
+
+            <!-- Dual-Day Session Time Allocation -->
+            <div>
+              <div class="planner-step-head" style="margin-bottom:0;">
+                <span class="planner-step-lbl lang-en">Dual-Day Session Allocation</span>
+                <span class="planner-step-lbl lang-id">Pembagian Waktu Sesi Belajar</span>
+                <span class="planner-step-badge" id="dualAllocationSubtitle"></span>
+              </div>
+              <div class="planner-dual-grid" id="dualDayBreakdownContainer"></div>
+              <div class="planner-banner-tip" id="khatamAllocationCallout"></div>
+            </div>
+          </div>
+
+          <!-- CARD 2: INTERACTIVE TRAJECTORY & STAGE GRAPHS -->
+          <div class="planner-card">
+            <div class="planner-step-head">
+              <div>
+                <div class="planner-step-lbl lang-en">Interactive Roadmap Analytics</div>
+                <div class="planner-step-lbl lang-id">Grafik Proyeksi 30 Juz</div>
+                <h4 style="font-family:var(--ff-d);font-size:1.08rem;font-weight:700;color:var(--track-deep);margin:.15rem 0 0;">
+                  <span class="lang-en">Visual Progress &amp; Effort Graphs</span>
+                  <span class="lang-id">Grafik Perkembangan &amp; Tahapan</span>
+                </h4>
+              </div>
+              <div class="planner-seg-switch" style="margin-bottom:0;grid-template-columns:repeat(3,auto);padding:3px;">
+                <button type="button" class="planner-seg-btn" id="graphTab-trajectory" onclick="setGraphTab('trajectory')" style="padding:0 .6rem;min-height:34px;font-size:.72rem;">
+                  <span class="lang-en">Trajectory</span><span class="lang-id">Grafik</span>
+                </button>
+                <button type="button" class="planner-seg-btn" id="graphTab-phases" onclick="setGraphTab('phases')" style="padding:0 .6rem;min-height:34px;font-size:.72rem;">
+                  <span class="lang-en">Stages</span><span class="lang-id">Tahap</span>
+                </button>
+                <button type="button" class="planner-seg-btn active" id="graphTab-both" onclick="setGraphTab('both')" style="padding:0 .6rem;min-height:34px;font-size:.72rem;">
+                  <span class="lang-en">Both</span><span class="lang-id">Semua</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="graphPanel-trajectory" style="margin-top:.75rem;">
+              <div class="planner-step-head" style="margin-bottom:.25rem;">
+                <span style="font-size:.8rem;font-weight:700;color:var(--fg);">
+                  <span class="lang-en">30-Juz Completion Trajectory (604 Pages)</span>
+                  <span class="lang-id">Proyeksi Pencapaian 30 Juz (604 Halaman)</span>
+                </span>
+                <span class="planner-badge-gold" id="paceBoostBadge"></span>
+              </div>
+
+              <div class="planner-inspector">
+                <strong id="inspectorTitle" style="color:var(--fg);"></strong>
+                <span id="inspectorDetails" style="color:var(--track-deep);font-weight:700;"></span>
+              </div>
+
+              <div class="planner-svg-wrap">
+                <svg id="trajectorySvg" viewBox="0 0 600 250" style="width:100%;height:auto;display:block;" role="img" aria-label="30 Juz Completion Trajectory Chart"></svg>
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:.5rem;padding-top:.5rem;border-top:1px solid #e2e8f0;font-size:.7rem;color:#475569;font-weight:600;">
+                  <span id="legendCurrentPace"></span>
+                  <span id="legendBoostPace" style="color:#b45309;"></span>
+                </div>
+              </div>
+
+              <div class="planner-quick-ms" id="milestoneQuickButtons"></div>
+            </div>
+
+            <div id="graphPanel-phases" style="margin-top:1.15rem;padding-top:1rem;border-top:1px solid #f1f5f9;">
+              <div style="font-size:.8rem;font-weight:700;color:var(--fg);margin-bottom:.5rem;">
+                <span class="lang-en">Journey Stage &amp; Weekly Cadence Breakdown</span>
+                <span class="lang-id">Pembagian Waktu per Tahapan Hafalan</span>
+              </div>
+              <div id="phaseBarsContainer" style="display:flex;flex-direction:column;gap:.65rem;"></div>
+            </div>
+          </div>
+
+          <!-- CARD 3: EXPANDABLE WEEKLY TIMETABLE & ROUTINE -->
+          <div class="planner-card">
+            <button type="button" class="planner-acc-btn" id="accordionRoutineBtn" onclick="togglePlannerRoutine()" aria-expanded="false">
+              <span id="accordionRoutineTitle">Weekly Class &amp; Review Plan</span>
+              <span id="accordionRoutineIcon" style="font-size:.78rem;">▼</span>
+            </button>
+            <div id="accordionRoutineContent" class="planner-hidden" style="padding-top:.75rem;border-top:1px solid #f1f5f9;margin-top:.5rem;">
+              <div class="planner-step-lbl" id="weeklyTimetableHeading"></div>
+              <div class="planner-timetable-grid" id="weeklyTimetableGrid"></div>
+
+              <div class="planner-step-lbl" style="margin-top:1rem;">
+                <span class="lang-en">Daily Routine Blocks (New-Lesson Days)</span>
+                <span class="lang-id">Blok Waktu Harian (Hari Setoran Baru)</span>
+              </div>
+              <div class="planner-routine-grid" id="routineContainer"></div>
+
+              <div class="planner-banner-tip is-ok" id="ageAdviceBox" style="margin-top:.85rem;"></div>
+              <div class="planner-banner-tip is-warn" id="khatamRoadmapBox"></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1101,6 +2060,11 @@
       try {
         localStorage.setItem('sumiyati_lang', lang);
       } catch (e) {}
+
+      if (typeof renderPlannerControls === 'function') {
+        renderPlannerControls();
+        calculateAndRenderPlanner();
+      }
     }
 
     function updateToggleAllFaqBtn() {
@@ -1156,6 +2120,659 @@
         }
       } catch (e) {}
     })();
+  </script>
+
+  <!-- Toast for Copy Plan -->
+  <div id="copyToast" class="planner-toast">
+    <span class="lang-en">✓ Hafizah plan copied to clipboard</span>
+    <span class="lang-id">✓ Rencana Hafizhah disalin ke clipboard</span>
+  </div>
+
+  <!-- Sisters-Only Hafizah Calculator & SVG Trajectory Script -->
+  <script>
+    const plannerState = {
+      age: 'adult',
+      fluency: 'intermediate',
+      khatamBracket: '3_4',
+      khatamExactCount: 3,
+      mode: 'byTime',
+      dailyMinutes: 60,
+      targetYears: 3.0,
+      days: 5,
+      memorizedJuz: 1,
+      graphTab: 'both',
+      selectedMilestoneJuz: 15,
+      routineOpen: false
+    };
+
+    const TOTAL_PAGES = 604;
+    const LINES_PER_PAGE = 15;
+    const WEEKS_PER_YEAR = 52.1429;
+
+    const KHATAM_CONFIG = {
+      '0': { timeMultiplier: 1.22, isBenchmarkReached: false },
+      '1_2': { timeMultiplier: 1.10, isBenchmarkReached: false },
+      '3_4': { timeMultiplier: 1.00, isBenchmarkReached: false },
+      '5_plus': { timeMultiplier: 0.78, isBenchmarkReached: true }
+    };
+
+    const SCHEDULE_CONFIG = {
+      3: {
+        totalDaysPerWeek: 3, newDaysPerWeek: 2, reviewDaysPerWeek: 1,
+        shortLabel: '3d/wk (2+1)', shortLabelId: '3h/mgg (2+1)',
+        badgeLabel: '3d/wk (2d new + 1d review)', badgeLabelId: '3h/mgg (2h baru + 1h murojaah)',
+        annualBadge: '104 new + 52 review d/yr', annualBadgeId: '104h baru + 52h murojaah/thn',
+        rhythm: [
+          { day: 'Mon', dayId: 'Sen', type: 'new', label: 'New', labelId: 'Baru' },
+          { day: 'Tue', dayId: 'Sel', type: 'rest', label: 'Rest', labelId: 'Jeda' },
+          { day: 'Wed', dayId: 'Rab', type: 'new', label: 'New', labelId: 'Baru' },
+          { day: 'Thu', dayId: 'Kam', type: 'rest', label: 'Rest', labelId: 'Jeda' },
+          { day: 'Fri', dayId: 'Jum', type: 'rest', label: 'Jumuah', labelId: 'Jumat' },
+          { day: 'Sat', dayId: 'Sab', type: 'review', label: 'Review', labelId: 'Murojaah' },
+          { day: 'Sun', dayId: 'Min', type: 'rest', label: 'Rest', labelId: 'Jeda' }
+        ]
+      },
+      5: {
+        totalDaysPerWeek: 5, newDaysPerWeek: 3, reviewDaysPerWeek: 2,
+        shortLabel: '5d/wk (3+2)', shortLabelId: '5h/mgg (3+2)',
+        badgeLabel: '5d/wk (3d new + 2d review)', badgeLabelId: '5h/mgg (3h baru + 2h murojaah)',
+        annualBadge: '156 new + 104 review d/yr', annualBadgeId: '156h baru + 104h murojaah/thn',
+        rhythm: [
+          { day: 'Mon', dayId: 'Sen', type: 'new', label: 'New', labelId: 'Baru' },
+          { day: 'Tue', dayId: 'Sel', type: 'new', label: 'New', labelId: 'Baru' },
+          { day: 'Wed', dayId: 'Rab', type: 'review', label: 'Review', labelId: 'Murojaah' },
+          { day: 'Thu', dayId: 'Kam', type: 'new', label: 'New', labelId: 'Baru' },
+          { day: 'Fri', dayId: 'Jum', type: 'rest', label: 'Jumuah', labelId: 'Jumat' },
+          { day: 'Sat', dayId: 'Sab', type: 'review', label: 'Review', labelId: 'Murojaah' },
+          { day: 'Sun', dayId: 'Min', type: 'rest', label: 'Rest', labelId: 'Jeda' }
+        ]
+      }
+    };
+
+    const AGE_CONFIG = {
+      child: {
+        label: 'Young Girl (7–12)', labelId: 'Anak / Remaja Awal (7–12)',
+        speed: 1.10, badge: '1.1x Young Girl', badgeId: '1.1x Ritme Anak',
+        micro: 'Young girls (7–12) absorb new verses rapidly with encouraging 25-minute sessions.',
+        microId: 'Usia 7–12 tahun menyerap ayat baru dengan cepat melalui sesi singkat 25 menit yang menyenangkan.',
+        sabaq: 0.54, sabaqi: 0.28, manzil: 0.18,
+        tip: 'For Young Girls (7–12): Split study time into two 20–30 min sessions and use Pure Review Day(s) for joyful recitation with mother or Ustadzah.',
+        tipId: 'Untuk Usia 7–12: Bagi waktu belajar menjadi dua sesi singkat (20–30 menit) dan gunakan hari murojaah untuk setoran ceria bersama ibu atau Ustadzah.'
+      },
+      youth: {
+        label: 'Youth Sister (13–24)', labelId: 'Mahasiswi / Remaja (13–24)',
+        speed: 1.25, badge: '1.25x Peak Youth', badgeId: '1.25x Ritme Optimal',
+        micro: 'Youth sisters (13–24) enjoy peak memorization speed when consistent after Fajr.',
+        microId: 'Usia 13–24 tahun memiliki kecepatan hafalan optimal bila konsisten menghafal setelah Subuh.',
+        sabaq: 0.54, sabaqi: 0.27, manzil: 0.19,
+        tip: 'For Youth Sisters (13–24): Memorize new Sabaq lines in the quiet barakah after Fajr and use Pure Review Days with a Hifz partner or Ustadzah.',
+        tipId: 'Untuk Usia 13–24: Hafalkan ayat baru (Sabaq) di waktu penuh berkah setelah Subuh dan manfaatkan hari murojaah bersama partner atau Ustadzah.'
+      },
+      adult: {
+        label: 'Adult Sister (25–49)', labelId: 'Ibu / Pekerja (25–49)',
+        speed: 1.00, badge: '1.0x Steady Sister', badgeId: '1.0x Ritme Stabil',
+        micro: 'Adult sisters (25–49) excel with calm morning focus and built-in Pure Review Days.',
+        microId: 'Muslimah usia 25–49 tahun unggul dengan fokus pagi yang tenang dan hari khusus murojaah.',
+        sabaq: 0.52, sabaqi: 0.28, manzil: 0.20,
+        tip: 'For Adult Sisters (25–49): Pure Review Days protect your progress around family or career. Listening to Sabaq audio during daily routines boosts retention.',
+        tipId: 'Untuk Usia 25–49: Hari khusus murojaah menjaga hafalan di tengah kesibukan keluarga atau karier. Mendengarkan audio ayat baru saat beraktivitas sangat membantu.'
+      },
+      senior: {
+        label: 'Senior Sister (50–80+)', labelId: 'Muslimah Senior (50–80+)',
+        speed: 0.80, badge: '0.8x Calm Senior', badgeId: '0.8x Ritme Tenang',
+        micro: 'Senior sisters (50–80+) succeed through unhurried consistency, audio repetition, and peaceful review.',
+        microId: 'Muslimah senior (50–80+) berhasil melalui konsistensi yang tenang, pengulangan audio, dan murojaah tanpa tekanan.',
+        sabaq: 0.48, sabaqi: 0.30, manzil: 0.22,
+        tip: 'For Senior Sisters (50–80+): The 2+1 or 3+2 weekly rhythm gives your heart and memory unhurried consolidation days with zero pressure.',
+        tipId: 'Untuk Usia 50–80+: Ritme 2+1 atau 3+2 memberi ruang istirahat pikiran dan penguatan hafalan secara tenang tanpa beban target.'
+      }
+    };
+
+    const FLUENCY_CONFIG = {
+      beginner: { speed: 0.80, extraMonths: 3 },
+      intermediate: { speed: 1.00, extraMonths: 0 },
+      fluent: { speed: 1.15, extraMonths: 0 }
+    };
+
+    function isId() {
+      return document.body.classList.contains('lang-id');
+    }
+
+    function updatePlannerState(key, value) {
+      plannerState[key] = value;
+      renderPlannerControls();
+      calculateAndRenderPlanner();
+    }
+
+    function setKhatamBracket(bracketKey) {
+      plannerState.khatamBracket = bracketKey;
+      if (bracketKey === '0') plannerState.khatamExactCount = 0;
+      else if (bracketKey === '1_2' && (plannerState.khatamExactCount < 1 || plannerState.khatamExactCount > 2)) plannerState.khatamExactCount = 2;
+      else if (bracketKey === '3_4' && (plannerState.khatamExactCount < 3 || plannerState.khatamExactCount > 4)) plannerState.khatamExactCount = 3;
+      else if (bracketKey === '5_plus' && plannerState.khatamExactCount < 5) plannerState.khatamExactCount = 5;
+      renderPlannerControls();
+      calculateAndRenderPlanner();
+    }
+
+    function adjustExactKhatam(delta) {
+      const next = Math.max(0, Math.min(15, plannerState.khatamExactCount + delta));
+      plannerState.khatamExactCount = next;
+      if (next === 0) plannerState.khatamBracket = '0';
+      else if (next <= 2) plannerState.khatamBracket = '1_2';
+      else if (next <= 4) plannerState.khatamBracket = '3_4';
+      else plannerState.khatamBracket = '5_plus';
+      renderPlannerControls();
+      calculateAndRenderPlanner();
+    }
+
+    function onSliderChange(type, val) {
+      if (type === 'time') plannerState.dailyMinutes = parseInt(val, 10);
+      else plannerState.targetYears = parseFloat(val);
+      renderPlannerControls();
+      calculateAndRenderPlanner();
+    }
+
+    function setSliderValue(type, val) {
+      if (type === 'time') {
+        plannerState.dailyMinutes = val;
+        document.getElementById('slider-dailyTime').value = val;
+      } else {
+        plannerState.targetYears = val;
+        document.getElementById('slider-targetYears').value = val;
+      }
+      renderPlannerControls();
+      calculateAndRenderPlanner();
+    }
+
+    function setGraphTab(tab) {
+      plannerState.graphTab = tab;
+      ['trajectory', 'phases', 'both'].forEach(t => {
+        const btn = document.getElementById('graphTab-' + t);
+        if (btn) btn.classList.toggle('active', t === tab);
+      });
+      const pTraj = document.getElementById('graphPanel-trajectory');
+      const pPhases = document.getElementById('graphPanel-phases');
+      pTraj.classList.toggle('planner-hidden', tab === 'phases');
+      pPhases.classList.toggle('planner-hidden', tab === 'trajectory');
+    }
+
+    function togglePlannerRoutine() {
+      plannerState.routineOpen = !plannerState.routineOpen;
+      const content = document.getElementById('accordionRoutineContent');
+      const icon = document.getElementById('accordionRoutineIcon');
+      const btn = document.getElementById('accordionRoutineBtn');
+      content.classList.toggle('planner-hidden', !plannerState.routineOpen);
+      icon.textContent = plannerState.routineOpen ? '▲' : '▼';
+      btn.setAttribute('aria-expanded', plannerState.routineOpen ? 'true' : 'false');
+    }
+
+    function formatTime(mins) {
+      const m = Math.round(mins);
+      if (m < 60) return isId() ? `${m} mnt` : `${m} mins`;
+      const h = Math.floor(m / 60);
+      const rem = m % 60;
+      if (isId()) return rem === 0 ? `${h} jam` : `${h} jam ${rem}m`;
+      return rem === 0 ? `${h} ${h === 1 ? 'hr' : 'hrs'}` : `${h} hr ${rem}m`;
+    }
+
+    function formatYearsMonths(totalMonths) {
+      const m = Math.max(1, Math.round(totalMonths));
+      const yrs = Math.floor(m / 12);
+      const mos = m % 12;
+      if (isId()) {
+        if (yrs === 0) return `${mos} Bulan`;
+        if (mos === 0) return `${yrs} Tahun`;
+        return `${yrs} Thn ${mos} Bln`;
+      }
+      if (yrs === 0) return `${mos} ${mos === 1 ? 'Month' : 'Months'}`;
+      if (mos === 0) return `${yrs} ${yrs === 1 ? 'Year' : 'Years'}`;
+      return `${yrs} ${yrs === 1 ? 'Yr' : 'Yrs'} ${mos} ${mos === 1 ? 'Mo' : 'Mos'}`;
+    }
+
+    function getFutureDate(monthsAhead) {
+      const now = new Date();
+      const d = new Date(now.getFullYear(), now.getMonth() + Math.round(monthsAhead), 1);
+      return d.toLocaleDateString(isId() ? 'id-ID' : 'en-US', { month: 'short', year: 'numeric' });
+    }
+
+    function renderPlannerControls() {
+      const id = isId();
+      ['child', 'youth', 'adult', 'senior'].forEach(a => {
+        document.getElementById('age-' + a).classList.toggle('active', plannerState.age === a);
+      });
+      const ageCfg = AGE_CONFIG[plannerState.age];
+      document.getElementById('step1PaceBadge').textContent = id ? ageCfg.badgeId : ageCfg.badge;
+      document.getElementById('ageMicroCopy').textContent = id ? ageCfg.microId : ageCfg.micro;
+
+      ['beginner', 'intermediate', 'fluent'].forEach(f => {
+        document.getElementById('fluency-' + f).classList.toggle('active', plannerState.fluency === f);
+      });
+
+      ['0', '1_2', '3_4', '5_plus'].forEach(k => {
+        document.getElementById('khatam-' + k).classList.toggle('active', plannerState.khatamBracket === k);
+      });
+
+      const khatamCfg = KHATAM_CONFIG[plannerState.khatamBracket];
+      const multBadge = document.getElementById('khatamMultiplierBadge');
+      multBadge.textContent = khatamCfg.isBenchmarkReached
+        ? (id ? '0.78x (★ -22% Lebih Cepat)' : '0.78x (★ -22% Faster)')
+        : `${khatamCfg.timeMultiplier.toFixed(2)}x`;
+      multBadge.style.background = khatamCfg.isBenchmarkReached ? '#1e3a8a' : '#fef3c7';
+      multBadge.style.color = khatamCfg.isBenchmarkReached ? '#ffffff' : '#92400e';
+
+      document.getElementById('exactKhatamCountLabel').textContent =
+        plannerState.khatamExactCount >= 15 ? '15+ ×' : `${plannerState.khatamExactCount}×`;
+
+      const bannerEl = document.getElementById('instructorKhatamBanner');
+      if (khatamCfg.isBenchmarkReached) {
+        bannerEl.className = 'planner-banner-tip is-ok';
+        bannerEl.innerHTML = id
+          ? '<strong>Target Khatam 5+ Kali Tercapai:</strong> Familiaritas visual Anda membuat hafalan baru ~22% lebih cepat!'
+          : '<strong>5+ Readings Benchmark Reached:</strong> Strong visual familiarity makes Sabaq memorization ~22% faster!';
+      } else {
+        const rem = Math.max(1, 5 - plannerState.khatamExactCount);
+        bannerEl.className = 'planner-banner-tip is-warn';
+        bannerEl.innerHTML = id
+          ? `<strong>Tips Pengajar (${rem} khatam lagi menuju 5×):</strong> Menyelesaikan tilawah 30 juz minimal 5 kali membuat menghafal ~22% lebih mudah &amp; cepat.`
+          : `<strong>Instructor Tip (${rem} more full reads to 5×):</strong> Reading the full Qur'an 5+ times makes Hifz ~22% faster and noticeably smoother.`;
+      }
+
+      [3, 5].forEach(d => {
+        document.getElementById('days-' + d).classList.toggle('active', plannerState.days === d);
+      });
+      const schedCfg = SCHEDULE_CONFIG[plannerState.days];
+      document.getElementById('step3AnnualBadge').textContent = id ? schedCfg.annualBadgeId : schedCfg.annualBadge;
+
+      document.getElementById('weeklyRhythmStrip').innerHTML = schedCfg.rhythm.map(r => `
+        <div class="planner-day-cell ${r.type}">
+          <div>${id ? r.dayId : r.day}</div>
+          <div>${id ? r.labelId : r.label}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('mode-byTime').classList.toggle('active', plannerState.mode === 'byTime');
+      document.getElementById('mode-byYears').classList.toggle('active', plannerState.mode === 'byYears');
+      document.getElementById('control-byTime').classList.toggle('planner-hidden', plannerState.mode !== 'byTime');
+      document.getElementById('control-byYears').classList.toggle('planner-hidden', plannerState.mode !== 'byYears');
+
+      document.getElementById('label-dailyTime').textContent = `${formatTime(plannerState.dailyMinutes)} / ${id ? 'hari' : 'day'}`;
+      document.getElementById('label-targetYears').textContent = `${plannerState.targetYears} ${id ? 'Tahun' : (plannerState.targetYears === 1 ? 'Year' : 'Years')}`;
+
+      [30, 60, 90, 120, 180].forEach(v => {
+        document.getElementById('chip-time-' + v).classList.toggle('active', plannerState.dailyMinutes === v);
+      });
+      [2, 3, 4, 5, 7].forEach(v => {
+        document.getElementById('chip-years-' + v).classList.toggle('active', plannerState.targetYears === v);
+      });
+    }
+
+    function calculateAndRenderPlanner() {
+      const id = isId();
+      const ageCfg = AGE_CONFIG[plannerState.age];
+      const fluencyCfg = FLUENCY_CONFIG[plannerState.fluency];
+      const khatamCfg = KHATAM_CONFIG[plannerState.khatamBracket];
+      const schedCfg = SCHEDULE_CONFIG[plannerState.days];
+
+      const newDaysPerWeek = schedCfg.newDaysPerWeek;
+      const reviewDaysPerWeek = schedCfg.reviewDaysPerWeek;
+      const totalDaysPerWeek = schedCfg.totalDaysPerWeek;
+
+      const memorizedPages = Math.round((plannerState.memorizedJuz / 30) * TOTAL_PAGES);
+      const remainingPages = Math.max(5, TOTAL_PAGES - memorizedPages);
+      const remainingLines = remainingPages * LINES_PER_PAGE;
+
+      const efficiency = ageCfg.speed * fluencyCfg.speed;
+      const minsPerLineSabaq = (3.1 * khatamCfg.timeMultiplier) / efficiency;
+      const benchmark5xMinsPerLine = (3.1 * KHATAM_CONFIG['5_plus'].timeMultiplier) / efficiency;
+      const newDaysPerMonth = (newDaysPerWeek * WEEKS_PER_YEAR) / 12;
+
+      let dailyMins = plannerState.dailyMinutes;
+      let linesPerNewDay = 10;
+      let totalMonths = 36;
+
+      if (plannerState.mode === 'byTime') {
+        const sabaqMins = dailyMins * ageCfg.sabaq;
+        linesPerNewDay = Math.max(1.5, sabaqMins / minsPerLineSabaq);
+        totalMonths = (remainingLines / linesPerNewDay / newDaysPerMonth) + fluencyCfg.extraMonths;
+      } else {
+        const targetTotalMonths = plannerState.targetYears * 12;
+        const hifzMonths = Math.max(6, targetTotalMonths - fluencyCfg.extraMonths);
+        totalMonths = hifzMonths + fluencyCfg.extraMonths;
+        linesPerNewDay = remainingLines / (hifzMonths * newDaysPerMonth);
+        dailyMins = Math.round((linesPerNewDay * minsPerLineSabaq) / ageCfg.sabaq);
+      }
+
+      let comparisonTotalMonths = totalMonths;
+      let comparisonMode = khatamCfg.isBenchmarkReached ? 'plus_15m' : '5x_benchmark';
+      if (!khatamCfg.isBenchmarkReached) {
+        const lines5x = Math.max(2, (dailyMins * ageCfg.sabaq) / benchmark5xMinsPerLine);
+        comparisonTotalMonths = Math.max(4, (remainingLines / lines5x / newDaysPerMonth) + fluencyCfg.extraMonths);
+      } else {
+        const linesBoost = Math.max(2, ((dailyMins + 15) * ageCfg.sabaq) / minsPerLineSabaq);
+        comparisonTotalMonths = Math.max(4, (remainingLines / linesBoost / newDaysPerMonth) + fluencyCfg.extraMonths);
+      }
+      const comparisonMonthsSaved = Math.max(1, Math.round(totalMonths - comparisonTotalMonths));
+
+      const displayLines = linesPerNewDay >= 10 ? Math.round(linesPerNewDay) : Math.round(linesPerNewDay * 2) / 2;
+      const weeklyLines = Math.round(displayLines * newDaysPerWeek * 10) / 10;
+      const weeklyPages = ((displayLines * newDaysPerWeek) / LINES_PER_PAGE).toFixed(1);
+      const weeklyHours = ((dailyMins * totalDaysPerWeek) / 60).toFixed(1).replace(/\.0$/, '');
+
+      document.getElementById('resultRoleBadge').textContent = id ? ageCfg.labelId : ageCfg.label;
+      document.getElementById('resultCadenceBadge').textContent = id ? schedCfg.badgeLabelId : schedCfg.badgeLabel;
+      document.getElementById('resultKhatamBadge').textContent = khatamCfg.isBenchmarkReached
+        ? (id ? '★ Akselerasi 5+ Khatam Aktif' : '★ 5+ Readings Boost Active')
+        : (id ? `${plannerState.khatamExactCount}/5 Khatam` : `${plannerState.khatamExactCount}/5 Reads`);
+
+      document.getElementById('resultMainHeadline').textContent = id
+        ? `Khatam Hafalan 30 Juz dalam ${formatYearsMonths(totalMonths)}`
+        : `Become a Hafizah in ${formatYearsMonths(totalMonths)}`;
+
+      document.getElementById('metricDuration').textContent = formatYearsMonths(totalMonths);
+      document.getElementById('metricFinishDate').textContent = (id ? 'Target: ' : 'Goal: ') + getFutureDate(totalMonths);
+      document.getElementById('metricDailyTime').textContent = `${formatTime(dailyMins)} / ${id ? 'hari' : 'day'}`;
+      document.getElementById('metricWeeklyCommitment').textContent = id
+        ? `${weeklyHours} jam/mgg (${totalDaysPerWeek} hari belajar)`
+        : `${weeklyHours} hrs/wk across ${totalDaysPerWeek} days`;
+      document.getElementById('metricLinesHeader').textContent = id
+        ? `Hafalan Baru (${newDaysPerWeek}h/mgg)`
+        : `New Lesson (${newDaysPerWeek}d/wk)`;
+      document.getElementById('metricDailyLines').textContent = id
+        ? `${displayLines} Baris / hari`
+        : `${displayLines} ${displayLines === 1 ? 'Line' : 'Lines'} / day`;
+      document.getElementById('metricWeeklyLines').textContent = id
+        ? `${weeklyLines} baris (~${weeklyPages} hal) / mgg`
+        : `${weeklyLines} lines (~${weeklyPages} pgs) / wk`;
+
+      document.getElementById('mushafVisualizerTitle').textContent = id
+        ? `Porsi Mushaf 15 Baris (${newDaysPerWeek} Hari Setoran Baru)`
+        : `15-Line Mushaf Portion (${newDaysPerWeek} New-Lesson Days/Wk)`;
+      const filledLines = Math.min(15, Math.ceil(displayLines));
+      const pctPage = Math.min(100, Math.round((displayLines / 15) * 100));
+      document.getElementById('mushafRatioLabel').textContent = displayLines <= 15
+        ? `${displayLines}/15 (${pctPage}%)`
+        : `${displayLines} ${id ? 'baris' : 'lines'}`;
+
+      const barsEl = document.getElementById('mushafMiniBars');
+      barsEl.innerHTML = '';
+      for (let i = 1; i <= 15; i++) {
+        const seg = document.createElement('div');
+        seg.className = 'planner-mushaf-seg' + (i <= filledLines ? ' filled' : '');
+        barsEl.appendChild(seg);
+      }
+
+      document.getElementById('pureReviewCalloutBadge').textContent = id
+        ? `🔁 ${reviewDaysPerWeek} Hari Murojaah Murni: 0 Baris Baru`
+        : `🔁 On ${reviewDaysPerWeek} Pure Review ${reviewDaysPerWeek === 1 ? 'Day' : 'Days'}/Wk: 0 New Lines`;
+      document.getElementById('pureReviewCalloutDesc').textContent = id
+        ? `100% penguatan ${weeklyLines} baris pekan ini + Manzil juz lama`
+        : `100% review of your ${weeklyLines} weekly lines + old Juz Manzil`;
+
+      const sabaqMins = Math.round(dailyMins * ageCfg.sabaq);
+      const sabaqiMins = Math.round(dailyMins * ageCfg.sabaqi);
+      const manzilMins = Math.max(5, dailyMins - sabaqMins - sabaqiMins);
+      const pureSabaqiMins = Math.round(dailyMins * 0.55);
+      const pureManzilMins = Math.max(5, dailyMins - pureSabaqiMins);
+
+      document.getElementById('dualAllocationSubtitle').textContent = `${formatTime(dailyMins)} / ${id ? 'sesi' : 'session'}`;
+      document.getElementById('dualDayBreakdownContainer').innerHTML = `
+        <div class="planner-dual-card new-days">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800;color:var(--track-deep);">
+            <span>${id ? `Hari Setoran (${newDaysPerWeek}h/mgg)` : `New-Lesson Days (${newDaysPerWeek}d/wk)`}</span>
+            <span class="planner-opt-tag" style="background:var(--track-deep);color:#fff;">${displayLines} ${id ? 'brs' : 'ln'}</span>
+          </div>
+          <div class="planner-stack-bar">
+            <div style="width:${Math.round(ageCfg.sabaq*100)}%;background:#1e3a8a;"></div>
+            <div style="width:${Math.round(ageCfg.sabaqi*100)}%;background:#3b82f6;"></div>
+            <div style="width:${Math.round(ageCfg.manzil*100)}%;background:#d97706;"></div>
+          </div>
+          <div style="line-height:1.65;color:#334155;">
+            <div>• <strong>Sabaq (${id ? 'Baru' : 'New'}):</strong> ${sabaqMins}m</div>
+            <div>• <strong>Sabaqi (${id ? 'Baru-baru ini' : 'Recent'}):</strong> ${sabaqiMins}m</div>
+            <div>• <strong>Manzil (${id ? 'Juz Lama' : 'Old Juz'}):</strong> ${manzilMins}m</div>
+          </div>
+        </div>
+        <div class="planner-dual-card review-days">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800;color:#92400e;">
+            <span>${id ? `Hari Murojaah (${reviewDaysPerWeek}h/mgg)` : `Pure Review (${reviewDaysPerWeek}d/wk)`}</span>
+            <span class="planner-opt-tag" style="background:#b45309;color:#fff;">0 ${id ? 'brs baru' : 'new'}</span>
+          </div>
+          <div class="planner-stack-bar">
+            <div style="width:55%;background:#3b82f6;"></div>
+            <div style="width:45%;background:#d97706;"></div>
+          </div>
+          <div style="line-height:1.65;color:#334155;">
+            <div style="color:#64748b;">• <strong>Sabaq:</strong> 0m (${id ? 'Fokus menguatkan' : 'Rest mind'})</div>
+            <div>• <strong>Sabaqi (${id ? 'Pekanan' : 'Weekly'}):</strong> ${pureSabaqiMins}m (55%)</div>
+            <div>• <strong>Manzil (${id ? 'Juz Lama' : 'Deep'}):</strong> ${pureManzilMins}m (45%)</div>
+          </div>
+        </div>
+      `;
+
+      const khatamCallout = document.getElementById('khatamAllocationCallout');
+      if (!khatamCfg.isBenchmarkReached) {
+        const readsLeft = Math.max(1, 5 - plannerState.khatamExactCount);
+        khatamCallout.className = 'planner-banner-tip is-warn';
+        khatamCallout.innerHTML = id
+          ? `<strong>Persiapan Khatam Nazirah 10 Menit:</strong> Dengan ${plannerState.khatamExactCount}× khatam saat ini, luangkan 10 menit awal membaca halaman berikutnya (Nazirah) hingga mencapai 5× khatam untuk menghemat <strong>${formatYearsMonths(comparisonMonthsSaved)}</strong>.`
+          : `<strong>10-Min Nazirah Warm-Up:</strong> Spend the first 10 mins reading upcoming pages aloud until you complete ${readsLeft} more full ${readsLeft === 1 ? 'read' : 'reads'} to unlock the 5× boost (saves <strong>${formatYearsMonths(comparisonMonthsSaved)}</strong>).`;
+      } else {
+        khatamCallout.className = 'planner-banner-tip is-ok';
+        khatamCallout.innerHTML = id
+          ? `<strong>Efisiensi 5+ Khatam Aktif (0.78×):</strong> Karena sudah khatam ${plannerState.khatamExactCount}×, Anda dapat menghafal <strong>${displayLines} baris/hari</strong> ~22% lebih cepat.`
+          : `<strong>5+ Readings Efficiency Active (0.78×):</strong> Your prior ${plannerState.khatamExactCount} full readings let you memorize <strong>${displayLines} lines/day</strong> ~22% faster.`;
+      }
+
+      renderTrajectoryGraph(totalMonths, comparisonTotalMonths, comparisonMonthsSaved, comparisonMode, dailyMins, fluencyCfg.extraMonths, schedCfg);
+      renderPhaseBreakdownGraph(dailyMins, ageCfg, schedCfg);
+
+      document.getElementById('accordionRoutineTitle').textContent = id
+        ? `Rencana Mingguan & Harian (${schedCfg.shortLabelId})`
+        : `Weekly Class & Review Plan (${schedCfg.shortLabel})`;
+      document.getElementById('weeklyTimetableHeading').textContent = id
+        ? `Jadwal Mingguan (${newDaysPerWeek} Hari Baru + ${reviewDaysPerWeek} Hari Murojaah)`
+        : `Tailored Weekly Schedule (${newDaysPerWeek} New Days + ${reviewDaysPerWeek} Pure Review)`;
+
+      document.getElementById('weeklyTimetableGrid').innerHTML = schedCfg.rhythm.map(r => {
+        const bg = r.type === 'new' ? '#eff6ff' : (r.type === 'review' ? '#fffbeb' : '#f8fafc');
+        const bd = r.type === 'new' ? '#bfdbfe' : (r.type === 'review' ? '#fde68a' : '#e2e8f0');
+        const detail = r.type === 'new'
+          ? (id ? `Hafal ${displayLines} baris + murojaah` : `Memorize ${displayLines} lines + review`)
+          : (r.type === 'review' ? (id ? `${pureSabaqiMins}m pekanan + ${pureManzilMins}m lama` : `${pureSabaqiMins}m weekly + ${pureManzilMins}m old`) : (id ? 'Istirahat / cadangan' : 'Rest / buffer'));
+        return `
+          <div style="padding:.55rem .7rem;border-radius:10px;background:${bg};border:1px solid ${bd};display:flex;justify-content:space-between;align-items:center;font-size:.73rem;">
+            <div><strong>${id ? r.dayId : r.day} · ${id ? r.labelId : r.label}</strong><div style="color:#64748b;font-size:.68rem;">${detail}</div></div>
+            <strong style="color:var(--track-deep);">${r.type === 'rest' ? 'Off' : formatTime(dailyMins)}</strong>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('routineContainer').innerHTML = `
+        <div style="padding:.7rem;border-radius:10px;background:#f8fafc;border:1px solid var(--border);font-size:.74rem;">
+          <strong style="color:var(--track-deep);">${id ? '1. Subuh / Pagi (Sabaq)' : '1. Fajr / Morning (Sabaq)'}</strong>
+          <div style="font-size:1rem;font-weight:800;margin:.2rem 0;">${sabaqMins}m</div>
+          <div style="color:#64748b;">${id ? `Hafal ${displayLines} baris baru` : `Memorize ${displayLines} new lines`}</div>
+        </div>
+        <div style="padding:.7rem;border-radius:10px;background:#f8fafc;border:1px solid var(--border);font-size:.74rem;">
+          <strong style="color:#2563eb;">${id ? '2. Siang / Dzuhur (Sabaqi)' : '2. Midday (Sabaqi)'}</strong>
+          <div style="font-size:1rem;font-weight:800;margin:.2rem 0;">${sabaqiMins}m</div>
+          <div style="color:#64748b;">${id ? 'Ulangi halaman terbaru' : 'Review recent pages'}</div>
+        </div>
+        <div style="padding:.7rem;border-radius:10px;background:#f8fafc;border:1px solid var(--border);font-size:.74rem;">
+          <strong style="color:#b45309;">${id ? '3. Maghrib / Malam (Manzil)' : '3. Evening (Manzil)'}</strong>
+          <div style="font-size:1rem;font-weight:800;margin:.2rem 0;">${manzilMins}m</div>
+          <div style="color:#64748b;">${id ? 'Jaga hafalan juz lama' : 'Maintain older Juz'}</div>
+        </div>
+      `;
+
+      document.getElementById('ageAdviceBox').textContent = id ? ageCfg.tipId : ageCfg.tip;
+      const remKhatams = Math.max(1, 5 - plannerState.khatamExactCount);
+      document.getElementById('khatamRoadmapBox').innerHTML = khatamCfg.isBenchmarkReached
+        ? (id ? `<strong>Target 5-Khatam Tercapai (★):</strong> Pertahankan tilawah halaman baru 3× sebelum mulai menghafal.` : `<strong>5-Khatam Benchmark Met (★):</strong> Read each new page 3× before memorizing to keep visual memory sharp.`)
+        : (id ? `<strong>Roadmap 5-Khatam (${remKhatams} lagi):</strong> Baca 4–5 halaman Nazirah per hari untuk naik ke kecepatan 5× (~22% lebih cepat).` : `<strong>5-Khatam Roadmap (${remKhatams} left):</strong> Read 4–5 Nazirah pages daily to reach the 5× speed boost (~22% faster).`);
+    }
+
+    function renderTrajectoryGraph(totalMonths, comparisonTotalMonths, comparisonMonthsSaved, comparisonMode, dailyMins, extraMonths, schedCfg) {
+      const id = isId();
+      const svg = document.getElementById('trajectorySvg');
+      const maxMonths = Math.max(6, Math.round(totalMonths));
+      const boostMonths = Math.max(4, Math.round(comparisonTotalMonths));
+
+      if (comparisonMode === '5x_benchmark') {
+        document.getElementById('paceBoostBadge').textContent = id
+          ? `★ 5+ Khatam hemat ${formatYearsMonths(comparisonMonthsSaved)}`
+          : `★ 5+ Reads saves ${formatYearsMonths(comparisonMonthsSaved)}`;
+        document.getElementById('legendCurrentPace').textContent = id
+          ? `━ Rencana Anda (${plannerState.khatamExactCount}× Khatam)`
+          : `━ Current (${plannerState.khatamExactCount} Reads)`;
+        document.getElementById('legendBoostPace').textContent = id
+          ? `┈ Dengan 5+ Khatam (${formatYearsMonths(comparisonTotalMonths)})`
+          : `┈ With 5+ Reads (${formatYearsMonths(comparisonTotalMonths)})`;
+      } else {
+        document.getElementById('paceBoostBadge').textContent = id
+          ? `⚡ +15m/sesi hemat ${formatYearsMonths(comparisonMonthsSaved)}`
+          : `⚡ +15m/day saves ${formatYearsMonths(comparisonMonthsSaved)}`;
+        document.getElementById('legendCurrentPace').textContent = id
+          ? `━ Rencana 5+ Khatam (${formatTime(dailyMins)})`
+          : `━ Your 5+ Reads Plan (${formatTime(dailyMins)})`;
+        document.getElementById('legendBoostPace').textContent = id
+          ? `┈ +15m/sesi (${formatTime(dailyMins + 15)})`
+          : `┈ +15m/day Boost (${formatTime(dailyMins + 15)})`;
+      }
+
+      const W = 600, H = 250, padL = 46, padR = 22, padT = 22, padB = 34;
+      const plotW = W - padL - padR, plotH = H - padT - padB;
+      const xForMonth = m => padL + (Math.min(m, maxMonths) / maxMonths) * plotW;
+      const yForJuz = j => padT + plotH - (Math.min(30, Math.max(0, j)) / 30) * plotH;
+
+      const startJuz = plannerState.memorizedJuz;
+      const remJuz = Math.max(0.5, 30 - startJuz);
+      const hifzMonths = Math.max(1, totalMonths - extraMonths);
+      const monthForJuz = j => (j <= startJuz ? 0 : extraMonths + ((j - startJuz) / remJuz) * hifzMonths);
+
+      const pts = [{ m: 0, j: startJuz }];
+      if (extraMonths > 0) pts.push({ m: extraMonths, j: startJuz });
+      pts.push({ m: maxMonths, j: 30 });
+      const pathD = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xForMonth(p.m).toFixed(1)} ${yForJuz(p.j).toFixed(1)}`).join(' ');
+      const areaD = `${pathD} L ${xForMonth(maxMonths).toFixed(1)} ${(padT + plotH).toFixed(1)} L ${padL} ${(padT + plotH).toFixed(1)} Z`;
+
+      const bPts = [{ m: 0, j: startJuz }];
+      if (extraMonths > 0 && extraMonths < boostMonths) bPts.push({ m: extraMonths, j: startJuz });
+      bPts.push({ m: boostMonths, j: 30 });
+      const boostPathD = bPts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xForMonth(p.m).toFixed(1)} ${yForJuz(p.j).toFixed(1)}`).join(' ');
+
+      const gridLines = [0, 10, 20, 30].map(j => {
+        const y = yForJuz(j).toFixed(1);
+        return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#e2e8f0" stroke-dasharray="3 3" /><text x="${padL - 8}" y="${parseFloat(y) + 4}" text-anchor="end" fill="#64748b" font-size="11" font-weight="600">${j} Juz</text>`;
+      }).join('');
+
+      const xLabels = [0, 0.25, 0.5, 0.75, 1].map(f => {
+        const m = Math.round(f * maxMonths);
+        const x = (padL + f * plotW).toFixed(1);
+        const lbl = m === 0 ? (id ? 'Mulai' : 'Start') : (maxMonths >= 24 && m % 12 === 0 ? `${id ? 'Th' : 'Yr'} ${(m / 12).toFixed(0)}` : `${id ? 'Bl' : 'Mo'} ${m}`);
+        return `<text x="${x}" y="${H - 8}" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600">${lbl}</text>`;
+      }).join('');
+
+      const milestoneDefs = [
+        { juz: 1, short: '1 Juz', title: id ? 'Juz 1 (Juz Amma)' : '1st Juz (Juz Amma)', pages: 20 },
+        { juz: 5, short: '5 Juz', title: id ? 'Target 5 Juz' : '5 Juz Milestone', pages: 100 },
+        { juz: 15, short: '15 Juz', title: id ? '15 Juz (Setengah Qur\'an)' : '15 Juz (Halfway)', pages: 302 },
+        { juz: 30, short: '30 Juz', title: id ? '30 Juz (Khatam Hafizhah)' : '30 Juz (Hafizah Khatam)', pages: 604 }
+      ];
+
+      const msData = milestoneDefs.map(ms => {
+        const m = Math.round(monthForJuz(ms.juz));
+        return { ...ms, month: m, x: xForMonth(m), y: yForJuz(ms.juz), dateStr: m === 0 ? (id ? 'Selesai ✓' : 'Done ✓') : getFutureDate(m) };
+      });
+      const activeMs = msData.find(m => m.juz === plannerState.selectedMilestoneJuz) || msData[2];
+
+      document.getElementById('inspectorTitle').textContent = activeMs.title;
+      document.getElementById('inspectorDetails').textContent = activeMs.month === 0
+        ? `${activeMs.pages}/604 ${id ? 'Hal' : 'Pages'} · ${activeMs.dateStr}`
+        : `${activeMs.pages}/604 ${id ? 'Hal' : 'Pages'} · ${activeMs.dateStr} (${id ? 'Bulan' : 'Month'} ${activeMs.month})`;
+
+      const nodesSvg = msData.map(ms => {
+        const sel = ms.juz === activeMs.juz;
+        return `
+          <g style="cursor:pointer;" onclick="selectPlannerMilestone(${ms.juz})">
+            <circle cx="${ms.x.toFixed(1)}" cy="${ms.y.toFixed(1)}" r="16" fill="transparent" />
+            ${sel ? `<circle cx="${ms.x.toFixed(1)}" cy="${ms.y.toFixed(1)}" r="10" fill="#f59e0b" fill-opacity="0.25" />` : ''}
+            <circle cx="${ms.x.toFixed(1)}" cy="${ms.y.toFixed(1)}" r="${sel ? '6.5' : '5'}" fill="${sel ? '#d97706' : '#1e3a8a'}" stroke="#fff" stroke-width="2" />
+            <text x="${Math.min(W - 32, Math.max(padL + 20, ms.x)).toFixed(1)}" y="${(ms.y - 11).toFixed(1)}" text-anchor="middle" fill="${sel ? '#b45309' : '#1e3a8a'}" font-size="10.5" font-weight="700">${ms.short}</text>
+          </g>
+        `;
+      }).join('');
+
+      svg.innerHTML = `
+        <defs><linearGradient id="hifzAreaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1d4ed8" stop-opacity="0.24"/><stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.02"/></linearGradient></defs>
+        ${gridLines}${xLabels}
+        <path d="${areaD}" fill="url(#hifzAreaGrad)" />
+        <path d="${boostPathD}" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4" />
+        <path d="${pathD}" fill="none" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        ${nodesSvg}
+      `;
+
+      document.getElementById('milestoneQuickButtons').innerHTML = msData.map(ms => `
+        <button type="button" class="planner-ms-btn ${ms.juz === activeMs.juz ? 'active' : ''}" onclick="selectPlannerMilestone(${ms.juz})">
+          <div>${ms.short}</div>
+          <div style="font-size:.65rem;opacity:.8;">${ms.dateStr}</div>
+        </button>
+      `).join('');
+    }
+
+    function selectPlannerMilestone(juz) {
+      plannerState.selectedMilestoneJuz = juz;
+      calculateAndRenderPlanner();
+    }
+
+    function renderPhaseBreakdownGraph(dailyMins, ageCfg, schedCfg) {
+      const id = isId();
+      const stages = [
+        { name: id ? `Tahap Awal (Juz 1–5)` : `Early Stage (Juz 1–5)`, sabaqPct: Math.min(60, Math.round(ageCfg.sabaq * 100) + 6), sabaqiPct: Math.round(ageCfg.sabaqi * 100) },
+        { name: id ? `Tahap Menengah (Juz 6–15)` : `Mid Stage (Juz 6–15)`, sabaqPct: Math.round(ageCfg.sabaq * 100), sabaqiPct: Math.round(ageCfg.sabaqi * 100) },
+        { name: id ? `Tahap Lanjutan (Juz 16–30)` : `Advanced Stage (Juz 16–30)`, sabaqPct: Math.max(36, Math.round(ageCfg.sabaq * 100) - 8), sabaqiPct: Math.round(ageCfg.sabaqi * 100) },
+        { name: id ? `Hari Murojaah Murni (${schedCfg.reviewDaysPerWeek}h/mgg)` : `Pure Review Days (${schedCfg.reviewDaysPerWeek}d/wk)`, sabaqPct: 0, sabaqiPct: 55 }
+      ];
+      document.getElementById('phaseBarsContainer').innerHTML = stages.map(st => {
+        const manzilPct = Math.max(10, 100 - st.sabaqPct - st.sabaqiPct);
+        const sabaqM = Math.round((st.sabaqPct / 100) * dailyMins);
+        const sabaqiM = Math.round((st.sabaqiPct / 100) * dailyMins);
+        const manzilM = Math.max(5, dailyMins - sabaqM - sabaqiM);
+        return `
+          <div style="padding:.65rem .75rem;border-radius:10px;background:#f8fafc;border:1px solid var(--border);font-size:.73rem;">
+            <strong style="color:var(--fg);">${st.name}</strong>
+            <div class="planner-phase-bar">
+              ${st.sabaqPct > 0 ? `<div style="width:${st.sabaqPct}%;background:#1e3a8a;display:flex;align-items:center;justify-content:center;">${sabaqM}m</div>` : ''}
+              <div style="width:${st.sabaqiPct}%;background:#3b82f6;display:flex;align-items:center;justify-content:center;">${sabaqiM}m</div>
+              <div style="width:${manzilPct}%;background:#d97706;display:flex;align-items:center;justify-content:center;">${manzilM}m</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#475569;font-size:.69rem;font-weight:600;">
+              <span>Sabaq: ${sabaqM}m</span><span>Sabaqi: ${sabaqiM}m</span><span>Manzil: ${manzilM}m</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function copyPlanText() {
+      const id = isId();
+      const duration = document.getElementById('metricDuration').textContent.trim();
+      const dailyTime = document.getElementById('metricDailyTime').textContent.trim();
+      const dailyLines = document.getElementById('metricDailyLines').textContent.trim();
+      const finishDate = document.getElementById('metricFinishDate').textContent.trim();
+      const schedCfg = SCHEDULE_CONFIG[plannerState.days];
+      const text = id
+        ? `Rencana Hafizhah 30 Juz (Quran with Sumiyati)\n• Estimasi Khatam: ${duration} (${finishDate})\n• Jadwal: ${schedCfg.badgeLabelId}\n• Durasi/Hari: ${dailyTime}\n• Target Setoran: ${dailyLines}`
+        : `My Hafizah 30-Juz Plan (Quran with Sumiyati)\n• Duration: ${duration} (${finishDate})\n• Schedule: ${schedCfg.badgeLabel}\n• Session: ${dailyTime}\n• New Lesson: ${dailyLines}`;
+      navigator.clipboard?.writeText(text).catch(() => {});
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    renderPlannerControls();
+    setGraphTab('both');
+    calculateAndRenderPlanner();
   </script>
 </body>
 </html>
