@@ -1826,13 +1826,9 @@
           <button type="button" class="lang-view-btn js-lang-btn" data-lang="id" onclick="setCurrLang('id')">🇮🇩 Bahasa Indonesia</button>
         </div>
         <div style="display:flex;gap:.5rem;">
-          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(true)">
+          <button type="button" class="lang-view-btn" id="toggleAllMilestonesBtn" onclick="toggleAllMilestones()" aria-expanded="false">
             <span class="lang-en">➕ Expand All Milestones</span>
             <span class="lang-id">➕ Buka Semua Milestone</span>
-          </button>
-          <button type="button" class="lang-view-btn" onclick="toggleAllMilestones(false)">
-            <span class="lang-en">➖ Collapse All</span>
-            <span class="lang-id">➖ Tutup Semua</span>
           </button>
         </div>
       </div>
@@ -2690,20 +2686,37 @@
       } catch (e) {}
     }
 
+    function updateToggleAllBtn() {
+      const items = Array.from(document.querySelectorAll('.milestone-item'));
+      const allOpen = items.length > 0 && items.every(el => el.classList.contains('open'));
+      const btn = document.getElementById('toggleAllMilestonesBtn');
+      if (!btn) return;
+      btn.setAttribute('aria-expanded', allOpen ? 'true' : 'false');
+      const en = btn.querySelector('.lang-en');
+      const id = btn.querySelector('.lang-id');
+      if (en) en.textContent = allOpen ? '➖ Collapse All' : '➕ Expand All Milestones';
+      if (id) id.textContent = allOpen ? '➖ Tutup Semua' : '➕ Buka Semua Milestone';
+    }
+
     function toggleMilestone(id) {
       const el = document.getElementById(id);
       if (!el) return;
       const isOpen = el.classList.toggle('open');
       const btn = el.querySelector('.milestone-trigger');
       if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      updateToggleAllBtn();
     }
 
-    function toggleAllMilestones(openState) {
-      document.querySelectorAll('.milestone-item').forEach(el => {
+    function toggleAllMilestones(forceState) {
+      const items = Array.from(document.querySelectorAll('.milestone-item'));
+      const allOpen = items.length > 0 && items.every(el => el.classList.contains('open'));
+      const openState = (typeof forceState === 'boolean') ? forceState : !allOpen;
+      items.forEach(el => {
         el.classList.toggle('open', openState);
         const btn = el.querySelector('.milestone-trigger');
         if (btn) btn.setAttribute('aria-expanded', openState ? 'true' : 'false');
       });
+      updateToggleAllBtn();
     }
 
     // ── Payment Modal Logic (Bank Transfer / QR Code, Defaults to Bahasa Indonesia) ──
