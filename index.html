@@ -90,7 +90,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body>
   <a href="#hero" class="skip-link">Skip to main content</a>
@@ -731,21 +731,32 @@
     const navDd = document.querySelector('.nav-dropdown');
     const navDdTrigger = navDd ? navDd.querySelector(':scope > a') : null;
     if (navDd && navDdTrigger) {
+      navDdTrigger.setAttribute('aria-expanded', 'false');
       navDdTrigger.addEventListener('click', e => {
-        if (window.matchMedia('(max-width: 900px)').matches) {
-          e.preventDefault();
-          navDd.classList.toggle('open');
-        }
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = navDd.classList.toggle('open');
+        navDdTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (!isOpen) navDdTrigger.blur();
       });
       navDd.querySelectorAll('.nav-dropdown-menu a').forEach(link => {
         link.addEventListener('click', () => {
           navDd.classList.remove('open');
+          navDdTrigger.setAttribute('aria-expanded', 'false');
           if (document.activeElement) document.activeElement.blur();
         });
       });
       document.addEventListener('click', e => {
         if (!navDd.contains(e.target)) {
           navDd.classList.remove('open');
+          navDdTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && navDd.classList.contains('open')) {
+          navDd.classList.remove('open');
+          navDdTrigger.setAttribute('aria-expanded', 'false');
+          navDdTrigger.blur();
         }
       });
     }

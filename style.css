@@ -187,8 +187,6 @@
       display: inline-block;
       opacity: .75;
     }
-    .nav-dropdown:hover .nav-dropdown-caret,
-    .nav-dropdown:focus-within .nav-dropdown-caret,
     .nav-dropdown.open .nav-dropdown-caret {
       transform: rotate(180deg);
       color: var(--green);
@@ -220,8 +218,6 @@
       right: 0;
       height: 14px;
     }
-    .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown:focus-within .nav-dropdown-menu,
     .nav-dropdown.open .nav-dropdown-menu {
       opacity: 1;
       visibility: visible;
@@ -1386,8 +1382,6 @@
         padding: 6px 12px !important;
         font-size: .74rem !important;
       }
-      header nav .nav-dropdown:hover .nav-dropdown-menu,
-      header nav .nav-dropdown:focus-within .nav-dropdown-menu,
       header nav .nav-dropdown.open .nav-dropdown-menu {
         transform: translateY(0);
       }
