@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PKRHPWWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Pre-Tajweed Class Curriculum · Sumiyati</title>
@@ -8,7 +15,7 @@
   <meta name="author" content="Sumiyati" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; base-uri 'self';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.supabase.co https://script.google.com https://script.googleusercontent.com; frame-ancestors 'none'; base-uri 'self';" />
 
   <!-- Favicon & Browser Search Bar Icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -2821,6 +2828,9 @@
       if (defaultMethod === 'bank' || defaultMethod === 'qr') {
         selectPaymentMethod(defaultMethod);
       }
+      if (typeof gtag === 'function') {
+        gtag('event', 'begin_checkout', { course_name: 'Pre-Tajweed Class', currency: 'IDR', value: 120000 });
+      }
       const overlay = document.getElementById('paymentModalOverlay');
       if (overlay) {
         overlay.classList.add('active');
@@ -2864,6 +2874,9 @@
       if (panelBank) panelBank.classList.toggle('active', isBank);
       if (panelQr) panelQr.classList.toggle('active', isQr);
       if (panelOverseas) panelOverseas.classList.toggle('active', isOverseas);
+      if (typeof gtag === 'function') {
+        gtag('event', 'add_payment_info', { course_name: 'Pre-Tajweed Class', payment_type: activePayMethod });
+      }
     }
 
     function copyBankNumber(numStr, btnId) {
@@ -3042,6 +3055,9 @@
         console.warn('Apps Script submission error:', err);
       }
 
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { course_name: courseName, payment_type: methodLabel, currency: 'IDR', value: 120000 });
+      }
       // Open WhatsApp chat in a new tab
       window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(waMsg), '_blank', 'noopener');
 
