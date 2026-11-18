@@ -268,7 +268,7 @@
               <h3 id="talaqqiCardTitle">Submit Recitation for Talaqqi Correction</h3>
               <p id="talaqqiCardDesc">Record a 1-minute voice note reciting the practice verse above and send it to Ustadzah Sumiyati on WhatsApp for personal evaluation.</p>
             </div>
-            <a id="talaqqiLink" href="https://wa.me/6281234567890?text=Assalamu%27alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mengirimkan%20rekaman%20talaqqi" target="_blank" rel="noopener" class="btn btn-primary">
+            <a id="talaqqiLink" href="https://wa.me/6285890061540?text=Assalamu%27alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mengirimkan%20rekaman%20talaqqi" target="_blank" rel="noopener" class="btn btn-primary">
               <span id="talaqqiBtnText">Send Voice Note via WhatsApp →</span>
             </a>
 
@@ -1474,7 +1474,7 @@
       pwSubmitBtn.textContent = t.pw_submit_btn;
 
       const waMsg = encodeURIComponent(t.pw_wa_message);
-      paywallWaBtn.href = `https://wa.me/6281234567890?text=${waMsg}`;
+      paywallWaBtn.href = `https://wa.me/6285890061540?text=${waMsg}`;
     }
 
     function openPaywall(triggerSource) {
@@ -1616,7 +1616,7 @@
       const msg = isEn
         ? `Assalamu'alaikum Ustadzah Sumiyati, please send my 4-digit login PIN for the Pre-Tajweed Course. My registered WhatsApp number is: ${waVal || '[My Number]'}`
         : `Assalamu'alaikum Ustadzah Sumiyati, mohon bantuan info 4 angka PIN login Kelas Pra-Tajwid untuk nomor WhatsApp saya: ${waVal || '[Nomor Saya]'}`;
-      window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+      window.open(`https://wa.me/6285890061540?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
     }
 
     function handleStudentRegister(e) {
@@ -1731,7 +1731,7 @@
         ? `Assalamu'alaikum Ustadzah Sumiyati, I would like to enroll in the Full Pre-Tajweed Course (Rp 199.000).%0A%0A*Student Name:* ${encodeURIComponent(student.name)}%0A*WhatsApp:* ${encodeURIComponent(dispWa)}%0A*Login PIN:* ${encodeURIComponent(student.pin)}%0A*City:* ${encodeURIComponent(student.city)}`
         : `Assalamu'alaikum Ustadzah Sumiyati, saya ingin mendaftar & membayar akses penuh Kelas Pra-Tajwid (Rp 199.000).%0A%0A*Nama Santri:* ${encodeURIComponent(student.name)}%0A*Nomor WhatsApp:* ${encodeURIComponent(dispWa)}%0A*PIN Login:* ${encodeURIComponent(student.pin)}%0A*Kota:* ${encodeURIComponent(student.city)}`;
 
-      window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank', 'noopener');
+      window.open(`https://wa.me/6285890061540?text=${msg}`, '_blank', 'noopener');
     }
 
     function updateCurrentLessonText() {
@@ -1808,7 +1808,7 @@
       const waPrefix = t.wa_template;
       const lessonTitleText = isEn ? lesson.titleEn : lesson.titleId;
       const waText = encodeURIComponent(`${waPrefix} ${lessonTitleText}`);
-      talaqqiLink.href = `https://wa.me/6281234567890?text=${waText}`;
+      talaqqiLink.href = `https://wa.me/6285890061540?text=${waText}`;
     }
 
     function renderPlaylist() {
