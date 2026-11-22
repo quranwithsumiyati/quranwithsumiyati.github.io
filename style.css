@@ -17,6 +17,7 @@
       --sub:      #3f3f46;
       --border:   #e4e4e7;
       --gold:     #b8860b;
+      --gold-text: #8a6300; /* WCAG AA >= 5:1 on white/light card backgrounds */
       --gold-light: #dfa82c;
       --ff-d: 'Fraunces', Georgia, serif;
       --ff-b: 'Inter', system-ui, -apple-system, sans-serif;
@@ -42,6 +43,15 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: clip;
       -webkit-overflow-scrolling: touch;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
 
     .skip-link {
@@ -244,7 +254,7 @@
       font-family: var(--ff-d);
       font-size: .78rem;
       font-weight: 600;
-      color: var(--gold);
+      color: var(--gold-text);
       background: rgba(184, 134, 11, 0.1);
       border: 1px solid rgba(184, 134, 11, 0.25);
       border-radius: 4px;
@@ -385,8 +395,17 @@
     #hero .inner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 340px;
-      gap: 3.5rem;
+      column-gap: 3.5rem;
+      row-gap: 0;
       align-items: start;
+    }
+    .hero-header {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .hero-details {
+      grid-column: 1;
+      grid-row: 2 / span 2;
     }
 
     #hero .inner > *,
@@ -479,7 +498,7 @@
     }
     .btn-secondary:hover {
       border-color: var(--gold);
-      color: var(--gold);
+      color: var(--gold-text);
       background: rgba(184, 134, 11, 0.05);
       transform: translateY(-2px);
     }
@@ -487,22 +506,10 @@
       transform: scale(0.97);
     }
 
-    .hero-aside {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
     .hero-photo-card {
+      grid-column: 2;
+      grid-row: 1 / span 2;
       position: relative;
-    }
-
-    .hero-photo-mobile {
-      display: none;
-    }
-
-    .hero-photo-desktop {
-      display: block;
     }
 
     .photo-arch-outer {
@@ -559,7 +566,7 @@
       font-weight: 600;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-text);
     }
 
     .eyebrow {
@@ -567,7 +574,7 @@
       font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-text);
       margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
@@ -592,6 +599,9 @@
     }
 
     .current-card {
+      grid-column: 2;
+      grid-row: 3;
+      margin-top: 1.5rem;
       background: var(--card);
       border: 1px solid var(--border);
       padding: 1.75rem;
@@ -613,7 +623,7 @@
       font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-text);
       margin-bottom: .85rem;
     }
 
@@ -635,6 +645,15 @@
 
     /* ── Sections ── */
     section { padding: 5.5rem 0; }
+    #story,
+    #teaching,
+    #works,
+    #teman-murojaah,
+    #contact {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 650px;
+      overflow-clip-margin: 32px;
+    }
 
     h2.section-title {
       font-family: var(--ff-d);
@@ -706,7 +725,7 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: .75rem;
       font-weight: 600;
-      color: var(--gold);
+      color: var(--gold-text);
       display: block;
       margin-bottom: .25rem;
       letter-spacing: .05em;
@@ -763,7 +782,7 @@
       font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-text);
       margin-bottom: 1.2rem;
     }
 
@@ -848,7 +867,8 @@
       display: flex;
       gap: .65rem;
       flex-wrap: wrap;
-      margin-top: .85rem;
+      margin-top: auto;
+      padding-top: 1.15rem;
       justify-content: center;
       width: 100%;
     }
@@ -882,7 +902,7 @@
       transition: color .15s, background .15s;
     }
     #teaching .note a:hover {
-      color: var(--gold);
+      color: var(--gold-text);
       background: rgba(184, 134, 11, 0.06);
       text-decoration: underline;
     }
@@ -1036,7 +1056,7 @@
       font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-text);
       margin: 3.5rem 0 1.5rem;
       display: flex;
       align-items: center;
@@ -1140,7 +1160,7 @@
       word-break: break-word;
     }
     .contact-val:hover {
-      color: var(--gold);
+      color: var(--gold-text);
       background: rgba(184, 134, 11, 0.06);
       transform: translateX(3px);
     }
@@ -1182,11 +1202,11 @@
 
     .quote-attr {
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--gold-light);
-      opacity: .9;
+      opacity: 1;
     }
 
     /* ── Footer ── */
@@ -1194,6 +1214,8 @@
       border-top: 1px solid var(--border);
       padding: 3rem 0;
       background: var(--bg);
+      content-visibility: auto;
+      contain-intrinsic-size: auto 130px;
     }
 
     footer .name {
@@ -1216,7 +1238,7 @@
     }
     .footer-portal-link:hover {
       background: rgba(30, 74, 53, 0.06);
-      color: var(--gold);
+      color: var(--gold-text);
     }
 
     /* ── Mobile bottom tab bar ── */
@@ -1295,30 +1317,36 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
-
-      .hero-photo-mobile {
+      #hero .inner,
+      #hero .inner.hero-grid {
+        row-gap: 0;
+      }
+      .hero-header,
+      .hero-photo-card,
+      .hero-details,
+      .current-card {
+        grid-column: 1;
+        grid-row: auto;
+      }
+      .hero-photo-card {
         display: block;
         max-width: 205px;
+        width: 100%;
         margin: .75rem auto 1.15rem;
       }
-      .hero-photo-mobile .hero-photo {
+      .hero-photo-card .hero-photo {
         aspect-ratio: 4 / 4.35;
         object-position: center 42%;
       }
-      .hero-photo-mobile .photo-badge {
+      .hero-photo-card .photo-badge {
         bottom: 8px;
         left: 8px;
         right: 8px;
         padding: .38rem .65rem;
       }
-
-      .hero-photo-desktop {
-        display: none;
-      }
-
-      .hero-aside {
+      .current-card {
         max-width: 420px;
-        margin: 0 auto;
+        margin: 2rem auto 0;
         width: 100%;
       }
 
@@ -1415,7 +1443,8 @@
       #contact .inner { gap: 2.25rem; }
       .quote-block { padding: 2rem 1.5rem; }
 
-      #hero .hero-content { text-align: center; }
+      #hero .hero-header,
+      #hero .hero-details { text-align: center; }
       #hero .eyebrow { justify-content: center; }
       #hero .hero-bio { margin-left: auto; margin-right: auto; text-align: center; font-size: .98rem; line-height: 1.62; }
       #hero .hero-credentials { justify-content: center; margin: 1rem 0 1.1rem; gap: .45rem; }
@@ -1472,22 +1501,25 @@
       #hero { padding: 4.5rem 0 2.15rem; }
       .eyebrow { font-size: 10px; margin-bottom: .4rem; }
       h1.display { font-size: 2.4rem; margin-bottom: .5rem; }
-      .hero-photo-mobile { max-width: 185px; margin: .5rem auto .95rem; }
+      .hero-photo-card { max-width: 185px; margin: .5rem auto .95rem; }
       #hero .hero-bio { font-size: .92rem; line-height: 1.56; }
       #hero .hero-credentials { margin: .85rem 0 .95rem; gap: .4rem; }
       .cred-pill { font-size: .74rem; padding: .34rem .7rem; }
       .hero-actions {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: .55rem;
+        align-items: stretch;
+        gap: .5rem;
         width: 100%;
       }
       .hero-actions .btn {
         width: 100%;
         min-height: 46px;
-        padding: .65rem .6rem;
-        font-size: .74rem;
-        letter-spacing: .04em;
+        padding: .62rem .5rem;
+        font-size: .71rem;
+        letter-spacing: .02em;
+        text-align: center;
+        white-space: nowrap;
       }
       .teach-card { padding: 1.85rem 1.25rem; }
       .work-item { flex-direction: column; gap: .75rem; padding: 1.65rem .85rem; }
@@ -1508,15 +1540,17 @@
       header nav .nav-dropdown > a { padding: 0 .65rem; font-size: 10.5px; }
       .lang-btn { min-width: 34px; padding: 0 7px; font-size: 10.5px; }
       h1.display { font-size: 2.15rem; }
-      .hero-photo-mobile { max-width: 170px; margin: .45rem auto .85rem; }
+      .hero-photo-card { max-width: 170px; margin: .45rem auto .85rem; }
       .cred-pill { font-size: .71rem; padding: .28rem .58rem; }
-      .hero-actions { grid-template-columns: 1fr; }
+      .hero-actions { grid-template-columns: 1fr 1fr; gap: .45rem; }
+      .hero-actions .btn { padding: .6rem .35rem; font-size: .68rem; letter-spacing: .01em; }
       #teman-murojaah .stat-cards { gap: .45rem; }
       #teman-murojaah .stat-card { padding: .9rem .35rem; }
       #teman-murojaah .stat-num { font-size: 1.25rem; }
       #teman-murojaah .stat-lbl { font-size: .7rem; }
     }
     @media (max-width: 330px) {
+      .hero-actions { grid-template-columns: 1fr; }
       #teman-murojaah .stat-cards { grid-template-columns: 1fr; }
     }
 
