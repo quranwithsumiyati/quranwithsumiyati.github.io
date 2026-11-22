@@ -3117,6 +3117,15 @@
       if (defaultMethod === 'bank' || defaultMethod === 'qr' || defaultMethod === 'overseas') {
         selectPaymentMethod(defaultMethod);
       }
+      const btn = document.getElementById('btnConfirmPay');
+      if (btn) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.onclick = confirmPaymentViaWhatsApp;
+        btn.innerHTML = '<span class="m-lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span><span class="m-lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>';
+      }
+      const statusMsg = document.getElementById('payStatusMsg');
+      if (statusMsg) { statusMsg.style.display = 'none'; statusMsg.textContent = ''; }
       if (typeof gtag === 'function') {
         gtag('event', 'begin_checkout', { course_name: 'Pre-Tajweed Class', currency: 'IDR', value: 120000 });
       }
@@ -3305,13 +3314,18 @@
           : '⏳ Sending data to Google Sheets & opening WhatsApp...';
       }
 
-      // Read file if attached
+      // Read file if attached (max 10 MB)
       let fileBase64 = null;
       let fileName = null;
       let mimeType = null;
 
       if (fileInput && fileInput.files && fileInput.files[0]) {
         const file = fileInput.files[0];
+        if (file.size > 10 * 1024 * 1024) {
+          alert(isId ? 'Ukuran file terlalu besar (maks. 10 MB).' : 'File is too large (max 10 MB).');
+          if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+          return;
+        }
         fileName = file.name;
         mimeType = file.type || 'image/jpeg';
         try {
@@ -3342,16 +3356,32 @@
         fileBase64: fileBase64
       };
 
-      // Background submit to Google Apps Script
+      // Submit & verify save in Google Sheets / Drive before opening WhatsApp
+      let savedOk = false;
+      let receiptUrl = '';
       try {
-        fetch(APPS_SCRIPT_URL, {
+        const res = await fetch(APPS_SCRIPT_URL, {
           method: 'POST',
-          mode: 'no-cors',
+          redirect: 'follow',
           headers: {
             'Content-Type': 'text/plain;charset=utf-8'
           },
           body: JSON.stringify(payload)
-        }).catch(err => console.warn('Apps Script log note:', err));
+        });
+        const text = await res.text();
+        try {
+          const json = JSON.parse(text);
+          if (json && json.status === 'success') {
+            savedOk = true;
+            if (json.receiptUrl && json.receiptUrl !== 'No file attached') {
+              receiptUrl = json.receiptUrl;
+            }
+          } else {
+            console.warn('Apps Script error response:', json);
+          }
+        } catch (parseErr) {
+          console.warn('Apps Script non-JSON response:', text.slice(0, 200));
+        }
       } catch (err) {
         console.warn('Apps Script submission error:', err);
       }
@@ -3359,25 +3389,42 @@
       if (typeof gtag === 'function') {
         gtag('event', 'generate_lead', { course_name: courseName, payment_type: methodLabel, currency: 'IDR', value: 120000 });
       }
-      // Open WhatsApp chat in a new tab
-      window.open('https://wa.me/6285890061540?text=' + encodeURIComponent(waMsg), '_blank', 'noopener,noreferrer');
 
-      setTimeout(() => {
-        if (btn) {
-          btn.disabled = false;
-          btn.style.opacity = '1';
+      const finalWaMsg = receiptUrl
+        ? waMsg + '\n📎 ' + receiptUrl
+        : waMsg;
+      const waUrl = 'https://wa.me/6285890061540?text=' + encodeURIComponent(finalWaMsg);
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      if (btn) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        if (savedOk) {
           btn.innerHTML = isId
-            ? '<span>✅ Data Tersimpan! Buka WhatsApp Kembali</span>'
-            : '<span>✅ Data Saved! Reopen WhatsApp</span>';
+            ? '<span>✅ Data Tersimpan! Buka WhatsApp</span>'
+            : '<span>✅ Data Saved! Open WhatsApp</span>';
+          btn.onclick = function() { window.open(waUrl, '_blank', 'noopener,noreferrer'); };
+        } else {
+          btn.innerHTML = isId
+            ? '<span>📲 Kirim Konfirmasi via WhatsApp →</span>'
+            : '<span>📲 Send Confirmation via WhatsApp →</span>';
         }
-        if (statusMsg) {
+      }
+      if (statusMsg) {
+        if (savedOk) {
           statusMsg.style.background = '#ecfdf5';
           statusMsg.style.color = '#047857';
           statusMsg.textContent = isId
-            ? '✅ Data pendaftaran telah dicatat ke Google Sheet Ustadzah & WhatsApp telah dibuka!'
-            : '✅ Registration recorded in Google Sheets & WhatsApp has opened!';
+            ? '✅ Data pendaftaran & bukti transfer telah tersimpan di Google Sheet Ustadzah! Jika WhatsApp belum terbuka otomatis, klik tombol di atas.'
+            : '✅ Registration & receipt saved to Google Sheets! If WhatsApp did not open automatically, click the button above.';
+        } else {
+          statusMsg.style.background = '#fffbeb';
+          statusMsg.style.color = '#92400e';
+          statusMsg.textContent = isId
+            ? '⚠️ Koneksi ke Google Sheet tertunda. Silakan tetap kirim bukti transfer via WhatsApp di atas agar pendaftaran Anda diproses.'
+            : '⚠️ Could not confirm Google Sheets save. Please send your payment proof via WhatsApp above so your enrollment is confirmed.';
         }
-      }, 1200);
+      }
     }
 
     document.addEventListener('keydown', function(e) {
