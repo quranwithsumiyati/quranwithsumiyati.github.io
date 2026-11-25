@@ -11,7 +11,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Pre-Tajweed Qur'an Class Curriculum · Quran with Sumiyati</title>
-  <meta name="description" content="Learn fluent Qur'an recitation in 18 Pre-Tajweed (Pra-Tajwid) classes with Ustadzah Sumiyati: 4 milestones, makhraj, waqf &amp; 1-on-1 talaqqi. IDR 120.000." />
+  <meta name="description" content="Learn fluent Qur'an recitation in Pre-Tajweed (Pra-Tajwid) with Ustadzah Sumiyati: 2 months, 24 sessions. Group IDR 120.000 or Private 1-on-1 IDR 200.000." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Sumiyati" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Quran with Sumiyati" />
   <meta property="og:title" content="Pre-Tajweed Qur'an Class Curriculum · Quran with Sumiyati" />
-  <meta property="og:description" content="Learn fluent Qur'an recitation in 18 Pre-Tajweed (Pra-Tajwid) classes with Ustadzah Sumiyati: 4 milestones, makhraj, waqf &amp; 1-on-1 talaqqi. IDR 120.000." />
+  <meta property="og:description" content="Learn fluent Qur'an recitation in Pre-Tajweed (Pra-Tajwid) with Ustadzah Sumiyati: 2 months, 24 sessions. Group IDR 120.000 or Private 1-on-1 IDR 200.000." />
   <meta property="og:url" content="https://quranwithsumiyati.com/curriculum.html" />
   <meta property="og:image" content="https://quranwithsumiyati.com/sumaiyati.jpg" />
   <meta property="og:image:width" content="900" />
@@ -34,7 +34,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pre-Tajweed Qur'an Class Curriculum · Quran with Sumiyati" />
-  <meta name="twitter:description" content="Learn fluent Qur'an recitation in 18 Pre-Tajweed (Pra-Tajwid) classes with Ustadzah Sumiyati: 4 milestones, makhraj, waqf &amp; 1-on-1 talaqqi. IDR 120.000." />
+  <meta name="twitter:description" content="Learn fluent Qur'an recitation in Pre-Tajweed (Pra-Tajwid) with Ustadzah Sumiyati: 2 months, 24 sessions. Group IDR 120.000 or Private 1-on-1 IDR 200.000." />
   <meta name="twitter:image" content="https://quranwithsumiyati.com/sumaiyati.jpg" />
   <meta name="twitter:image:alt" content="Ustadzah Sumiyati — Pre-Tajweed Qur'an Class Curriculum Instructor" />
 
@@ -95,14 +95,26 @@
           "url": "https://quranwithsumiyati.com/"
         }
       },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://quranwithsumiyati.com/curriculum.html",
-        "price": "120000",
-        "priceCurrency": "IDR",
-        "availability": "https://schema.org/InStock",
-        "category": "Paid"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Pre-Tajweed Group Class (2 Months · 24 Sessions)",
+          "url": "https://quranwithsumiyati.com/curriculum.html#class-options",
+          "price": "120000",
+          "priceCurrency": "IDR",
+          "availability": "https://schema.org/InStock",
+          "category": "Paid"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pre-Tajweed Private 1-on-1 Class (2 Months · 24 Sessions)",
+          "url": "https://quranwithsumiyati.com/curriculum.html#class-options",
+          "price": "200000",
+          "priceCurrency": "IDR",
+          "availability": "https://schema.org/InStock",
+          "category": "Paid"
+        }
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -155,6 +167,7 @@
     }
 
     #main-hero,
+    #class-options,
     #complete-outline {
       scroll-margin-top: 76px;
     }
@@ -166,6 +179,7 @@
     .btn:focus-visible,
     .footer-course-link:focus-visible,
     .modal-lang-btn:focus-visible,
+    .pay-class-tab:focus-visible,
     .pay-method-tab:focus-visible,
     .copy-acc-btn:focus-visible,
     .pay-modal-close:focus-visible,
@@ -1797,6 +1811,190 @@
       }
     }
 
+    /* ── 3B. CLASS FORMAT OPTIONS (GROUP vs PRIVATE 1-ON-1) ── */
+    .class-options-section {
+      padding: 2.5rem 0 4.5rem;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 560px;
+      overflow-clip-margin: 32px;
+    }
+    .class-tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 920px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    .class-tier-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 30px -12px rgba(7, 29, 21, 0.08);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .class-tier-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px -14px rgba(7, 29, 21, 0.14);
+    }
+    .class-tier-card.featured {
+      border-color: var(--green);
+      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 38%);
+      box-shadow: 0 16px 36px -12px rgba(30, 74, 53, 0.16);
+    }
+    .class-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      align-self: flex-start;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .3rem .75rem;
+      border-radius: 99px;
+      background: rgba(30, 74, 53, 0.08);
+      color: var(--green);
+      margin-bottom: .9rem;
+    }
+    .class-tier-card.featured .class-tier-badge {
+      background: var(--green);
+      color: #ffffff;
+    }
+    .class-tier-title {
+      font-family: var(--ff-d);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 .35rem;
+      line-height: 1.25;
+    }
+    .class-tier-sub {
+      font-size: .86rem;
+      color: var(--sub);
+      line-height: 1.55;
+      margin: 0 0 1.2rem;
+    }
+    .class-tier-price-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .5rem;
+      padding-bottom: 1.15rem;
+      margin-bottom: 1.15rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .class-tier-price {
+      font-family: var(--ff-d);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.1;
+    }
+    .class-tier-meta {
+      font-size: .8rem;
+      font-weight: 700;
+      color: #047857;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: .22rem .65rem;
+      border-radius: 99px;
+    }
+    .class-tier-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      flex: 1;
+    }
+    .class-tier-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      font-size: .86rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .class-tier-check {
+      color: #059669;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .class-tier-cta {
+      width: 100%;
+      justify-content: center;
+      min-height: 46px;
+      padding: .78rem 1.2rem;
+      font-size: .84rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    /* ── Payment Modal Class Type Selector (Group vs Private 1-on-1) ── */
+    .pay-class-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      margin: .9rem 0 .25rem;
+    }
+    .pay-class-tab {
+      min-height: 54px;
+      padding: .55rem .7rem;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: #334155;
+      font-family: var(--ff-b);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .15rem;
+      text-align: center;
+      transition: all .15s ease;
+    }
+    .pay-class-tab:hover {
+      border-color: #10b981;
+      background: #f0fdf4;
+    }
+    .pay-class-tab.active {
+      border-color: var(--green);
+      background: #ecfdf5;
+      color: #064e3b;
+      box-shadow: 0 2px 8px rgba(30, 74, 53, 0.14);
+    }
+    .pay-class-tab-name {
+      font-size: .78rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .pay-class-tab-price {
+      font-size: .71rem;
+      font-weight: 600;
+      color: #047857;
+    }
+    @media (max-width: 720px) {
+      .class-tier-grid {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+      }
+      .class-tier-card {
+        padding: 1.5rem 1.25rem;
+      }
+    }
+    @media (max-width: 420px) {
+      .pay-class-tabs {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ── Respect Reduced Motion Preferences (WCAG 2.3.3) ── */
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -1868,8 +2066,8 @@
         </div>
 
         <button type="button" class="btn btn-primary nav-enroll-btn" onclick="openPaymentModal()">
-          <span class="lang-en">💳 Enroll · IDR 120.000</span>
-          <span class="lang-id">💳 Daftar · Rp 120.000</span>
+          <span class="lang-en">💳 Enroll · From IDR 120k</span>
+          <span class="lang-id">💳 Daftar · Mulai Rp 120rb</span>
         </button>
       </div>
     </div>
@@ -1908,17 +2106,17 @@
       <!-- Primary CTA Buttons -->
       <div style="display:flex;justify-content:center;margin-bottom:.75rem;">
         <div style="display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.45rem;max-width:100%;background:#ffffff;border:1.5px solid #10b981;border-radius:99px;padding:.4rem 1.15rem;box-shadow:0 3px 12px rgba(16,185,129,0.12);">
-          <span style="font-size:.84rem;font-weight:700;color:#065f46;">
-            <span class="lang-en">🏷️ Course Fee: <strong>IDR 120.000</strong> (One-Time)</span>
-            <span class="lang-id">🏷️ Biaya Investasi: <strong>Rp 120.000</strong> (Satu Kali)</span>
+          <span style="font-size:.82rem;font-weight:700;color:#065f46;text-align:center;">
+            <span class="lang-en">🏷️ 2 Months · 24 Sessions · Group <strong>IDR 120.000</strong> | Private 1-on-1 <strong>IDR 200.000</strong></span>
+            <span class="lang-id">🏷️ 2 Bulan · 24 Pertemuan · Grup <strong>Rp 120.000</strong> | Privat 1-on-1 <strong>Rp 200.000</strong></span>
           </span>
         </div>
       </div>
       <div class="track-cta-bar">
-        <button type="button" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;cursor:pointer;" onclick="openPaymentModal()">
-          <span class="lang-en">💳 Enroll Now · IDR 120.000 →</span>
-          <span class="lang-id">💳 Daftar Sekarang · Rp 120.000 →</span>
-        </button>
+        <a href="#class-options" class="btn btn-primary" style="padding:.75rem 1.65rem;font-size:.86rem;">
+          <span class="lang-en">💳 Choose Class &amp; Enroll →</span>
+          <span class="lang-id">💳 Pilih Kelas &amp; Daftar →</span>
+        </a>
         <a href="#complete-outline" class="btn btn-secondary" style="padding:.75rem 1.45rem;font-size:.86rem;">
           <span class="lang-en">📋 Explore 4 Milestones &amp; 18 Classes ↓</span>
           <span class="lang-id">📋 Lihat 4 Milestone &amp; 18 Kelas ↓</span>
@@ -1929,8 +2127,8 @@
       <div class="track-stats-row">
         <div class="track-stat-item">
           <span class="track-stat-num c-emerald">18</span>
-          <span class="track-stat-lbl lang-en">Structured Practical Classes</span>
-          <span class="track-stat-lbl lang-id">Kelas Praktik Terstruktur</span>
+          <span class="track-stat-lbl lang-en">Structured Practical Modules</span>
+          <span class="track-stat-lbl lang-id">Materi Praktik Terstruktur</span>
         </div>
         <div class="track-stat-item">
           <span class="track-stat-num c-gold">40 Min</span>
@@ -1943,9 +2141,9 @@
           <span class="track-stat-lbl lang-id">Evaluasi Checkpoint &amp; Ujian Akhir</span>
         </div>
         <div class="track-stat-item">
-          <span class="track-stat-num c-indigo">1-on-1</span>
-          <span class="track-stat-lbl lang-en">Direct Talaqqi Correction</span>
-          <span class="track-stat-lbl lang-id">Talaqqi &amp; Koreksi Langsung</span>
+          <span class="track-stat-num c-indigo">24 Sessions</span>
+          <span class="track-stat-lbl lang-en">2 Months · Group or 1-on-1</span>
+          <span class="track-stat-lbl lang-id">2 Bulan · Grup atau Privat</span>
         </div>
       </div>
     </div>
@@ -2086,6 +2284,94 @@
           <p class="eco-desc lang-en">Graduates who pass the Final Test receive a digitally signed evaluation certificate from Ustadzah Sumiyati.</p>
           <p class="eco-desc lang-id">Setelah lulus Final Test, siswa menerima sertifikat evaluasi resmi bertanda tangan Ustadzah Sumiyati.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- 3B. CHOOSE YOUR CLASS FORMAT (GROUP CLASS vs PRIVATE 1-ON-1) -->
+    <section class="class-options-section" id="class-options" aria-label="Pre-Tajweed Class Options">
+      <h2 class="track-sec-heading">
+        <span class="lang-en">Choose Your Pre-Tajweed Class Type</span>
+        <span class="lang-id">Pilih Tipe Kelas Pra-Tajwid Anda</span>
+      </h2>
+      <p class="track-sec-sub lang-en">
+        Both programs run for <strong>2 months (24 sessions)</strong> covering the complete 18-module syllabus, 6 milestone checkpoints, and final evaluation.
+      </p>
+      <p class="track-sec-sub lang-id">
+        Kedua program berlangsung selama <strong>2 bulan (24 pertemuan)</strong> mencakup seluruh 18 materi praktik, 6 evaluasi checkpoint, dan ujian akhir.
+      </p>
+
+      <div class="class-tier-grid">
+        <!-- Tier 1: Group Class -->
+        <article class="class-tier-card">
+          <span class="class-tier-badge">
+            <span class="lang-en">👥 Group Class · Best Value</span>
+            <span class="lang-id">👥 Kelas Grup · Paling Hemat</span>
+          </span>
+          <h3 class="class-tier-title">
+            <span class="lang-en">Group Class</span>
+            <span class="lang-id">Kelas Grup</span>
+          </h3>
+          <p class="class-tier-sub">
+            <span class="lang-en">Learn together in a supportive, structured group setting guided directly by Ustadzah Sumiyati.</span>
+            <span class="lang-id">Belajar bersama dalam suasana grup yang terarah dan suportif langsung bersama Ustadzah Sumiyati.</span>
+          </p>
+          <div class="class-tier-price-row">
+            <span class="class-tier-price">
+              <span class="lang-en">IDR 120.000</span>
+              <span class="lang-id">Rp 120.000</span>
+            </span>
+            <span class="class-tier-meta">
+              <span class="lang-en">2 Months · 24 Sessions</span>
+              <span class="lang-id">2 Bulan · 24 Pertemuan</span>
+            </span>
+          </div>
+          <ul class="class-tier-list">
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">24 live interactive group sessions over 2 months</span><span class="lang-id">24 pertemuan kelas grup interaktif selama 2 bulan</span></li>
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">Complete 18-module Pre-Tajweed practical curriculum</span><span class="lang-id">Kurikulum lengkap 18 materi praktik Pra-Tajwid</span></li>
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">6 Milestone Checkpoints + Comprehensive Final Test</span><span class="lang-id">6 Evaluasi Checkpoint + Ujian Akhir (Final Test)</span></li>
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">Official completion evaluation certificate</span><span class="lang-id">Sertifikat evaluasi resmi kelulusan</span></li>
+          </ul>
+          <button type="button" class="btn btn-secondary class-tier-cta" onclick="openPaymentModal('bank', 'group')">
+            <span class="lang-en">💳 Enroll Group Class · IDR 120.000 →</span>
+            <span class="lang-id">💳 Daftar Kelas Grup · Rp 120.000 →</span>
+          </button>
+        </article>
+
+        <!-- Tier 2: Private 1-on-1 Class -->
+        <article class="class-tier-card featured">
+          <span class="class-tier-badge">
+            <span class="lang-en">🌟 Private Class · 1-on-1 Teaching</span>
+            <span class="lang-id">🌟 Kelas Privat · Bimbingan 1-on-1</span>
+          </span>
+          <h3 class="class-tier-title">
+            <span class="lang-en">Private Class (1-on-1)</span>
+            <span class="lang-id">Kelas Privat (1-on-1)</span>
+          </h3>
+          <p class="class-tier-sub">
+            <span class="lang-en">Dedicated one-on-one teaching tailored to your personal recitation pace, makhraj, and schedule.</span>
+            <span class="lang-id">Bimbingan intensif satu-lawan-satu (1-on-1) yang disesuaikan dengan ritme, makhraj, dan jadwal pribadi Anda.</span>
+          </p>
+          <div class="class-tier-price-row">
+            <span class="class-tier-price">
+              <span class="lang-en">IDR 200.000</span>
+              <span class="lang-id">Rp 200.000</span>
+            </span>
+            <span class="class-tier-meta">
+              <span class="lang-en">2 Months · 24 Sessions</span>
+              <span class="lang-id">2 Bulan · 24 Pertemuan</span>
+            </span>
+          </div>
+          <ul class="class-tier-list">
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">24 private 1-on-1 sessions over 2 months</span><span class="lang-id">24 pertemuan privat 1-on-1 selama 2 bulan</span></li>
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">100% personal makhraj &amp; fluency talaqqi correction</span><span class="lang-id">Koreksi makhraj &amp; kelancaran talaqqi 100% personal</span></li>
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">Flexible pacing across all 18 modules &amp; 6 checkpoints</span><span class="lang-id">Ritme fleksibel untuk 18 materi &amp; 6 evaluasi checkpoint</span></li>
+            <li><span class="class-tier-check" aria-hidden="true">✓</span><span class="lang-en">Comprehensive Final Test &amp; official certificate</span><span class="lang-id">Ujian Akhir komprehensif &amp; sertifikat resmi</span></li>
+          </ul>
+          <button type="button" class="btn btn-primary class-tier-cta" onclick="openPaymentModal('bank', 'private')">
+            <span class="lang-en">💳 Enroll Private 1-on-1 · IDR 200.000 →</span>
+            <span class="lang-id">💳 Daftar Kelas Privat · Rp 200.000 →</span>
+          </button>
+        </article>
       </div>
     </section>
 
@@ -2744,18 +3030,24 @@
           <span class="lang-id">Siap Memulai Perjalanan Belajar di Kelas Pra-Tajwid?</span>
         </h2>
         <div style="display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.45rem;background:rgba(16,185,129,0.22);border:1px solid #34d399;border-radius:99px;padding:.32rem .85rem;margin-bottom:.65rem;color:#ecfdf5;font-size:.78rem;font-weight:700;max-width:100%;">
-          <span class="lang-en">🏷️ Course Fee: IDR 120.000 · Full Access</span>
-          <span class="lang-id">🏷️ Biaya Kelas: Rp 120.000 · Akses Penuh</span>
+          <span class="lang-en">🏷️ 2 Months · 24 Sessions · Group IDR 120.000 | Private 1-on-1 IDR 200.000</span>
+          <span class="lang-id">🏷️ 2 Bulan · 24 Pertemuan · Grup Rp 120.000 | Privat 1-on-1 Rp 200.000</span>
         </div>
         <p style="font-size:.9rem;color:#d1fae5;line-height:1.6;">
-          <span class="lang-en">Click below to view Bank Transfer details or scan the QR Code to complete your course registration with Ustadzah Sumiyati.</span>
-          <span class="lang-id">Klik tombol di bawah ini untuk melihat nomor rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran kelas bersama Ustadzah Sumiyati.</span>
+          <span class="lang-en">Choose Group or Private 1-on-1 below to view Bank Transfer details or scan QRIS and complete your registration with Ustadzah Sumiyati.</span>
+          <span class="lang-id">Pilih Kelas Grup atau Privat 1-on-1 di bawah ini untuk melihat rekening Transfer Bank atau Scan QRIS guna menyelesaikan pendaftaran bersama Ustadzah Sumiyati.</span>
         </p>
       </div>
-      <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.85rem 1.65rem;font-size:.88rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal()">
-        <span class="lang-en">💳 Enroll Now · IDR 120.000 →</span>
-        <span class="lang-id">💳 Daftar Sekarang · Rp 120.000 →</span>
-      </button>
+      <div style="display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center;">
+        <button type="button" class="btn btn-primary" style="background:#10b981;border-color:#10b981;color:#052e16;font-weight:800;padding:.82rem 1.35rem;font-size:.84rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal('bank', 'group')">
+          <span class="lang-en">👥 Group · IDR 120.000 →</span>
+          <span class="lang-id">👥 Grup · Rp 120.000 →</span>
+        </button>
+        <button type="button" class="btn btn-primary" style="background:#f59e0b;border-color:#f59e0b;color:#1c1409;font-weight:800;padding:.82rem 1.35rem;font-size:.84rem;border-radius:12px;cursor:pointer;" onclick="openPaymentModal('bank', 'private')">
+          <span class="lang-en">🌟 Private 1-on-1 · IDR 200.000 →</span>
+          <span class="lang-id">🌟 Privat 1-on-1 · Rp 200.000 →</span>
+        </button>
+      </div>
     </section>
   </div>
   </main>
@@ -2791,19 +3083,43 @@
         <span class="m-lang-id">Silakan pilih metode pembayaran di bawah ini: <strong>Transfer Bank</strong>, <strong>Scan QRIS</strong>, atau <strong>Luar Negeri</strong>.</span>
       </p>
 
+      <!-- CLASS TYPE SELECTOR (GROUP vs PRIVATE 1-ON-1) -->
+      <div class="pay-class-tabs" role="radiogroup" aria-label="Choose Class Type">
+        <button type="button" class="pay-class-tab active" id="classBtnGroup" role="radio" aria-checked="true" onclick="selectClassType('group')">
+          <span class="pay-class-tab-name">
+            <span class="m-lang-en">👥 Group Class</span>
+            <span class="m-lang-id">👥 Kelas Grup</span>
+          </span>
+          <span class="pay-class-tab-price">
+            <span class="m-lang-en">IDR 120.000 · 2 Mo / 24 Sessions</span>
+            <span class="m-lang-id">Rp 120.000 · 2 Bln / 24 Sesi</span>
+          </span>
+        </button>
+        <button type="button" class="pay-class-tab" id="classBtnPrivate" role="radio" aria-checked="false" onclick="selectClassType('private')">
+          <span class="pay-class-tab-name">
+            <span class="m-lang-en">🌟 Private (1-on-1)</span>
+            <span class="m-lang-id">🌟 Kelas Privat (1-on-1)</span>
+          </span>
+          <span class="pay-class-tab-price">
+            <span class="m-lang-en">IDR 200.000 · 2 Mo / 24 Sessions</span>
+            <span class="m-lang-id">Rp 200.000 · 2 Bln / 24 Sesi</span>
+          </span>
+        </button>
+      </div>
+
       <!-- COURSE FEE SUMMARY CARD -->
-      <div style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);border:1.5px solid #10b981;border-radius:14px;padding:.9rem 1.15rem;margin:1rem 0 .95rem;text-align:center;">
+      <div style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);border:1.5px solid #10b981;border-radius:14px;padding:.9rem 1.15rem;margin:.75rem 0 .95rem;text-align:center;">
         <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#047857;margin-bottom:.2rem;">
-          <span class="m-lang-en">Course Fee / Transfer Amount</span>
-          <span class="m-lang-id">Biaya Kelas / Nominal Transfer</span>
+          <span class="m-lang-en" id="modalClassLabelEn">Group Class · Transfer Amount</span>
+          <span class="m-lang-id" id="modalClassLabelId">Kelas Grup · Nominal Transfer</span>
         </div>
         <div style="font-family:var(--ff-d);font-size:1.65rem;font-weight:700;color:#065f46;line-height:1.2;">
-          <span class="m-lang-en">IDR 120.000</span>
-          <span class="m-lang-id">Rp 120.000</span>
+          <span class="m-lang-en" id="modalFeeEn">IDR 120.000</span>
+          <span class="m-lang-id" id="modalFeeId">Rp 120.000</span>
         </div>
         <div style="font-size:.76rem;color:#047857;margin-top:.25rem;">
-          <span class="m-lang-en">✓ One-time fee · Full lifetime access, evaluations &amp; certificate</span>
-          <span class="m-lang-id">✓ Satu kali pembayaran · Akses penuh, evaluasi berkala &amp; sertifikat</span>
+          <span class="m-lang-en" id="modalMetaEn">✓ 2 Months · 24 Sessions · Full syllabus, evaluations &amp; certificate</span>
+          <span class="m-lang-id" id="modalMetaId">✓ 2 Bulan · 24 Pertemuan · Materi lengkap, evaluasi &amp; sertifikat</span>
         </div>
       </div>
 
@@ -3086,10 +3402,68 @@
       updateToggleAllBtn();
     }
 
-    // ── Payment Modal Logic (Bank Transfer / QR Code, Defaults to Bahasa Indonesia) ──
+    // ── Payment Modal Logic (Group / Private 1-on-1 + Bank Transfer / QR Code, Defaults to Bahasa Indonesia) ──
+    const PRE_TAJWEED_TIERS = {
+      group: {
+        feeNum: 120000,
+        feeEn: 'IDR 120.000',
+        feeId: 'Rp 120.000',
+        labelEn: 'Group Class · Transfer Amount',
+        labelId: 'Kelas Grup · Nominal Transfer',
+        metaEn: '✓ 2 Months · 24 Sessions · Full syllabus, evaluations & certificate',
+        metaId: '✓ 2 Bulan · 24 Pertemuan · Materi lengkap, evaluasi & sertifikat',
+        courseName: 'Kelas Pra-Tajwid — Group Class (Pre-Tajweed)',
+        durationEn: '2 Months (24 Sessions)',
+        durationId: '2 Bulan (24 Pertemuan)'
+      },
+      private: {
+        feeNum: 200000,
+        feeEn: 'IDR 200.000',
+        feeId: 'Rp 200.000',
+        labelEn: 'Private Class (1-on-1) · Transfer Amount',
+        labelId: 'Kelas Privat (1-on-1) · Nominal Transfer',
+        metaEn: '✓ 2 Months · 24 Sessions · Dedicated 1-on-1 teaching & certificate',
+        metaId: '✓ 2 Bulan · 24 Pertemuan · Bimbingan privat 1-on-1 & sertifikat',
+        courseName: 'Kelas Pra-Tajwid — Private 1-on-1 (Pre-Tajweed)',
+        durationEn: '2 Months (24 Sessions)',
+        durationId: '2 Bulan (24 Pertemuan)'
+      }
+    };
+
     let activePayMethod = 'bank';
+    let activeClassType = 'group';
     let activeModalLang = 'id';
     let lastFocusedBeforeModal = null;
+
+    function selectClassType(type) {
+      activeClassType = (type === 'private') ? 'private' : 'group';
+      const tier = PRE_TAJWEED_TIERS[activeClassType];
+      const isGroup = activeClassType === 'group';
+
+      const btnGroup = document.getElementById('classBtnGroup');
+      const btnPrivate = document.getElementById('classBtnPrivate');
+      if (btnGroup) {
+        btnGroup.classList.toggle('active', isGroup);
+        btnGroup.setAttribute('aria-checked', isGroup ? 'true' : 'false');
+      }
+      if (btnPrivate) {
+        btnPrivate.classList.toggle('active', !isGroup);
+        btnPrivate.setAttribute('aria-checked', !isGroup ? 'true' : 'false');
+      }
+
+      const lblEn = document.getElementById('modalClassLabelEn');
+      const lblId = document.getElementById('modalClassLabelId');
+      const feeEn = document.getElementById('modalFeeEn');
+      const feeId = document.getElementById('modalFeeId');
+      const metaEn = document.getElementById('modalMetaEn');
+      const metaId = document.getElementById('modalMetaId');
+      if (lblEn) lblEn.textContent = tier.labelEn;
+      if (lblId) lblId.textContent = tier.labelId;
+      if (feeEn) feeEn.textContent = tier.feeEn;
+      if (feeId) feeId.textContent = tier.feeId;
+      if (metaEn) metaEn.textContent = tier.metaEn;
+      if (metaId) metaId.textContent = tier.metaId;
+    }
 
     function setModalLang(lang) {
       activeModalLang = (lang === 'en') ? 'en' : 'id';
@@ -3110,10 +3484,11 @@
       if (waInput) waInput.placeholder = activeModalLang === 'en' ? '+1 234 567 8900' : '081234567890';
     }
 
-    function openPaymentModal(defaultMethod) {
+    function openPaymentModal(defaultMethod, defaultClassType) {
       lastFocusedBeforeModal = document.activeElement;
       // Always default the popup to Bahasa Indonesia when opened
       setModalLang('id');
+      selectClassType(defaultClassType === 'private' ? 'private' : 'group');
       if (defaultMethod === 'bank' || defaultMethod === 'qr' || defaultMethod === 'overseas') {
         selectPaymentMethod(defaultMethod);
       }
@@ -3126,8 +3501,9 @@
       }
       const statusMsg = document.getElementById('payStatusMsg');
       if (statusMsg) { statusMsg.style.display = 'none'; statusMsg.textContent = ''; }
+      const tier = PRE_TAJWEED_TIERS[activeClassType];
       if (typeof gtag === 'function') {
-        gtag('event', 'begin_checkout', { course_name: 'Pre-Tajweed Class', currency: 'IDR', value: 120000 });
+        gtag('event', 'begin_checkout', { course_name: tier.courseName, currency: 'IDR', value: tier.feeNum });
       }
       const overlay = document.getElementById('paymentModalOverlay');
       if (overlay) {
@@ -3275,12 +3651,15 @@
           ? (isId ? 'Transfer Luar Negeri (Bank Jago Syariah · SWIFT: JAGBIDJA)' : 'Overseas Student Transfer (Bank Jago Syariah · SWIFT: JAGBIDJA)')
           : (isId ? 'Transfer Bank Lokal (Bank Syariah Mandiri)' : 'Local Bank Transfer (Bank Syariah Mandiri)');
 
-      const courseName = 'Kelas Pra-Tajwid (Pre-Tajweed)';
-      const courseFee = isId ? 'Rp 120.000' : 'IDR 120.000';
+      const tier = PRE_TAJWEED_TIERS[activeClassType] || PRE_TAJWEED_TIERS.group;
+      const courseName = tier.courseName;
+      const courseFee = isId ? tier.feeId : tier.feeEn;
+      const courseDuration = isId ? tier.durationId : tier.durationEn;
 
       const waMsg = isId
         ? `Assalamu'alaikum Ustadzah Sumiyati, saya telah mendaftar kelas:\n\n` +
           `📖 *Kelas:* ${courseName}\n` +
+          `🗓️ *Durasi:* ${courseDuration}\n` +
           `👤 *Nama Lengkap:* ${studentName}\n` +
           `📧 *Email:* ${studentEmail}\n` +
           `📱 *WhatsApp:* ${studentWa}\n` +
@@ -3289,6 +3668,7 @@
           `Data saya telah tersimpan di sistem. Berikut saya lampirkan juga bukti transfernya:`
         : `Assalamu'alaikum Ustadzah Sumiyati, I have registered for the course:\n\n` +
           `📖 *Course:* ${courseName}\n` +
+          `🗓️ *Duration:* ${courseDuration}\n` +
           `👤 *Full Name:* ${studentName}\n` +
           `📧 *Email:* ${studentEmail}\n` +
           `📱 *WhatsApp:* ${studentWa}\n` +
@@ -3387,7 +3767,7 @@
       }
 
       if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', { course_name: courseName, payment_type: methodLabel, currency: 'IDR', value: 120000 });
+        gtag('event', 'generate_lead', { course_name: courseName, payment_type: methodLabel, currency: 'IDR', value: tier.feeNum });
       }
 
       const finalWaMsg = receiptUrl
