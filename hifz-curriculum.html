@@ -11,7 +11,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hifz Curriculum: Ziyadah 30 Juz Tahfiz | Quran with Sumiyati</title>
-  <meta name="description" content="Structured 30 Juz Qur'an memorization (Ziyadah) for sisters guided by Ustadzah Sumiyati. Flexible schedules, Murojaah, Sambung Ayat exams &amp; 30-Juz planner." />
+  <meta name="description" content="1-on-1 Private 30 Juz Qur'an memorization (Ziyadah) for sisters by Ustadzah Sumiyati. 3x/Week (12 sessions/mo, IDR 299.000/mo) or 5x/Week (20 sessions/mo, IDR 399.000/mo)." />
   <meta name="keywords" content="Hifz curriculum, Tahfiz guidance, Ziyadah 30 juz, Ustadzah Sumiyati, Sambung Ayat, Murojaah, Quran memorization for sisters, Hafizah calculator" />
   <meta name="author" content="Sumiyati" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -23,7 +23,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Quran with Sumiyati" />
   <meta property="og:title" content="Hifz Curriculum: Ziyadah 30 Juz Tahfiz | Quran with Sumiyati" />
-  <meta property="og:description" content="Structured 30 Juz Qur'an memorization (Ziyadah) for sisters guided by Ustadzah Sumiyati. Flexible schedules, Murojaah, Sambung Ayat exams &amp; 30-Juz planner." />
+  <meta property="og:description" content="1-on-1 Private 30 Juz Qur'an memorization (Ziyadah) for sisters by Ustadzah Sumiyati. 3x/Week (12 sessions/mo, IDR 299.000/mo) or 5x/Week (20 sessions/mo, IDR 399.000/mo)." />
   <meta property="og:url" content="https://quranwithsumiyati.com/hifz-curriculum.html" />
   <meta property="og:image" content="https://quranwithsumiyati.com/sumaiyati.jpg" />
   <meta property="og:image:alt" content="Ustadzah Sumiyati — 30 Juz Hafizhah and Online Qur'an Hifz Instructor" />
@@ -33,7 +33,7 @@
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hifz Curriculum: Ziyadah 30 Juz Tahfiz | Quran with Sumiyati" />
-  <meta name="twitter:description" content="Structured 30 Juz Qur'an memorization (Ziyadah) for sisters guided by Ustadzah Sumiyati. Flexible schedules, Murojaah, Sambung Ayat exams &amp; 30-Juz planner." />
+  <meta name="twitter:description" content="1-on-1 Private 30 Juz Qur'an memorization (Ziyadah) for sisters by Ustadzah Sumiyati. 3x/Week (12 sessions/mo, IDR 299.000/mo) or 5x/Week (20 sessions/mo, IDR 399.000/mo)." />
   <meta name="twitter:image" content="https://quranwithsumiyati.com/sumaiyati.jpg" />
   <meta name="twitter:image:alt" content="Ustadzah Sumiyati — 30 Juz Hafizhah and Online Qur'an Hifz Instructor" />
 
@@ -86,14 +86,36 @@
       "hasCourseInstance": {
         "@type": "CourseInstance",
         "courseMode": "online",
-        "courseWorkload": "Flexible 3 or 5 days/week schedule",
+        "courseWorkload": "1-on-1 Private: 3x/week (12 sessions/month) or 5x/week (20 sessions/month)",
         "inLanguage": ["en", "id"],
         "instructor": {
           "@type": "Person",
           "name": "Sumiyati",
           "jobTitle": "Quran Teacher & Hafizhah 30 Juz"
         }
-      }
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Hifz 1-on-1 Private — Regular (3x/Week · 12 Sessions/Month)",
+          "description": "One-to-one private Qur'an memorization (Ziyadah & Murojaah) 3 times per week (12 sessions per month).",
+          "price": "299000",
+          "priceCurrency": "IDR",
+          "availability": "https://schema.org/InStock",
+          "category": "Paid",
+          "url": "https://quranwithsumiyati.com/hifz-curriculum.html#hifz-plans"
+        },
+        {
+          "@type": "Offer",
+          "name": "Hifz 1-on-1 Private — Intensive (5x/Week · 20 Sessions/Month)",
+          "description": "One-to-one private Qur'an memorization (Ziyadah & Murojaah) 5 times per week (20 sessions per month).",
+          "price": "399000",
+          "priceCurrency": "IDR",
+          "availability": "https://schema.org/InStock",
+          "category": "Paid",
+          "url": "https://quranwithsumiyati.com/hifz-curriculum.html#hifz-plans"
+        }
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -256,6 +278,7 @@
     }
 
     #main-hero { scroll-margin-top: 76px; }
+    #hifz-plans { scroll-margin-top: 76px; }
     #hifz-planner { scroll-margin-top: 76px; }
     #hifz-faq { scroll-margin-top: 76px; }
 
@@ -1689,6 +1712,474 @@
       .planner-day-cell { font-size: .6rem; padding: .35rem .06rem; }
     }
 
+    /* ── Hero Fee Pill & 1-on-1 Hifz Plan Cards (Deep Sapphire) ── */
+    .hero-fee-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: .85rem;
+    }
+    .hero-fee-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .4rem;
+      background: #eff6ff;
+      border: 1.5px solid rgba(29, 78, 216, 0.35);
+      border-radius: 99px;
+      padding: .44rem 1.15rem;
+      box-shadow: 0 3px 12px rgba(30, 58, 138, 0.1);
+      font-size: .83rem;
+      font-weight: 700;
+      color: var(--track-deep);
+      text-align: center;
+    }
+    .hifz-plans-section {
+      padding: 2rem 0 3.5rem;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 600px;
+      overflow-clip-margin: 32px;
+    }
+    .class-tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 920px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    .class-tier-card {
+      background: #ffffff;
+      border: 1.5px solid rgba(29, 78, 216, 0.2);
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      box-shadow: 0 12px 30px -12px rgba(30, 58, 138, 0.1);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .class-tier-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px -14px rgba(30, 58, 138, 0.18);
+    }
+    .class-tier-card.featured {
+      border-color: var(--track-primary);
+      background: linear-gradient(180deg, #eff6ff 0%, #ffffff 42%);
+      box-shadow: 0 16px 36px -12px rgba(29, 78, 216, 0.2);
+    }
+    .class-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      align-self: flex-start;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .3rem .75rem;
+      border-radius: 99px;
+      background: rgba(29, 78, 216, 0.1);
+      color: var(--track-deep);
+      margin-bottom: .9rem;
+    }
+    .class-tier-card.featured .class-tier-badge {
+      background: var(--track-deep);
+      color: #ffffff;
+    }
+    .class-tier-title {
+      font-family: var(--ff-d);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 .35rem;
+      line-height: 1.25;
+    }
+    .class-tier-sub {
+      font-size: .86rem;
+      color: var(--sub);
+      line-height: 1.55;
+      margin: 0 0 1.2rem;
+    }
+    .class-tier-price-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .45rem;
+      padding-bottom: 1.15rem;
+      margin-bottom: 1.15rem;
+      border-bottom: 1px solid rgba(29, 78, 216, 0.15);
+    }
+    .class-tier-price {
+      font-family: var(--ff-d);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--track-deep);
+      line-height: 1.1;
+    }
+    .class-tier-period {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--sub);
+    }
+    .class-tier-meta {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--track-deep);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: .22rem .65rem;
+      border-radius: 99px;
+    }
+    .class-tier-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      flex: 1;
+    }
+    .class-tier-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      font-size: .86rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .class-tier-check {
+      color: var(--track-primary);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .class-tier-cta {
+      width: 100%;
+      justify-content: center;
+      min-height: 46px;
+      padding: .78rem 1.2rem;
+      font-size: .84rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .class-tier-wa-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+      width: 100%;
+      min-height: 40px;
+      margin-top: .55rem;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--track-primary);
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background .15s ease, color .15s ease;
+    }
+    .class-tier-wa-link:hover {
+      background: #eff6ff;
+      color: var(--track-deep);
+      text-decoration: underline;
+    }
+
+    /* ── Payment Modal Language Visibility & Deep Sapphire Modal UI ── */
+    .pay-modal-card.modal-lang-id .m-lang-en { display: none !important; }
+    .pay-modal-card.modal-lang-en .m-lang-id { display: none !important; }
+    .modal-lang-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #eff6ff;
+      border: 1px solid rgba(29, 78, 216, 0.22);
+      padding: 3px;
+      border-radius: 99px;
+      margin-bottom: .75rem;
+    }
+    .modal-lang-btn {
+      font-family: var(--ff-b);
+      font-size: .74rem;
+      font-weight: 700;
+      min-height: 40px;
+      padding: .32rem .85rem;
+      border-radius: 99px;
+      border: none;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s ease, color .15s ease;
+    }
+    .modal-lang-btn.active {
+      background: var(--track-deep);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(30, 58, 138, 0.24);
+    }
+    .pay-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 22, 44, 0.76);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      overflow-y: auto;
+    }
+    .pay-modal-overlay.active { display: flex; }
+    .pay-modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      border: 1px solid rgba(29, 78, 216, 0.22);
+      border-radius: 20px;
+      padding: 1.65rem 1.55rem;
+      text-align: center;
+      box-shadow: inset 0 4px 0 0 var(--track-deep), 0 24px 60px rgba(11, 22, 44, 0.36);
+      max-height: 92vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      box-sizing: border-box;
+    }
+    .pay-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(29, 78, 216, 0.22);
+      background: #f8faff;
+      color: var(--track-deep);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s ease, color .15s ease;
+    }
+    .pay-modal-close:hover { background: var(--track-deep); color: #ffffff; }
+    .pay-class-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      margin: .9rem 0 .25rem;
+    }
+    .pay-class-tab {
+      min-height: 54px;
+      padding: .55rem .7rem;
+      border-radius: 12px;
+      border: 1.5px solid rgba(29, 78, 216, 0.24);
+      background: #ffffff;
+      color: #334155;
+      font-family: var(--ff-b);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .15rem;
+      text-align: center;
+      transition: all .15s ease;
+    }
+    .pay-class-tab:hover { border-color: var(--track-accent); background: #eff6ff; }
+    .pay-class-tab.active {
+      border-color: var(--track-deep);
+      background: #dbeafe;
+      color: #172554;
+      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.16);
+    }
+    .pay-class-tab-name { font-size: .78rem; font-weight: 800; line-height: 1.2; }
+    .pay-class-tab-price { font-size: .71rem; font-weight: 600; color: var(--sub); }
+    .pay-class-tab.active .pay-class-tab-price { color: var(--track-deep); font-weight: 700; }
+    .pay-fee-card {
+      background: linear-gradient(135deg, #eff6ff 0%, #f8faff 100%);
+      border: 1.5px solid rgba(29, 78, 216, 0.28);
+      border-radius: 14px;
+      padding: .85rem 1rem;
+      margin: .8rem 0 1rem;
+      text-align: center;
+    }
+    .pay-fee-kicker {
+      font-size: .7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--track-primary);
+    }
+    .pay-fee-amount {
+      font-family: var(--ff-d);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--track-deep);
+      line-height: 1.15;
+      margin: .2rem 0;
+    }
+    .pay-fee-note { font-size: .76rem; color: #334155; font-weight: 600; }
+    .pay-method-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+      background: #eff6ff;
+      border: 1px solid rgba(29, 78, 216, 0.18);
+      padding: .35rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    .pay-method-tab {
+      font-family: var(--ff-b);
+      font-size: .75rem;
+      font-weight: 700;
+      min-height: 44px;
+      padding: .5rem .45rem;
+      border: none;
+      border-radius: 9px;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .3rem;
+      transition: background .15s ease, color .15s ease;
+    }
+    .pay-method-tab.active {
+      background: #ffffff;
+      color: var(--track-deep);
+      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.12);
+    }
+    .pay-panel { display: none; }
+    .pay-panel.active { display: block; }
+    .bank-detail-box {
+      background: #f8faff;
+      border: 1px solid rgba(29, 78, 216, 0.2);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      text-align: left;
+      margin-bottom: .9rem;
+    }
+    .bank-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .55rem 0;
+      border-bottom: 1px solid rgba(29, 78, 216, 0.12);
+      flex-wrap: wrap;
+    }
+    .bank-row:first-child { padding-top: 0; }
+    .bank-row:last-child { padding-bottom: 0; border-bottom: none; }
+    .bank-lbl { font-size: .71rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--sub); }
+    .bank-val { font-size: .92rem; font-weight: 700; color: #0f172a; margin-top: .1rem; }
+    .bank-acc-num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.2rem; font-weight: 800; color: var(--track-deep); letter-spacing: .04em; margin-top: .1rem; }
+    .pay-tag-pill {
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .25rem .6rem;
+      border-radius: 99px;
+      background: #dbeafe;
+      color: var(--track-deep);
+      white-space: nowrap;
+    }
+    .copy-acc-btn {
+      font-family: var(--ff-b);
+      font-size: .76rem;
+      font-weight: 700;
+      min-height: 40px;
+      padding: .45rem .95rem;
+      border-radius: 8px;
+      border: 1px solid rgba(29, 78, 216, 0.35);
+      background: #ffffff;
+      color: var(--track-deep);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+      transition: background .15s ease, color .15s ease;
+    }
+    .copy-acc-btn:hover { background: var(--track-deep); color: #ffffff; }
+    .qr-display-box {
+      background: #ffffff;
+      border: 1.5px solid rgba(29, 78, 216, 0.24);
+      border-radius: 16px;
+      padding: 1.25rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      box-shadow: inset 0 0 0 4px #eff6ff;
+    }
+    .qr-frame {
+      width: 100%;
+      max-width: 280px;
+      margin: .65rem auto .75rem;
+      background: #ffffff;
+      border: 2px solid var(--track-primary);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qr-frame img { width: 100%; height: auto; display: block; }
+    #payStudentName, #payStudentEmail, #payStudentWhatsapp {
+      width: 100%;
+      min-height: 44px;
+      padding: .62rem .85rem;
+      border: 1px solid rgba(29, 78, 216, 0.28);
+      border-radius: 10px;
+      font-family: var(--ff-b);
+      font-size: .88rem;
+      color: #0f172a;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+    .pay-upload-zone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: .65rem .9rem;
+      border: 1.5px dashed rgba(29, 78, 216, 0.35);
+      border-radius: 12px;
+      background: #f8faff;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .pay-upload-zone:hover { background: #eff6ff; border-color: var(--track-primary); }
+    .pay-upload-clear {
+      border: none;
+      background: rgba(29, 78, 216, 0.12);
+      color: var(--track-deep);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .class-tier-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+      .class-tier-card { padding: 1.5rem 1.25rem; }
+      .class-tier-price { font-size: 1.75rem; }
+    }
+    @media (max-width: 600px) {
+      .pay-modal-overlay { align-items: flex-end; padding: 0; }
+      .pay-modal-card {
+        border-radius: 20px 20px 0 0;
+        max-width: 100%;
+        padding: 1.15rem .95rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
+      }
+      .pay-method-tab { flex-direction: column; gap: .2rem; font-size: .72rem; }
+      #payStudentName, #payStudentEmail, #payStudentWhatsapp { font-size: 16px !important; }
+      .pay-student-grid { grid-template-columns: 1fr !important; }
+    }
+
     /* Respect Reduced Motion Preferences */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto !important; }
@@ -1754,10 +2245,10 @@
           </button>
         </div>
 
-        <a href="https://wa.me/6285890061540?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mendaftar%20Program%20Tahfiz%20(Ziyadah%2030%20Juz)%20dan%20mengikuti%20tes%20bacaan." target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-enroll-btn">
-          <span class="lang-en">💬 Join Hifz Program</span>
-          <span class="lang-id">💬 Daftar Tahfiz</span>
-        </a>
+        <button type="button" class="btn btn-primary nav-enroll-btn" onclick="openPaymentModal('bank', 'regular')">
+          <span class="lang-en">💳 Enroll · From IDR 299k/mo</span>
+          <span class="lang-id">💳 Daftar · Mulai Rp 299rb/bln</span>
+        </button>
       </div>
     </div>
   </header>
@@ -1800,19 +2291,27 @@
         </div>
       </div>
 
+      <!-- Tuition Highlight Pill -->
+      <div class="hero-fee-wrap">
+        <div class="hero-fee-pill">
+          <span class="lang-en">🏷️ 1-on-1 Private · 3x/Wk (12 Sess) <strong>IDR 299.000/mo</strong> | 5x/Wk (20 Sess) <strong>IDR 399.000/mo</strong></span>
+          <span class="lang-id">🏷️ Privat 1-on-1 · 3x/Mgg (12 Sesi) <strong>Rp 299.000/bln</strong> | 5x/Mgg (20 Sesi) <strong>Rp 399.000/bln</strong></span>
+        </div>
+      </div>
+
       <!-- Primary CTA Buttons -->
       <div class="track-cta-bar">
-        <a href="https://wa.me/6285890061540?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mendaftar%20Program%20Tahfiz%20(Ziyadah%2030%20Juz)%20dan%20mengikuti%20tes%20bacaan." target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-btn-primary">
-          <span class="lang-en">💬 Book Recitation Assessment &amp; Enroll →</span>
-          <span class="lang-id">💬 Daftar &amp; Tes Bacaan via WhatsApp →</span>
+        <a href="#hifz-plans" class="btn btn-primary hero-btn-primary">
+          <span class="lang-en">💳 Choose 1-on-1 Plan · From IDR 299k/mo →</span>
+          <span class="lang-id">💳 Pilih Paket 1-on-1 · Mulai Rp 299rb/bln →</span>
+        </a>
+        <a href="https://wa.me/6285890061540?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mendaftar%20Program%20Tahfiz%20Privat%201-on-1%20(Ziyadah%2030%20Juz)%20dan%20mengikuti%20tes%20bacaan." target="_blank" rel="noopener noreferrer" class="btn btn-secondary hero-btn-secondary">
+          <span class="lang-en">💬 Book Recitation Assessment →</span>
+          <span class="lang-id">💬 Jadwalkan Tes Bacaan →</span>
         </a>
         <a href="#hifz-planner" class="btn btn-secondary hero-btn-secondary">
           <span class="lang-en">🧮 30-Juz Pace Calculator ↓</span>
           <span class="lang-id">🧮 Kalkulator Target 30 Juz ↓</span>
-        </a>
-        <a href="#hifz-faq" class="btn btn-secondary hero-btn-secondary">
-          <span class="lang-en">❓ Read Program Q&amp;A ↓</span>
-          <span class="lang-id">❓ Pertanyaan Seputar Tahfiz ↓</span>
         </a>
       </div>
 
@@ -1824,9 +2323,9 @@
           <span class="track-stat-lbl lang-id">Target Hafalan 30 Juz Lengkap</span>
         </div>
         <div class="track-stat-item">
-          <span class="track-stat-num c-blue">Flexible</span>
-          <span class="track-stat-lbl lang-en">Tailored Study Schedules</span>
-          <span class="track-stat-lbl lang-id">Pilihan Waktu Sesuai Kemampuan</span>
+          <span class="track-stat-num c-blue">1-on-1</span>
+          <span class="track-stat-lbl lang-en">Private Only · 3x or 5x / Week</span>
+          <span class="track-stat-lbl lang-id">Khusus Privat · 3x atau 5x / Minggu</span>
         </div>
         <div class="track-stat-item">
           <span class="track-stat-num c-gold">4 Qs / Juz</span>
@@ -1900,6 +2399,148 @@
             <p class="lang-id">Setiap selesai 1 juz, peserta mengikuti ujian 4 soal sambung ayat dan wajib lulus sebelum lanjut ke juz berikutnya.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- 2B. 1-ON-1 PRIVATE HIFZ PLANS (3x/WEEK vs 5x/WEEK) -->
+    <section class="hifz-plans-section" id="hifz-plans" aria-label="1-on-1 Private Hifz Plans">
+      <h2 class="track-sec-heading">
+        <span class="lang-en">Choose Your 1-on-1 Private Hifz Plan</span>
+        <span class="lang-id">Pilih Paket Tahfiz Privat 1-on-1</span>
+      </h2>
+      <p class="track-sec-sub lang-en">
+        Every Hifz session is <strong>100% private one-to-one</strong> with your Ustazah — combining Ziyadah (new memorization), structured Murojaah, and per-Juz Sambung Ayat exams. You may enroll directly or schedule your Recitation Assessment via WhatsApp first.
+      </p>
+      <p class="track-sec-sub lang-id">
+        Seluruh program Tahfiz dilaksanakan secara <strong>privat 1-on-1</strong> bersama Ustazah — mencakup Ziyadah, Murojaah terstruktur, dan ujian Sambung Ayat tiap juz. Anda dapat langsung mendaftar atau menjadwalkan Tes Bacaan terlebih dahulu via WhatsApp.
+      </p>
+
+      <div class="class-tier-grid">
+        <!-- OPTION 1: 3x / WEEK (12 SESSIONS / MONTH) -->
+        <article class="class-tier-card">
+          <span class="class-tier-badge">
+            <span aria-hidden="true">🌙</span>
+            <span class="lang-en">1-on-1 Private · Steady Pace</span>
+            <span class="lang-id">Privat 1-on-1 · Ritme Stabil</span>
+          </span>
+          <h3 class="class-tier-title">
+            <span class="lang-en">Regular Private Hifz (3x / Week)</span>
+            <span class="lang-id">Tahfiz Privat Reguler (3x / Minggu)</span>
+          </h3>
+          <p class="class-tier-sub lang-en">
+            Ideal for sisters balancing study, work, or family — steady one-to-one memorization with dedicated weekly review.
+          </p>
+          <p class="class-tier-sub lang-id">
+            Cocok bagi muslimah yang membagi waktu bersama studi, pekerjaan, atau keluarga — setoran privat stabil dengan murojaah rutin.
+          </p>
+          <div class="class-tier-price-row">
+            <span class="class-tier-price">
+              <span class="lang-en">IDR 299.000</span>
+              <span class="lang-id">Rp 299.000</span>
+            </span>
+            <span class="class-tier-period">
+              <span class="lang-en">/ month</span>
+              <span class="lang-id">/ bulan</span>
+            </span>
+            <span class="class-tier-meta">
+              <span class="lang-en">12 Sessions / Month · 3x / Week</span>
+              <span class="lang-id">12 Pertemuan / Bulan · 3x / Minggu</span>
+            </span>
+          </div>
+          <ul class="class-tier-list">
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en"><strong>12 private 1-on-1 sessions / month</strong> (3 times per week)</span>
+              <span class="lang-id"><strong>12 pertemuan privat 1-on-1 / bulan</strong> (3 kali per minggu)</span>
+            </li>
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en">Balanced <strong>Ziyadah + Murojaah</strong> rhythm (2 days new + 1 day review)</span>
+              <span class="lang-id">Ritme seimbang <strong>Ziyadah + Murojaah</strong> (2 hari baru + 1 hari murojaah)</span>
+            </li>
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en">Per-Juz 4-question <strong>Sambung Ayat</strong> quality exam &amp; personal pace</span>
+              <span class="lang-id">Ujian kualitas 4 soal <strong>Sambung Ayat</strong> tiap juz sesuai ritme pribadi</span>
+            </li>
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en">Direct 1-on-1 female Qur'an teacher (<strong>Ustazah</strong>) guidance</span>
+              <span class="lang-id">Bimbingan privat 1-on-1 langsung bersama pengajar muslimah (<strong>Ustazah</strong>)</span>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-secondary class-tier-cta" onclick="openPaymentModal('bank', 'regular')">
+            <span class="lang-en">💳 Enroll 3x/Week · IDR 299.000/mo →</span>
+            <span class="lang-id">💳 Daftar 3x/Minggu · Rp 299.000/bln →</span>
+          </button>
+          <a href="https://wa.me/6285890061540?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20menjadwalkan%20Tes%20Bacaan%20untuk%20Program%20Tahfiz%20Privat%201-on-1%20Paket%203x%2Fminggu%20(12%20pertemuan%2Fbulan%20-%20Rp%20299.000%2Fbln)." target="_blank" rel="noopener noreferrer" class="class-tier-wa-link">
+            <span class="lang-en">💬 Or book Recitation Assessment first (WhatsApp)</span>
+            <span class="lang-id">💬 Atau jadwalkan Tes Bacaan dulu (WhatsApp)</span>
+          </a>
+        </article>
+
+        <!-- OPTION 2: 5x / WEEK (20 SESSIONS / MONTH) -->
+        <article class="class-tier-card featured">
+          <span class="class-tier-badge">
+            <span aria-hidden="true">⭐</span>
+            <span class="lang-en">1-on-1 Private · Faster Khatam</span>
+            <span class="lang-id">Privat 1-on-1 · Lebih Intensif</span>
+          </span>
+          <h3 class="class-tier-title">
+            <span class="lang-en">Intensive Private Hifz (5x / Week)</span>
+            <span class="lang-id">Tahfiz Privat Intensif (5x / Minggu)</span>
+          </h3>
+          <p class="class-tier-sub lang-en">
+            Designed for dedicated sisters seeking faster 30-Juz progression, tighter daily accountability, and stronger retention.
+          </p>
+          <p class="class-tier-sub lang-id">
+            Dirancang bagi muslimah yang menginginkan akselerasi hafalan 30 juz, pendampingan hampir setiap hari, dan daya ingat lebih kokoh.
+          </p>
+          <div class="class-tier-price-row">
+            <span class="class-tier-price">
+              <span class="lang-en">IDR 399.000</span>
+              <span class="lang-id">Rp 399.000</span>
+            </span>
+            <span class="class-tier-period">
+              <span class="lang-en">/ month</span>
+              <span class="lang-id">/ bulan</span>
+            </span>
+            <span class="class-tier-meta">
+              <span class="lang-en">20 Sessions / Month · 5x / Week</span>
+              <span class="lang-id">20 Pertemuan / Bulan · 5x / Minggu</span>
+            </span>
+          </div>
+          <ul class="class-tier-list">
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en"><strong>20 private 1-on-1 sessions / month</strong> (5 times per week)</span>
+              <span class="lang-id"><strong>20 pertemuan privat 1-on-1 / bulan</strong> (5 kali per minggu)</span>
+            </li>
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en">Intensive <strong>Ziyadah + Murojaah</strong> rhythm (3 days new + 2 days review)</span>
+              <span class="lang-id">Ritme intensif <strong>Ziyadah + Murojaah</strong> (3 hari baru + 2 hari murojaah)</span>
+            </li>
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en">Faster 30-Juz completion with close weekly progress tracking</span>
+              <span class="lang-id">Akselerasi khatam 30 juz dengan pantauan progres mingguan ketat</span>
+            </li>
+            <li>
+              <span class="class-tier-check" aria-hidden="true">✓</span>
+              <span class="lang-en">Per-Juz <strong>Sambung Ayat</strong> exam &amp; direct 1-on-1 <strong>Ustazah</strong> coaching</span>
+              <span class="lang-id">Ujian <strong>Sambung Ayat</strong> tiap juz &amp; bimbingan 1-on-1 langsung <strong>Ustazah</strong></span>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-primary hero-btn-primary class-tier-cta" onclick="openPaymentModal('bank', 'intensive')">
+            <span class="lang-en">⭐ Enroll 5x/Week · IDR 399.000/mo →</span>
+            <span class="lang-id">⭐ Daftar 5x/Minggu · Rp 399.000/bln →</span>
+          </button>
+          <a href="https://wa.me/6285890061540?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20menjadwalkan%20Tes%20Bacaan%20untuk%20Program%20Tahfiz%20Privat%201-on-1%20Paket%205x%2Fminggu%20(20%20pertemuan%2Fbulan%20-%20Rp%20399.000%2Fbln)." target="_blank" rel="noopener noreferrer" class="class-tier-wa-link">
+            <span class="lang-en">💬 Or book Recitation Assessment first (WhatsApp)</span>
+            <span class="lang-id">💬 Atau jadwalkan Tes Bacaan dulu (WhatsApp)</span>
+          </a>
+        </article>
       </div>
     </section>
 
@@ -2452,29 +3093,295 @@
   <!-- 5. BOTTOM ENROLLMENT CTA -->
   <div class="track-container">
     <section class="enroll-banner" aria-label="Join Hifz Program">
+      <div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,0.14);border:1px solid rgba(191,219,254,0.55);border-radius:99px;padding:.34rem .95rem;margin-bottom:.85rem;color:#e0f2fe;font-size:.78rem;font-weight:700;max-width:100%;">
+        <span class="lang-en">🏷️ 1-on-1 Private · 3x/Wk IDR 299.000/mo | 5x/Wk IDR 399.000/mo</span>
+        <span class="lang-id">🏷️ Privat 1-on-1 · 3x/Mgg Rp 299.000/bln | 5x/Mgg Rp 399.000/bln</span>
+      </div>
       <h2>
         <span class="lang-en">Ready to Begin Your 30-Juz Hifz Journey?</span>
         <span class="lang-id">Siap Memulai Hafalan 30 Juz Secara Terarah?</span>
       </h2>
 
       <p class="lang-en">
-        Message Ustadzah Sumiyati to schedule your initial recitation assessment (Tes Bacaan) and choose the Ziyadah study schedule that fits your routine.
+        Enroll directly in your preferred 1-on-1 private plan below, or message Ustadzah Sumiyati on WhatsApp first to schedule your initial Recitation Assessment (Tes Bacaan).
       </p>
       <p class="lang-id">
-        Hubungi Ustadzah Sumiyati untuk menjadwalkan tes bacaan awal dan memilih pilihan waktu program Ziyadah yang paling sesuai dengan kemampuan Anda.
+        Daftar langsung pada paket privat 1-on-1 pilihan Anda di bawah ini, atau hubungi Ustadzah Sumiyati via WhatsApp terlebih dahulu untuk menjadwalkan Tes Bacaan awal.
       </p>
 
-      <div style="display:flex;justify-content:center;gap:.85rem;flex-wrap:wrap;">
-        <a href="https://wa.me/6285890061540?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mendaftar%20Program%20Tahfiz%20(Ziyadah%2030%20Juz)%20dan%20mengikuti%20tes%20bacaan." target="_blank" rel="noopener noreferrer" class="btn btn-primary enroll-btn-primary">
-          <span class="lang-en">💬 Schedule Assessment on WhatsApp →</span>
-          <span class="lang-id">💬 Jadwalkan Tes Bacaan via WhatsApp →</span>
-        </a>
-        <a href="curriculum.html" class="btn btn-secondary enroll-btn-secondary">
-          <span class="lang-en">📖 Need Tahsin First? View Pre-Tajweed →</span>
-          <span class="lang-id">📖 Perlu Tahsin Dulu? Lihat Pra-Tajwid →</span>
+      <div style="display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;">
+        <button type="button" class="btn btn-primary enroll-btn-primary" onclick="openPaymentModal('bank', 'regular')">
+          <span class="lang-en">🌙 3x/Week · IDR 299.000/mo →</span>
+          <span class="lang-id">🌙 3x/Minggu · Rp 299.000/bln →</span>
+        </button>
+        <button type="button" class="btn btn-primary enroll-btn-primary" onclick="openPaymentModal('bank', 'intensive')">
+          <span class="lang-en">⭐ 5x/Week · IDR 399.000/mo →</span>
+          <span class="lang-id">⭐ 5x/Minggu · Rp 399.000/bln →</span>
+        </button>
+        <a href="https://wa.me/6285890061540?text=Assalamu'alaikum%20Ustadzah%20Sumiyati%2C%20saya%20ingin%20mendaftar%20Program%20Tahfiz%20Privat%201-on-1%20(Ziyadah%2030%20Juz)%20dan%20mengikuti%20tes%20bacaan." target="_blank" rel="noopener noreferrer" class="btn btn-secondary enroll-btn-secondary">
+          <span class="lang-en">💬 Book Recitation Assessment (WhatsApp)</span>
+          <span class="lang-id">💬 Jadwalkan Tes Bacaan (WhatsApp)</span>
         </a>
       </div>
     </section>
+  </div>
+
+  <!-- HIFZ 1-ON-1 REGISTRATION & PAYMENT MODAL (DEFAULTS TO BAHASA INDONESIA, TOGGLEABLE TO ENGLISH) -->
+  <div id="paymentModalOverlay" class="pay-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" onclick="if(event.target===this)closePaymentModal()">
+    <div class="pay-modal-card modal-lang-id" id="paymentModalCard">
+      <button type="button" class="pay-modal-close" id="payModalCloseBtn" onclick="closePaymentModal()" aria-label="Close">✕</button>
+
+      <div>
+        <div class="modal-lang-bar" role="group" aria-label="Popup Language Switcher">
+          <button type="button" class="modal-lang-btn js-modal-lang-btn active" data-mlang="id" aria-pressed="true" onclick="setModalLang('id')">
+            🇮🇩 Bahasa Indonesia
+          </button>
+          <button type="button" class="modal-lang-btn js-modal-lang-btn" data-mlang="en" aria-pressed="false" onclick="setModalLang('en')">
+            🇬🇧 English
+          </button>
+        </div>
+      </div>
+
+      <span class="track-eyebrow-pill" style="margin-bottom:.6rem;">
+        <span class="m-lang-en">🌙 1-on-1 Private Hifz Enrollment &amp; Payment</span>
+        <span class="m-lang-id">🌙 Pendaftaran &amp; Pembayaran Tahfiz Privat 1-on-1</span>
+      </span>
+
+      <h2 id="payModalTitle" style="font-family:var(--ff-d);font-size:1.5rem;font-weight:600;color:#0f172a;margin-bottom:.3rem;">
+        <span class="m-lang-en">Hifz Program Registration</span>
+        <span class="m-lang-id">Pendaftaran Program Tahfiz (Hifz)</span>
+      </h2>
+      <p style="font-size:.86rem;color:var(--sub);line-height:1.55;">
+        <span class="m-lang-en">Select your 1-on-1 weekly schedule and payment method below: <strong>Bank Transfer</strong>, <strong>QR Code (QRIS)</strong>, or <strong>Overseas Transfer</strong>.</span>
+        <span class="m-lang-id">Pilih jadwal privat 1-on-1 dan metode pembayaran di bawah ini: <strong>Transfer Bank</strong>, <strong>Scan QRIS</strong>, atau <strong>Luar Negeri</strong>.</span>
+      </p>
+
+      <!-- HIFZ PLAN SELECTOR: 3x/WEEK (299k) vs 5x/WEEK (399k) -->
+      <div class="pay-class-tabs" role="radiogroup" aria-label="Hifz 1-on-1 Plan">
+        <button type="button" class="pay-class-tab active" id="hifzBtnRegular" role="radio" aria-checked="true" onclick="selectHifzPlan('regular')">
+          <span class="pay-class-tab-name">
+            <span class="m-lang-en">🌙 3x / Week (1-on-1)</span>
+            <span class="m-lang-id">🌙 3x / Minggu (1-on-1)</span>
+          </span>
+          <span class="pay-class-tab-price">
+            <span class="m-lang-en">IDR 299.000/mo · 12 Sess</span>
+            <span class="m-lang-id">Rp 299.000/bln · 12 Sesi</span>
+          </span>
+        </button>
+        <button type="button" class="pay-class-tab" id="hifzBtnIntensive" role="radio" aria-checked="false" onclick="selectHifzPlan('intensive')">
+          <span class="pay-class-tab-name">
+            <span class="m-lang-en">⭐ 5x / Week (1-on-1)</span>
+            <span class="m-lang-id">⭐ 5x / Minggu (1-on-1)</span>
+          </span>
+          <span class="pay-class-tab-price">
+            <span class="m-lang-en">IDR 399.000/mo · 20 Sess</span>
+            <span class="m-lang-id">Rp 399.000/bln · 20 Sesi</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- COURSE FEE SUMMARY CARD -->
+      <div class="pay-fee-card">
+        <div class="pay-fee-kicker">
+          <span class="m-lang-en" id="modalClassLabelEn">Regular 1-on-1 (3x/Week) · Monthly Fee</span>
+          <span class="m-lang-id" id="modalClassLabelId">Privat 1-on-1 (3x/Minggu) · Biaya Bulanan</span>
+        </div>
+        <div class="pay-fee-amount">
+          <span class="m-lang-en" id="modalFeeEn">IDR 299.000 / month</span>
+          <span class="m-lang-id" id="modalFeeId">Rp 299.000 / bulan</span>
+        </div>
+        <div class="pay-fee-note">
+          <span class="m-lang-en" id="modalMetaEn">✓ 12 Private 1-on-1 Sessions / Month · 3x/Week · Ziyadah, Murojaah &amp; Sambung Ayat</span>
+          <span class="m-lang-id" id="modalMetaId">✓ 12 Pertemuan Privat 1-on-1 / Bulan · 3x/Minggu · Ziyadah, Murojaah &amp; Sambung Ayat</span>
+        </div>
+      </div>
+
+      <!-- 3-BUTTON TOGGLE: BANK TRANSFER vs QR CODE vs OVERSEAS STUDENT -->
+      <div class="pay-method-tabs" role="tablist" aria-label="Payment Methods">
+        <button type="button" class="pay-method-tab active" id="tabBtnBank" onclick="selectPaymentMethod('bank')" role="tab" aria-selected="true" aria-controls="payPanelBank">
+          <span aria-hidden="true">🏦</span>
+          <span class="m-lang-en">Bank Transfer</span>
+          <span class="m-lang-id">Transfer Bank</span>
+        </button>
+        <button type="button" class="pay-method-tab" id="tabBtnQr" onclick="selectPaymentMethod('qr')" role="tab" aria-selected="false" aria-controls="payPanelQr">
+          <span aria-hidden="true">📱</span>
+          <span class="m-lang-en">Scan QR Code</span>
+          <span class="m-lang-id">Scan QR / QRIS</span>
+        </button>
+        <button type="button" class="pay-method-tab" id="tabBtnOverseas" onclick="selectPaymentMethod('overseas')" role="tab" aria-selected="false" aria-controls="payPanelOverseas">
+          <span aria-hidden="true">🌍</span>
+          <span class="m-lang-en">Overseas Student</span>
+          <span class="m-lang-id">Luar Negeri</span>
+        </button>
+      </div>
+
+      <!-- OPTION 1: LOCAL BANK TRANSFER DETAILS (INDONESIA) -->
+      <div id="payPanelBank" class="pay-panel active" role="tabpanel" aria-labelledby="tabBtnBank">
+        <div class="bank-detail-box">
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Local Bank Transfer (Indonesia)</div>
+              <div class="bank-lbl m-lang-id">Transfer Bank Lokal (Indonesia)</div>
+              <div class="bank-val">Bank Syariah Mandiri</div>
+            </div>
+            <span class="pay-tag-pill">
+              <span class="m-lang-en">🇮🇩 Local Transfer</span>
+              <span class="m-lang-id">🇮🇩 Transfer Lokal</span>
+            </span>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Number</div>
+              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
+              <div class="bank-acc-num" id="dispBankNumberLocal">7725419170</div>
+            </div>
+            <button type="button" class="copy-acc-btn" id="copyBankBtnLocal" onclick="copyBankNumber('7725419170', 'copyBankBtnLocal')">
+              <span class="m-lang-en">📋 Copy Number</span>
+              <span class="m-lang-id">📋 Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Holder Name</div>
+              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
+              <div class="bank-val">Sumiyati</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPTION 2: QR CODE (QRIS) DETAILS -->
+      <div id="payPanelQr" class="pay-panel" role="tabpanel" aria-labelledby="tabBtnQr">
+        <div class="qr-display-box">
+          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--track-deep);">
+            QURANWITHSUMIYATI · NMID: ID1026635416609
+          </div>
+          <div style="font-size:.78rem;color:var(--sub);margin-top:.15rem;">
+            <span class="m-lang-en">Scan using any Mobile Banking or E-Wallet app (QRIS)</span>
+            <span class="m-lang-id">Scan menggunakan Mobile Banking atau E-Wallet apa saja (QRIS)</span>
+          </div>
+
+          <div class="qr-frame">
+            <img src="qris-sumiyati.jpg?v=1" alt="QURANWITHSUMIYATI Official QRIS Payment Code (NMID ID1026635416609)" width="722" height="1024" loading="lazy" decoding="async" />
+          </div>
+
+          <div style="margin-top:.5rem;">
+            <a href="qris-sumiyati.jpg" download="QRIS-QURANWITHSUMIYATI.jpg" class="copy-acc-btn" style="text-decoration:none;">
+              <span aria-hidden="true">📥</span>
+              <span class="m-lang-en">Save / Download QR Image</span>
+              <span class="m-lang-id">Simpan / Unduh Gambar QRIS</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPTION 3: OVERSEAS STUDENTS (OUTSIDE INDONESIA) -->
+      <div id="payPanelOverseas" class="pay-panel" role="tabpanel" aria-labelledby="tabBtnOverseas">
+        <div class="bank-detail-box">
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Overseas Student Transfer (Outside Indonesia)</div>
+              <div class="bank-lbl m-lang-id">Pembayaran Santri Luar Negeri</div>
+              <div class="bank-val">Bank Jago Syariah</div>
+            </div>
+            <span class="pay-tag-pill">
+              <span class="m-lang-en">🌍 Overseas Student</span>
+              <span class="m-lang-id">🌍 Luar Negeri</span>
+            </span>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Number</div>
+              <div class="bank-lbl m-lang-id">Nomor Rekening</div>
+              <div class="bank-acc-num" id="dispBankNumberIntl">506501080590</div>
+            </div>
+            <button type="button" class="copy-acc-btn" id="copyBankBtnIntl" onclick="copyBankNumber('506501080590', 'copyBankBtnIntl')">
+              <span class="m-lang-en">📋 Copy Number</span>
+              <span class="m-lang-id">📋 Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bank-row">
+            <div>
+              <div class="bank-lbl m-lang-en">Account Holder Name</div>
+              <div class="bank-lbl m-lang-id">Atas Nama Rekening</div>
+              <div class="bank-val">Sumiyati</div>
+            </div>
+            <span style="font-size:.73rem;color:var(--muted);font-weight:600;">
+              SWIFT: JAGBIDJA · Code: 542
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDENT REGISTRATION & RECEIPT UPLOAD FORM -->
+      <div style="border-top:1px solid rgba(29,78,216,0.2);padding-top:1rem;margin-top:.25rem;text-align:left;">
+        <div style="font-size:.78rem;font-weight:700;color:var(--track-deep);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem;text-align:center;">
+          <span class="m-lang-en">📝 Step 2: Student Details &amp; Payment Proof</span>
+          <span class="m-lang-id">📝 Langkah 2: Data Pendaftaran &amp; Bukti Transfer</span>
+        </div>
+
+        <div class="pay-student-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.65rem;">
+          <div style="grid-column:1 / -1;">
+            <label for="payStudentName" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+              <span class="m-lang-en">Full Name <span style="color:#dc2626;" aria-hidden="true">*</span></span>
+              <span class="m-lang-id">Nama Lengkap Santri <span style="color:#dc2626;" aria-hidden="true">*</span></span>
+            </label>
+            <input type="text" id="payStudentName" placeholder="Contoh: Fatimah Az-Zahra" autocomplete="name" required />
+          </div>
+
+          <div>
+            <label for="payStudentEmail" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+              <span class="m-lang-en">Email Address <span style="color:#dc2626;" aria-hidden="true">*</span></span>
+              <span class="m-lang-id">Alamat Email <span style="color:#dc2626;" aria-hidden="true">*</span></span>
+            </label>
+            <input type="email" id="payStudentEmail" placeholder="nama@email.com" autocomplete="email" required />
+          </div>
+
+          <div>
+            <label for="payStudentWhatsapp" style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+              <span class="m-lang-en">WhatsApp Number <span style="color:#dc2626;" aria-hidden="true">*</span></span>
+              <span class="m-lang-id">Nomor WhatsApp <span style="color:#dc2626;" aria-hidden="true">*</span></span>
+            </label>
+            <input type="tel" id="payStudentWhatsapp" placeholder="081234567890" autocomplete="tel" required />
+          </div>
+        </div>
+
+        <div style="margin-bottom:.85rem;">
+          <span style="display:block;font-size:.78rem;font-weight:700;color:var(--fg);margin-bottom:.3rem;">
+            <span class="m-lang-en">Payment Receipt Image / PDF (Optional)</span>
+            <span class="m-lang-id">Bukti Transfer / Resi Pembayaran (Opsional)</span>
+          </span>
+          <label for="payReceiptFile" class="pay-upload-zone">
+            <input type="file" id="payReceiptFile" accept="image/*,application/pdf" style="display:none;" onchange="handleReceiptFileChange(this)" />
+            <span id="receiptFilePrompt" style="font-size:.8rem;color:var(--sub);display:flex;align-items:center;justify-content:center;gap:.4rem;">
+              <span aria-hidden="true">📎</span>
+              <span class="m-lang-en">Click to choose receipt screenshot / photo</span>
+              <span class="m-lang-id">Klik untuk unggah screenshot / foto bukti transfer</span>
+            </span>
+            <span id="receiptFilePreview" style="display:none;font-size:.8rem;font-weight:600;color:var(--track-deep);align-items:center;justify-content:center;gap:.35rem;">
+              <span aria-hidden="true">✅</span>
+              <span id="receiptFileName"></span>
+              <button type="button" class="pay-upload-clear" onclick="event.preventDefault();event.stopPropagation();clearReceiptFile();" aria-label="Remove file" title="Hapus file">✕</button>
+            </span>
+          </label>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:.28rem;text-align:center;">
+            <span class="m-lang-en">JPG, PNG, PDF up to 10MB · Automatically saved to Ustadzah's Google Drive</span>
+            <span class="m-lang-id">JPG, PNG, PDF maks. 10MB · Otomatis tersimpan ke Google Drive Ustadzah</span>
+          </div>
+        </div>
+
+        <button type="button" id="btnConfirmPay" class="btn btn-primary hero-btn-primary" style="width:100%;justify-content:center;padding:.85rem 1.25rem;font-size:.88rem;gap:.45rem;" onclick="confirmPaymentViaWhatsApp()">
+          <span class="m-lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span>
+          <span class="m-lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>
+        </button>
+
+        <div id="payStatusMsg" role="status" aria-live="polite" style="display:none;font-size:.8rem;text-align:center;margin-top:.6rem;padding:.5rem .75rem;border-radius:8px;"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -2563,6 +3470,347 @@
       });
       updateToggleAllFaqBtn();
     }
+
+    // ── Hifz 1-on-1 Payment Modal & Google Sheets Registration Logic ──
+    const HIFZ_TIERS = {
+      regular: {
+        feeNum: 299000,
+        feeEn: 'IDR 299.000 / month',
+        feeId: 'Rp 299.000 / bulan',
+        labelEn: 'Regular 1-on-1 (3x/Week) · Monthly Fee',
+        labelId: 'Privat 1-on-1 (3x/Minggu) · Biaya Bulanan',
+        metaEn: '✓ 12 Private 1-on-1 Sessions / Month · 3x/Week · Ziyadah, Murojaah & Sambung Ayat',
+        metaId: '✓ 12 Pertemuan Privat 1-on-1 / Bulan · 3x/Minggu · Ziyadah, Murojaah & Sambung Ayat',
+        courseName: 'Program Tahfiz Hifz 1-on-1 — 3x/Week (12 Sessions/mo)',
+        scheduleEn: '12 Sessions / Month (3x / Week · 1-on-1 Private)',
+        scheduleId: '12 Pertemuan / Bulan (3x / Minggu · Privat 1-on-1)'
+      },
+      intensive: {
+        feeNum: 399000,
+        feeEn: 'IDR 399.000 / month',
+        feeId: 'Rp 399.000 / bulan',
+        labelEn: 'Intensive 1-on-1 (5x/Week) · Monthly Fee',
+        labelId: 'Privat 1-on-1 (5x/Minggu) · Biaya Bulanan',
+        metaEn: '✓ 20 Private 1-on-1 Sessions / Month · 5x/Week · Faster 30-Juz Ziyadah & Murojaah',
+        metaId: '✓ 20 Pertemuan Privat 1-on-1 / Bulan · 5x/Minggu · Akselerasi Ziyadah & Murojaah',
+        courseName: 'Program Tahfiz Hifz 1-on-1 — 5x/Week (20 Sessions/mo)',
+        scheduleEn: '20 Sessions / Month (5x / Week · 1-on-1 Private)',
+        scheduleId: '20 Pertemuan / Bulan (5x / Minggu · Privat 1-on-1)'
+      }
+    };
+
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx5wRwjfQjP5O7Vkn-BPGVnzpURcRdzH_PEcNgnHEwV-E2y0o-vXRrEw93rLdeV_eqV/exec';
+    let activePayMethod = 'bank';
+    let activeHifzPlan = 'regular';
+    let activeModalLang = 'id';
+    let lastFocusedBeforeModal = null;
+
+    function selectHifzPlan(plan) {
+      activeHifzPlan = (plan === 'intensive') ? 'intensive' : 'regular';
+      const tier = HIFZ_TIERS[activeHifzPlan];
+      const isRegular = activeHifzPlan === 'regular';
+
+      const btnReg = document.getElementById('hifzBtnRegular');
+      const btnInt = document.getElementById('hifzBtnIntensive');
+      if (btnReg) {
+        btnReg.classList.toggle('active', isRegular);
+        btnReg.setAttribute('aria-checked', isRegular ? 'true' : 'false');
+      }
+      if (btnInt) {
+        btnInt.classList.toggle('active', !isRegular);
+        btnInt.setAttribute('aria-checked', !isRegular ? 'true' : 'false');
+      }
+
+      const lblEn = document.getElementById('modalClassLabelEn');
+      const lblId = document.getElementById('modalClassLabelId');
+      const feeEn = document.getElementById('modalFeeEn');
+      const feeId = document.getElementById('modalFeeId');
+      const metaEn = document.getElementById('modalMetaEn');
+      const metaId = document.getElementById('modalMetaId');
+      if (lblEn) lblEn.textContent = tier.labelEn;
+      if (lblId) lblId.textContent = tier.labelId;
+      if (feeEn) feeEn.textContent = tier.feeEn;
+      if (feeId) feeId.textContent = tier.feeId;
+      if (metaEn) metaEn.textContent = tier.metaEn;
+      if (metaId) metaId.textContent = tier.metaId;
+    }
+
+    function setModalLang(lang) {
+      activeModalLang = (lang === 'en') ? 'en' : 'id';
+      const card = document.getElementById('paymentModalCard');
+      if (card) {
+        card.classList.remove('modal-lang-id', 'modal-lang-en');
+        card.classList.add('modal-lang-' + activeModalLang);
+      }
+      document.querySelectorAll('.js-modal-lang-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-mlang') === activeModalLang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      const nameInput = document.getElementById('payStudentName');
+      const emailInput = document.getElementById('payStudentEmail');
+      const waInput = document.getElementById('payStudentWhatsapp');
+      if (nameInput) nameInput.placeholder = activeModalLang === 'en' ? 'e.g. Maryam Ahmad' : 'Contoh: Fatimah Az-Zahra';
+      if (emailInput) emailInput.placeholder = activeModalLang === 'en' ? 'name@example.com' : 'nama@email.com';
+      if (waInput) waInput.placeholder = activeModalLang === 'en' ? '+1 234 567 8900' : '081234567890';
+    }
+
+    function openPaymentModal(defaultMethod, defaultPlan) {
+      lastFocusedBeforeModal = document.activeElement;
+      setModalLang('id');
+      selectHifzPlan(defaultPlan === 'intensive' ? 'intensive' : 'regular');
+      if (defaultMethod === 'bank' || defaultMethod === 'qr' || defaultMethod === 'overseas') {
+        selectPaymentMethod(defaultMethod);
+      }
+      const btn = document.getElementById('btnConfirmPay');
+      if (btn) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.onclick = confirmPaymentViaWhatsApp;
+        btn.innerHTML = '<span class="m-lang-en">📲 Confirm &amp; Send Payment Proof via WhatsApp →</span><span class="m-lang-id">📲 Konfirmasi &amp; Kirim Bukti Bayar via WhatsApp →</span>';
+      }
+      const statusMsg = document.getElementById('payStatusMsg');
+      if (statusMsg) { statusMsg.style.display = 'none'; statusMsg.textContent = ''; }
+      const tier = HIFZ_TIERS[activeHifzPlan];
+      if (typeof gtag === 'function') {
+        gtag('event', 'begin_checkout', { course_name: tier.courseName, currency: 'IDR', value: tier.feeNum });
+      }
+      const overlay = document.getElementById('paymentModalOverlay');
+      if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        const closeBtn = document.getElementById('payModalCloseBtn');
+        if (closeBtn) closeBtn.focus();
+      }
+    }
+
+    function closePaymentModal() {
+      const overlay = document.getElementById('paymentModalOverlay');
+      if (overlay && overlay.classList.contains('active')) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (lastFocusedBeforeModal && typeof lastFocusedBeforeModal.focus === 'function') {
+          lastFocusedBeforeModal.focus();
+        }
+        lastFocusedBeforeModal = null;
+      }
+    }
+
+    function selectPaymentMethod(method) {
+      activePayMethod = (method === 'qr' || method === 'overseas') ? method : 'bank';
+      const isBank = activePayMethod === 'bank';
+      const isQr = activePayMethod === 'qr';
+      const isOverseas = activePayMethod === 'overseas';
+
+      const tabBank = document.getElementById('tabBtnBank');
+      const tabQr = document.getElementById('tabBtnQr');
+      const tabOverseas = document.getElementById('tabBtnOverseas');
+      const panelBank = document.getElementById('payPanelBank');
+      const panelQr = document.getElementById('payPanelQr');
+      const panelOverseas = document.getElementById('payPanelOverseas');
+
+      if (tabBank) { tabBank.classList.toggle('active', isBank); tabBank.setAttribute('aria-selected', isBank ? 'true' : 'false'); }
+      if (tabQr) { tabQr.classList.toggle('active', isQr); tabQr.setAttribute('aria-selected', isQr ? 'true' : 'false'); }
+      if (tabOverseas) { tabOverseas.classList.toggle('active', isOverseas); tabOverseas.setAttribute('aria-selected', isOverseas ? 'true' : 'false'); }
+      if (panelBank) panelBank.classList.toggle('active', isBank);
+      if (panelQr) panelQr.classList.toggle('active', isQr);
+      if (panelOverseas) panelOverseas.classList.toggle('active', isOverseas);
+      if (typeof gtag === 'function') {
+        gtag('event', 'add_payment_info', { course_name: HIFZ_TIERS[activeHifzPlan].courseName, payment_type: activePayMethod });
+      }
+    }
+
+    function copyBankNumber(numStr, btnId) {
+      const btn = document.getElementById(btnId);
+      if (!numStr || !btn) return;
+      const isId = activeModalLang === 'id';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(numStr);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = numStr;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      const origHtml = btn.innerHTML;
+      btn.innerHTML = isId ? '✓ Tersalin!' : '✓ Copied!';
+      btn.style.background = 'var(--track-deep)';
+      btn.style.color = '#ffffff';
+      setTimeout(() => {
+        btn.innerHTML = origHtml;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 1800);
+    }
+
+    function handleReceiptFileChange(input) {
+      const promptEl = document.getElementById('receiptFilePrompt');
+      const prevEl = document.getElementById('receiptFilePreview');
+      const nameEl = document.getElementById('receiptFileName');
+      if (input.files && input.files[0]) {
+        const f = input.files[0];
+        const sizeKb = Math.round(f.size / 1024);
+        if (nameEl) nameEl.textContent = f.name + ' (' + (sizeKb > 1024 ? (sizeKb / 1024).toFixed(1) + ' MB' : sizeKb + ' KB') + ')';
+        if (promptEl) promptEl.style.display = 'none';
+        if (prevEl) prevEl.style.display = 'inline-flex';
+      }
+    }
+
+    function clearReceiptFile() {
+      const input = document.getElementById('payReceiptFile');
+      if (input) input.value = '';
+      const promptEl = document.getElementById('receiptFilePrompt');
+      const prevEl = document.getElementById('receiptFilePreview');
+      if (promptEl) promptEl.style.display = 'flex';
+      if (prevEl) prevEl.style.display = 'none';
+    }
+
+    async function confirmPaymentViaWhatsApp() {
+      const isId = activeModalLang === 'id';
+      const nameInput = document.getElementById('payStudentName');
+      const emailInput = document.getElementById('payStudentEmail');
+      const waInput = document.getElementById('payStudentWhatsapp');
+      const fileInput = document.getElementById('payReceiptFile');
+      const btn = document.getElementById('btnConfirmPay');
+      const statusMsg = document.getElementById('payStatusMsg');
+
+      const studentName = nameInput ? nameInput.value.trim() : '';
+      const studentEmail = emailInput ? emailInput.value.trim() : '';
+      const studentWa = waInput ? waInput.value.trim() : '';
+
+      if (!studentName) { alert(isId ? 'Silakan masukkan Nama Lengkap Anda terlebih dahulu.' : 'Please enter your Full Name first.'); if (nameInput) nameInput.focus(); return; }
+      if (!studentEmail) { alert(isId ? 'Silakan masukkan Alamat Email Anda.' : 'Please enter your Email Address.'); if (emailInput) emailInput.focus(); return; }
+      if (!studentWa) { alert(isId ? 'Silakan masukkan Nomor WhatsApp Anda.' : 'Please enter your WhatsApp Number.'); if (waInput) waInput.focus(); return; }
+
+      const methodLabel = activePayMethod === 'qr'
+        ? (isId ? 'Scan QR / QRIS (QURANWITHSUMIYATI)' : 'QR Code / QRIS (QURANWITHSUMIYATI)')
+        : activePayMethod === 'overseas'
+          ? (isId ? 'Transfer Luar Negeri (Bank Jago Syariah · SWIFT: JAGBIDJA)' : 'Overseas Student Transfer (Bank Jago Syariah · SWIFT: JAGBIDJA)')
+          : (isId ? 'Transfer Bank Lokal (Bank Syariah Mandiri)' : 'Local Bank Transfer (Bank Syariah Mandiri)');
+
+      const tier = HIFZ_TIERS[activeHifzPlan] || HIFZ_TIERS.regular;
+      const courseName = tier.courseName;
+      const courseFee = isId ? tier.feeId : tier.feeEn;
+      const courseSchedule = isId ? tier.scheduleId : tier.scheduleEn;
+
+      const waMsg = isId
+        ? `Assalamu'alaikum Ustadzah Sumiyati, saya telah mendaftar Program Tahfiz (Hifz):\n\n` +
+          `🌙 *Program:* ${courseName}\n` +
+          `🗓️ *Jadwal:* ${courseSchedule}\n` +
+          `👤 *Nama Lengkap:* ${studentName}\n` +
+          `📧 *Email:* ${studentEmail}\n` +
+          `📱 *WhatsApp:* ${studentWa}\n` +
+          `💳 *Metode Pembayaran:* ${methodLabel}\n` +
+          `💰 *Biaya:* ${courseFee}\n\n` +
+          `Data saya telah tersimpan di sistem. Berikut saya lampirkan juga bukti transfernya:`
+        : `Assalamu'alaikum Ustadzah Sumiyati, I have registered for the Hifz Program:\n\n` +
+          `🌙 *Program:* ${courseName}\n` +
+          `🗓️ *Schedule:* ${courseSchedule}\n` +
+          `👤 *Full Name:* ${studentName}\n` +
+          `📧 *Email:* ${studentEmail}\n` +
+          `📱 *WhatsApp:* ${studentWa}\n` +
+          `💳 *Payment Method:* ${methodLabel}\n` +
+          `💰 *Fee:* ${courseFee}\n\n` +
+          `My registration data is saved in your system. Here is my payment receipt:`;
+
+      if (btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.75';
+        btn.innerHTML = isId ? '<span>⏳ Menyimpan data & membuka WhatsApp...</span>' : '<span>⏳ Saving data & opening WhatsApp...</span>';
+      }
+      if (statusMsg) {
+        statusMsg.style.display = 'block';
+        statusMsg.style.background = '#eff6ff';
+        statusMsg.style.color = '#1d4ed8';
+        statusMsg.textContent = isId ? '⏳ Mengirim data ke Google Sheet & membuka WhatsApp...' : '⏳ Sending data to Google Sheets & opening WhatsApp...';
+      }
+
+      let fileBase64 = null, fileName = null, mimeType = null;
+      if (fileInput && fileInput.files && fileInput.files[0]) {
+        const file = fileInput.files[0];
+        if (file.size > 10 * 1024 * 1024) {
+          alert(isId ? 'Ukuran file terlalu besar (maks. 10 MB).' : 'File is too large (max 10 MB).');
+          if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+          return;
+        }
+        fileName = file.name;
+        mimeType = file.type || 'image/jpeg';
+        try {
+          fileBase64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+              const res = reader.result;
+              resolve(typeof res === 'string' && res.includes(',') ? res.split(',')[1] : res);
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          });
+        } catch (e) { console.warn('Could not read file as base64', e); }
+      }
+
+      const payload = {
+        name: studentName, email: studentEmail, whatsapp: studentWa,
+        course: courseName, method: methodLabel, amount: courseFee,
+        fileName: fileName, mimeType: mimeType, fileBase64: fileBase64
+      };
+
+      let savedOk = false, receiptUrl = '';
+      try {
+        const res = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST', redirect: 'follow',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        const text = await res.text();
+        try {
+          const json = JSON.parse(text);
+          if (json && json.status === 'success') {
+            savedOk = true;
+            if (json.receiptUrl && json.receiptUrl !== 'No file attached') receiptUrl = json.receiptUrl;
+          }
+        } catch (e) {}
+      } catch (err) { console.warn('Apps Script submission error:', err); }
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { course_name: courseName, payment_type: methodLabel, currency: 'IDR', value: tier.feeNum });
+      }
+
+      const finalWaMsg = receiptUrl ? waMsg + '\n📎 ' + receiptUrl : waMsg;
+      const waUrl = 'https://wa.me/6285890061540?text=' + encodeURIComponent(finalWaMsg);
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      if (btn) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        if (savedOk) {
+          btn.innerHTML = isId ? '<span>✅ Data Tersimpan! Buka WhatsApp</span>' : '<span>✅ Data Saved! Open WhatsApp</span>';
+          btn.onclick = function() { window.open(waUrl, '_blank', 'noopener,noreferrer'); };
+        } else {
+          btn.innerHTML = isId ? '<span>📲 Kirim Konfirmasi via WhatsApp →</span>' : '<span>📲 Send Confirmation via WhatsApp →</span>';
+        }
+      }
+      if (statusMsg) {
+        if (savedOk) {
+          statusMsg.style.background = '#ecfdf5';
+          statusMsg.style.color = '#047857';
+          statusMsg.textContent = isId
+            ? '✅ Data pendaftaran & bukti transfer telah tersimpan di Google Sheet Ustadzah! Jika WhatsApp belum terbuka otomatis, klik tombol di atas.'
+            : '✅ Registration & receipt saved to Google Sheets! If WhatsApp did not open automatically, click the button above.';
+        } else {
+          statusMsg.style.background = '#fffbeb';
+          statusMsg.style.color = '#92400e';
+          statusMsg.textContent = isId
+            ? '⚠️ Koneksi ke Google Sheet tertunda. Silakan tetap kirim bukti transfer via WhatsApp di atas agar pendaftaran Anda diproses.'
+            : '⚠️ Could not confirm Google Sheets save. Please send your payment proof via WhatsApp above so your enrollment is confirmed.';
+        }
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePaymentModal();
+    });
 
     // Track WhatsApp & cross-course clicks in Google Analytics
     document.addEventListener('click', function(e) {
